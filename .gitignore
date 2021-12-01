@@ -1,5 +1,7 @@
 .idea
-dist
-.cache
-node_modules
-coverage
+dist/
+.cache/
+node_modules/
+coverage/
+.DS_Store
+.vscode/
