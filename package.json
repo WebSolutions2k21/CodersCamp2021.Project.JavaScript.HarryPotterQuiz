@@ -1,0 +1,25 @@
+{
+  "name": "coderscamp2021.project.javascript.harrypotterquiz",
+  "version": "1.0.0",
+  "description": "## Zespół projektowy:  Zespół pracował w ramach kursu CodersCamp. Aplikację wykonali uczestnicy kursu z pomocą mentora. Zachęcamy do odwiedzenia profili członków zespołu, w celu zapoznania się z ich portfolio. #### Mentor:",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebSolutions2k21/CodersCamp2021.Project.JavaScript.HarryPotterQuiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebSolutions2k21/CodersCamp2021.Project.JavaScript.HarryPotterQuiz/issues"
+  },
+  "homepage": "https://github.com/WebSolutions2k21/CodersCamp2021.Project.JavaScript.HarryPotterQuiz#readme",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}
