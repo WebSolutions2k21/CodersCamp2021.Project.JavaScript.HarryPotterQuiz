@@ -61,7 +61,7 @@ Czas pozostały do końca rozgrywki odlicza `paląca się różdżka na dole ekr
 
 1. Wybór trybu quizu (Students, Staff, Houses)
 2. Opis zasad dla quizu. Obok zasad pokazuje się losowe zdjęcie z danego trybu (dostosowany opis, jeśli np. imię osoby ze zdjęcia jest w opisie zasad).
-3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu `(2 minuty)`.
+3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu `(1 minuty)`.
 4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu `(dodatkowo gracz konkuruje także z komputerem! Komputer tak samo jak gracz próbuje rozpoznać co jest na grafice).`
 5. W trakcie trwania quizu `paląca się różdżka` pokazuje, ile jeszcze czasu zostało. Po wybraniu odpowiedzi zostaje ukazane przez sekundę czy odpowiedź była dobra czy zła. Następnie pytanie zostaje zmienione na kolejne i tak do końca czasu.
 6. Pytania są generowane w następujący sposób:
