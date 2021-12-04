@@ -1,0 +1,18 @@
+@import './variables';
+@import './normalize';
+@import './fonts';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font: normal normal normal 1rem $f-baseFontFamily;
+}
