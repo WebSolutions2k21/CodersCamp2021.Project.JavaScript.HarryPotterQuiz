@@ -113,3 +113,25 @@ https://hp-api.herokuapp.com/
 3. Biorąc pod uwagę fakt, iż nasza aplikacja jest implementowana przez kilku deweloperów, zdecydowaliśmy się na użycie biblioteki Prettier, służącej do formatowania kodu. Niniejsza biblioteka jest świetnym narzędziem, który wyłapuje błędy składni, automatycznie poprawia linie kodu według zdefiniowanej konfiguracji.
 4. Zdecydowaliśmy się również na użycie narzędzia statycznej analizy kodu ESLint, który identyfikuje problematyczne fragmenty kodu JS. Obejmuje jakość kodu oraz problemy ze stylem kodowania.
 5. Nasz projekt wykorzystuje także transpilator kodu JS Babel, który przekształca kod JS do takiej postaci, aby był kompatybilny ze wszystkimi przeglądarkami, a także zadziałał na starszych wersjach przeglądarek.
+
+## Technologie użyte w projekcie:
+
+1.HTML
+2.SCSS
+3.JavaScript 4. Node.js
+
+## Instalacja
+
+#### Uruchomienie projektu:
+
+Aby uruchomić aplikację na lokalnej maszynie, wykonaj następujące kroki:
+
+1. Sklonuj sobie repozytorium.
+2. Otwórz repozytorium w ulubionym edytorze.
+3. Zainstaluj zależności za pomocą komendy: npm install
+4. Utwórz w głównym katalogu plik o nazwie: .env i następnie wklej następującą treść:
+   BASE_API_URL: 'http://hp-api.herokuapp.com/',
+   QUIZ_MAX_TIME: 60
+5. Wystartuj serwer za pomocą komendy: npm start
+
+Aplikacja będzie dostępna pod adresem localhost:8080
