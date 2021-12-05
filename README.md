@@ -115,7 +115,22 @@ https://hp-api.herokuapp.com/
 5. Nasz projekt wykorzystuje także transpilator kodu JS Babel, który przekształca kod JS do takiej postaci, aby był kompatybilny ze wszystkimi przeglądarkami, a także zadziałał na starszych wersjach przeglądarek.
 
 ## Technologie użyte w projekcie:
+
 1.HTML
 2.SCSS
-3.JavaScript
-4. Node.js
+3.JavaScript 4. Node.js
+
+#Instalacja
+
+Uruchomienie projektu
+Aby uruchomić aplikację na lokalnej maszynie, wykonaj następujące kroki:
+
+1. Sklonuj sobie repozytorium.
+2. Otwrórz repozytorium w ulubionym edytorze.
+3. Zainstaluj zależności za pomocą komendy: npm install
+4. Utwórz w głównym katalogu plik o nazwie: .env i następnie wklej następującą treść:
+   BASE_API_URL: 'http://hp-api.herokuapp.com/',
+   QUIZ_MAX_TIME: 60
+5. Wystartuj serwer za pomocą komendy: npm start
+
+Aplikacja będzie dostępna pod adresem localhost:8080
