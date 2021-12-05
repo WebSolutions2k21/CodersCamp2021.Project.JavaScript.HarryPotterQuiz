@@ -120,13 +120,14 @@ https://hp-api.herokuapp.com/
 2.SCSS
 3.JavaScript 4. Node.js
 
-#Instalacja
+## Instalacja
 
-Uruchomienie projektu
+#### Uruchomienie projektu:
+
 Aby uruchomić aplikację na lokalnej maszynie, wykonaj następujące kroki:
 
 1. Sklonuj sobie repozytorium.
-2. Otwrórz repozytorium w ulubionym edytorze.
+2. Otwórz repozytorium w ulubionym edytorze.
 3. Zainstaluj zależności za pomocą komendy: npm install
 4. Utwórz w głównym katalogu plik o nazwie: .env i następnie wklej następującą treść:
    BASE_API_URL: 'http://hp-api.herokuapp.com/',
