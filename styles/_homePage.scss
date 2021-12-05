@@ -1,0 +1,19 @@
+.home {
+  background-color: tomato;
+}
+
+.header {
+  color: blue;
+
+  &__title {
+    font-size: 42px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+
+    &--second {
+      color: green;
+    }
+  }
+}
