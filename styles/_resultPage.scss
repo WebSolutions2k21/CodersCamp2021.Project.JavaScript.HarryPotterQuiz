@@ -1,0 +1,21 @@
+.resultPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'yourScore playAgain'
+    'ranking home';
+
+  &__yourScore {
+    grid-area: yourScore;
+  }
+  &__playAgain {
+    grid-area: playAgain;
+  }
+  &__ranking {
+    grid-area: ranking;
+  }
+  &__home {
+    grid-area: home;
+  }
+}
