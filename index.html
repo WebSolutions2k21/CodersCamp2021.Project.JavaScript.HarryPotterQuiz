@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz wiedzy o Harrym Poterze</title>
-    
+
     <link rel="stylesheet" href="styles/style.scss" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="root"></div>
-    <template id="homePage">
-      <header class="header">
-        <h1 class="header__title">Lorem, ipsum.</h1>
-        <p class="header__subtitle">Lorem ipsum dolor sit amet.</p>
-        <p class="header__subtitle header__subtitle--second">Lorem ipsum dolor sit amet consectetur.</p>
-      </header>
-
-      <article class="article">
-        <h1 class="article__title">Lorem ipsum dolor sit.</h1>
-      </article>
+    <!-- <template id="homePage">
+        <div class="wrapperHomePage">
+            <button id="btnStart" class="btn">Start</button>
+            <button id="btnRules" class="btn">Rules</button>
+            <button class="btn">Best Scores</button>
+        </div>
     </template>
 
-    <template>
-    <div class="gameMode">
-      <div class="gameMode__main">
-        <p>GAME MODE</p>
-      </div>
+    <template id="gameModePage">
+        <div class="gameMode">
+            <div class="gameMode__main">
+                <p>GAME MODE</p>
+            </div>
 
-      <div class="gameMode__modes">
-        <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
-        <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
-        <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
-      </div>
+            <div class="gameMode__modes">
+                <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
+                <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
+                <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
+            </div>
 
-      <div class="gameMode__other">
-        <form class="gameMode__nameStart" action="">
-          <input
-            class="gameMode__nameStartinp gameMode__nameStartinpEnt"
-            style="border: none"
-            type="text"
-            id="fname"
-            name="fname"
-            placeholder="ENTER YOUR NAME"
-          />
-          <input
-            class="gameMode__nameStartinp gameMode__nameStartinpStr"
-            style="border: none"
-            type="submit"
-            value="START"
-          />
-        </form>
-      </div>
+            <div class="gameMode__other">
+                <form class="gameMode__nameStart" action="">
+                    <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" style="border: none" type="text"
+                        id="fname" name="fname" placeholder="ENTER YOUR NAME" />
+                    <input class="gameMode__nameStartinp gameMode__nameStartinpStr" style="border: none" type="submit"
+                        value="START" />
+                </form>
+            </div>
+        </div>
+    </template> -->
+
+     <div class="resultPage">
+    <div class="resultPage__yourScore">Your Score: xxxxxxxx pkt</div>
+    <div class="resultPage__ranking">
+      <h3>ranking</h3>
+      <ol class="resultPage__ranking--list">
+        <li>aaaaaa</li>
+        <li>bbbbbb</li>
+        <li>cccccc</li>
+      </ol>
     </div>
-  </template>
-
-  <div class="resultPage">
-    <div class="resultPage__yourScore">Your Score</div>
-    <div class="resultPage__ranking">Ranking</div>
     <div class="resultPage__playAgain">
-      <button>Play Again</button> 
+      <button class="btn">Play Again</button> 
     </div>
     <div class="resultPage__home">
-      <button>Home</button> 
+      <button class="btn">Home</button> 
     </div>
   </div>
 
     <script src="src/index.js"></script>
-  </body>
+</body>
 </html>

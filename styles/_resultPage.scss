@@ -1,21 +1,57 @@
 .resultPage {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    'yourScore playAgain'
-    'ranking home';
+    'yourScore yourScore yourScore .'
+    'ranking ranking ranking playAgain'
+    'ranking ranking ranking home';
+  padding: 50px;
+  place-content: center;
+  height: 100vh;
 
   &__yourScore {
     grid-area: yourScore;
+    margin: auto;
+    padding: 10px;
+    width: 80%;
+    height: 100px;
+    font-size: 50px;
+    color: $c-font-primary;
+    background-color: $c-bg-primary;
+    place-self: center;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
   }
   &__playAgain {
     grid-area: playAgain;
+    justify-self: center;
+    align-self: top;
   }
   &__ranking {
     grid-area: ranking;
+    margin-top: 20px;
+    padding: 30px;
+    width: 80%;
+    height: 100%;
+    font-size: 40px;
+    color: $c-font-primary;
+    background-color: $c-bg-primary;
+    text-align: start;
+    text-transform: uppercase;
+    border-radius: 10px;
+    justify-self: center;
+    align-self: top;
+
+    &--list {
+      padding: 30px;
+      margin: auto 10%;
+    }
   }
   &__home {
     grid-area: home;
+    justify-self: center;
+    align-self: top;
   }
 }
