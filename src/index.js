@@ -1,11 +1,7 @@
-const HP_API_BASE_URL = process.env.BASE_API_URL || "http://hp-api.herokuapp.com/";
-const QUIZ_MAX_TIME = process.env.QUIZ_MAX_TIME? process.env.QUIZ_MAX_TIME : 60;
+import 'regenerator-runtime/runtime'; // async/await with Parcel
+import App from './App';
 
-const API_CHARACTERS ='api/characters/students';
+const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
+const QUIZ_MAX_TIME = process.env.QUIZ_MAX_TIME_SECONDS || 120;
 
-fetch(HP_API_BASE_URL+API_CHARACTERS)
-
-.then(res => res.json())
-.then(data => console.log(data))
-
-.catch(err => console.error(err))
+window.onload = () => App({ rootElement: '#root', options: { apiUrl: BASE_API_URL, quizMaxTime: QUIZ_MAX_TIME } });

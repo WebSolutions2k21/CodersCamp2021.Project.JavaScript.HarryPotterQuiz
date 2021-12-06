@@ -1,0 +1,89 @@
+.gameMode {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "main main"
+      "modes nameStart"
+      "modes nameStart"
+      "modes nameStart"; 
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+    
+    &__main { 
+        grid-area: main; 
+        background: #AE0001;
+        border-radius: 10px;
+        width: 938px;
+        height: 103px;
+        font-size: 70px;
+        color: #D3A625;
+        text-align: center;
+        line-height: 140px;
+    }
+
+    &__modes { 
+        grid-area: modes;
+        display: flex;
+        flex-direction: column;
+        width: 515px;
+        gap: 40px;
+    }
+
+    &__btn {
+        background: #AE0001;
+        height: 80px;
+        font-size: 40px;
+        color: #D3A625;
+        text-align: center;
+        line-height: 105px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    &__other { 
+        grid-area: nameStart; 
+    }
+
+    &__nameStart {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__nameStartinp {
+        background: #AE0001;
+        color: #D3A625;
+        height: 80px;
+        border-radius: 10px;
+        font-size: 40px;
+        text-align: center;
+        width: 515px;
+        display: flex;
+        position: relative;
+    }
+
+    &__nameStartinpEnt::placeholder {
+        position: absolute;
+        top: 20px;
+        left: 50px;
+        font-size: 40px;
+        cursor: none;
+        color: #D3A625;
+        text-align: center;
+    }
+
+    &__nameStartinpStr {
+        width: 250px;
+        color: #D3A625;
+        text-align: center;
+        line-height: 105px;
+        font-size: 40px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        left: calc(515px/2 - 250px/2);
+    }
+}
