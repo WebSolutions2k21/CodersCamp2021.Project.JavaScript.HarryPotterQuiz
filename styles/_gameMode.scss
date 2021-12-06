@@ -14,14 +14,15 @@
     
     &__main { 
         grid-area: main; 
-        background: #AE0001;
-        border-radius: 10px;
         width: 938px;
         height: 103px;
         font-size: 70px;
-        color: #D3A625;
-        text-align: center;
         line-height: 140px;
+        background: #AE0001;
+        color: #D3A625;
+        border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     &__modes { 
@@ -33,13 +34,14 @@
     }
 
     &__btn {
-        background: #AE0001;
         height: 80px;
-        font-size: 40px;
+        background: #AE0001;
         color: #D3A625;
-        text-align: center;
+        font-size: 40px;
         line-height: 105px;
         border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: pointer;
     }
 
@@ -54,15 +56,16 @@
     }
 
     &__nameStartinp {
-        background: #AE0001;
-        color: #D3A625;
-        height: 80px;
-        border-radius: 10px;
-        font-size: 40px;
-        text-align: center;
-        width: 515px;
         display: flex;
         position: relative;
+        height: 80px;
+        width: 515px;
+        background: #AE0001;
+        color: #D3A625;
+        font-size: 40px;
+        border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     &__nameStartinpEnt::placeholder {
@@ -70,20 +73,22 @@
         top: 20px;
         left: 50px;
         font-size: 40px;
-        cursor: none;
         color: #D3A625;
         text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        cursor: none;
     }
 
     &__nameStartinpStr {
-        width: 250px;
-        color: #D3A625;
-        text-align: center;
-        line-height: 105px;
-        font-size: 40px;
-        cursor: pointer;
         display: flex;
-        justify-content: center;
+        width: 250px;
         left: calc(515px/2 - 250px/2);
+        color: #D3A625;
+        font-size: 40px;
+        text-align: center;
+        justify-content: center;
+        line-height: 105px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        cursor: pointer;
     }
 }
