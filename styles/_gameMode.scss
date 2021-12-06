@@ -8,6 +8,7 @@
       "modes nameStart"
       "modes nameStart"
       "modes nameStart"; 
+    padding-top: 30px;
     justify-items: center;
     align-items: center;
     height: 100vh;
@@ -26,11 +27,11 @@
     }
 
     &__modes { 
+        padding-top: 30px;
         grid-area: modes;
         display: flex;
         flex-direction: column;
         width: 515px;
-        gap: 40px;
     }
 
     &__btn {
@@ -43,16 +44,17 @@
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: pointer;
+        margin-bottom: 40px;
     }
 
     &__other { 
         grid-area: nameStart; 
+        padding-top: 30px;
     }
 
     &__nameStart {
         display: flex;
         flex-direction: column;
-        gap: 40px;
     }
 
     &__nameStartinp {
@@ -60,17 +62,17 @@
         position: relative;
         height: 80px;
         width: 515px;
+        margin-bottom: 40px;
         background: #AE0001;
         color: #D3A625;
         font-size: 40px;
         border-radius: 10px;
-        text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     &__nameStartinpEnt::placeholder {
         position: absolute;
-        top: 20px;
+        padding-top: 15px;
         left: 50px;
         font-size: 40px;
         color: #D3A625;
