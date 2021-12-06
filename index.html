@@ -14,33 +14,35 @@
     <div id="root"></div>
     <template id="homePage">
         <div class="wrapperHomePage">
-            <button class="btn">Start</button>
-            <button class="btn">Rules</button>
+            <button id="btnStart" class="btn">Start</button>
+            <button id="btnRules" class="btn">Rules</button>
             <button class="btn">Best Scores</button>
         </div>
     </template>
 
-    <div class="gameMode">
-        <div class="gameMode__main">
-            <p>GAME MODE</p>
-        </div>
 
-        <div class="gameMode__modes">
-            <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
-            <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
-            <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
-        </div>
+    <template id="gameModePage">
+        <div class="gameMode">
+            <div class="gameMode__main">
+                <p>GAME MODE</p>
+            </div>
 
-        <div class="gameMode__other">
-            <form class="gameMode__nameStart" action="">
-                <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" style="border: none" type="text"
-                    id="fname" name="fname" placeholder="ENTER YOUR NAME" />
-                <input class="gameMode__nameStartinp gameMode__nameStartinpStr" style="border: none" type="submit"
-                    value="START" />
-            </form>
-        </div>
-    </div>
+            <div class="gameMode__modes">
+                <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
+                <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
+                <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
+            </div>
 
+            <div class="gameMode__other">
+                <form class="gameMode__nameStart" action="">
+                    <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" style="border: none" type="text"
+                        id="fname" name="fname" placeholder="ENTER YOUR NAME" />
+                    <input class="gameMode__nameStartinp gameMode__nameStartinpStr" style="border: none" type="submit"
+                        value="START" />
+                </form>
+            </div>
+        </div>
+    </template>
 
     <script src="src/index.js"></script>
 </body>
