@@ -12,7 +12,7 @@
 
 <body>
     <div id="root"></div>
-    <!-- <template id="homePage">
+    <template id="homePage">
         <div class="wrapperHomePage">
             <button id="btnStart" class="btn">Start</button>
             <button id="btnRules" class="btn">Rules</button>
@@ -41,10 +41,13 @@
                 </form>
             </div>
         </div>
-    </template> -->
+    </template>
 
      <div class="resultPage">
-    <div class="resultPage__yourScore">Your Score: xxxxxxxx pkt</div>
+    <div class="resultPage__yourScore">
+        <p class="congrats">Congratulations! you got the highest score!</p>
+        <p>Your Score: xxxxxxxx pkt</p>
+    </div>
     <div class="resultPage__ranking">
       <h3>ranking</h3>
       <ol class="resultPage__ranking--list">
@@ -61,6 +64,8 @@
     </div>
   </div>
 
+
     <script src="src/index.js"></script>
+    <script src="src/api/harryPotter.js"></script>
 </body>
 </html>

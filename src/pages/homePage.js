@@ -2,7 +2,7 @@ const createHomePage = (rootElement) => {
   const appScreen = document.querySelector(rootElement);
   const homeTemplate = document.querySelector('#homePage');
 
-  appScreen.innerHTML = homeTemplate.innerHTML;
+  // appScreen.innerHTML = homeTemplate.innerHTML;
 
   const btnStart = document.querySelector('#btnStart');
   btnStart.addEventListener("click", () => {
