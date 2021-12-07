@@ -109,6 +109,6 @@
     &__nameStartinpStr:hover {
         background-color: $c-bg-hover;
         color: $c-font-hover;
-
+        border: 2px solid $c-font-hover;
     }
 }
