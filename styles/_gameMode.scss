@@ -19,8 +19,8 @@
         height: 103px;
         font-size: 70px;
         line-height: 140px;
-        background: #AE0001;
-        color: #D3A625;
+        background: $c-bg-primary;
+        color: $c-font-primary;
         border-radius: 10px;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -35,16 +35,25 @@
     }
 
     &__btn {
-        height: 80px;
-        background: #AE0001;
-        color: #D3A625;
+        height: 80px;        
+        margin-bottom: 40px;
+        background: $c-bg-primary;
+        color: $c-font-primary;
         font-size: 40px;
         line-height: 105px;
         border-radius: 10px;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: pointer;
-        margin-bottom: 40px;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        transition: 0.2s linear;
+    }
+
+    &__btn:hover {
+        background-color: $c-bg-hover;
+        color: $c-font-hover;
+        border: 2px solid $c-font-hover;
     }
 
     &__other { 
@@ -63,11 +72,14 @@
         height: 80px;
         width: 515px;
         margin-bottom: 40px;
-        background: #AE0001;
-        color: #D3A625;
+        background: $c-bg-primary;
+        color: $c-font-primary;
         font-size: 40px;
         border-radius: 10px;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        transition: 0.2s linear;
     }
 
     &__nameStartinpEnt::placeholder {
@@ -75,7 +87,7 @@
         padding-top: 15px;
         left: 50px;
         font-size: 40px;
-        color: #D3A625;
+        color: $c-font-primary;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: none;
@@ -85,12 +97,18 @@
         display: flex;
         width: 250px;
         left: calc(515px/2 - 250px/2);
-        color: #D3A625;
+        color: $c-font-primary;
         font-size: 40px;
         text-align: center;
         justify-content: center;
         line-height: 105px;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: pointer;
+    }
+
+    &__nameStartinpStr:hover {
+        background-color: $c-bg-hover;
+        color: $c-font-hover;
+        border: 2px solid $c-font-hover;
     }
 }
