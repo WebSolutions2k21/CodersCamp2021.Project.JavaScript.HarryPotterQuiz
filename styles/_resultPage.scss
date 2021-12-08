@@ -1,57 +1,106 @@
+// .resultPage {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr 1fr;
+//   grid-template-rows: 1fr 1fr 1fr 1fr;
+//   grid-template-areas:
+//     'yourScore yourScore yourScore .'
+//     'ranking ranking ranking playAgain'
+//     'ranking ranking ranking home';
+//   padding: 50px;
+//   place-content: center;
+//   height: 100vh;
+
+//   &__yourScore {
+//     grid-area: yourScore;
+//     margin: auto;
+//     padding: 10px;
+//     width: 80%;
+//     height: 4em;
+//     font-size: 2em;
+//     color: $c-font-primary;
+//     background-color: $c-bg-primary;
+//     place-self: center;
+//     text-align: center;
+//     text-transform: uppercase;
+//     border-radius: 10px;
+//   }
+//   &__playAgain {
+//     grid-area: playAgain;
+//     justify-self: center;
+//     align-self: top;
+//   }
+//   &__ranking {
+//     grid-area: ranking;
+//     margin-top: 20px;
+//     padding: 30px;
+//     width: 80%;
+//     height: 100%;
+//     font-size: 40px;
+//     color: $c-font-primary;
+//     background-color: $c-bg-primary;
+//     text-align: start;
+//     text-transform: uppercase;
+//     border-radius: 10px;
+//     justify-self: center;
+//     align-self: top;
+
+//     &--list {
+//       padding: 30px;
+//       margin: auto 10%;
+//     }
+//   }
+
 .resultPage {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-    'yourScore yourScore yourScore .'
-    'ranking ranking ranking playAgain'
-    'ranking ranking ranking home';
-  padding: 50px;
-  place-content: center;
-  height: 100vh;
+    'yourScore menu'
+    'congrats menu'
+    'bestScores menu';
+
+  margin: 150px 100px;
+  gap: 3em;
+
+  &__menu {
+    grid-area: menu;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+  }
 
   &__yourScore {
     grid-area: yourScore;
-    margin: auto;
-    padding: 10px;
-    width: 80%;
-    height: 4em;
-    font-size: 2em;
     color: $c-font-primary;
     background-color: $c-bg-primary;
-    place-self: center;
+    width: 80%;
+    justify-self: center;
+    border-radius: 10px;
+    font-size: 3em;
     text-align: center;
-    text-transform: uppercase;
-    border-radius: 10px;
+    align-self: center;
   }
-  &__playAgain {
-    grid-area: playAgain;
-    justify-self: center;
-    align-self: top;
-  }
-  &__ranking {
-    grid-area: ranking;
-    margin-top: 20px;
-    padding: 30px;
-    width: 80%;
-    height: 100%;
-    font-size: 40px;
+
+  &__congrats {
+    grid-area: congrats;
     color: $c-font-primary;
     background-color: $c-bg-primary;
-    text-align: start;
-    text-transform: uppercase;
     border-radius: 10px;
-    justify-self: center;
-    align-self: top;
+    font-size: 2em;
+  }
+
+  &__bestScores {
+    grid-area: bestScores;
+    color: $c-font-primary;
+    background-color: $c-bg-primary;
+    border-radius: 10px;
+    font-size: 2em;
 
     &--list {
-      padding: 30px;
+      padding: 10px;
       margin: auto 10%;
     }
-  }
-  &__home {
-    grid-area: home;
-    justify-self: center;
-    align-self: top;
   }
 }

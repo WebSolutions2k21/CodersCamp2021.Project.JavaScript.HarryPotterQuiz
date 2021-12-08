@@ -10,6 +10,7 @@ const createHomePage = (rootElement) => {
     const gameModeTemplate = document.querySelector('#gameModePage');
     appScreen.innerHTML = gameModeTemplate.innerHTML;
   });
-};
+}; 
 
 export default createHomePage;
+xs
