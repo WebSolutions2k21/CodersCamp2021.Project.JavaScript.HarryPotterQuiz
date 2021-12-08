@@ -1,15 +1,15 @@
+import mapNavigationClickToTemplate from '../navigation';
+import createRulesPage from './rulesPage';
+import createGameModePage from './gameModePage';
+
 const createHomePage = (rootElement) => {
   const appScreen = document.querySelector(rootElement);
-  const homeTemplate = document.querySelector('#homePage');
+  const homePage = document.querySelector('#homePage');
 
-  appScreen.innerHTML = homeTemplate.innerHTML;
+  appScreen.innerHTML = homePage.innerHTML;
 
-  const btnStart = document.querySelector('#btnStart');
-  btnStart.addEventListener("click", () => {
-
-    const gameModeTemplate = document.querySelector('#gameModePage');
-    appScreen.innerHTML = gameModeTemplate.innerHTML;
-  });
+  mapNavigationClickToTemplate(rootElement, '[data-action-start]', createGameModePage);
+  mapNavigationClickToTemplate(rootElement, '[data-action-rules]', createRulesPage);
 };
 
 export default createHomePage;
