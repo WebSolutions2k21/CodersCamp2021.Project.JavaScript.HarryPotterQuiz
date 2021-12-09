@@ -67,29 +67,40 @@
 
     <template id="rankingPage">
     <div class="ranking">
-        <div class="ranking__main">
-            <h1>YOUR SCORE: 3000</h1>
-            <div class="ranking__main--scores">
-                <h2>RANKING</h2>
-                <ol>
-                    <li>ABC
-                        <span>300534540</span>
-                        PT
-                    </li>
-                    <li>DEF
-                        <span>2300</span>
-                        PT
-                    </li>
-                    <li>GHI
-                        <span>500</span>
-                        PT
-                    </li>
-                </ol>
+        <div class="ranking__wrapper">
+            <div class="ranking__main">
+                <h2>BEST SCORES</h2>
+                <div class="ranking__list">
+                    <div class="ranking__list--item">
+                        <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
+                        <p>1.<span> ALA</span></p>
+                        <p class="points">2000<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>2.<span> MA</span></p>
+                        <p class="points">1800<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>3.<span> KOTA</span></p>
+                        <p class="points">1500<span>PT</span></p>
+                    </div>   
+                    <div class="ranking__list--item">
+                        <p>4.<span> PSA</span></p>
+                        <p class="points">999<span>PT</span></p>
+                    </div>   
+                    <div class="ranking__list--item">
+                        <p>5.<span> CHOMIKA</span></p>
+                        <p class="points">13<span>PT</span></p>
+                    </div>   
+                    <div class="ranking__list--item">
+                        <p>6.<span> KANARKA</span></p>
+                        <p class="points">1<span>PT</span></p>
+                    </div>       
+                </div>
             </div>  
-        </div>
-        <div class="ranking__buttons">
-            <button class="btn">PLAY AGAIN</button>
-            <button class="btn" data-action-home>HOME</button>
+            <div class="ranking__main--button">
+                <button class="btn" data-action-home>BACK</button>
+            </div>
         </div>
     </div>
     </template>
