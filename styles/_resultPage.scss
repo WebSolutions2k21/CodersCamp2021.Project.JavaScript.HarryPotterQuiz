@@ -1,66 +1,15 @@
-// .resultPage {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-//   grid-template-rows: 1fr 1fr 1fr 1fr;
-//   grid-template-areas:
-//     'yourScore yourScore yourScore .'
-//     'ranking ranking ranking playAgain'
-//     'ranking ranking ranking home';
-//   padding: 50px;
-//   place-content: center;
-//   height: 100vh;
-
-//   &__yourScore {
-//     grid-area: yourScore;
-//     margin: auto;
-//     padding: 10px;
-//     width: 80%;
-//     height: 4em;
-//     font-size: 2em;
-//     color: $c-font-primary;
-//     background-color: $c-bg-primary;
-//     place-self: center;
-//     text-align: center;
-//     text-transform: uppercase;
-//     border-radius: 10px;
-//   }
-//   &__playAgain {
-//     grid-area: playAgain;
-//     justify-self: center;
-//     align-self: top;
-//   }
-//   &__ranking {
-//     grid-area: ranking;
-//     margin-top: 20px;
-//     padding: 30px;
-//     width: 80%;
-//     height: 100%;
-//     font-size: 40px;
-//     color: $c-font-primary;
-//     background-color: $c-bg-primary;
-//     text-align: start;
-//     text-transform: uppercase;
-//     border-radius: 10px;
-//     justify-self: center;
-//     align-self: top;
-
-//     &--list {
-//       padding: 30px;
-//       margin: auto 10%;
-//     }
-//   }
-
 .resultPage {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
   grid-template-areas:
     'yourScore menu'
     'congrats menu'
     'bestScores menu';
 
-  margin: 150px 100px;
+  margin: 100px 100px;
   gap: 3em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
   &__menu {
     grid-area: menu;
@@ -78,17 +27,29 @@
     width: 80%;
     justify-self: center;
     border-radius: 10px;
-    font-size: 3em;
+    font-size: 5em;
     text-align: center;
     align-self: center;
+    box-shadow: 1px 4px 5px 2px rgba(0, 0, 0, 0.35);
+    border: 2px solid black;
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
   }
 
   &__congrats {
     grid-area: congrats;
+    font-size: 3em;
     color: $c-font-primary;
     background-color: $c-bg-primary;
     border-radius: 10px;
-    font-size: 2em;
+    box-shadow: 1px 4px 5px 2px rgba(0, 0, 0, 0.35);
+    border: 2px solid black;
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+
+    &--center {
+      padding: 1em;
+      justify-content: center;
+      text-align: center;
+    }
   }
 
   &__bestScores {
@@ -97,6 +58,10 @@
     background-color: $c-bg-primary;
     border-radius: 10px;
     font-size: 2em;
+    box-shadow: 1px 4px 5px 2px rgba(0, 0, 0, 0.35);
+    border: 2px solid black;
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+    padding: 1em;
 
     &--list {
       padding: 10px;
