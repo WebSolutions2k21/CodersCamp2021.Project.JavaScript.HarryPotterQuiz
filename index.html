@@ -14,35 +14,90 @@
     <div id="root"></div>
     <template id="homePage">
         <div class="wrapperHomePage">
-            <button class="btn">Start</button>
-            <button class="btn">Rules</button>
-            <button class="btn">Best Scores</button>
+            <button data-action-start class="btn">Start</button>
+            <button data-action-rules class="btn">Rules</button>
+            <button data-action-scores class="btn">Best Scores</button>
+        </div>
+    </template>
+    <template id="rulesPage">
+        <div class="wrapperHomePage wrapperRulesPage">
+            <section class="sectionRules">
+                <h1>Rules</h1>
+                <p class=>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quos aliquid tenetur, ipsa
+                    molestias,
+                    aperiam quidem ipsum unde ratione veniam in excepturi delectus. Repudiandae perspiciatis odio dicta
+                    quidem, necessitatibus numquam!
+
+                </p>
+            </section>
+            <div class=wrapperMenuRulesPage>
+                <button data-action-start class="btn">Start</button>
+                <button data-action-rules class="btn">Rules</button>
+                <button data-action-scores class="btn">Best Scores</button>
+                <button data-action-exit class="btn">Exit</button>
+            </div>
+
         </div>
     </template>
 
-    <div class="gameMode">
-        <div class="gameMode__main">
-            <p>GAME MODE</p>
-        </div>
 
-        <div class="gameMode__modes">
-            <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
-            <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
-            <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
-        </div>
+    <template id="gameModePage">
+        <div class="gameMode">
+            <div class="gameMode__main">
+                <p>GAME MODE</p>
+            </div>
 
-        <div class="gameMode__other">
-            <form class="gameMode__nameStart" action="">
-                <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" style="border: none" type="text"
-                    id="fname" name="fname" placeholder="ENTER YOUR NAME" />
-                <input class="gameMode__nameStartinp gameMode__nameStartinpStr" style="border: none" type="submit"
-                    value="START" />
-            </form>
+            <div class="gameMode__modes">
+                <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
+                <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
+                <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
+            </div>
+
+            <div class="gameMode__other">
+                <form class="gameMode__nameStart" action="">
+                    <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" style="border: none" type="text"
+                        id="fname" name="fname" placeholder="ENTER YOUR NAME" />
+                    <input class="gameMode__nameStartinp gameMode__nameStartinpStr" style="border: none" type="submit"
+                        value="START" />
+                </form>
+            </div>
         </div>
     </div>
+    </template>
+
+    <template id="rankingPage">
+    <div class="ranking">
+        <div class="ranking__main">
+            <h1>YOUR SCORE: 3000</h1>
+            <div class="ranking__main--scores">
+                <h2>RANKING</h2>
+                <ol>
+                    <li>ABC
+                        <span>300534540</span>
+                        PT
+                    </li>
+                    <li>DEF
+                        <span>2300</span>
+                        PT
+                    </li>
+                    <li>GHI
+                        <span>500</span>
+                        PT
+                    </li>
+                </ol>
+            </div>  
+        </div>
+        <div class="ranking__buttons">
+            <button class="btn">PLAY AGAIN</button>
+            <button class="btn" data-action-home>HOME</button>
+        </div>
+    </div>
+    </template>
 
 
     <script src="src/index.js"></script>
+    <script src="src/api/harryPotter.js"></script>
 </body>
+
 
 </html>

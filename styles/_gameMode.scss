@@ -8,82 +8,107 @@
       "modes nameStart"
       "modes nameStart"
       "modes nameStart"; 
+    padding-top: 30px;
     justify-items: center;
     align-items: center;
     height: 100vh;
     
     &__main { 
         grid-area: main; 
-        background: #AE0001;
-        border-radius: 10px;
         width: 938px;
         height: 103px;
         font-size: 70px;
-        color: #D3A625;
-        text-align: center;
         line-height: 140px;
+        background: $c-bg-primary;
+        color: $c-font-primary;
+        border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     &__modes { 
+        padding-top: 30px;
         grid-area: modes;
         display: flex;
         flex-direction: column;
         width: 515px;
-        gap: 40px;
     }
 
     &__btn {
-        background: #AE0001;
-        height: 80px;
+        height: 80px;        
+        margin-bottom: 40px;
+        background: $c-bg-primary;
+        color: $c-font-primary;
         font-size: 40px;
-        color: #D3A625;
-        text-align: center;
         line-height: 105px;
         border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: pointer;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        transition: 0.2s linear;
+    }
+
+    &__btn:hover {
+        background-color: $c-bg-hover;
+        color: $c-font-hover;
+        border: 2px solid $c-font-hover;
     }
 
     &__other { 
         grid-area: nameStart; 
+        padding-top: 30px;
     }
 
     &__nameStart {
         display: flex;
         flex-direction: column;
-        gap: 40px;
     }
 
     &__nameStartinp {
-        background: #AE0001;
-        color: #D3A625;
-        height: 80px;
-        border-radius: 10px;
-        font-size: 40px;
-        text-align: center;
-        width: 515px;
         display: flex;
         position: relative;
+        height: 80px;
+        width: 515px;
+        margin-bottom: 40px;
+        background: $c-bg-primary;
+        color: $c-font-primary;
+        font-size: 40px;
+        border-radius: 10px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        transition: 0.2s linear;
     }
 
     &__nameStartinpEnt::placeholder {
         position: absolute;
-        top: 20px;
+        padding-top: 15px;
         left: 50px;
         font-size: 40px;
-        cursor: none;
-        color: #D3A625;
+        color: $c-font-primary;
         text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        cursor: none;
     }
 
     &__nameStartinpStr {
-        width: 250px;
-        color: #D3A625;
-        text-align: center;
-        line-height: 105px;
-        font-size: 40px;
-        cursor: pointer;
         display: flex;
-        justify-content: center;
+        width: 250px;
         left: calc(515px/2 - 250px/2);
+        color: $c-font-primary;
+        font-size: 40px;
+        text-align: center;
+        justify-content: center;
+        line-height: 105px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        cursor: pointer;
+    }
+
+    &__nameStartinpStr:hover {
+        background-color: $c-bg-hover;
+        color: $c-font-hover;
+        border: 2px solid $c-font-hover;
     }
 }
