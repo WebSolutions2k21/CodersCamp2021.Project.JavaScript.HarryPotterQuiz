@@ -1,0 +1,43 @@
+// font-family: 'Henny Penny', cursive;
+// font-family: 'Indie Flower', cursive;
+// font-family: 'Tangerine', cursive;
+
+
+
+.wrapperRulesPage {
+
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+section.sectionRules {
+    width: 700px;
+    margin: 20px 50px;
+    padding: 30px 40px;
+    background: $c-bg-primary;
+    color: $c-font-primary;
+    text-align: center;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border: 2px solid black;
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+    border-radius: 10px;
+
+    & h1 {
+        font-size: $h-headlinesFontSize;
+    }
+    & p {
+        font-family: 'Henny Penny', cursive;
+        font-size: $p-paragraphFontSize;
+    }
+}
+
+div.wrapperMenuRulesPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+
+}

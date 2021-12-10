@@ -1,19 +1,18 @@
 import mapNavigationClickToTemplate from '../navigation';
-import createRulesPage from './rulesPage';
 import createGameModePage from './gameModePage';
+import createHomePage from './homePage';
 import createRankingPage from './rankingPage';
-import createResultPage from './resultPage';
 
-const createHomePage = (rootElement) => {
+const createRulesPage = (rootElement) => {
   const appScreen = document.querySelector(rootElement);
-  const homePage = document.querySelector('#homePage');
+  const rulesTemplate = document.querySelector('#rulesPage');
 
-  appScreen.innerHTML = homePage.innerHTML;
+  appScreen.innerHTML = rulesTemplate.innerHTML;
 
   mapNavigationClickToTemplate(rootElement, '[data-action-start]', createGameModePage);
   mapNavigationClickToTemplate(rootElement, '[data-action-rules]', createRulesPage);
+  mapNavigationClickToTemplate(rootElement, '[data-action-exit]', createHomePage);
   mapNavigationClickToTemplate(rootElement, '[data-action-scores]', createRankingPage);
-  mapNavigationClickToTemplate(rootElement, '[data-action-resultPage]', createResultPage);
 };
 
-export default createHomePage;
+export default createRulesPage;
