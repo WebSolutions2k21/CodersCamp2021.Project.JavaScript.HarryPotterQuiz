@@ -1,7 +1,5 @@
 .gameMode {
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
       "main main"
@@ -15,13 +13,14 @@
     
     &__main { 
         grid-area: main; 
-        width: 938px;
+        width: 900px;
         height: 103px;
         font-size: 70px;
-        line-height: 140px;
+        line-height: 135px;
         background: $c-bg-primary;
         color: $c-font-primary;
         border-radius: 10px;
+        border: 2px solid black;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
@@ -31,7 +30,7 @@
         grid-area: modes;
         display: flex;
         flex-direction: column;
-        width: 515px;
+        width: 450px;
     }
 
     &__btn {
@@ -65,7 +64,7 @@
         display: flex;
         position: relative;
         height: 80px;
-        width: 515px;
+        width: 500px;
         margin-bottom: 40px;
         background: #FFFBE4;
         color: #1A472A;
@@ -81,11 +80,28 @@
     &__nameStartinpEnt::placeholder {
         position: absolute;
         padding-top: $space-small;
-        left: 50px;
+        left: 36px;
         font-size: 40px;
         color: #1A472A;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: none;
+    }
+
+    @media (max-width: $break-tablet) {
+        &__main {
+            width: 750px;
+        }
+        &__modes {
+            width: 350px;
+        }
+        &__nameStartinp {
+            font-size: 35px;
+            width: 400px;
+        }
+        &__nameStartinp::placeholder {
+            font-size: 35px;
+            left: 12px;
+        } 
     }
 }
