@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz wiedzy o Harrym Poterze</title>
 
     <link rel="stylesheet" href="styles/style.scss" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="root"></div>
     <template id="quizPage">
         <div class="question">
@@ -30,6 +29,7 @@
             <button data-action-start class="btn">Start</button>
             <button data-action-rules class="btn">Rules</button>
             <button data-action-scores class="btn">Best Scores</button>
+            <button data-action-resultPage class="btn">Result Page</button>
         </div>
     </template>
     <template id="rulesPage">
@@ -54,32 +54,114 @@
     </template>
 
     <template id="gameModePage">
-        <div class="gameMode">
-            <div class="gameMode__main">
-                <p>GAME MODE</p>
-            </div>
+      <div class="gameMode">
+        <div class="gameMode__main">
+          <p>GAME MODE</p>
+        </div>
 
-            <div class="gameMode__modes">
-                <button class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
-                <button class="gameMode__btn" type="button" style="border: none">STAFF</button>
-                <button class="gameMode__btn" type="button" style="border: none">HOUSES</button>
-            </div>
+        <div class="gameMode__other">
+          <form class="gameMode__nameStart" action="">
+            <input
+              class="gameMode__nameStartinp gameMode__nameStartinpEnt"
+              style="border: none"
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="ENTER YOUR NAME"
+            />
+          </form>
+        </div>
 
-            <div class="gameMode__other">
-                <form class="gameMode__nameStart" action="">
-                    <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" style="border: none" type="text"
-                        id="fname" name="fname" placeholder="ENTER YOUR NAME" />
-                    <input class="gameMode__nameStartinp gameMode__nameStartinpStr" style="border: none" type="submit"
-                        value="START" />
-                </form>
+        <div class="gameMode__modes">
+          <button data-action-students class="gameMode__btn" type="button" style="border: none">STUDENTS</button>
+          <button data-action-staff class="gameMode__btn" type="button" style="border: none">STAFF</button>
+          <button data-action-houses class="gameMode__btn" type="button" style="border: none">HOUSES</button>
+        </div>
+      </div>
+    </div>
+    </template>
+
+
+    <template id="rankingPage">
+    <div class="ranking">
+        <div class="ranking__wrapper">
+            <div class="ranking__main">
+                <h2>BEST SCORES</h2>
+                <div class="ranking__list">
+                    <div class="ranking__list--item">
+                        <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
+                        <p>1.<span> ALA</span></p>
+                        <p class="points">2000<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>2.<span> MA</span></p>
+                        <p class="points">1800<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>3.<span> KOTA</span></p>
+                        <p class="points">1500<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>4.<span> PSA</span></p>
+                        <p class="points">999<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>5.<span> CHOMIKA</span></p>
+                        <p class="points">13<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>6.<span> KANARKA</span></p>
+                        <p class="points">1<span>PT</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="ranking__main--button">
+                <button class="btn" data-action-home>BACK</button>
             </div>
         </div>
     </template> -->
 
+    <template id="resultPage">
+    <div class="resultPage">
+      <div class="resultPage__yourScore">
+        <p>Your Score: xxxxxxxx pts</p>
+      </div>
 
+      <div class="resultPage__congrats">
+        <p class="resultPage__congrats--center">
+          Congratulation xxxx ! <br />
+          You answered X questions correctly in .... sec!
+        </p>
+      </div>
+
+      <div class="resultPage__bestScores">
+        <h3>Best Scores</h3>
+        <ol class="resultPage__bestScores--list">
+          <li>
+            aaaaaa
+            <span>500000</span>
+            PTS
+          </li>
+          <li>
+            bbbbbb
+            <span>54000</span>
+            PTS
+          </li>
+          <li>
+            cccccc
+            <span>500</span>
+            PTS
+          </li>
+        </ol>
+      </div>
+      <div class="resultPage__menu">
+        <button data-action-home class="btn">Home</button>
+        <button data-action-scores class="btn">Ranking</button>
+        <button data-action-start class="btn">Play Again</button>
+      </div>
+    </div>
+    </template>
     <script src="src/index.js"></script>
     <script src="src/api/harryPotter.js"></script>
-</body>
-
-
+  </body>
 </html>
