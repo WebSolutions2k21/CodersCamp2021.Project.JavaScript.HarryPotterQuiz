@@ -5,9 +5,9 @@
     gap: 0px 0px; 
     grid-template-areas: 
       "main main"
-      "modes nameStart"
-      "modes nameStart"
-      "modes nameStart"; 
+      "nameStart modes"
+      "nameStart modes"
+      "nameStart modes"; 
     padding-top: 30px;
     justify-items: center;
     align-items: center;
@@ -61,20 +61,16 @@
         padding-top: 30px;
     }
 
-    &__nameStart {
-        display: flex;
-        flex-direction: column;
-    }
-
     &__nameStartinp {
         display: flex;
         position: relative;
         height: 80px;
         width: 515px;
         margin-bottom: 40px;
-        background: $c-bg-primary;
-        color: $c-font-primary;
+        background: #FFFBE4;
+        color: #1A472A;
         font-size: 40px;
+        text-align: center;
         border-radius: 10px;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         border: 2px solid black;
@@ -84,31 +80,12 @@
 
     &__nameStartinpEnt::placeholder {
         position: absolute;
-        padding-top: 15px;
+        padding-top: $space-small;
         left: 50px;
         font-size: 40px;
-        color: $c-font-primary;
+        color: #1A472A;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: none;
-    }
-
-    &__nameStartinpStr {
-        display: flex;
-        width: 250px;
-        left: calc(515px/2 - 250px/2);
-        color: $c-font-primary;
-        font-size: 40px;
-        text-align: center;
-        justify-content: center;
-        line-height: 105px;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        cursor: pointer;
-    }
-
-    &__nameStartinpStr:hover {
-        background-color: $c-bg-hover;
-        color: $c-font-hover;
-        border: 2px solid $c-font-hover;
     }
 }
