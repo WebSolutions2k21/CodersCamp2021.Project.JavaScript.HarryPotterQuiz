@@ -116,8 +116,8 @@
             width: 400px;
         }
         &__nameStartinp::placeholder {
-            font-size: 35px;
             left: 12px;
+            font-size: 35px;
         } 
         &__textError {
             font-size: 20px;
@@ -136,17 +136,17 @@
             font-size: 21px;
         }
         &__nameStartinp {
-            font-size: 21px;
             width: 100%;
+            font-size: 21px;
         }
         &__nameStartinp::placeholder {
-            font-size: 21px;
             top: 13px;
             left: 15px;
+            font-size: 21px;
         }
         &__textError {
-            margin-left: 1.5rem;
             font-size: 18px;
+            margin-left: 1.5rem;
         }
     }
 }
