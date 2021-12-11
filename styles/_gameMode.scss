@@ -123,4 +123,30 @@
             font-size: 20px;
         }
     }
+    @media (max-width: $break-mobile) {
+        &__main {
+            width: 80%;
+            font-size: 50px;
+        }
+        &__modes {
+            width: 100%;
+        }
+        &__btn {
+            margin-right: 20px;
+            font-size: 21px;
+        }
+        &__nameStartinp {
+            font-size: 21px;
+            width: 100%;
+        }
+        &__nameStartinp::placeholder {
+            font-size: 21px;
+            top: 13px;
+            left: 15px;
+        }
+        &__textError {
+            font-size: 18px;
+            margin-left: 1.5rem;
+        }
+    }
 }

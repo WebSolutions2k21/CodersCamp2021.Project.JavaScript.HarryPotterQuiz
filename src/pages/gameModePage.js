@@ -7,7 +7,7 @@ const createGameModePage = (rootElement) => {
 
   appScreen.innerHTML = gameModePage.innerHTML;
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
+  //mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
 
 
   // change placeholder 
@@ -26,7 +26,6 @@ const createGameModePage = (rootElement) => {
       event.target.classList.toggle("bor")  
     }
   });
-
 };
 
 export default createGameModePage;
