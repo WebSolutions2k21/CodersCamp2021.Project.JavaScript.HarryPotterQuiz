@@ -12,16 +12,28 @@
   <body>
     <div id="root"></div>
     <!-- <template id="quizPage"> -->
+      <div class="quizPage">
+        <div class="categoryBox"><p>Category</p></div>
+        <div class="timeBox"><p>Time</p></div>
         <div class="question">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id incidunt accusamus laborum sint aut maiores, sequi natus iusto, aliquid earum quis nulla asperiores perferendis. In reprehenderit dolorum quis aliquid rem.</p>
         </div>
-        <div class="photoBox"></div>
+        <div class="photoBox"><p>Photo</p></div>
         <div class="answersBox">
-            <input type="radio" class="answersBox_btn">
-            <input type="radio" class="answersBox_btn">
-            <input type="radio" class="answersBox_btn">
+          <div class="answer">
+            <input type="radio" id="a" value="a">
+            <label for="a"></label>
+          </div>
+          <div class="answer">
+            <input type="radio" id="b" value="b">
+            <label for="b"></label>
+          </div>
+          <div class="answer">
+            <input type="radio" id="c" value="c">
+            <label for="c"></label>
+          </div>
         </div>
-        <div class="timeBox"></div>
+      </div>
     <!-- </template> -->
 
     <!-- <template id="homePage">
@@ -101,8 +113,8 @@
                 <h2>BEST SCORES</h2>
                 <div class="ranking__list">
                     <div class="ranking__list--item">
-                        <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
-                        <!-- <p>1.<span> ALA</span></p>
+                        tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej
+                        <p>1.<span> ALA</span></p>
                         <p class="points">2000<span>PT</span></p>
                     </div>
                     <div class="ranking__list--item">
@@ -131,9 +143,9 @@
                 <button class="btn" data-action-home>BACK</button>
             </div>
         </div>
-    </template> -->
+    </template>
 
-    <!-- <template id="resultPage">
+    <template id="resultPage">
     <div class="resultPage">
       <div class="resultPage__yourScore">
         <p>Your Score: xxxxxxxx pts</p>
@@ -172,7 +184,7 @@
         <button data-action-start class="btn">Play Again</button>
       </div>
     </div>
-    </template> --> -->
+    </template> -->
     <script src="src/index.js"></script>
     <script src="src/api/harryPotter.js"></script>
   </body>

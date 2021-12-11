@@ -1,0 +1,98 @@
+.quizPage {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-areas:
+    "categoryArea timeArea timeArea"
+    "questionArea questionArea questionArea"
+    "imgArea imgArea answersArea";
+    grid-gap: 30px;
+    // align-items: center;
+    text-align: center;
+    // flex-direction: column;
+    // justify-content: space-evenly;
+    width: 100vw;
+    height: 100vh;
+    font-size: $p-paragraphFontSize;
+
+    .categoryBox {
+        grid-area: categoryArea;
+        background-color: aqua;
+        height: 100%;
+        position: relative;
+
+        p {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .timeBox {
+        grid-area: timeArea;
+        background-color: blue;
+        height: 100%;
+        position: relative;
+
+        p {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .question {
+        grid-area: questionArea;
+        background-color: chartreuse;
+        height: 100%;
+        position: relative;
+
+        p {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .photoBox {
+        grid-area: imgArea;
+        background-color: chocolate;
+        height: 100%;
+        position: relative;
+
+        p {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .answersBox {
+        grid-area: answersArea;
+        background-color: cornflowerblue;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .answer {
+            position: relative;
+            width: 80%;
+            height: 20%;
+            margin: 5% auto;
+            background-color: crimson;
+
+            input {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+}
