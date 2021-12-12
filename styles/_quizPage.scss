@@ -9,7 +9,7 @@
     grid-template-areas:
     "categoryBox timeBox timeBox"
     "questionArea questionArea questionArea"
-    "answersArea answersArea answersArea";
+    "imgArea imgArea answersArea";
     grid-gap: 20px;
     // align-items: center;
     text-align: center;
@@ -20,7 +20,7 @@
     font-size: $p-paragraphFontSize;
 
     .categoryBox {
-        grid-area: categoryArea;
+        grid-area: categoryBox;
         height: 100%;
         margin: auto 0;
         position: relative;
@@ -31,9 +31,6 @@
         text-transform: uppercase;
         border: 2px solid black;
         border-radius: 10px;
-        // cursor: pointer;
-        // transition: 0.2s linear;
-        // box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
 
         p {
             width: 100%;
@@ -44,7 +41,7 @@
     }
 
     .timeBox {
-        grid-area: timeArea;
+        grid-area: timeBox;
         height: 100%;
         position: relative;
         // display: inline-flex;
