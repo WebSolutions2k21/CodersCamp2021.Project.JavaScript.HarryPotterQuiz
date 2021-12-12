@@ -13,12 +13,12 @@
     <div id="root"></div>
     <!-- <template id="quizPage"> -->
       <div class="quizPage">
-        <div class="categoryBox"><p>Staff</p></div>
-        <div class="timeBox"><!-- <div class="timeArea">01:23:45</div><div class="visualArea"></div> --></div>
+        <div class="categoryBox"><p>Students</p></div>
+        <div class="timeBox"></div>
         <div class="question">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id incidunt accusamus laborum sint aut maiores, sequi natus iusto, aliquid earum quis nulla asperiores perferendis. In reprehenderit dolorum quis aliquid rem.</p>
         </div>
-        <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> -->
+          <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> -->
         <div class="photoBox"><img src="./static/gryffindor.png"></div>
         <div class="answersBox">
           <button class="ansBtn">A</button>
@@ -33,23 +33,21 @@
             <button data-action-start class="btn">Start</button>
             <button data-action-rules class="btn">Rules</button>
             <button data-action-scores class="btn">Best Scores</button>
-            <button data-action-resultPage class="btn">Result Page</button>
+            <button data-action-resultpage class="btn">Result Page</button>
         </div>
     </template>
     <template id="rulesPage">
-        <div class="wrapperHomePage wrapperRulesPage">
+        <div class="wrapper rulesPage__wrapper">
             <section class="sectionRules">
                 <h1>Rules</h1>
-                <p class=>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quos aliquid tenetur, ipsa
-                    molestias,
-                    aperiam quidem ipsum unde ratione veniam in excepturi delectus. Repudiandae perspiciatis odio dicta
-                    quidem, necessitatibus numquam!
-
-                </p>
+                <p>Click on start, then enter your nickname and choose one of the three categories.</p>
+                  <p>Answer the questions by clicking on the answer of your choice.</p>
+                  <p>You will receive 10 point for a correct answer, and 0 points for a wrong answer.</p>
+                  <p>Remember, you have one minute to answer as many questions as possible.</p>
+                  <p>Have Fun!</p>
             </section>
-            <div class=wrapperMenuRulesPage>
+            <div class="menuRulesPage__wrapper">
                 <button data-action-start class="btn">Start</button>
-                <button data-action-rules class="btn">Rules</button>
                 <button data-action-scores class="btn">Best Scores</button>
                 <button data-action-exit class="btn">Exit</button>
             </div>
@@ -66,29 +64,43 @@
         <div class="gameMode__other">
           <form class="gameMode__nameStart" action="">
             <input class="gameMode__nameStartinp gameMode__nameStartinpEnt" type="text" id="fname" name="fname" placeholder="ENTER YOUR NAME"/>
+            <div class="gameMode__textError">
+              Muggle, you forgot something!
+            </div>
           </form>
         </div>
 
         <div class="gameMode__modes">
-          <button data-action-students class="gameMode__btn" type="button">STUDENTS</button>
-          <button data-action-staff class="gameMode__btn" type="button">STAFF</button>
-          <button data-action-houses class="gameMode__btn" type="button">HOUSES</button>
+          <button data-action-students id="students" class="gameMode__btn" type="button">STUDENTS</button>
+          <button data-action-staff id="staff" class="gameMode__btn" type="button">STAFF</button>
+          <button data-action-houses id="houses" class="gameMode__btn" type="button">HOUSES</button>
         </div>
       </div>
-    </div>
     </template>
 
     <template id="quizHousesPage">
-      <div class="quizHousesPage">
-        <div class="quizHousesPage__question">
-         Something
-        </div>
-        <div class="quizHousesPage__menu">
+   <div class="quizHouses">
+
+          <div class="quizHouses__question">
+<p class="quizHouses__question__body">What type of house is the character Harry Potter's from?</p>
+<div class="quizHouses__question__action">
+<div class="btn quizHouses__question__action--name">HERO Name</div>
+<div class="btn quizHouses__question__action--time">TIME</div></div>
+         </div>
+    <div class="quizHouses__answers">
+      <img src="./assets/images/quiz/house1.png" class="quizHouses__answers__img" alt="House1">
+      <img src="./assets/images/quiz/house2.png" class="quizHouses__answers__img" alt="House2">
+      <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3">
+      <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4">
+
+    </div>
+
+
+        <div class="quizHouses__menu">
           <button data-action-home class="btn">Home</button>
-          <button data-action-scores class="btn">Ranking</button>
-          <button data-action-start class="btn">Play Again</button>
+
         </div>
-      </div>
+     </div>
       </template>
 
 
