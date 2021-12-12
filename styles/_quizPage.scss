@@ -1,5 +1,8 @@
 .quizPage {
-    padding: 50px;
+    background-image: url(../static/background-staff.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr 3fr;
@@ -7,7 +10,7 @@
     "categoryArea timeArea timeArea"
     "questionArea questionArea questionArea"
     "imgArea imgArea answersArea";
-    grid-gap: 30px;
+    grid-gap: 20px;
     // align-items: center;
     text-align: center;
     // flex-direction: column;
@@ -18,9 +21,19 @@
 
     .categoryBox {
         grid-area: categoryArea;
-        background-color: aqua;
         height: 100%;
+        margin: auto 0;
         position: relative;
+        background: $c-bg-primary;
+        font-size: $b-buttonFontSize;
+        color: $c-font-primary;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        text-transform: uppercase;
+        border: 2px solid black;
+        border-radius: 10px;
+        // cursor: pointer;
+        // transition: 0.2s linear;
+        // box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
 
         p {
             width: 100%;
@@ -32,26 +45,44 @@
 
     .timeBox {
         grid-area: timeArea;
-        background-color: blue;
         height: 100%;
         position: relative;
+        // display: inline-flex;
+        // flex-direction: row;
+        background: $c-bg-primary;
+        font-size: $b-buttonFontSize;
+        color: $c-font-primary;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        border: 2px solid black;
+        border-radius: 10px;
 
-        p {
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+        // .timeArea {
+        //     padding: 0 15px;
+        //     text-align: center;
+        //     height: 50%;
+        //     position: absolute;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     margin: auto 0;
+        //     text-transform: uppercase;
+        // }
     }
 
     .question {
         grid-area: questionArea;
-        background-color: chartreuse;
         height: 100%;
         position: relative;
+        background: $c-bg-primary;
+        font-size: $b-buttonFontSize;
+        color: $c-font-primary;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        border: 2px solid black;
+        border-radius: 10px;
 
         p {
-            width: 100%;
+            font-size: 1.5vw;
+            // width: 90%;
+            margin: 0 20px;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -60,38 +91,40 @@
 
     .photoBox {
         grid-area: imgArea;
-        background-color: chocolate;
         height: 100%;
         position: relative;
+        // border: aqua 1px solid;
 
-        p {
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+        img {
+            height: 100%;
         }
     }
 
     .answersBox {
         grid-area: answersArea;
-        background-color: cornflowerblue;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
 
-        .answer {
+        .ansBtn {
             position: relative;
-            width: 80%;
+            width: 100%;
             height: 20%;
             margin: 5% auto;
-            background-color: crimson;
+            background: $c-bg-primary;
+            font-size: $b-buttonFontSize;
+            color: $c-font-primary;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
 
-            input {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
+        .ansBtn:hover {
+            cursor: pointer;
+            background-color: $c-bg-hover;
+            color: $c-font-hover;
+            border: 2px solid $c-font-hover;
         }
     }
 
