@@ -2,15 +2,12 @@
 // font-family: 'Indie Flower', cursive;
 // font-family: 'Tangerine', cursive;
 
-
-
 .rulesPage__wrapper {
 
     flex-direction: row;
     justify-content: space-between;
     
 }
-
 
 section.sectionRules {
     width: 700px;
@@ -32,12 +29,35 @@ section.sectionRules {
         font-size: $p-paragraphFontSize;
     }
 }
-
-div.menuRulesPage__wrapper {
+.menuRulesPage__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 450px;
-
 }
+@media (max-width: $break-tablet) {
+    section.sectionRules {
+        width: 550px;
+padding: 10px 20px;
+        & h1 {
+            font-size: $h-headlinesFontSizeMobile;
+        }
+
+        & p {
+            font-size: $p-paragraphFontSizeMobile;
+        }
+    }
+}
+@media (max-width: $break-mobile) {
+    .rulesPage__wrapper {
+        flex-direction: column;
+        flex-direction: column-reverse;
+    }
+    section.sectionRules {
+        width: 350px;
+        padding: 30px 20px;
+    }
+}
+    
+

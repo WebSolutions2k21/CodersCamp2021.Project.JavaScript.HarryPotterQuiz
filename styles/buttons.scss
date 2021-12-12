@@ -17,10 +17,32 @@
     border-radius: 10px;
     transition: 0.2s linear;
     cursor: pointer;
+
+    &__right{
+        background: #1A472A;
+    }
+    &__wrong {
+        background: #4b4b4b;
+    }
 }
 
 .btn:hover {
     background-color: $c-bg-hover;
     color: $c-font-hover;
     border: 2px solid $c-font-hover;
+}
+@media (max-width: $break-mobile) {
+    .btn{
+    height: 80px;
+    line-height: 80px;
+    font-size: $b-buttonFontSizeMobile;
+}
+}
+@media (max-width: $break-xs) {
+    .btn {
+        padding: 6px 20px;
+        height: 50px;
+        line-height: 50px;
+        
+    }
 }
