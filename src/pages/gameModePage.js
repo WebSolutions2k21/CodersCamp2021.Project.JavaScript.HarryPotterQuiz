@@ -26,11 +26,28 @@ const createGameModePage = (rootElement) => {
     true,
   );
 
-  // add border color
-  document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('gameMode__btn')) {
-      event.target.classList.toggle('bor');
-    }
+  // get the value from placeholder
+  form.addEventListener('input', (e) => {
+    let player = e.target.value;
+    console.log(player);
+  });
+
+  // kategorie oddzielnie
+  const students = document.getElementById('students');
+  const staff = document.getElementById('staff');
+  const houses = document.getElementById('houses');
+
+  //add border color
+  const tipBtn = document.querySelectorAll('.gameMode__btn');
+  tipBtn.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      tipBtn.forEach((btn) => {
+        btn.classList.remove('bor');
+        if (event.target.innerHTML == btn.innerHTML) {
+          btn.classList.add('bor');
+        }
+      });
+    });
   });
 };
 

@@ -12,27 +12,25 @@
   <body>
     <div id="root"></div>
     <template id="homePage">
-        <div class="wrapperHomePage">
+        <div class="wrapper">
             <button data-action-start class="btn">Start</button>
             <button data-action-rules class="btn">Rules</button>
             <button data-action-scores class="btn">Best Scores</button>
-            <button data-action-resultPage class="btn">Result Page</button>
+            <button data-action-resultpage class="btn">Result Page</button>
         </div>
     </template>
     <template id="rulesPage">
-        <div class="wrapperHomePage wrapperRulesPage">
+        <div class="wrapper rulesPage__wrapper">
             <section class="sectionRules">
                 <h1>Rules</h1>
-                <p class=>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quos aliquid tenetur, ipsa
-                    molestias,
-                    aperiam quidem ipsum unde ratione veniam in excepturi delectus. Repudiandae perspiciatis odio dicta
-                    quidem, necessitatibus numquam!
-
-                </p>
+                <p>Click on start, then enter your nickname and choose one of the three categories.</p>
+                  <p>Answer the questions by clicking on the answer of your choice.</p>
+                  <p>You will receive 10 point for a correct answer, and 0 points for a wrong answer.</p>
+                  <p>Remember, you have one minute to answer as many questions as possible.</p>
+                  <p>Have Fun!</p>
             </section>
-            <div class=wrapperMenuRulesPage>
+            <div class="menuRulesPage__wrapper">
                 <button data-action-start class="btn">Start</button>
-                <button data-action-rules class="btn">Rules</button>
                 <button data-action-scores class="btn">Best Scores</button>
                 <button data-action-exit class="btn">Exit</button>
             </div>
@@ -56,9 +54,9 @@
         </div>
         
         <div class="gameMode__modes">
-          <button data-action-students class="gameMode__btn" type="button">STUDENTS</button>
-          <button data-action-staff class="gameMode__btn" type="button">STAFF</button>
-          <button data-action-houses class="gameMode__btn" type="button">HOUSES</button>
+          <button data-action-students id="students" class="gameMode__btn" type="button">STUDENTS</button>
+          <button data-action-staff id="staff" class="gameMode__btn" type="button">STAFF</button>
+          <button data-action-houses id="houses" class="gameMode__btn" type="button">HOUSES</button>
         </div>
       </div>
     </template>
