@@ -1,5 +1,5 @@
 .quizPage {
-    background-image: url(../static/background-students.jpg);
+    background-image: url("../static/background-students.jpg");
     background-size: cover;
     background-position: center;
     padding: 30px;
@@ -11,15 +11,12 @@
     "questionArea questionArea questionArea"
     "imgArea imgArea answersArea";
     grid-gap: 20px;
-    // align-items: center;
     text-align: center;
-    // flex-direction: column;
-    // justify-content: space-evenly;
     width: 100vw;
     height: 100vh;
     font-size: $p-paragraphFontSize;
 
-    .categoryBox {
+    &__categoryBox {
         grid-area: categoryBox;
         height: 100%;
         margin: auto 0;
@@ -37,10 +34,11 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
         }
     }
 
-    .timeBox {
+    &__timeBox {
         grid-area: timeBox;
         height: 100%;
         position: relative;
@@ -52,6 +50,11 @@
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         border: 2px solid black;
         border-radius: 10px;
+        background-image: url("../static/wand.png");
+        background-size: contain;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
 
         // .timeArea {
         //     padding: 0 15px;
@@ -65,7 +68,7 @@
         // }
     }
 
-    .question {
+    &__question {
         grid-area: questionArea;
         height: 100%;
         position: relative;
@@ -78,26 +81,25 @@
 
         p {
             font-size: 1.5vw;
-            // width: 90%;
             margin: 0 20px;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
         }
     }
 
-    .photoBox {
+    &__photoBox {
         grid-area: imgArea;
         height: 100%;
         position: relative;
-        // border: aqua 1px solid;
-
-        img {
-            height: 100%;
-        }
+        background-image: url("../assets/images/students/Theodore_Nott.jpeg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
-    .answersBox {
+    &__answersBox {
         grid-area: answersArea;
         height: 100%;
         display: flex;
