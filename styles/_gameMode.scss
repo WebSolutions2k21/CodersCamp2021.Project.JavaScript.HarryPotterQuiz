@@ -126,27 +126,27 @@
     @media (max-width: $break-mobile) {
         &__main {
             width: 80%;
-            font-size: 50px;
+            font-size: 40px;
+            line-height: 125px;
         }
         &__modes {
             width: 100%;
         }
         &__btn {
-            margin-right: 20px;
-            font-size: 21px;
+            margin-right: 18px;
+            font-size: 20px;
         }
         &__nameStartinp {
-            font-size: 21px;
-            width: 100%;
+            font-size: 18px;
+            width: 95%;
         }
         &__nameStartinp::placeholder {
-            font-size: 21px;
+            font-size: 18px;
             top: 13px;
-            left: 15px;
         }
         &__textError {
-            font-size: 18px;
-            margin-left: 1.5rem;
+            font-size: 16px;
+            margin-left: .5rem;
         }
     }
 }
