@@ -51,5 +51,4 @@ const createGameModePage = (rootElement) => {
   });
 };
 
-
 export default createGameModePage;
