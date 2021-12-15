@@ -8,7 +8,6 @@ const createGameModePage = (rootElement) => {
 
   appScreen.innerHTML = gameModePage.innerHTML;
 
-  //mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
   mapNavigationClickToTemplate(rootElement, '[data-action-exit]', createHomePage);
 
 
@@ -29,23 +28,16 @@ const createGameModePage = (rootElement) => {
     true,
   );
 
-  // kategorie oddzielnie
-  const students = document.getElementById('students');
-  const staff = document.getElementById('staff');
-  const houses = document.getElementById('houses');
-
-
-  let player;
-  const tutaj = document.querySelector('.gameMode__other')
   // get the value from placeholder
+  let player;
   form.addEventListener('input', (e) => {
     player = e.target.value;
     console.log(player);
   });
 
-  const err = document.querySelector('.gameMode__textError')
 
-  //add border color
+  //border color, text error, choose the category
+  const err = document.querySelector('.gameMode__textError')
   const tipBtn = document.querySelectorAll('.gameMode__btn');
   tipBtn.forEach((btn) => {
     btn.addEventListener('click', (event) => {
