@@ -34,18 +34,27 @@ const createGameModePage = (rootElement) => {
   const staff = document.getElementById('staff');
   const houses = document.getElementById('houses');
 
+
+  let player;
+  const tutaj = document.querySelector('.gameMode__other')
   // get the value from placeholder
   form.addEventListener('input', (e) => {
-    let player = e.target.value;
+    player = e.target.value;
     console.log(player);
-    //console.log(player.length > 0)
-    //console.log(students)
   });
+
+  const err = document.querySelector('.gameMode__textError')
 
   //add border color
   const tipBtn = document.querySelectorAll('.gameMode__btn');
   tipBtn.forEach((btn) => {
     btn.addEventListener('click', (event) => {
+      if(player === undefined) {
+        err.style.visibility = 'visible';
+        setTimeout(function() {
+          err.style.visibility = 'hidden';
+      }, 2500);
+      } 
       tipBtn.forEach((btn) => {
         btn.classList.remove('bor');
         if (event.target.innerHTML == btn.innerHTML) {
