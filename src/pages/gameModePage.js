@@ -8,7 +8,7 @@ const createGameModePage = (rootElement) => {
 
   appScreen.innerHTML = gameModePage.innerHTML;
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
+  //mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
   mapNavigationClickToTemplate(rootElement, '[data-action-exit]', createHomePage);
 
 
@@ -54,7 +54,9 @@ const createGameModePage = (rootElement) => {
         setTimeout(function() {
           err.style.visibility = 'hidden';
       }, 2500);
-      } 
+      } else {
+        mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
+      }
       tipBtn.forEach((btn) => {
         btn.classList.remove('bor');
         if (event.target.innerHTML == btn.innerHTML) {
