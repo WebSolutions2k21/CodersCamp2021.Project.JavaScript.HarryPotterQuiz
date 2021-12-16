@@ -9,14 +9,14 @@ const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
 const getApiCategory = async (categoryId, id) => {
   const res = await fetch(BASE_API_URL + categoryId);
   const data = await res.json();
-  console.log('Wszystko', data);
+  // console.log('Wszystko', data);
   if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
     const obj = { name: data[id].name, houses: data[id].house };
-    console.log('Wynik', obj);
+    // console.log('Wynik', obj);
     return { name: data[id].name, houses: data[id].house };
   }
   const obj = { name: data[id].name, image: data[id].image };
-  console.log('Wynik', obj);
+  // console.log('Wynik', obj);
   return obj;
 };
 

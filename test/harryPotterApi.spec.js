@@ -10,8 +10,8 @@ describe('Test Harry Potter API to get appreciate image', () => {
     const harryPotterData = await getApiCategory(categoryId, numberOfIndexApi);
     //then
     expect(harryPotterData).toEqual({
-      name: 'Cho Chang',
       image: 'http://hp-api.herokuapp.com/images/cho.jpg',
+      name: 'Cho Chang',
     });
   });
 });
