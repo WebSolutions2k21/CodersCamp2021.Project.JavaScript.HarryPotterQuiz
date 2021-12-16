@@ -108,6 +108,12 @@
         transition: 0.2s linear;
     }
 
+    &__nameStartBack:hover {
+            background-color: $c-bg-hover;
+            color: $c-font-hover;
+            border: 2px solid $c-font-hover;
+        }
+
     &__textError {
         position: absolute;
         margin-top: -20px;
