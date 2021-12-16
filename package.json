@@ -7,7 +7,7 @@
     "start": "parcel -p 8080 watch index.html",
     "build": "parcel build index.html --public-url ./",
     "lint": "eslint ./src/**/*.js --quiet",
-    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\" \"index.html\" \"styles/**/*.scss\"",
     "clean": "rimraf .cache && rimraf coverage && rimraf dist && rimraf node_modules",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -60,14 +60,6 @@
     ],
     "collectCoverageFrom": [
       "./src/**"
-    ]
-  },
-  "staticFiles": {
-    "staticPath": [
-      {
-        "staticPath": "static",
-        "staticOutDir": "static"
-      }
     ]
   },
   "dependencies": {

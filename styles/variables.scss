@@ -6,18 +6,23 @@ $c-font: #efefef;
 $c-font-primary: #d3a625;
 $c-font-secondary: #999;
 $c-font-hover: #eeba30;
+$c-font-time: #0e0d0c;
 
 $c-bg-primary: #ae0001;
 $c-bg-hover: #740001;
+$c-bg-time: #535050;
 
 // Fonts
 //==========================================================================
 $f-baseFontFamily: 'Montserrat', sans-serif;
 $f-mainFontFamily: 'Harry Potter', sans-serif;
 
-$h-headlinesFontSize: 4vw;
-$b-buttonFontSize: 2.5vw;
-$p-paragraphFontSize: 2vw;
+$h-headlinesFontSize: 4rem;
+$b-buttonFontSize: 2.5rem;
+$p-paragraphFontSize: 1.5rem;
+$h-headlinesFontSizeMobile: 1.5rem;
+$b-buttonFontSizeMobile:1.5rem;
+$p-paragraphFontSizeMobile:1rem;
 
 // Breaks
 //==========================================================================

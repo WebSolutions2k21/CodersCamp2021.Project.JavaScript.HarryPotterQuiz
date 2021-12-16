@@ -2,13 +2,13 @@ import mapNavigationClickToTemplate from '../navigation';
 
 import createHomePage from './homePage';
 
-const createQuizHousesPage = (rootElement) => {
+const createQuizStudentsPage = (rootElement) => {
   const appScreen = document.querySelector(rootElement);
-  const quizHousesPage = document.querySelector('#quizHousesPage');
+  const quizStudentsPage = document.querySelector('#quizStudentsPage');
 
-  appScreen.innerHTML = quizHousesPage.innerHTML;
+  appScreen.innerHTML = quizStudentsPage.innerHTML;
 
   mapNavigationClickToTemplate(rootElement, '[data-action-home]', createHomePage);
 };
 
-export default createQuizHousesPage;
+export default createQuizStudentsPage;

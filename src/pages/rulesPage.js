@@ -10,7 +10,6 @@ const createRulesPage = (rootElement) => {
   appScreen.innerHTML = rulesTemplate.innerHTML;
 
   mapNavigationClickToTemplate(rootElement, '[data-action-start]', createGameModePage);
-  mapNavigationClickToTemplate(rootElement, '[data-action-rules]', createRulesPage);
   mapNavigationClickToTemplate(rootElement, '[data-action-exit]', createHomePage);
   mapNavigationClickToTemplate(rootElement, '[data-action-scores]', createRankingPage);
 };

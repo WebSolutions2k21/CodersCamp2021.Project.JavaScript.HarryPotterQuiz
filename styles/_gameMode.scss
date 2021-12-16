@@ -1,7 +1,5 @@
 .gameMode {
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
       "main main"
@@ -15,15 +13,17 @@
     
     &__main { 
         grid-area: main; 
-        width: 938px;
+        width: 900px;
         height: 103px;
         font-size: 70px;
-        line-height: 140px;
+        line-height: 135px;
         background: $c-bg-primary;
         color: $c-font-primary;
         border-radius: 10px;
+        border: 2px solid black;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
     }
 
     &__modes { 
@@ -31,16 +31,16 @@
         grid-area: modes;
         display: flex;
         flex-direction: column;
-        width: 515px;
+        width: 450px;
     }
 
     &__btn {
         height: 80px;        
         margin-bottom: 40px;
-        background: $c-bg-primary;
         color: $c-font-primary;
+        background: $c-bg-primary;
         font-size: 40px;
-        line-height: 105px;
+        line-height: 95px;
         border-radius: 10px;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -65,8 +65,9 @@
         display: flex;
         position: relative;
         height: 80px;
-        width: 515px;
-        margin-bottom: 40px;
+        width: 500px;
+        margin-top: 120px;
+        margin-bottom: 20px;
         background: #FFFBE4;
         color: #1A472A;
         font-size: 40px;
@@ -81,11 +82,97 @@
     &__nameStartinpEnt::placeholder {
         position: absolute;
         padding-top: $space-small;
-        left: 50px;
+        left: 36px;
         font-size: 40px;
         color: #1A472A;
         text-align: center;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         cursor: none;
+    }
+
+    &__nameStartBack {
+        margin-top: 20px;
+        padding: 0 15px;
+        height: 80px;    
+        margin-bottom: 40px;
+        color: $c-font-primary;
+        background: $c-bg-primary;
+        font-size: 40px;
+        line-height: 95px;
+        border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        cursor: pointer;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        transition: 0.2s linear;
+    }
+
+    &__textError {
+        position: absolute;
+        margin-top: -20px;
+        margin-left: 8.5rem;
+        font-size: 28px;
+        color: $c-bg-primary;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        opacity: 0.9;
+        display: none;
+    }
+
+    .bor {
+        border: 5px solid #1A472A;
+    }
+
+    @media (max-width: $break-tablet) {
+        &__main {
+            width: 750px;
+        }
+        &__modes {
+            width: 350px;
+        }
+        &__nameStartinp {
+            font-size: 35px;
+            width: 400px;
+        }
+        &__nameStartinp::placeholder {
+            font-size: 35px;
+            left: 12px;
+        } 
+        &__textError {
+            font-size: 20px;
+        }
+        &__nameStartBack {
+            font-size: 35px;
+        }
+    }
+    @media (max-width: $break-mobile) {
+        &__main {
+            width: 80%;
+            font-size: 40px;
+            line-height: 125px;
+        }
+        &__modes {
+            width: 100%;
+        }
+        &__btn {
+            margin-right: 18px;
+            font-size: 20px;
+        }
+        &__nameStartinp {
+            font-size: 18px;
+            width: 95%;
+        }
+        &__nameStartinp::placeholder {
+            font-size: 18px;
+            top: 13px;
+        }
+        &__nameStartBack {
+            font-size: 18px;
+            line-height: 85px;
+        }
+        &__textError {
+            font-size: 16px;
+            margin-left: .5rem;
+        }
     }
 }
