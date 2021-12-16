@@ -46,7 +46,7 @@ const createGameModePage = (rootElement) => {
         setTimeout(function() {
           err.style.visibility = 'hidden';
       }, 3000);
-      } else {
+      } else if (player.length >= 1) {
         mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
       }
       tipBtn.forEach((btn) => {
