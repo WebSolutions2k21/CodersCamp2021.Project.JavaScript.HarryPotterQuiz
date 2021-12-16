@@ -1,6 +1,6 @@
 import mapNavigationClickToTemplate from '../navigation';
 import createQuizHousesPage from './quizHousesPage';
-import createQuizStudentsPage from './quizHousesPage.js';
+import createQuizStudentsPage from './quizStudentsPage';
 import createHomePage from './homePage';
 
 const createGameModePage = (rootElement) => {
@@ -9,6 +9,7 @@ const createGameModePage = (rootElement) => {
 
   appScreen.innerHTML = gameModePage.innerHTML;
 
+  
   mapNavigationClickToTemplate(rootElement, '[data-action-exit]', createHomePage);
 
 
@@ -48,7 +49,7 @@ const createGameModePage = (rootElement) => {
           err.style.visibility = 'hidden';
       }, 3000);
       } else if (player.length >= 1) {
-        //mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
+        mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
         mapNavigationClickToTemplate(rootElement, '[data-action-students]', createQuizStudentsPage);
       }
       tipBtn.forEach((btn) => {
@@ -60,6 +61,5 @@ const createGameModePage = (rootElement) => {
     });
   });
 };
-
 
 export default createGameModePage;
