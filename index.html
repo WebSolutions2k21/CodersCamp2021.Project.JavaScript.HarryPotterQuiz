@@ -11,24 +11,7 @@
 
   <body>
     <div id="root"></div>
-    <!-- <template id="quizPage"> -->
-      <div class="quizPage">
-        <div class="quizPage__categoryBox"><p>Students</p></div>
-        <div class="quizPage__timeBox"></div>
-        <div class="quizPage__question">
-            <p>Who is this?</p>
-        </div>
-          <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> -->
-        <div class="quizPage__photoBox"></div>
-        <div class="quizPage__answersBox">
-          <button class="ansBtn">A</button>
-          <button class="ansBtn">B</button>
-          <button class="ansBtn">C</button>
-        </div>
-      </div>
-    <!-- </template> -->
-
-    <!-- <template id="homePage">
+    <template id="homePage">
         <div class="wrapperHomePage">
             <button data-action-start class="btn">Start</button>
             <button data-action-rules class="btn">Rules</button>
@@ -81,26 +64,28 @@
         </div>
       </div>
     </template>
+    <template id="quizStudentsPage">
+      <div class="quizPage">
+         <div class="quizPage__categoryBox"><p>Students</p></div>
+         <div class="quizPage__timeBox"></div>
+         <div class="quizPage__question">
+             <p>Who is this?</p>
+         </div> 
+            <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> --> -->
+         <div class="quizPage__photoBox"></div>
+         <div class="quizPage__answersBox">
+           <button class="ansBtn">A</button>
+           <button class="ansBtn">B</button>
+           <button class="ansBtn">C</button>
+         </div>
+       </div> 
+       <div class="quizHouses__menu">
+        <button data-action-home class="btn">Back</button>
+      </div>
+      </template>
 
     <template id="quizHousesPage">
-<<<<<<< HEAD
-   <div class="quizHouses">
 
-          <div class="quizHouses__question">
-<p class="quizHouses__question__body">What type of house is the character Harry Potter's from?</p>
-<div class="quizHouses__question__action">
-<div class="btn quizHouses__question__action--name">HERO Name</div>
-<div class="btn quizHouses__question__action--time">TIME</div></div>
-         </div>
-    <div class="quizHouses__answers">
-      <img src="./assets/images/quiz/house1.png" class="quizHouses__answers__img" alt="House1">
-      <img src="./assets/images/quiz/house2.png" class="quizHouses__answers__img" alt="House2">
-      <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3">
-      <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4">
-
-    </div>
-
-=======
       <div class="quizCategory">
         <div class="quizCategory__type">Hauses</div>
         <div class="quizCategory__time">TIME</div>
@@ -116,7 +101,7 @@
           <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3" />
           <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4" />
         </div>
->>>>>>> 9e5603d47047ef1f7d7bcf048d0b9d70fb3be2dd
+
 
         <div class="quizHouses__menu">
           <button data-action-home class="btn">Back</button>
@@ -206,8 +191,8 @@
           <button data-action-start class="btn">Play Again</button>
         </div>
       </div>
-    </div>
-    </template> -->
+    
+    </template>
     <script src="src/index.js"></script>
     <script src="src/api/harryPotter.js"></script>
   </body>
