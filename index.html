@@ -11,13 +11,30 @@
 
   <body>
     <div id="root"></div>
-    <template id="homePage">
-      <div class="wrapper">
-        <button data-action-start class="btn">Start</button>
-        <button data-action-rules class="btn">Rules</button>
-        <button data-action-scores class="btn">Best Scores</button>
-        <button data-action-resultpage class="btn">Result Page</button>
+    <!-- <template id="quizPage"> -->
+      <div class="quizPage">
+        <div class="quizPage__categoryBox"><p>Students</p></div>
+        <div class="quizPage__timeBox"></div>
+        <div class="quizPage__question">
+            <p>Who is this?</p>
+        </div>
+          <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> -->
+        <div class="quizPage__photoBox"></div>
+        <div class="quizPage__answersBox">
+          <button class="ansBtn">A</button>
+          <button class="ansBtn">B</button>
+          <button class="ansBtn">C</button>
+        </div>
       </div>
+    <!-- </template> -->
+
+    <!-- <template id="homePage">
+        <div class="wrapperHomePage">
+            <button data-action-start class="btn">Start</button>
+            <button data-action-rules class="btn">Rules</button>
+            <button data-action-scores class="btn">Best Scores</button>
+            <button data-action-resultpage class="btn">Result Page</button>
+        </div>
     </template>
     <template id="rulesPage">
       <div class="wrapper rulesPage__wrapper">
@@ -66,6 +83,24 @@
     </template>
 
     <template id="quizHousesPage">
+<<<<<<< HEAD
+   <div class="quizHouses">
+
+          <div class="quizHouses__question">
+<p class="quizHouses__question__body">What type of house is the character Harry Potter's from?</p>
+<div class="quizHouses__question__action">
+<div class="btn quizHouses__question__action--name">HERO Name</div>
+<div class="btn quizHouses__question__action--time">TIME</div></div>
+         </div>
+    <div class="quizHouses__answers">
+      <img src="./assets/images/quiz/house1.png" class="quizHouses__answers__img" alt="House1">
+      <img src="./assets/images/quiz/house2.png" class="quizHouses__answers__img" alt="House2">
+      <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3">
+      <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4">
+
+    </div>
+
+=======
       <div class="quizCategory">
         <div class="quizCategory__type">Hauses</div>
         <div class="quizCategory__time">TIME</div>
@@ -81,6 +116,7 @@
           <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3" />
           <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4" />
         </div>
+>>>>>>> 9e5603d47047ef1f7d7bcf048d0b9d70fb3be2dd
 
         <div class="quizHouses__menu">
           <button data-action-home class="btn">Back</button>
@@ -91,41 +127,44 @@
     <template id="rankingPage">
       <div class="ranking">
         <div class="ranking__wrapper">
-          <div class="ranking__main">
-            <h2>BEST SCORES</h2>
-            <div class="ranking__list">
-              <div class="ranking__list--item">
-                <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
-                <p>1.<span> ALA</span></p>
-                <p class="points">2000<span>PT</span></p>
-              </div>
-              <div class="ranking__list--item">
-                <p>2.<span> MA</span></p>
-                <p class="points">1800<span>PT</span></p>
-              </div>
-              <div class="ranking__list--item">
-                <p>3.<span> KOTA</span></p>
-                <p class="points">1500<span>PT</span></p>
-              </div>
-              <div class="ranking__list--item">
-                <p>4.<span> PSA</span></p>
-                <p class="points">999<span>PT</span></p>
-              </div>
-              <div class="ranking__list--item">
-                <p>5.<span> CHOMIKA</span></p>
-                <p class="points">13<span>PT</span></p>
-              </div>
-              <div class="ranking__list--item">
-                <p>6.<span> KANARKA</span></p>
-                <p class="points">1<span>PT</span></p>
-              </div>
+            <div class="ranking__main">
+                <h2>BEST SCORES</h2>
+                <div class="ranking__list">
+                    <div class="ranking__list--item">
+                        tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej
+                        <p>1.<span> ALA</span></p>
+                        <p class="points">2000<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>2.<span> MA</span></p>
+                        <p class="points">1800<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>3.<span> KOTA</span></p>
+                        <p class="points">1500<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>4.<span> PSA</span></p>
+                        <p class="points">999<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>5.<span> CHOMIKA</span></p>
+                        <p class="points">13<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>6.<span> KANARKA</span></p>
+                        <p class="points">1<span>PT</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="ranking__main--button">
+                <button class="btn" data-action-home>BACK</button>
             </div>
           </div>
           <div class="ranking__main--button">
             <button class="btn" data-action-home>BACK</button>
           </div>
         </div>
-      </div>
     </template>
 
     <template id="resultPage">
@@ -167,7 +206,8 @@
           <button data-action-start class="btn">Play Again</button>
         </div>
       </div>
-    </template>
+    </div>
+    </template> -->
     <script src="src/index.js"></script>
     <script src="src/api/harryPotter.js"></script>
   </body>
