@@ -66,7 +66,8 @@
         position: relative;
         height: 80px;
         width: 500px;
-        margin-bottom: 40px;
+        margin-top: 120px;
+        margin-bottom: 20px;
         background: #FFFBE4;
         color: #1A472A;
         font-size: 40px;
@@ -89,15 +90,39 @@
         cursor: none;
     }
 
+    &__nameStartBack {
+        margin-top: 20px;
+        padding: 0 15px;
+        height: 80px;
+        margin-bottom: 40px;
+        color: $c-font-primary;
+        background: $c-bg-primary;
+        font-size: 40px;
+        line-height: 95px;
+        border-radius: 10px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        cursor: pointer;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        transition: 0.2s linear;
+    }
+
+    &__nameStartBack:hover {
+            background-color: $c-bg-hover;
+            color: $c-font-hover;
+            border: 2px solid $c-font-hover;
+        }
+
     &__textError {
         position: absolute;
-        margin-top: -35px;
+        margin-top: -20px;
         margin-left: 8.5rem;
         font-size: 28px;
         color: $c-bg-primary;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         opacity: 0.9;
-        display: none;
+        visibility: hidden;
     }
 
     .bor {
@@ -122,31 +147,38 @@
         &__textError {
             font-size: 20px;
         }
+        &__nameStartBack {
+            font-size: 35px;
+        }
     }
     @media (max-width: $break-mobile) {
         &__main {
             width: 80%;
-            font-size: 50px;
+            font-size: 40px;
+            line-height: 125px;
         }
         &__modes {
             width: 100%;
         }
         &__btn {
-            margin-right: 20px;
-            font-size: 21px;
+            margin-right: 18px;
+            font-size: 20px;
         }
         &__nameStartinp {
-            font-size: 21px;
-            width: 100%;
+            font-size: 18px;
+            width: 95%;
         }
         &__nameStartinp::placeholder {
-            font-size: 21px;
+            font-size: 18px;
             top: 13px;
-            left: 15px;
+        }
+        &__nameStartBack {
+            font-size: 18px;
+            line-height: 85px;
         }
         &__textError {
-            font-size: 18px;
-            margin-left: 1.5rem;
+            font-size: 16px;
+            margin-left: .5rem;
         }
     }
 }
