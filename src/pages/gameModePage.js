@@ -1,20 +1,20 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
-
-function savePlayerName() {
-  const login = document.querySelector('#fname').value;
-  localStorage.setItem('namePlayer', login);
-}
+import { saveCurrentPlayerData } from '../localStorageManager';
 
 function addEventListenersForGameModeButtons() {
-  document.querySelectorAll('[data-action-button]').forEach((element) => {
-    element.addEventListener('click', savePlayerName);
+  document.querySelectorAll('[data-game-mode-selection-button]').forEach((element) => {
+    element.addEventListener('click', () => {
+      saveCurrentPlayerData({
+        name: document.querySelector('#fname').value,
+        score: 0,
+        category: element.getAttribute('data-category-name'),
+      });
+      // Przykład uaktualnienia localStorage o 100pkt dla Gryffindoru :)
+      // (a raczej dla aktualnego gracza)
+      // addPointsToCurrentPlayer(100);
+    });
   });
-
-  // var buttons = document.querySelectorAll('[data-action-button]');
-  // for (var i = 0; i < buttons.length; i++) {
-  //   buttons[i].addEventListener('click', savePlayerName);
-  // }
 }
 
 const createGameModePage = () => {
