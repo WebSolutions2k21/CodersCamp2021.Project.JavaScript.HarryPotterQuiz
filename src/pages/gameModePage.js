@@ -1,5 +1,6 @@
 import mapNavigationClickToTemplate from '../navigation';
 import createQuizHousesPage from './quizHousesPage';
+import createQuizStudentsPage from './quizStudentsPage';
 import createHomePage from './homePage';
 
 const createGameModePage = (rootElement) => {
@@ -31,23 +32,28 @@ const createGameModePage = (rootElement) => {
     true,
   );
 
-  // kategorie oddzielnie
-  const students = document.getElementById('students');
-  const staff = document.getElementById('staff');
-  const houses = document.getElementById('houses');
-
   // get the value from placeholder
+  let player;
   form.addEventListener('input', (e) => {
-    let player = e.target.value;
+    player = e.target.value;
     console.log(player);
-    //console.log(player.length > 0)
-    //console.log(students)
   });
 
-  //add border color
+
+  //border color, text error, choose the category
+  const err = document.querySelector('.gameMode__textError')
   const tipBtn = document.querySelectorAll('.gameMode__btn');
   tipBtn.forEach((btn) => {
     btn.addEventListener('click', (event) => {
+      if(player === undefined) {
+        err.style.visibility = 'visible';
+        setTimeout(function() {
+          err.style.visibility = 'hidden';
+      }, 3000);
+      } else if (player.length >= 1) {
+        mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
+        mapNavigationClickToTemplate(rootElement, '[data-action-students]', createQuizStudentsPage);
+      }
       tipBtn.forEach((btn) => {
 
         btn.classList.remove('bor');
@@ -77,6 +83,5 @@ function savePlayerName() {
   const login = document.querySelector('#fname').value;
   localStorage.setItem("namePlayer", login);
 }
-
 
 export default createGameModePage;
