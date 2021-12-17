@@ -12,7 +12,6 @@ const createGameModePage = (rootElement) => {
 
   addEventListenersForGameModeButtons();
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
   mapNavigationClickToTemplate(rootElement, '[data-action-back]', createHomePage);
 
   // change placeholder
