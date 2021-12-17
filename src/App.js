@@ -3,6 +3,7 @@ import createGameModePage from './pages/gameModePage';
 import createResultPage from './pages/resultPage';
 import createQuizHousesPage from './pages/quizHousesPage';
 import createNotFoundPage from './pages/notFoundPage';
+import { paths } from './shared/router';
 
 const App = ({ options }) => {
   const path = window.location.pathname;
@@ -18,7 +19,7 @@ const App = ({ options }) => {
 
   if (path in routes) routes[path]();
   else {
-    window.history.pushState({}, '', '/404');
+    window.history.pushState({}, '', paths.notFound);
     window.location.reload();
   }
 };
