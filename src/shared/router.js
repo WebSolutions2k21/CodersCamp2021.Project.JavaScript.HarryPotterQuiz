@@ -6,6 +6,7 @@ export const paths = {
   ranking: '/ranking',
   result: '/result',
   rules: '/rules',
+  notFound: '/404',
 };
 
 export const route = (path) => {
