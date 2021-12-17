@@ -19,11 +19,13 @@
     cursor: pointer;
 
     &__right {
-        background: #1A472A;
+        background: #4b4b4b;
+        border: 10px solid #1A472A;
     }
 
     &__wrong {
         background: #4b4b4b;
+        border: 10px solid $c-bg-primary;
     }
 }
 
@@ -31,7 +33,16 @@
     background-color: $c-bg-hover;
     color: $c-font-hover;
     border: 2px solid $c-font-hover;
+    
 }
+// .btn__right:hover {
+//     background: #4b4b4b;
+//         border: 10px solid #1A472A;
+// }
+// .btn__wrong:hover {
+//         background: #4b4b4b;
+//         border: 10px solid #740001;
+//     }
 
 @media (max-width: $break-mobile) {
     .btn {

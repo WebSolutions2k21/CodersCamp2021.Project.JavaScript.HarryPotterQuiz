@@ -2,6 +2,7 @@ import mapNavigationClickToTemplate from '../navigation';
 import createQuizHousesPage from './quizHousesPage';
 import createQuizStudentsPage from './quizStudentsPage';
 import createHomePage from './homePage';
+import { saveCurrentPlayerData, addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createGameModePage = (rootElement) => {
   const appScreen = document.querySelector(rootElement);
@@ -13,7 +14,6 @@ const createGameModePage = (rootElement) => {
 
   mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
   mapNavigationClickToTemplate(rootElement, '[data-action-back]', createHomePage);
-
 
   // change placeholder
   const form = document.querySelector('form');
@@ -39,23 +39,21 @@ const createGameModePage = (rootElement) => {
     console.log(player);
   });
 
-
   //border color, text error, choose the category
-  const err = document.querySelector('.gameMode__textError')
+  const err = document.querySelector('.gameMode__textError');
   const tipBtn = document.querySelectorAll('.gameMode__btn');
   tipBtn.forEach((btn) => {
     btn.addEventListener('click', (event) => {
-      if(player === undefined) {
+      if (player === undefined) {
         err.style.visibility = 'visible';
-        setTimeout(function() {
+        setTimeout(function () {
           err.style.visibility = 'hidden';
-      }, 3000);
+        }, 3000);
       } else if (player.length >= 1) {
         mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
         mapNavigationClickToTemplate(rootElement, '[data-action-students]', createQuizStudentsPage);
       }
       tipBtn.forEach((btn) => {
-
         btn.classList.remove('bor');
 
         if (event.target.innerHTML == btn.innerHTML) {
@@ -64,24 +62,20 @@ const createGameModePage = (rootElement) => {
       });
     });
   });
-
 };
 
 function addEventListenersForGameModeButtons() {
-
-  document.querySelectorAll('[data-action-button]').forEach(element => {
-    element.addEventListener('click', savePlayerName);
+  document.querySelectorAll('[data-game-mode-selection-button]').forEach((element) => {
+    element.addEventListener('click', () => {
+      saveCurrentPlayerData({
+        name: document.querySelector('#fname').value,
+        score: 0,
+        category: element.getAttribute('data-category-name'),
+      });
+      /// Przykład uaktualnienia localStorage o 100pkt dla Gryffindoru :) (a raczej dla aktualnego gracza)
+      // addPointsToCurrentPlayer(100);
+    });
   });
-
-  // var buttons = document.querySelectorAll('[data-action-button]');
-  // for (var i = 0; i < buttons.length; i++) {
-  //   buttons[i].addEventListener('click', savePlayerName);
-  // }
-};
-
-function savePlayerName() {
-  const login = document.querySelector('#fname').value;
-  localStorage.setItem("namePlayer", login);
 }
 
 export default createGameModePage;
