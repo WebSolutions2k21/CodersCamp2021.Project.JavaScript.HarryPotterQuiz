@@ -1,8 +1,10 @@
-function mapNavigationClickToTemplate(rootElement, btnSelector, switchFuntion) {
+import { route } from './shared/router';
+
+function mapNavigationClickToTemplate(btnSelector, path) {
   const btn = document.querySelector(btnSelector);
 
   btn.addEventListener('click', () => {
-    switchFuntion(rootElement);
+    route(path);
   });
 }
 
