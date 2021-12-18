@@ -66,3 +66,24 @@
       gap: 2em;
     }
   }
+
+@media (max-width: $break-mobile) {
+  .quizCategory {
+    &__type {
+    }
+    &__time {
+
+    }
+  }
+
+  .quizStudents {
+  }
+}
+    // .rulesPage__wrapper {
+    //     flex-direction: column;
+    //     flex-direction: column-reverse;
+    // }
+    // section.sectionRules {
+    //     width: 350px;
+    //     padding: 30px 20px;
+    // }
