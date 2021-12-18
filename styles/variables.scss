@@ -19,13 +19,23 @@ $f-mainFontFamily: 'Harry Potter', sans-serif;
 
 $h-headlinesFontSize: 4rem;
 $b-buttonFontSize: 2.5rem;
-$p-paragraphFontSize: 1.5rem;
-$h-headlinesFontSizeMobile: 1.5rem;
-$b-buttonFontSizeMobile:1.5rem;
-$p-paragraphFontSizeMobile:1rem;
+$p-paragraphFontSize: 1.9rem;
+
+$h-headlinesFontSizeTablet: 3rem;
+$b-buttonFontSizeTablet: 2rem;
+$p-paragraphFontSizeTablet: 2rem;
+
+$h-headlinesFontSizeMobile: 2.5rem;
+$b-buttonFontSizeMobile: 1.5rem;
+$p-paragraphFontSizeMobile: 1.2rem;
+
+$h-headlinesFontSizeMobileSmall: 2rem;
+$b-buttonFontSizeMobileSmall: 1.5rem;
+$p-paragraphFontSizeMobileSmall: 1rem;
 
 // Breaks
 //==========================================================================
+$break-xxs: 350px;
 $break-xs: 575px;
 $break-mobile: 767px;
 $break-tablet: 991px;
