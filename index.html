@@ -11,28 +11,28 @@
 
   <body>
     <div id="root"></div>
-     <template id="homePage">
-        <div class="wrapperHomePage">
+    <template id="homePage">
+        <div class="wrapperHomePage responsiveHomePage">
             <button data-action-start class="btn">Start</button>
             <button data-action-rules class="btn">Rules</button>
             <button data-action-scores class="btn">Best Scores</button>
-            <button data-action-resultpage class="btn">Result Page</button>
+            <!-- <button data-action-resultpage class="btn">Result Page</button> -->
         </div>
     </template>
     <template id="rulesPage">
-      <div class="wrapper rulesPage__wrapper">
-        <section class="sectionRules">
+      <div class="rulesPage__wrapper responsiveRulesPage">
+        <div class="rulesPage__wrapper_center">
+        <section class="rulesPage__main">
           <h1>Rules</h1>
-          <p>Click on start, then enter your nickname and choose one of the three categories.</p>
-          <p>Answer the questions by clicking on the answer of your choice.</p>
-          <p>You will receive 10 point for a correct answer, and 0 points for a wrong answer.</p>
-          <p>Remember, you have one minute to answer as many questions as possible.</p>
+          <p>Click on start, then enter your nickname and choose one of the three categories.
+          Answer the questions by clicking on the answer of your choice.
+          You will receive 10 point for a correct answer, and 0 points for a wrong answer.
+          Remember, you have one minute to answer as many questions as possible.
           <p>Have Fun!</p>
         </section>
-        <div class="menuRulesPage__wrapper">
-          <button data-action-start class="btn">Start</button>
-          <button data-action-scores class="btn">Best Scores</button>
-          <button data-action-exit class="btn">Exit</button>
+        <div class="rulesPage__buttom">
+          <button data-action-back class="btn">Back</button>
+        </div>
         </div>
       </div>
     </template>
@@ -54,24 +54,37 @@
             />
             <div class="gameMode__textError">Muggle, you forgot something!</div>
           </form>
-          <button data-action-exit class="gameMode__nameStartBack">BACK</button>
+          <button data-action-back class="gameMode__nameStartBack">BACK</button>
         </div>
 
         <div class="gameMode__modes">
-          <button data-action-students id="students" class="gameMode__btn" type="button">STUDENTS</button>
-          <button data-action-staff id="staff" class="gameMode__btn" type="button">STAFF</button>
-          <button data-action-houses id="houses" class="gameMode__btn" type="button">HOUSES</button>
+          <button data-action-students data-game-mode-selection-button data-category-name="students" id="students" class="gameMode__btn" type="button">STUDENTS</button>
+          <button data-action-staff data-game-mode-selection-button data-category-name="staff" id="staff" class="gameMode__btn"
+  type="button">STAFF</button>
+          <button data-action-houses data-game-mode-selection-button data-category-name="houses" id="houses" class="gameMode__btn" type="button">HOUSES</button>
         </div>
       </div>
     </template>
 
     <template id="quizStudentsPage">
-
-      <div class="quizCategory">
-        <div class="quizCategory__type"><p>Students</p></div>
-        <div class="quizCategory__time"></div>
+      <div class="quizPage">
+         <div class="quizPage__categoryBox"><p>Students</p></div>
+         <div class="quizPage__timeBox"></div>
+         <div class="quizPage__question">
+             <p>Who is this?</p>
+         </div>
+            <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> -->
+         <div class="quizPage__photoBox"></div>
+         <div class="quizPage__answersBox">
+           <button class="ansBtn">A</button>
+           <button class="ansBtn">B</button>
+           <button class="ansBtn">C</button>
+         </div>
+       </div>
+       <div class="quizHouses__menu">
+        <button data-action-back class="btn">Back</button>
       </div>
-      <div class="quizStudents">
+      <!-- <div class="quizStudents">
         <div class="quizStudents__centerBox">
           <div class="quizStudents__centerBox__photo"></div>
           <div class="quizStudents__centerBox__qa">
@@ -86,7 +99,7 @@
          <div class="quizHouses__menu">
           <button data-action-home class="btn">Back</button>
          </div>
-       </div>
+       </div> -->
 
       </template>
 

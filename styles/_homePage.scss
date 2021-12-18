@@ -7,3 +7,20 @@
   height: 100vh;
   max-width: $break-laptop;
 }
+
+.responsiveHomePage{
+@media (max-width: 767px) {
+  .btn {
+        padding: 6px 20px;
+        height: 50px;
+        line-height: 50px;
+
+    }
+}
+@media (orientation: landscape) and (max-width: 1030px){
+
+  .btn {
+    margin: 15px auto;
+}
+}
+}
