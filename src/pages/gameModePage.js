@@ -52,6 +52,7 @@ const createGameModePage = (rootElement) => {
       } else if (player.length >= 1) {
         mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
         mapNavigationClickToTemplate(rootElement, '[data-action-students]', createQuizStudentsPage);
+        mapNavigationClickToTemplate(rootElement, '[data-action-staff]', createQuizStaffPage);
       }
       tipBtn.forEach((btn) => {
         btn.classList.remove('bor');
