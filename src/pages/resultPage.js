@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import mapNavigationClickToTemplate from '../navigation';
 import createGameModePage from './gameModePage';
 import createRankingPage from './rankingPage';
@@ -16,25 +17,50 @@ const createResultPage = (rootElement) => {
 
 export default createResultPage;
 
-// // tymczasowy local Storage
-localStorage.setItem('Test1', 500);
-localStorage.setItem('Test2', 200);
-localStorage.setItem('Test3', 250);
-localStorage.setItem('Test4', 700);
-localStorage.setItem('Test5', 550);
-localStorage.setItem('Test6', 150);
-localStorage.setItem('Test7', 100);
+//------------------------------------------------
 
-const players = [];
+import { getCurrentPlayerData } from '../localStorageManager';
 
-for (let [key, value] of Object.entries(localStorage)) {
-  players.push([key, Number(value)]);
+function getDataFromLocalStorage() {
+  return JSON.parse(localStorage.getItem('allPlayers'));
 }
 
-// for (const [key, value] of Object.entries(players)) {
-//   console.log(key, value);
-// }
+function filterPlayers(players, housesPlayers, studentsPlayers, staffPlayers) {
+  players.forEach((allPlayers) => {
+    const singleArrayElement = JSON.parse(allPlayers);
+    if (singleArrayElement) {
+      if (singleArrayElement.category === 'houses') {
+        housesPlayers.push(singleArrayElement);
+      } else if (singleArrayElement.category === 'students') {
+        studentsPlayers.push(singleArrayElement);
+      } else if (singleArrayElement.category === 'staff') {
+        staffPlayers.push(singleArrayElement);
+      }
+    }
+  });
+}
 
-players.sort((a, b) => b[1] - a[1]);
+function sortArrays(housesPlayers, studentsPlayers, staffPlayers) {
+  housesPlayers.sort((a, b) => b.score - a.score);
+  studentsPlayers.sort((a, b) => b.score - a.score);
+  staffPlayers.sort((a, b) => b.score - a.score);
+}
+const players = [];
+const housesPlayers = [];
+const studentsPlayers = [];
+const staffPlayers = [];
 
-console.log(players);
+if (getDataFromLocalStorage()) {
+  getDataFromLocalStorage().forEach((values) => players.push(values));
+}
+// eslint-disable-next-line max-len
+// należy dodawać curretPlayerData w momencie gdy skończy się czas lub klikniety będzie koniec prowadzący do resultPage
+
+players.push(getCurrentPlayerData());
+
+localStorage.setItem('allPlayers', JSON.stringify(players));
+
+filterPlayers(players, housesPlayers, studentsPlayers, staffPlayers);
+sortArrays(housesPlayers, studentsPlayers, staffPlayers);
+// console.log(housesPlayers);
+// console.log(studentsPlayers);
