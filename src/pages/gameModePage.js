@@ -1,6 +1,7 @@
 import mapNavigationClickToTemplate from '../navigation';
 import createQuizHousesPage from './quizHousesPage';
 import createQuizStudentsPage from './quizStudentsPage';
+import createQuizStaffPage from './quizStaffPage';
 import createHomePage from './homePage';
 import { saveCurrentPlayerData, addPointsToCurrentPlayer } from '../localStorageManager';
 
@@ -51,6 +52,7 @@ const createGameModePage = (rootElement) => {
       } else if (player.length >= 1) {
         mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
         mapNavigationClickToTemplate(rootElement, '[data-action-students]', createQuizStudentsPage);
+        mapNavigationClickToTemplate(rootElement, '[data-action-staff]', createQuizStaffPage);
       }
       tipBtn.forEach((btn) => {
         btn.classList.remove('bor');
