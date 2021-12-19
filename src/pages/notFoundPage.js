@@ -1,13 +1,12 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 
-const createRankingPage = () => {
+const createNotFoundPage = () => {
   const appScreen = document.querySelector('#root');
-  const rankingTemplate = document.querySelector('#rankingPage');
-
-  appScreen.innerHTML = rankingTemplate.innerHTML;
+  const homePage = document.querySelector('#notFound');
+  appScreen.innerHTML = homePage.innerHTML;
 
   mapNavigationClickToTemplate('[data-action-home]', paths.home);
 };
 
-export default createRankingPage;
+export default createNotFoundPage;

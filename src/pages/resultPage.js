@@ -1,25 +1,22 @@
 /* eslint-disable spaced-comment */
 import mapNavigationClickToTemplate from '../navigation';
-import createGameModePage from './gameModePage';
-import createRankingPage from './rankingPage';
-import createHomePage from './homePage';
+import { paths } from '../shared/router';
+import { getCurrentPlayerData } from '../localStorageManager';
 
-const createResultPage = (rootElement) => {
-  const appScreen = document.querySelector(rootElement);
+const createResultPage = () => {
+  const appScreen = document.querySelector('#root');
   const resultPage = document.querySelector('#resultPage');
 
   appScreen.innerHTML = resultPage.innerHTML;
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-start]', createGameModePage);
-  mapNavigationClickToTemplate(rootElement, '[data-action-scores]', createRankingPage);
-  mapNavigationClickToTemplate(rootElement, '[data-action-home]', createHomePage);
+  mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
+  mapNavigationClickToTemplate('[data-action-scores]', paths.ranking);
+  mapNavigationClickToTemplate('[data-action-home]', paths.home);
 };
 
 export default createResultPage;
 
 //------------------------------------------------
-
-import { getCurrentPlayerData } from '../localStorageManager';
 
 function getDataFromLocalStorage() {
   return JSON.parse(localStorage.getItem('allPlayers'));
@@ -62,5 +59,5 @@ localStorage.setItem('allPlayers', JSON.stringify(players));
 
 filterPlayers(players, housesPlayers, studentsPlayers, staffPlayers);
 sortArrays(housesPlayers, studentsPlayers, staffPlayers);
-// console.log(housesPlayers);
-// console.log(studentsPlayers);
+console.log(housesPlayers);
+console.log(studentsPlayers);

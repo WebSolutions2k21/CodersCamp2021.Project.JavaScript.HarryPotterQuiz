@@ -1,17 +1,13 @@
 import mapNavigationClickToTemplate from '../navigation';
-import createGameModePage from './gameModePage';
-import createHomePage from './homePage';
-import createRankingPage from './rankingPage';
+import { paths } from '../shared/router';
 
-const createRulesPage = (rootElement) => {
-  const appScreen = document.querySelector(rootElement);
+const createRulesPage = () => {
+  const appScreen = document.querySelector('#root');
   const rulesTemplate = document.querySelector('#rulesPage');
 
   appScreen.innerHTML = rulesTemplate.innerHTML;
 
-  
-  mapNavigationClickToTemplate(rootElement, '[data-action-back]', createHomePage);
-  
+  mapNavigationClickToTemplate('[data-action-back]', paths.home);
 };
 
 export default createRulesPage;

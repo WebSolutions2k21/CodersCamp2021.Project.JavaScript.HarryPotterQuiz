@@ -13,12 +13,12 @@
   <body>
     <div id="root"></div>
     <template id="homePage">
-        <div class="wrapperHomePage responsiveHomePage">
-            <button data-action-start class="btn">Start</button>
-            <button data-action-rules class="btn">Rules</button>
-            <button data-action-scores class="btn">Best Scores</button>
-            <!-- <button data-action-resultpage class="btn">Result Page</button> -->
-        </div>
+       <div class="wrapperHomePage responsiveHomePage">
+        <button data-action-start class="btn">Start</button>
+        <button data-action-rules class="btn">Rules</button>
+        <button data-action-scores class="btn">Best Scores</button>
+        <!-- <button data-action-resultpage class="btn">Result Page</button> -->
+      </div>
     </template>
     <template id="rulesPage">
       <div class="rulesPage__wrapper responsiveRulesPage">
@@ -55,13 +55,44 @@
             />
             <div class="gameMode__textError">Muggle, you forgot something!</div>
           </form>
-          <button data-action-back class="gameMode__nameStartBack">BACK</button>
+          <button data-action-back 
+          class="gameMode__nameStartBack"
+          >
+          BACK
+        </button>
         </div>
 
         <div class="gameMode__modes">
-          <button data-action-students data-game-mode-selection-button data-category-name="students" id="students" class="gameMode__btn" type="button">STUDENTS</button>
-          <button data-action-staff data-game-mode-selection-button data-category-name="staff" id="staff" class="gameMode__btn" type="button">STAFF</button>
-          <button data-action-houses data-game-mode-selection-button data-category-name="houses" id="houses" class="gameMode__btn" type="button">HOUSES</button>
+          <button 
+          data-action-students 
+          data-game-mode-selection-button 
+          data-category-name="students" 
+          id="students" 
+          class="gameMode__btn" 
+          type="button"
+          >
+          STUDENTS
+        </button>
+          <button 
+          data-action-staff 
+          data-game-mode-selection-button d
+          ata-category-name="staff" 
+          id="staff" 
+          class="gameMode__btn" 
+          type="button"
+          >
+          STAFF
+        </button>
+          <button 
+          data-action-houses 
+          data-game-mode-selection-button 
+          data-category-name="houses" 
+          id="houses" 
+          class="gameMode__btn" 
+          type="button"
+          >
+          HOUSES
+        </button>
         </div>
       </div>
     </template>
@@ -94,8 +125,8 @@
     <template id="quizStaffPage">
 
         <div class="quizCategory">
-           <div class="quizCategory__type"><p>Staff</p></div>
-           <div class="quizCategory__time"></div>
+          <div class="quizCategory__type"><p>Staff</p></div>
+          <div class="quizCategory__time"></div>
         </div>
         <div class="quizStaff">
           <div class="quizStaff__centerBox">
