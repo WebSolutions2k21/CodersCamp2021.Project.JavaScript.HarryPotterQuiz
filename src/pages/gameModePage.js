@@ -11,12 +11,7 @@ const createGameModePage = (rootElement) => {
 
   appScreen.innerHTML = gameModePage.innerHTML;
 
-<<<<<<< HEAD
-
-  mapNavigationClickToTemplate(rootElement, '[data-action-exit]', createHomePage);
-=======
   addEventListenersForGameModeButtons();
->>>>>>> 864aef91f9f6031a8c74caa48e951acc1f720355
 
   mapNavigationClickToTemplate(rootElement, '[data-action-back]', createHomePage);
 
