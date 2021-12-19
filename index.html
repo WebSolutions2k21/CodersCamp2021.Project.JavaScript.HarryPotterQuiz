@@ -66,22 +66,28 @@
       </div>
     </template>
     <template id="quizStudentsPage">
-      <div class="quizPage">
+     <div class="quizPage">
          <div class="quizPage__categoryBox"><p>Students</p></div>
          <div class="quizPage__timeBox"></div>
-         <div class="quizPage__question">
+         <div class="quizPage__question" >
              <p>Who is this?</p>
          </div> 
-            <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> --> -->
-         <div class="quizPage__photoBox"></div>
-         <div class="quizPage__answersBox">
+            <!-- <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div> -->
+        <div id="question-container" class="hide">
+         <div class="quizPage__photoBox" >
+           <img src="" alt="image hero" id="question">
+         </div>
+         <div class="quizPage__answersBox" id="answer-buttons">
            <button class="ansBtn">A</button>
            <button class="ansBtn">B</button>
            <button class="ansBtn">C</button>
          </div>
+         <button id="next-btn" class="next-btn btn" hide>Next</button>
        </div> 
+      </div>
+     
        <div class="quizHouses__menu">
-        <button data-action-back class="btn">Back</button>
+        <!-- <button data-action-back class="btn">Back</button> -->
       </div>
       </template>
 

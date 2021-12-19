@@ -49,6 +49,7 @@ const createGameModePage = (rootElement) => {
           err.style.visibility = 'hidden';
         }, 3000);
       } else if (player.length >= 1) {
+   
         mapNavigationClickToTemplate(rootElement, '[data-action-houses]', createQuizHousesPage);
         mapNavigationClickToTemplate(rootElement, '[data-action-students]', createQuizStudentsPage);
       }
