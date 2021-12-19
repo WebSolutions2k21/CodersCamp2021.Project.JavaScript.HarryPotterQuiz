@@ -1,14 +1,15 @@
 import mapNavigationClickToTemplate from '../navigation';
+import { paths } from '../shared/router';
 
-import createHomePage from './homePage';
-
-const createQuizHousesPage = (rootElement) => {
-  const appScreen = document.querySelector(rootElement);
+const createQuizHousesPage = (options) => {
+  const appScreen = document.querySelector('#root');
   const quizHousesPage = document.querySelector('#quizHousesPage');
 
   appScreen.innerHTML = quizHousesPage.innerHTML;
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-home]', createHomePage);
+  console.log('max time ', options.quizMaxTime);
+
+  mapNavigationClickToTemplate('[data-action-home]', paths.home);
 };
 
 export default createQuizHousesPage;

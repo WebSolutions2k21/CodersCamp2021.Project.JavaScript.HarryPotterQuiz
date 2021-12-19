@@ -1,19 +1,16 @@
 import mapNavigationClickToTemplate from '../navigation';
-import createRulesPage from './rulesPage';
-import createGameModePage from './gameModePage';
-import createRankingPage from './rankingPage';
-import createResultPage from './resultPage';
+import { paths } from '../shared/router';
 
-const createHomePage = (rootElement) => {
-  const appScreen = document.querySelector(rootElement);
+const createHomePage = () => {
+  const appScreen = document.querySelector('#root');
   const homePage = document.querySelector('#homePage');
 
   appScreen.innerHTML = homePage.innerHTML;
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-start]', createGameModePage);
-  mapNavigationClickToTemplate(rootElement, '[data-action-rules]', createRulesPage);
-  mapNavigationClickToTemplate(rootElement, '[data-action-scores]', createRankingPage);
-  // mapNavigationClickToTemplate(rootElement, '[data-action-resultPage]', createResultPage);
+  mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
+  mapNavigationClickToTemplate('[data-action-rules]', paths.rules);
+  mapNavigationClickToTemplate('[data-action-scores]', paths.ranking);
+  // mapNavigationClickToTemplate('[data-action-resultPage]', paths.ResultPage);
 };
 
 export default createHomePage;
