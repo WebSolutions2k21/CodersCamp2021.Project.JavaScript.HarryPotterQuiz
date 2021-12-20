@@ -1,14 +1,13 @@
 import mapNavigationClickToTemplate from '../navigation';
+import { paths } from '../shared/router';
 
-import createHomePage from './homePage';
-
-const createQuizStudentsPage = (rootElement) => {
-  const appScreen = document.querySelector(rootElement);
+const createQuizStudentsPage = (options) => {
+  const appScreen = document.querySelector('#root');
   const quizStudentsPage = document.querySelector('#quizStudentsPage');
 
   appScreen.innerHTML = quizStudentsPage.innerHTML;
 
-  mapNavigationClickToTemplate(rootElement, '[data-action-home]', createHomePage);
+  mapNavigationClickToTemplate('[data-action-home]', paths.home);
 };
 
 export default createQuizStudentsPage;
