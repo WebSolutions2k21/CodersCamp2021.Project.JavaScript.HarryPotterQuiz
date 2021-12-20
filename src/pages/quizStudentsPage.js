@@ -1,5 +1,6 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
+import categoryName from '../shared/categoryNameApi';
 
 const createQuizStudentsPage = (options) => {
   const appScreen = document.querySelector('#root');
@@ -37,22 +38,19 @@ const createQuizStudentsPage = (options) => {
 
   //Pobrać dane z wylosownym indexem;
   //Do danych dodać niepoprawne odpowiedzi
-  
+
   const question2 = async (id) => {
     const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
     const data = await res.json();
-    console.log('dane', data);
-    // console.log('Wszystko', data);
-    // if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
-    //   return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
-    // }
-    // const obj = { question: data[id].image, answers: [{ text: data[id].name, answer: true }] };
-    // console.log(obj);
-    // return obj;
+    console.log('Wszystko', data);
+
+    const obj = { question: data[id].image, answers: [{ text: data[id].name, answer: true }] };
+    console.log(obj);
+    return obj;
   };
 
-  const questions2 = Object.keys(question2(5));
-
+  const questions3 = question2(5);
+  console.log('question 2', questions3);
   function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
@@ -73,7 +71,7 @@ const createQuizStudentsPage = (options) => {
     question.answers.forEach((answer) => {
       const button = document.createElement('button');
       button.innerText = answer.text;
-      button.classList.add('ansBtn');
+      button.classList.add('btn');
       if (answer.correct) {
         button.dataset.correct = answer.correct;
       }
@@ -110,20 +108,9 @@ const createQuizStudentsPage = (options) => {
   }
 
   function startGame() {
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     // console.log('question', questions);
-    // shuffledQuestions = async (id) => {
-    //   const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
-    //   const data = await res.json();
-    //   // console.log('Wszystko', data);
-    //   // if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
-    //   //   return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
-    //   // }
-    //   id = 5;
-    //   const obj = { question: data[id].image, answers: [{ text: data[id].name, answer: true }] };
-    //   console.log(obj);
-    //   return obj;
-    // };
+
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
     setNextQuestion();
