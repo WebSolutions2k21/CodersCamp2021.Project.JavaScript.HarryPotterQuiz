@@ -23,7 +23,6 @@ const createQuizStudentsPage = () => {
   const ALL_RECORDS = 5; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
 
-
   //tymczasowe dorobić róźne
   let temp_Rec1 = Math.floor(Math.random() * 79 + 1);
   let temp_Rec2 = Math.floor(Math.random() * 79 + 1);
@@ -36,10 +35,15 @@ const createQuizStudentsPage = () => {
   const questions = async (id) => {
     const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
     const data = await res.json();
-   
-    return { question: data[id].image, answers: [{ text: data[id].name, correct: true }, 
-    { text: data[temp_Rec1].name, correct: false},
-    { text: data[temp_Rec2].name, correct: false }] };
+
+    return {
+      question: data[id].image,
+      answers: [
+        { text: data[id].name, correct: true },
+        { text: data[temp_Rec1].name, correct: false },
+        { text: data[temp_Rec2].name, correct: false },
+      ],
+    };
   };
 
   function clearStatusClass(element) {
@@ -59,6 +63,7 @@ const createQuizStudentsPage = () => {
 
   async function showQuestion(question) {
     questionElement.setAttribute('src', question.question);
+    question.answers.sort(() => Math.random() - 0.5);
     question.answers.forEach((answer) => {
       const button = document.createElement('button');
       button.innerText = answer.text;
@@ -70,7 +75,7 @@ const createQuizStudentsPage = () => {
       }
       button.addEventListener('click', (e) => {
         const selectedButton = e.target;
-console.log('selected answer', selectedButton);
+        console.log('selected answer', selectedButton);
         Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
           setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
         });
@@ -79,7 +84,7 @@ console.log('selected answer', selectedButton);
           console.log('pętla w if limit', currentQuestionIndex + 1);
           nextButton.classList.remove('hide');
         } else {
-        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+          alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
         }
       });
       answerButtonsElement.appendChild(button);
@@ -97,14 +102,14 @@ console.log('selected answer', selectedButton);
   async function setNextQuestion() {
     resetState();
     console.log('jestem w set nex question');
-    shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
+    shuffledQuestions = await await questions(randomNumberOfIndex(ALL_RECORDS));
     await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
     shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
     currentQuestionIndex = 0;
-    correctedAnswers=0;
+    correctedAnswers = 0;
     questionContainerElement.classList.remove('hide');
     await setNextQuestion(shuffledQuestions);
   }
