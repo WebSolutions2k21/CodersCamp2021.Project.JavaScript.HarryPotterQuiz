@@ -1,9 +1,10 @@
 import mapNavigationClickToTemplate from '../navigation';
-
 import createHomePage from './homePage';
-import randomNumberOfIndex from './randomIndexQuizQuestion';
-import getApiCategory from '../api/harryPotter';
+
 import categoryName from '../shared/categoryNameApi';
+import randomNumberOfIndex from './randomIndexQuizQuestion';
+
+const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
 
 const createQuizStudentsPage = (rootElement) => {
   const appScreen = document.querySelector(rootElement);
@@ -22,8 +23,6 @@ const createQuizStudentsPage = (rootElement) => {
   let shuffledQuestions;
   let currentQuestionIndex;
 
-
-
   const questions = [
     {
       question: 'http://hp-api.herokuapp.com/images/harry.jpg',
@@ -40,15 +39,28 @@ const createQuizStudentsPage = (rootElement) => {
     { question: 'http://hp-api.herokuapp.com/images/draco.jpg', answers: [{ text: 'Draco Malfoy', answer: true }] },
   ];
 
-  const randomNumber = randomNumberOfIndex(20);
-  console.log('random bumber', randomNumber);
+  //Pobrać dane z wylosownym indexem;
+  //Do danych dodać niepoprawne odpowiedzi
+  
+  const question2 = async (id) => {
+    const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
+    const data = await res.json();
+    console.log('dane', data);
+    // console.log('Wszystko', data);
+    // if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
+    //   return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
+    // }
+    // const obj = { question: data[id].image, answers: [{ text: data[id].name, answer: true }] };
+    // console.log(obj);
+    // return obj;
+  };
+
+  const questions2 = Object.keys(question2(5));
+
   function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
   }
-
-  const keys = Object.entries(getApiCategory(categoryName.API_CHARACTERS_STUDENTS, randomNumber));
-console.log(keys);
 
   function setStatusClass(element, correct) {
     clearStatusClass(element);
@@ -74,8 +86,8 @@ console.log(keys);
         console.log('click na button');
         const { correct } = selectedButton.dataset;
         setStatusClass(document.body, correct);
-        Array.from(answerButtonsElement.children).forEach((button) => {
-          setStatusClass(button, button.dataset.correct);
+        Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+          setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
         });
         if (shuffledQuestions.length > currentQuestionIndex + 1) {
           nextButton.classList.remove('hide');
@@ -102,8 +114,20 @@ console.log(keys);
   }
 
   function startGame() {
-    // startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    // console.log('question', questions);
+    // shuffledQuestions = async (id) => {
+    //   const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
+    //   const data = await res.json();
+    //   // console.log('Wszystko', data);
+    //   // if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
+    //   //   return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
+    //   // }
+    //   id = 5;
+    //   const obj = { question: data[id].image, answers: [{ text: data[id].name, answer: true }] };
+    //   console.log(obj);
+    //   return obj;
+    // };
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
     setNextQuestion();
@@ -120,7 +144,6 @@ console.log(keys);
   });
 
   startGame();
-
   // const questions = [
   //   { answers:['Hermione Granger'] , image: 'http://hp-api.herokuapp.com/images/hermione.jpeg', answer: true },
   //   { answers:[] 'Ron Weasley', image: 'http://hp-api.herokuapp.com/images/ron.jpg', answer: true },
