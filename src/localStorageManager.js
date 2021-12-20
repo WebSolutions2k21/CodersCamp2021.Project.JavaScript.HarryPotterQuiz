@@ -3,13 +3,13 @@ function saveCurrentPlayerData(currentPlayer) {
 }
 
 function getCurrentPlayerData() {
-  let playerData = localStorage.getItem('currentPlayer');
+  const playerData = localStorage.getItem('currentPlayer');
   return playerData;
 }
 
 function addPointsToCurrentPlayer(pointsToAdd) {
-  let currentPlayerJSON = JSON.parse(getCurrentPlayerData());
-  currentPlayerJSON.score = currentPlayerJSON.score + pointsToAdd;
+  const currentPlayerJSON = JSON.parse(getCurrentPlayerData());
+  currentPlayerJSON.score += pointsToAdd;
   saveCurrentPlayerData(currentPlayerJSON);
 }
 

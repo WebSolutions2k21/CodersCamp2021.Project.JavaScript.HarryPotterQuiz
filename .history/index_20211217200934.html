@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz wiedzy o Harrym Poterze</title>
+
+    <link rel="stylesheet" href="styles/style.scss" />
+  </head>
+
+  <body>
+    <!-- <div id="root"></div>
+     <template id="homePage">
+        <div class="wrapperHomePage">
+            <button data-action-start class="btn">Start</button>
+            <button data-action-rules class="btn">Rules</button>
+            <button data-action-scores class="btn">Best Scores</button>
+            <button data-action-resultpage class="btn">Result Page</button>
+        </div>
+    </template>
+    <template id="rulesPage">
+      <div class="wrapper rulesPage__wrapper">
+        <section class="sectionRules">
+          <h1>Rules</h1>
+          <p>Click on start, then enter your nickname and choose one of the three categories.</p>
+          <p>Answer the questions by clicking on the answer of your choice.</p>
+          <p>You will receive 10 point for a correct answer, and 0 points for a wrong answer.</p>
+          <p>Remember, you have one minute to answer as many questions as possible.</p>
+          <p>Have Fun!</p>
+        </section>
+        <div class="menuRulesPage__wrapper">
+          <button data-action-start class="btn">Start</button>
+          <button data-action-scores class="btn">Best Scores</button>
+          <button data-action-exit class="btn">Exit</button>
+        </div>
+      </div>
+    </template>
+
+    <template id="gameModePage">
+      <div class="gameMode">
+        <div class="gameMode__main">
+          <p>GAME MODE</p>
+        </div>
+
+        <div class="gameMode__other">
+          <form class="gameMode__nameStart" action="">
+            <input
+              class="gameMode__nameStartinp gameMode__nameStartinpEnt"
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="ENTER YOUR NAME"
+            />
+            <div class="gameMode__textError">Muggle, you forgot something!</div>
+          </form>
+          <button data-action-exit class="gameMode__nameStartBack">BACK</button>
+        </div>
+
+        <div class="gameMode__modes">
+          <button data-action-students id="students" class="gameMode__btn" type="button">STUDENTS</button>
+          <button data-action-staff id="staff" class="gameMode__btn" type="button">STAFF</button>
+          <button data-action-houses id="houses" class="gameMode__btn" type="button">HOUSES</button>
+        </div>
+      </div>
+    </template> -->
+    <!-- <template id="quizStudentsPage"> -->
+      <!-- <div class="quizPage">
+         <div class="quizPage__categoryBox"><p>Students</p></div>
+         <div class="quizPage__timeBox"></div>
+         <div class="quizPage__question">
+             <p>Who is this?</p>
+         </div>
+         <div class="quizPage__photoBox"></div>
+         <div class="quizPage__answersBox">
+           <button class="ansBtn">A</button>
+           <button class="ansBtn">B</button>
+           <button class="ansBtn">C</button>
+         </div>
+       </div>
+       <div class="quizHouses__menu">
+        <button data-action-home class="btn">Back</button>
+      </div> -->
+      <!-- </template> -->
+
+      <!-- <template id="quizStaffPage">
+        <div class="quizPage">
+           <div class="quizPage__categoryBox"><p>Staff</p></div>
+           <div class="quizPage__timeBox"></div>
+           <div class="quizPage__question">
+               <p>Who is this?</p>
+           </div>
+              <div class="photoBox"><img src="./assets/images/staff/Albus_Dumbledore.jpeg"></div>
+           <div class="quizPage__photoBox"></div>
+           <div class="quizPage__answersBox">
+             <button class="ansBtn">A</button>
+             <button class="ansBtn">B</button>
+             <button class="ansBtn">C</button>
+           </div>
+         </div>
+         <div class="quizHouses__menu">
+          <button data-action-home class="btn">Back</button>
+        </div>
+        </template> -->
+
+     <template id="quizHousesPage">
+
+      <div class="quizCategory">
+        <div class="quizCategory__type">Hauses</div>
+        <div class="quizCategory__time">TIME</div>
+      </div>
+      <div class="quizHouses">
+        <div class="quizHouses__question">
+          <p class="quizHouses__question__body">What type of house is the character Harry Potter's from?</p>
+          <div class="quizHouses__question__name">Question Name</div>
+        </div>
+        <div class="quizHouses__answers">
+          <img src="./assets/images/quiz/house1.png" class="quizHouses__answers__img" alt="House1" />
+          <img src="./assets/images/quiz/house2.png" class="quizHouses__answers__img" alt="House2" />
+          <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3" />
+          <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4" />
+        </div>
+
+
+        <div class="quizHouses__menu">
+          <button data-action-home class="btn">Back</button>
+        </div>
+      </div>
+    </template>
+
+    <--! <template id="rankingPage">
+      <div class="ranking">
+        <div class="ranking__wrapper">
+            <div class="ranking__main">
+                <h1>BEST SCORES</h1>
+                <div class="ranking__categories">
+                  <div class="ranking__list">
+                    <h2>STUDENTS</h2>
+                      <div class="ranking__list--item">
+                          tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej
+                          <p>1.<span> ALA</span></p>
+                          <p class="points">2000<span>PT</span></p>
+                      </div>
+                      <div class="ranking__list--item">
+                          <p>2.<span> MA</span></p>
+                          <p class="points">1800<span>PT</span></p>
+                      </div>
+                      <div class="ranking__list--item">
+                          <p>3.<span> KOTA</span></p>
+                          <p class="points">1500<span>PT</span></p>
+                      </div>
+                      <div class="ranking__list--item">
+                          <p>4.<span> PSA</span></p>
+                          <p class="points">999<span>PT</span></p>
+                      </div>
+                      <div class="ranking__list--item">
+                          <p>5.<span> CHOMIKA</span></p>
+                          <p class="points">13<span>PT</span></p>
+                      </div>
+                      <div class="ranking__list--item">
+                          <p>6.<span> KANARKA</span></p>
+                          <p class="points">1<span>PT</span></p>
+                      </div>
+                  </div>
+                  <div class="ranking__list">
+                    <h2>STAFF</h2>
+                    <div class="ranking__list--item">
+                        tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej
+                        <p>1.<span> ALA</span></p>
+                        <p class="points">2000<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>2.<span> MA</span></p>
+                        <p class="points">1800<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>3.<span> KOTA</span></p>
+                        <p class="points">1500<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>4.<span> PSA</span></p>
+                        <p class="points">999<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>5.<span> CHOMIKA</span></p>
+                        <p class="points">13<span>PT</span></p>
+                    </div>
+                    <div class="ranking__list--item">
+                        <p>6.<span> KANARKA</span></p>
+                        <p class="points">1<span>PT</span></p>
+                    </div>
+                  </div>
+                  <div class="ranking__list">
+                    <h2>HOUSES</h2>
+                  <div class="ranking__list--item">
+                      tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej
+                      <p>1.<span> ALA</span></p>
+                      <p class="points">2000<span>PT</span></p>
+                  </div>
+                  <div class="ranking__list--item">
+                      <p>2.<span> MA</span></p>
+                      <p class="points">1800<span>PT</span></p>
+                  </div>
+                  <div class="ranking__list--item">
+                      <p>3.<span> KOTA</span></p>
+                      <p class="points">1500<span>PT</span></p>
+                  </div>
+                  <div class="ranking__list--item">
+                      <p>4.<span> PSA</span></p>
+                      <p class="points">999<span>PT</span></p>
+                  </div>
+                  <div class="ranking__list--item">
+                      <p>5.<span> CHOMIKA</span></p>
+                      <p class="points">13<span>PT</span></p>
+                  </div>
+                  <div class="ranking__list--item">
+                      <p>6.<span> KANARKA</span></p>
+                      <p class="points">1<span>PT</span></p>
+                  </div>
+                  </div>
+                </div>
+            </div>
+            <div class="ranking__main--button">
+                <button class="btn" data-action-home>BACK</button>
+            </div>
+          </div>
+    </template>
+
+    <template id="resultPage">
+      <div class="resultPage">
+        <div class="resultPage__yourScore">
+          <p>Your Score: xxxxxxxx pts</p>
+        </div>
+
+        <div class="resultPage__congrats">
+          <p class="resultPage__congrats--center">
+            Congratulation xxxx ! <br />
+            You answered X questions correctly in .... sec!
+          </p>
+        </div>
+
+        <div class="resultPage__bestScores">
+          <h3>Best Scores</h3>
+          <ol class="resultPage__bestScores--list">
+            <li>
+              aaaaaa
+              <span>500000</span>
+              PTS
+            </li>
+            <li>
+              bbbbbb
+              <span>54000</span>
+              PTS
+            </li>
+            <li>
+              cccccc
+              <span>500</span>
+              PTS
+            </li>
+          </ol>
+        </div>
+        <div class="resultPage__menu">
+          <button data-action-home class="btn">Home</button>
+          <button data-action-scores class="btn">Ranking</button>
+          <button data-action-start class="btn">Play Again</button>
+        </div>
+      </div>
+
+    </template>
+    <script src="src/index.js"></script>
+    <script src="src/api/harryPotter.js"></script>
+  </body>
+</html>
