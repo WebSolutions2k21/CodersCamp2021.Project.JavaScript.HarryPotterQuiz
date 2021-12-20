@@ -37,7 +37,10 @@ const createQuizStudentsPage = (options) => {
   ];
 
   //Pobrać dane z wylosownym indexem;
+  //sprawdzić czy wylosowany numer juz został uzyty
+  //jeśli tak wylosować następnu 
   //Do danych dodać niepoprawne odpowiedzi
+  //Po wyświetleniu sprawdzić
 
   const question2 = async (id) => {
     const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
