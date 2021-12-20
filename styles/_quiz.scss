@@ -1,0 +1,111 @@
+.quizPage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url("../static/background-students.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width:100vw;
+    font-size: $p-paragraphFontSize;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .background {
+        background-color: $c-bg-primary;
+        font-size: $b-buttonFontSize;
+        color: $c-font-primary;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
+    &__category {
+        display: flex;
+        width: 80%;
+        height: 10%;
+        margin: 100px 0;
+        &--name, &--timer {
+            height: 100%;
+        }
+        &--name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            width: 40%;
+        }
+        &--timer {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .wand {
+                width: 50%;
+                height: 100%;
+                background-image: url("../static/wand.png");
+                background-size: contain;
+                background-size: 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+                filter: brightness(1.5);
+                filter: drop-shadow(0px 1px 9px rgba(211, 166, 37, 1));
+            }
+            .fire {
+                position: relative;
+                width: 50%;
+                height: 100%;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    height: 5px;
+                    width: 114%;
+                    background: white;
+                    right: 5px;
+                    top: 47%;
+                    border-radius: 40%;
+                    box-shadow: 
+                    0 0 5px #fff, 
+                    0 0 10px #fff, 
+                    0 0 20px #ffc400, 
+                    0 0 30px #ffc400, 
+                    0 0 40px #ffc400, 
+                    0 0 55px #ffc400, 
+                    0 0 75px #ffc400;
+                }
+            }
+        }
+    }
+    &__question {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        width: 80%;
+    }
+    &__main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        height: 80%;
+        &--photoBox {
+            height: 80%;
+            width: 25%;
+            background-image: url("../assets/images/students/Theodore_Nott.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1;
+            border-radius: 20px;
+            position: relative;
+            border: 2px solid $c-font-hover;
+            box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        }
+        &--answersBox{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
