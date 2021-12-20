@@ -1,8 +1,9 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import categoryName from '../shared/categoryNameApi';
+import randomNumberOfIndex from './randomIndexQuizQuestion';
 
-const createQuizStudentsPage = (options) => {
+const createQuizStudentsPage = () => {
   const appScreen = document.querySelector('#root');
   const quizStudentsPage = document.querySelector('#quizStudentsPage');
 
@@ -38,7 +39,7 @@ const createQuizStudentsPage = (options) => {
 
   //Pobrać dane z wylosownym indexem;
   //sprawdzić czy wylosowany numer juz został uzyty
-  //jeśli tak wylosować następnu 
+  //jeśli tak wylosować następnu
   //Do danych dodać niepoprawne odpowiedzi
   //Po wyświetleniu sprawdzić
 
@@ -52,8 +53,15 @@ const createQuizStudentsPage = (options) => {
     return obj;
   };
 
-  const questions3 = question2(5);
-  console.log('question 2', questions3);
+  let myResult;
+
+  (async () => {
+    myResult = await question2(randomNumberOfIndex(5));
+    console.log('question 2', myResult);
+  })();
+
+
+
   function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
@@ -68,7 +76,7 @@ const createQuizStudentsPage = (options) => {
     }
   }
 
-  function showQuestion(question) {
+  async function showQuestion(question) {
     console.log('Start');
     questionElement.setAttribute('src', question.question);
     question.answers.forEach((answer) => {
@@ -110,20 +118,15 @@ const createQuizStudentsPage = (options) => {
     showQuestion(shuffledQuestions[currentQuestionIndex]);
   }
 
-  function startGame() {
-     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-    // console.log('question', questions);
+  async function startGame() {
+    console.log('my result', myResult);
+    shuffledQuestions = await question2(randomNumberOfIndex(5));
 
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
     setNextQuestion();
   }
 
-  // function selectAnswer(e) {
-
-  // }
-
-  // startButton.addEventListener('click', startGame);
   nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
