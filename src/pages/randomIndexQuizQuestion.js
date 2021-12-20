@@ -6,3 +6,4 @@ function randomNumberOfIndex(max) {
   return numberIndex;
 }
 export default randomNumberOfIndex;
+

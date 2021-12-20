@@ -12,55 +12,35 @@ const createQuizStudentsPage = () => {
   mapNavigationClickToTemplate('[data-action-home]', paths.home);
   const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
 
-  const startButton = document.getElementById('start-btn');
   const nextButton = document.getElementById('next-btn');
   const questionContainerElement = document.getElementById('question-container');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
   let shuffledQuestions;
-  let currentQuestionIndex;
+  let currentQuestionIndex = 0;
+  const LIMIT_QUESTION = 7;
+  const ALL_RECORDS = 5; //pobrać tyle rekordów ile jest w api z tej kategorii
+  let correctedAnswers = 0;
 
-  const questions = [
-    {
-      question: 'http://hp-api.herokuapp.com/images/harry.jpg',
-      answers: [
-        { text: 'Harry Potter', answer: true },
-        { text: 'Ron Weasley', answer: false },
-      ],
-    },
-    {
-      question: 'http://hp-api.herokuapp.com/images/hermione.jpeg',
-      answers: [{ text: 'Hermione Granger', answer: true }],
-    },
-    { question: 'http://hp-api.herokuapp.com/images/ron.jpg', answers: [{ text: 'Ron Weasley', answer: true }] },
-    { question: 'http://hp-api.herokuapp.com/images/draco.jpg', answers: [{ text: 'Draco Malfoy', answer: true }] },
-  ];
 
-  //Pobrać dane z wylosownym indexem;
-  //sprawdzić czy wylosowany numer juz został uzyty
-  //jeśli tak wylosować następnu
-  //Do danych dodać niepoprawne odpowiedzi
-  //Po wyświetleniu sprawdzić
+  //tymczasowe dorobić róźne
+  let temp_Rec1 = Math.floor(Math.random() * 79 + 1);
+  let temp_Rec2 = Math.floor(Math.random() * 79 + 1);
+  // Pobrać dane z wylosownym indexem;
+  // sprawdzić czy wylosowany numer juz został uzyty
+  // jeśli tak wylosować następnu
+  // Do danych dodać niepoprawne odpowiedzi
+  // Po wyświetleniu sprawdzić
 
-  const question2 = async (id) => {
+  const questions = async (id) => {
     const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
     const data = await res.json();
-    console.log('Wszystko', data);
-
-    const obj = { question: data[id].image, answers: [{ text: data[id].name, answer: true }] };
-    console.log(obj);
-    return obj;
+   
+    return { question: data[id].image, answers: [{ text: data[id].name, correct: true }, 
+    { text: data[temp_Rec1].name, correct: false},
+    { text: data[temp_Rec2].name, correct: false }] };
   };
-
-  let myResult;
-
-  (async () => {
-    myResult = await question2(randomNumberOfIndex(5));
-    console.log('question 2', myResult);
-  })();
-
-
 
   function clearStatusClass(element) {
     element.classList.remove('correct');
@@ -68,6 +48,7 @@ const createQuizStudentsPage = () => {
   }
 
   function setStatusClass(element, correct) {
+    console.log('wejdzie tu');
     clearStatusClass(element);
     if (correct) {
       element.classList.add('correct');
@@ -77,7 +58,6 @@ const createQuizStudentsPage = () => {
   }
 
   async function showQuestion(question) {
-    console.log('Start');
     questionElement.setAttribute('src', question.question);
     question.answers.forEach((answer) => {
       const button = document.createElement('button');
@@ -85,20 +65,21 @@ const createQuizStudentsPage = () => {
       button.classList.add('btn');
       if (answer.correct) {
         button.dataset.correct = answer.correct;
+        correctedAnswers++;
+        console.log('corrected answer', correctedAnswers);
       }
       button.addEventListener('click', (e) => {
         const selectedButton = e.target;
-        console.log('click na button');
-        const { correct } = selectedButton.dataset;
-        setStatusClass(document.body, correct);
+console.log('selected answer', selectedButton);
         Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
           setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
         });
-        if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        console.log('current question index', currentQuestionIndex);
+        if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+          console.log('pętla w if limit', currentQuestionIndex + 1);
           nextButton.classList.remove('hide');
         } else {
-          startButton.innerText = 'Restart';
-          startButton.classList.remove('hide');
+        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
         }
       });
       answerButtonsElement.appendChild(button);
@@ -113,18 +94,19 @@ const createQuizStudentsPage = () => {
     }
   }
 
-  function setNextQuestion() {
+  async function setNextQuestion() {
     resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    console.log('jestem w set nex question');
+    shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
+    await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
-    console.log('my result', myResult);
-    shuffledQuestions = await question2(randomNumberOfIndex(5));
-
+    shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
     currentQuestionIndex = 0;
+    correctedAnswers=0;
     questionContainerElement.classList.remove('hide');
-    setNextQuestion();
+    await setNextQuestion(shuffledQuestions);
   }
 
   nextButton.addEventListener('click', () => {
@@ -133,17 +115,5 @@ const createQuizStudentsPage = () => {
   });
 
   startGame();
-  // const questions = [
-  //   { answers:['Hermione Granger'] , image: 'http://hp-api.herokuapp.com/images/hermione.jpeg', answer: true },
-  //   { answers:[] 'Ron Weasley', image: 'http://hp-api.herokuapp.com/images/ron.jpg', answer: true },
-  //   { answers:[] 'Draco Malfoy', image: 'http://hp-api.herokuapp.com/images/draco.jpg', answer: true },
-  //   { answers:[] 'Cedric Diggory', image: 'http://hp-api.herokuapp.com/images/cedric.png', answer: true },
-  //   { answers:[] 'Cho Chang', image: 'http://hp-api.herokuapp.com/images/cho.jpg', answer: true },
-  //   { answers:[] 'Neville Longbottom', image: 'http://hp-api.herokuapp.com/images/neville.jpg', answer: true },
-  //   { answers:[] 'Luna Lovegood', image: 'http://hp-api.herokuapp.com/images/luna.jpg', answer: true },
-  //   { answers:[] 'Ginny Weasley', image: 'http://hp-api.herokuapp.com/images/ginny.jpg', answer: true },
-  //   { answers:[] 'Vincent Crabbe', image: 'http://hp-api.herokuapp.com/images/crabbe.jpg', answer: true },
-  //   { answers:[] 'Gregory Goyle', image: 'http://hp-api.herokuapp.com/images/goyle.jpg', answer: true },
-  // ];
 };
 export default createQuizStudentsPage;
