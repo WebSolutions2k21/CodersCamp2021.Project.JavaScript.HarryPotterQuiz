@@ -1,18 +1,14 @@
 import mapNavigationClickToTemplate from '../navigation';
-import createHomePage from './homePage';
+import { paths } from '../shared/router';
 
-import categoryName from '../shared/categoryNameApi';
-import randomNumberOfIndex from './randomIndexQuizQuestion';
-
-const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
-
-const createQuizStudentsPage = (rootElement) => {
-  const appScreen = document.querySelector(rootElement);
+const createQuizStudentsPage = (options) => {
+  const appScreen = document.querySelector('#root');
   const quizStudentsPage = document.querySelector('#quizStudentsPage');
 
   appScreen.innerHTML = quizStudentsPage.innerHTML;
 
-  // mapNavigationClickToTemplate(rootElement, '[data-action-home]', createHomePage);
+  mapNavigationClickToTemplate('[data-action-home]', paths.home);
+  const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
 
   const startButton = document.getElementById('start-btn');
   const nextButton = document.getElementById('next-btn');
