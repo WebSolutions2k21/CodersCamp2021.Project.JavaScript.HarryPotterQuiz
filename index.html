@@ -42,7 +42,7 @@
     <template id="gameModePage">
       <div class="gameMode">
         <div class="gameMode__main">
-          <p>GAME MODE</p>
+          <p>Game mode</p>
         </div>
 
         <div class="gameMode__other">
@@ -52,11 +52,11 @@
               type="text"
               id="fname"
               name="fname"
-              placeholder="ENTER YOUR NAME"
+              placeholder="Enter your name"
             />
             <div class="gameMode__textError">Muggle, you forgot something!</div>
           </form>
-          <button data-action-back class="gameMode__nameStartBack">BACK</button>
+          <button data-action-back class="gameMode__nameStartBack">Back</button>
         </div>
 
         <div class="gameMode__modes">
@@ -68,7 +68,7 @@
             class="gameMode__btn"
             type="button"
           >
-            STUDENTS
+            Students
           </button>
           <button
             data-action-staff
@@ -79,7 +79,7 @@
             class="gameMode__btn"
             type="button"
           >
-            STAFF
+            Staff
           </button>
           <button
             data-action-houses
@@ -89,13 +89,12 @@
             class="gameMode__btn"
             type="button"
           >
-            HOUSES
+            Houses
           </button>
         </div>
       </div>
     </template>
-
-    <template id="quizStudentsPage">
+    <!-- <template id="quizStudentsPage">
       <div class="quizCategory">
         <div class="quizCategory__type"><p>Students</p></div>
       </div>
@@ -121,6 +120,35 @@
           <button data-action-home class="btn">Back</button>
         </div>
       </div>
+    </template> -->
+
+       <template id="quiz">
+      <div class="quizPage">
+        <div class="quizPage__category">
+          <div class="quizPage__category--name background">
+            <h2>Students</h2>
+          </div>
+          <div class="quizPage__category--timer">
+            <div class="wand"></div>
+            <div class="fire"></div>
+          </div>
+        </div>
+        <div class="quizPage__question background">
+          <p>How is the Hogwarts student visible in the photo called?</p>
+        </div> 
+         <div class="quizPage__main hide" id="question-container">
+            <div class="quizPage__main--photoBox">
+              <img src="" alt="Harry Potter hero" id="question" />
+            </div>
+            <div class="quizPage__main--answersBox" id="answer-buttons">
+              <button class="btn"></button>
+              <button class="btn"></button>
+              <button class="btn"></button>
+            </div>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+            <button data-action-home class="btn">Back</button>
+          </div>
+      </div> 
     </template>
 
     <template id="quizStaffPage">
@@ -310,6 +338,6 @@
     </template>
     <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
     <script src="src/index.js"></script>
-    <script src="src/api/harryPotter.js"></script>
+
   </body>
 </html>

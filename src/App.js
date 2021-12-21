@@ -2,11 +2,12 @@ import createHomePage from './pages/homePage';
 import createGameModePage from './pages/gameModePage';
 import createResultPage from './pages/resultPage';
 import createQuizHousesPage from './pages/quizHousesPage';
-import createQuizStudentsPage from './pages/quizStudentsPage';
+// import createQuizStudentsPage from './pages/quizStudentsPage';
 import createQuizStaffPage from './pages/quizStaffPage';
 import createNotFoundPage from './pages/notFoundPage';
 import createRulesPage from './pages/rulesPage';
 import createRankingPage from './pages/rankingPage';
+import createQuiz from './pages/quiz';
 import { paths } from './shared/router';
 
 const App = ({ options }) => {
@@ -15,7 +16,7 @@ const App = ({ options }) => {
     '/': () => createHomePage(),
     '/game-mode': () => createGameModePage(),
     '/quiz/houses': () => createQuizHousesPage(options),
-    '/quiz/students': () => createQuizStudentsPage(options),
+    '/quiz/students': () => createQuiz(),
     '/quiz/staff': () => createQuizStaffPage(options),
     '/result': () => createResultPage(),
     '/ranking': () => createRankingPage(),
