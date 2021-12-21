@@ -73,8 +73,7 @@
           <button
             data-action-staff
             data-game-mode-selection-button
-            d
-            ata-category-name="staff"
+            data-category-name="staff"
             id="staff"
             class="gameMode__btn"
             type="button"
@@ -94,34 +93,6 @@
         </div>
       </div>
     </template>
-    <!-- <template id="quizStudentsPage">
-      <div class="quizCategory">
-        <div class="quizCategory__type"><p>Students</p></div>
-      </div>
-      <div class="quizStudents">
-        <div class="quizStudents__centerBox hide" id="question-container">
-          <div class="quizStudents__centerBox__photo">
-            <img src="" alt="Harry Potter hero" id="question" />
-          </div>
-          <div class="quizStudents__centerBox__qa">
-            <div class="quizStudents__centerBox__qa__question">
-              <p class="quizStudents__centerBox__qa__question__body">Who is this?</p>
-            </div>
-            <div id="answer-buttons">
-              <button class="btn">A</button>
-              <button class="btn">B</button>
-              <button class="btn">C</button>
-            </div>
-
-            <button id="next-btn" class="next-btn btn hide">Next</button>
-          </div>
-        </div>
-        <div class="quizHouses__menu">
-          <button data-action-home class="btn">Back</button>
-        </div>
-      </div>
-    </template> -->
-
        <template id="quiz">
       <div class="quizPage">
         <div class="quizPage__category">
@@ -135,6 +106,7 @@
         </div>
         <div class="quizPage__question background">
           <p>How is the Hogwarts student visible in the photo called?</p>
+
         </div> 
          <div class="quizPage__main hide" id="question-container">
             <div class="quizPage__main--photoBox">
@@ -147,8 +119,9 @@
             </div>
             <button id="next-btn" class="next-btn btn hide">Next</button>
             <button data-action-home class="btn">Back</button>
+
           </div>
-      </div> 
+        </div>     
     </template>
 
     <template id="quizStaffPage">
@@ -311,7 +284,7 @@
 
         <div class="resultPage__bestScores">
           <h3>Best Scores</h3>
-          <ol class="resultPage__bestScores--list">
+          <ol id="abcd" class="resultPage__bestScores--list">
             <li>
               aaaaaa
               <span>500000</span>

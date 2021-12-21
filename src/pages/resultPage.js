@@ -22,42 +22,70 @@ function getDataFromLocalStorage() {
   return JSON.parse(localStorage.getItem('allPlayers'));
 }
 
-function filterPlayers(players, housesPlayers, studentsPlayers, staffPlayers) {
-  players.forEach((allPlayers) => {
-    const singleArrayElement = JSON.parse(allPlayers);
-    if (singleArrayElement) {
-      if (singleArrayElement.category === 'houses') {
-        housesPlayers.push(singleArrayElement);
-      } else if (singleArrayElement.category === 'students') {
-        studentsPlayers.push(singleArrayElement);
-      } else if (singleArrayElement.category === 'staff') {
-        staffPlayers.push(singleArrayElement);
+function filterPlayers(category) {
+  // console.log(category);
+  const categorizedPlayers = [];
+  const players = getDataFromLocalStorage();
+  // console.log(players);
+  if (players) {
+    players.forEach((player) => {
+      const singleArrayElement = player;
+      if (singleArrayElement) {
+        if (singleArrayElement.category === category) {
+          categorizedPlayers.push(singleArrayElement);
+          // console.log('dodało gracza');
+        }
       }
-    }
-  });
+    });
+  }
+  return categorizedPlayers;
+}
+function sortPlayers(category) {
+  const filter = filterPlayers(category);
+  // console.log(filter);
+  return filter.sort((a, b) => b.score - a.score);
 }
 
-function sortArrays(housesPlayers, studentsPlayers, staffPlayers) {
-  housesPlayers.sort((a, b) => b.score - a.score);
-  studentsPlayers.sort((a, b) => b.score - a.score);
-  staffPlayers.sort((a, b) => b.score - a.score);
+function savePlayerToLocaleStorage(player) {
+  const allPlayers = [];
+  if (getDataFromLocalStorage()) {
+    getDataFromLocalStorage().forEach((values) => allPlayers.push(values));
+  }
+  allPlayers.push(JSON.parse(player));
+  localStorage.setItem('allPlayers', JSON.stringify(allPlayers));
 }
-const players = [];
-const housesPlayers = [];
-const studentsPlayers = [];
-const staffPlayers = [];
 
-if (getDataFromLocalStorage()) {
-  getDataFromLocalStorage().forEach((values) => players.push(values));
+// należy dodawać curretPlayerData w momencie gdy skończy się czas
+// lub klikniety będzie koniec prowadzący do resultPage
+
+savePlayerToLocaleStorage(getCurrentPlayerData());
+// console.log(filterPlayers('houses'));
+// console.log(filterPlayers('students'));
+// console.log(sortPlayers('students'));
+
+function importBestPlayersToHtml() {
+  const currentPlayer = JSON.parse(getCurrentPlayerData());
+  let bestPlayers = [];
+
+  if (currentPlayer.category === 'houses') {
+    bestPlayers = sortPlayers(currentPlayer.category);
+    console.log('gracz gra w houses');
+  } else if (currentPlayer.category === 'staff') {
+    bestPlayers = sortPlayers(currentPlayer.category);
+    console.log('gracz gra w staff');
+  } else if (currentPlayer.category === 'students') {
+    bestPlayers = sortPlayers(currentPlayer.category);
+    console.log('gracz gra w students');
+  }
+  console.log(bestPlayers[0].category);
+
+  // const listHandler = document.querySelector('#resultPage__bestScores--list');
+  const resultPage = document.getElementById('resultPage');
+  const resultPageContent = resultPage.content;
+  // const listContent = resultPageContent.firstChild;
+  // const selected = document.getElementById('abcd');
+
+  console.log(resultPageContent);
 }
-// eslint-disable-next-line max-len
-// należy dodawać curretPlayerData w momencie gdy skończy się czas lub klikniety będzie koniec prowadzący do resultPage
 
-players.push(getCurrentPlayerData());
-
-localStorage.setItem('allPlayers', JSON.stringify(players));
-
-filterPlayers(players, housesPlayers, studentsPlayers, staffPlayers);
-sortArrays(housesPlayers, studentsPlayers, staffPlayers);
-console.log(housesPlayers);
-console.log(studentsPlayers);
+importBestPlayersToHtml();
