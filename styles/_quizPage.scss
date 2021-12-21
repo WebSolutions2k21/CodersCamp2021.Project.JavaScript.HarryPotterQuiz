@@ -1,157 +1,138 @@
-  
-  :root {
-    --hue-neutral: 200;
-    --hue-wrong: 0;
-    --hue-correct: 145;
-  }
+// .quizPage {
+//   //   background-image: url('../static/background-students.jpg');
+//   background-size: cover;
+//   background-position: center;
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   grid-template-rows: 1fr 1fr 4fr;
+//   grid-template-areas:
+//     'categoryBox timeBox timeBox'
+//     'imgArea imgArea questionArea'
+//     'imgArea imgArea answersArea';
+//   grid-gap: 20px;
+//   text-align: center;
+//   margin: 2em;
+//   margin-top: 30px;
+//   height: 100vh;
+//   font-size: $p-paragraphFontSize;
 
-.quizPage {
-  //   background-image: url('../static/background-students.jpg');
-  background-size: cover;
-  background-position: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr 4fr;
-  grid-template-areas:
-    'categoryBox timeBox timeBox'
-    'imgArea imgArea questionArea'
-    'imgArea imgArea answersArea';
-  grid-gap: 20px;
-  text-align: center;
-  margin: 2em;
-  margin-top: 30px;
-  height: 100vh;
-  font-size: $p-paragraphFontSize;
+//   &__categoryBox {
+//     grid-area: categoryBox;
+//     height: 100%;
+//     margin: auto 0;
+//     padding-top: 20px;
+//     position: relative;
+//     background: $c-bg-primary;
+//     font-size: $b-buttonFontSize;
+//     color: $c-font-primary;
+//     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+//     box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+//     text-transform: uppercase;
+//     border: 2px solid black;
+//     border-radius: 10px;
 
-  &__categoryBox {
-    grid-area: categoryBox;
-    height: 100%;
-    margin: auto 0;
-    padding-top: 20px;
-    position: relative;
-    background: $c-bg-primary;
-    font-size: $b-buttonFontSize;
-    color: $c-font-primary;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-    text-transform: uppercase;
-    border: 2px solid black;
-    border-radius: 10px;
+//     p {
+//       padding-top: 20px;
+//       width: 100%;
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       -webkit-transform: translateY(-50%);
+//     }
+//   }
 
-    p {
-      padding-top: 20px;
-      width: 100%;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-    }
-  }
+//   &__timeBox {
+//     grid-area: timeBox;
+//     height: 100%;
+//     position: relative;
+//     // display: inline-flex;
+//     // flex-direction: row;
+//     background: $c-bg-primary;
+//     font-size: $b-buttonFontSize;
+//     color: $c-font-primary;
+//     box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+//     border: 2px solid black;
+//     border-radius: 10px;
+//     background-image: url('../static/wand.png');
+//     background-size: contain;
+//     background-size: 70%;
+//     background-repeat: no-repeat;
+//     background-position: center;
 
-  &__timeBox {
-    grid-area: timeBox;
-    height: 100%;
-    position: relative;
-    // display: inline-flex;
-    // flex-direction: row;
-    background: $c-bg-primary;
-    font-size: $b-buttonFontSize;
-    color: $c-font-primary;
-    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-    border: 2px solid black;
-    border-radius: 10px;
-    background-image: url('../static/wand.png');
-    background-size: contain;
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center;
+//     // .timeArea {
+//     //     padding: 0 15px;
+//     //     text-align: center;
+//     //     height: 50%;
+//     //     position: absolute;
+//     //     top: 50%;
+//     //     transform: translateY(-50%);
+//     //     margin: auto 0;
+//     //     text-transform: uppercase;
+//     // }
+//   }
 
-    // .timeArea {
-    //     padding: 0 15px;
-    //     text-align: center;
-    //     height: 50%;
-    //     position: absolute;
-    //     top: 50%;
-    //     transform: translateY(-50%);
-    //     margin: auto 0;
-    //     text-transform: uppercase;
-    // }
-  }
+//   &__question {
+//     grid-area: questionArea;
+//     height: 100%;
+//     width: 40%;
+//     margin: 0 auto;
+//     position: relative;
+//     background: $c-bg-primary;
+//     font-size: $b-buttonFontSize;
+//     color: $c-font-primary;
+//     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+//     box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+//     border: 2px solid black;
+//     border-radius: 10px;
 
-  &__question {
-    grid-area: questionArea;
-    height: 100%;
-    width: 40%;
-    margin: 0 auto;
-    position: relative;
-    background: $c-bg-primary;
-    font-size: $b-buttonFontSize;
-    color: $c-font-primary;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-    border: 2px solid black;
-    border-radius: 10px;
+//     p {
+//       font-size: 1.5vw;
+//       margin: 0 20px;
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       -webkit-transform: translateY(-50%);
+//       font-size: $p-paragraphFontSize;
+//     }
+//   }
 
-    p {
-      font-size: 1.5vw;
-      margin: 0 20px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      font-size: $p-paragraphFontSize;
-    }
-  }
+//   &__photoBox {
+//     grid-area: imgArea;
+//     height: 100%;
+//     position: relative;
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//   }
 
-  &__photoBox {
-    grid-area: imgArea;
-    height: 100%;
-    position: relative;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+//   &__answersBox {
+//     grid-area: answersArea;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
 
-  &__answersBox {
-    grid-area: answersArea;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+//     .ansBtn {
+//       position: relative;
+//       width: 100%;
+//       height: 80px;
+//       margin: 20px auto;
+//       padding-top: 23px;
+//       background: $c-bg-primary;
+//       font-size: $b-buttonFontSize;
+//       color: $c-font-primary;
+//       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+//       box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+//       border: 2px solid black;
+//       border-radius: 10px;
+//     }
 
-    .ansBtn {
-      position: relative;
-      width: 100%;
-      height: 80px;
-      margin: 20px auto;
-      padding-top: 23px;
-      background: $c-bg-primary;
-      font-size: $b-buttonFontSize;
-      color: $c-font-primary;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-      border: 2px solid black;
-      border-radius: 10px;
-    }
+//     .ansBtn:hover {
+//       cursor: pointer;
+//       background-color: $c-bg-hover;
+//       color: $c-font-hover;
+//       border: 2px solid $c-font-hover;
+//     }
 
-    .ansBtn:hover {
-      cursor: pointer;
-      background-color: $c-bg-hover;
-      color: $c-font-hover;
-      border: 2px solid $c-font-hover;
-    }
 
-    .ansBtn.correct {
-        --hue: var(--hue-correct);
-        color: black;
-    }
-
-    .ansBtn.wrong {
-        --hue: var(--hue-wrong);
-    }
-  }
-
-  .hide {
-    display: none;
-  }
-}
+// }

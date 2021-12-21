@@ -98,8 +98,8 @@
         &--photoBox {
             height: 80%;
             width: 25%;
-            background-image: url("../assets/images/students/Theodore_Nott.jpeg");
-            background-size: cover;
+            // background-image: url("../assets/images/students/Theodore_Nott.jpeg");
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             z-index: 1;

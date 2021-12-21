@@ -93,7 +93,7 @@
         </div>
       </div>
     </template>
-       <template id="quiz">
+    <template id="quiz">
       <div class="quizPage">
         <div class="quizPage__category">
           <div class="quizPage__category--name background">
@@ -106,22 +106,19 @@
         </div>
         <div class="quizPage__question background">
           <p>How is the Hogwarts student visible in the photo called?</p>
+        </div>
+        <div class="quizPage__main hide" id="question-container">
+          <img src="" alt="Harry Potter hero" id="question" class="quizPage__main--photoBox" />
 
-        </div> 
-         <div class="quizPage__main hide" id="question-container">
-            <div class="quizPage__main--photoBox">
-              <img src="" alt="Harry Potter hero" id="question" />
-            </div>
-            <div class="quizPage__main--answersBox" id="answer-buttons">
-              <button class="btn"></button>
-              <button class="btn"></button>
-              <button class="btn"></button>
-            </div>
-            <button id="next-btn" class="next-btn btn hide">Next</button>
-            <button data-action-home class="btn">Back</button>
-
+          <div class="quizPage__main--answersBox" id="answer-buttons">
+            <button class="btn"></button>
+            <button class="btn"></button>
+            <button class="btn"></button>
           </div>
-        </div>     
+          <button id="next-btn" class="next-btn btn hide">Next</button>
+          <button data-action-home class="btn">Back</button>
+        </div>
+      </div>
     </template>
 
     <template id="quizStaffPage">
@@ -311,6 +308,5 @@
     </template>
     <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
     <script src="src/index.js"></script>
-
   </body>
 </html>
