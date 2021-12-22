@@ -66,26 +66,6 @@ savePlayerToLocaleStorage(getCurrentPlayerData());
 function importBestPlayersToHtml() {
   const currentPlayer = JSON.parse(getCurrentPlayerData());
   let bestPlayers = [];
-<<<<<<< HEAD
-if (currentPlayer) {
-  if (currentPlayer.category === 'houses') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w houses');
-  } else if (currentPlayer.category === 'staff') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w staff');
-  } else if (currentPlayer.category === 'students') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w students');
-  }
-  console.log(bestPlayers[0].category);
-
-  // const listHandler = document.querySelector('#resultPage__bestScores--list');
-  const resultPage = document.getElementById('resultPage');
-  const resultPageContent = resultPage.content;
-  // const listContent = resultPageContent.firstChild;
-  // const selected = document.getElementById('abcd');
-=======
   if (currentPlayer) {
     if (currentPlayer.category === 'houses') {
       bestPlayers = sortPlayers(currentPlayer.category);
@@ -104,14 +84,7 @@ if (currentPlayer) {
     const resultPageContent = resultPage.content;
     // const listContent = resultPageContent.firstChild;
     // const selected = document.getElementById('abcd');
->>>>>>> 991ea0fbd41829e526171cd083e3460932e8891a
-
     console.log(resultPageContent);
   }
 }
-<<<<<<< HEAD
-}
-
-=======
->>>>>>> 991ea0fbd41829e526171cd083e3460932e8891a
 importBestPlayersToHtml();

@@ -11,10 +11,30 @@
     &__ttl {
         font-size: 70px;
         margin-bottom: 10px;
+        text-align: center;
     }
     &__txt {
+        margin: 0 20px 20px 20px;
         font-size: 33px;
         color: $c-font-primary;
-        margin-bottom: 20px;
+        text-align: center;
+    }
+    @media (max-width: $break-tablet) {
+        &__ttl {
+            font-size: 60px;
+        }
+        &__txt {
+            font-size: 27px;
+            margin: 0 20px;
+        }
+    }
+    @media (max-width: $break-mobile) {
+        &__ttl {
+            font-size: 40px;
+        }
+        &__txt {
+            font-size: 20px;
+            margin: 0 20px;
+        }
     }
 }
