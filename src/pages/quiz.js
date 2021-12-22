@@ -1,7 +1,9 @@
-import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
+import randomNumberOfIndex from '../shared/randomIndexGenerator';
 import categoryName from '../shared/categoryNameApi';
-import randomNumberOfIndex from '../shared/randomIndexGenerator'
+import img from '../../assets/images/students/*.jpeg';
+import adrian from '../../assets/images/students/Adrian_Pucey.jpeg';
+
+const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -9,9 +11,6 @@ const createQuiz = () => {
 
   appScreen.innerHTML = quiz.innerHTML;
 
-  const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
-
-  const nextButton = document.getElementById('next-btn');
   const questionContainerElement = document.getElementById('question-container');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
@@ -19,7 +18,7 @@ const createQuiz = () => {
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 7;
-  const ALL_RECORDS = 5; //pobrać tyle rekordów ile jest w api z tej kategorii
+  const ALL_RECORDS = 79; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
 
   //tymczasowe dorobić róźne
@@ -31,19 +30,7 @@ const createQuiz = () => {
   // Do danych dodać niepoprawne odpowiedzi
   // Po wyświetleniu sprawdzić
 
-  const questions = async (id) => {
-    const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
-    const data = await res.json();
-
-    return {
-      question: data[id].image,
-      answers: [
-        { text: data[id].name, correct: true },
-        { text: data[temp_Rec1].name, correct: false },
-        { text: data[temp_Rec2].name, correct: false },
-      ],
-    };
-  };
+  const questions = setImageFromFile(temp_Rec1, temp_Rec2);
 
   function clearStatusClass(element) {
     element.classList.remove('correct');
@@ -51,7 +38,6 @@ const createQuiz = () => {
   }
 
   function setStatusClass(element, correct) {
-    console.log('wejdzie tu');
     clearStatusClass(element);
     if (correct) {
       element.classList.add('correct');
@@ -61,6 +47,10 @@ const createQuiz = () => {
   }
 
   async function showQuestion(question) {
+    console.log('question', question.question);
+    if (question.question === '') {
+      getImageFromFile(question);
+    }
     questionElement.setAttribute('src', question.question);
     question.answers.sort(() => Math.random() - 0.5);
     question.answers.forEach((answer) => {
@@ -69,30 +59,46 @@ const createQuiz = () => {
       button.classList.add('btn');
       if (answer.correct) {
         button.dataset.correct = answer.correct;
-        correctedAnswers++;
-        console.log('corrected answer', correctedAnswers);
       }
-      button.addEventListener('click', (e) => {
-        const selectedButton = e.target;
-        console.log('selected answer', selectedButton);
-        Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-          setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-        });
-        console.log('current question index', currentQuestionIndex);
-        if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-          console.log('pętla w if limit', currentQuestionIndex + 1);
-          nextButton.classList.remove('hide');
-        } else {
-          alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-        }
-      });
+
+      showAnswer(button);
       answerButtonsElement.appendChild(button);
     });
   }
 
+  function showAnswer(button) {
+    button.addEventListener('click', (e) => {
+      const selectedButton = e.target;
+
+      Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+        setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+      });
+      currentQuestionIndex++;
+      console.log(currentQuestionIndex);
+      if (selectedButton.dataset.correct) {
+        correctedAnswers++;
+      }
+      if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+        setTimeout(async () => setNextQuestion(), 2000);
+      } else {
+        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+      }
+    });
+  }
+
+  function getImageFromFile(question) {
+    console.log('wejdzie w zdjcie', question.answers[0].text);
+    let nameFromAnswer = question.answers[0].text;
+    let joinName = nameFromAnswer.replace(' ', '_');
+    console.log(joinName);
+    console.log('Sposób 1', img[joinName]);
+    // questionElement.setAttribute('src', img[joinName]);
+    console.log('obraz', adrian);
+    questionElement.setAttribute('src', adrian);
+  }
+
   function resetState() {
     clearStatusClass(document.body);
-    nextButton.classList.add('hide');
     while (answerButtonsElement.firstChild) {
       answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
@@ -100,7 +106,6 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
-    console.log('jestem w set nex question');
     shuffledQuestions = await await questions(randomNumberOfIndex(ALL_RECORDS));
     await showQuestion(shuffledQuestions);
   }
@@ -113,13 +118,23 @@ const createQuiz = () => {
     await setNextQuestion(shuffledQuestions);
   }
 
-  nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    setNextQuestion();
-  });
-
   startGame();
-
 };
 
 export default createQuiz;
+
+function newFunction(temp_Rec1, temp_Rec2) {
+  return async (id) => {
+    const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
+    const data = await res.json();
+
+    return {
+      question: data[id].image,
+      answers: [
+        { text: data[id].name, correct: true },
+        { text: data[temp_Rec1].name, correct: false },
+        { text: data[temp_Rec2].name, correct: false },
+      ],
+    };
+  };
+}
