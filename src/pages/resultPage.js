@@ -66,7 +66,7 @@ savePlayerToLocaleStorage(getCurrentPlayerData());
 function importBestPlayersToHtml() {
   const currentPlayer = JSON.parse(getCurrentPlayerData());
   let bestPlayers = [];
-
+if (currentPlayer) {
   if (currentPlayer.category === 'houses') {
     bestPlayers = sortPlayers(currentPlayer.category);
     console.log('gracz gra w houses');
@@ -86,6 +86,7 @@ function importBestPlayersToHtml() {
   // const selected = document.getElementById('abcd');
 
   console.log(resultPageContent);
+}
 }
 
 importBestPlayersToHtml();

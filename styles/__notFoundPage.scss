@@ -1,0 +1,20 @@
+.wrapperHomePage {
+    color: $c-bg-primary;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    &__nmb {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 120px;
+        letter-spacing: 10px;
+        margin-bottom: 30px;
+    }
+    &__ttl {
+        font-size: 70px;
+        margin-bottom: 10px;
+    }
+    &__txt {
+        font-size: 33px;
+        color: $c-font-primary;
+        margin-bottom: 20px;
+    }
+}
