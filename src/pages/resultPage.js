@@ -77,15 +77,57 @@ function importBestPlayersToHtml() {
       bestPlayers = sortPlayers(currentPlayer.category);
       console.log('gracz gra w students');
     }
-    console.log(bestPlayers[0].category);
+    console.log(bestPlayers[0]);
 
-    // const listHandler = document.querySelector('#resultPage__bestScores--list');
-    const resultPage = document.getElementById('resultPage');
-    const resultPageContent = resultPage.content;
-    // const listContent = resultPageContent.firstChild;
-    // const selected = document.getElementById('abcd');
+    //dostanie się do templatu resultPage
+    const template = document.querySelector('#resultPage');
+    //dostanie się do ol w resultPage
+    const listBestScore = template.content.querySelector('.resultPage__bestScores--list');
 
-    console.log(resultPageContent);
+    const firstBestPlayer = document.createElement('li');
+    firstBestPlayer.innerHTML = `${bestPlayers[0].name} &emsp; ${bestPlayers[0].score}PTS`;
+
+    const secondBestPlayer = document.createElement('li');
+    secondBestPlayer.innerHTML = `${bestPlayers[1].name} &emsp; ${bestPlayers[1].score} PTS`;
+
+    const thirdBestPlayer = document.createElement('li');
+    thirdBestPlayer.innerHTML = `${bestPlayers[2].name}&emsp; ${bestPlayers[2].score} PTS`;
+
+    listBestScore.appendChild(firstBestPlayer);
+    listBestScore.appendChild(secondBestPlayer);
+    listBestScore.appendChild(thirdBestPlayer);
   }
 }
+
+function congratulations() {
+  const currentPlayer = JSON.parse(getCurrentPlayerData());
+
+  //dostanie się do templatu resultPage
+  const template = document.querySelector('#resultPage');
+
+  const scoreInformations = template.content.querySelector('.resultPage__congrats');
+
+  const textCongrats = document.createElement('p');
+  textCongrats.className = 'resultPage__congrats--center';
+  textCongrats.innerHTML = `Congratulation ${currentPlayer.name} ! <br />
+  You answered X questions correctly in .... sec!`;
+
+  scoreInformations.appendChild(textCongrats);
+}
+
+function score() {
+  const currentPlayer = JSON.parse(getCurrentPlayerData());
+  //dostanie się do templatu resultPage
+  const template = document.querySelector('#resultPage');
+
+  const scoreElement = template.content.querySelector('.resultPage__yourScore');
+  console.log(scoreElement);
+  const textYourScore = document.createElement('p');
+  textYourScore.innerHTML = `Your Score: ${currentPlayer.score} pts`;
+
+  scoreElement.appendChild(textYourScore);
+}
+
 importBestPlayersToHtml();
+congratulations();
+score();
