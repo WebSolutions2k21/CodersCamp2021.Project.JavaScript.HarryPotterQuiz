@@ -66,26 +66,26 @@ savePlayerToLocaleStorage(getCurrentPlayerData());
 function importBestPlayersToHtml() {
   const currentPlayer = JSON.parse(getCurrentPlayerData());
   let bestPlayers = [];
+  if (currentPlayer) {
+    if (currentPlayer.category === 'houses') {
+      bestPlayers = sortPlayers(currentPlayer.category);
+      console.log('gracz gra w houses');
+    } else if (currentPlayer.category === 'staff') {
+      bestPlayers = sortPlayers(currentPlayer.category);
+      console.log('gracz gra w staff');
+    } else if (currentPlayer.category === 'students') {
+      bestPlayers = sortPlayers(currentPlayer.category);
+      console.log('gracz gra w students');
+    }
+    console.log(bestPlayers[0].category);
 
-  if (currentPlayer.category === 'houses') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w houses');
-  } else if (currentPlayer.category === 'staff') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w staff');
-  } else if (currentPlayer.category === 'students') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w students');
+    // const listHandler = document.querySelector('#resultPage__bestScores--list');
+    const resultPage = document.getElementById('resultPage');
+    const resultPageContent = resultPage.content;
+    // const listContent = resultPageContent.firstChild;
+    // const selected = document.getElementById('abcd');
+
+    console.log(resultPageContent);
   }
-  console.log(bestPlayers[0].category);
-
-  // const listHandler = document.querySelector('#resultPage__bestScores--list');
-  const resultPage = document.getElementById('resultPage');
-  const resultPageContent = resultPage.content;
-  // const listContent = resultPageContent.firstChild;
-  // const selected = document.getElementById('abcd');
-
-  console.log(resultPageContent);
 }
-
 importBestPlayersToHtml();
