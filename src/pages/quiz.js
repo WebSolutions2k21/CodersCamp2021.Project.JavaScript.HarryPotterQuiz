@@ -30,7 +30,7 @@ const createQuiz = () => {
   // Do danych dodać niepoprawne odpowiedzi
   // Po wyświetleniu sprawdzić
 
-  const questions = setImageFromFile(temp_Rec1, temp_Rec2);
+  const questions = newFunction(temp_Rec1, temp_Rec2);
 
   function clearStatusClass(element) {
     element.classList.remove('correct');
