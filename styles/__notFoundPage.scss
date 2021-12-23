@@ -1,12 +1,27 @@
-.wrapperHomePage {
-    color: $c-bg-primary;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+.notFoundWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    height: 100vh;
+    max-width: $break-laptop;
+    &__nf {
+        margin: 20px 20px 30px 20px;
+        padding: 20px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        background: $c-bg-primary;
+        color: $c-font-primary;
+        text-align: center;
+        border: 2px solid black;
+        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+        border-radius: 10px;
     &__nmb {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         font-size: 120px;
         letter-spacing: 10px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     &__ttl {
         font-size: 70px;
@@ -14,27 +29,26 @@
         text-align: center;
     }
     &__txt {
-        margin: 0 20px 20px 20px;
-        font-size: 33px;
+        margin-bottom: 10px;
+        font-size: 30px;
         color: $c-font-primary;
         text-align: center;
     }
-    @media (max-width: $break-tablet) {
-        &__ttl {
-            font-size: 60px;
+        @media (max-width: $break-tablet) {
+            &__ttl {
+                font-size: 60px;
+            }
+            &__txt {
+                font-size: 27px;
+            }
         }
-        &__txt {
-            font-size: 27px;
-            margin: 0 20px;
-        }
-    }
-    @media (max-width: $break-mobile) {
-        &__ttl {
-            font-size: 40px;
-        }
-        &__txt {
-            font-size: 20px;
-            margin: 0 20px;
+        @media (max-width: $break-mobile) {
+            &__ttl {
+                font-size: 40px;
+            }
+            &__txt {
+                font-size: 20px;
+            }
         }
     }
 }
