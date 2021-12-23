@@ -1,5 +1,5 @@
 import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
+import { paths, route } from '../shared/router';
 import { saveCurrentPlayerData } from '../localStorageManager';
 
 function addEventListenersForGameModeButtons() {
@@ -62,9 +62,9 @@ const createGameModePage = () => {
           err.style.visibility = 'hidden';
         }, 3000);
       } else if (player.length >= 1) {
-        mapNavigationClickToTemplate('[data-action-houses]', paths.quizHouses);
-        mapNavigationClickToTemplate('[data-action-students]', paths.quizStudents);
-        mapNavigationClickToTemplate('[data-action-staff]', paths.quizStaff);
+        route(paths.quizHouses);
+        route(paths.quizStudents);
+        route(paths.quizStaff);
       }
       tipBtn.forEach((btn2) => {
         btn2.classList.remove('bor');
