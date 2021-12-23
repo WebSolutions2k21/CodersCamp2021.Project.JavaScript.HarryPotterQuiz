@@ -1,7 +1,7 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import categoryName from '../shared/categoryNameApi';
-import randomNumberOfIndex from '../shared/randomIndexGenerator'
+import randomNumberOfIndex from '../shared/randomIndexGenerator';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -119,7 +119,6 @@ const createQuiz = () => {
   });
 
   startGame();
-
 };
 
 export default createQuiz;
