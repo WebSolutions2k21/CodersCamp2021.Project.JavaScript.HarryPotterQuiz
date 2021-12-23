@@ -46,16 +46,17 @@
       h2{
         margin: 20px 0;
       }
-      &--item {
-        display: flex;
-        justify-content: space-between;
-        .points {
-          span {
-            padding-left: 20px;
+      #rankingStudents, #rankingStaff, #rankingHouses{
+        .ranking__list--item {
+          display: flex;
+          justify-content: space-between;
+          .points {
+            span {
+              padding-left: 20px;
+            }
           }
         }
       }
     }
-
   }
 }
