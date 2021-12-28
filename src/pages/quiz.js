@@ -49,9 +49,12 @@ const createQuiz = () => {
   async function showQuestion(question) {
     console.log('question', question.question);
     if (question.question === '') {
-      getImageFromFile(question);
+      const getImg = getImageFromFile(question);
+      console.log('get img', getImg);
+      questionElement.setAttribute('src', img[getImg]);
+    } else {
+      questionElement.setAttribute('src', question.question);
     }
-    questionElement.setAttribute('src', question.question);
     question.answers.sort(() => Math.random() - 0.5);
     question.answers.forEach((answer) => {
       const button = document.createElement('button');
@@ -91,10 +94,13 @@ const createQuiz = () => {
     let nameFromAnswer = question.answers[0].text;
     let joinName = nameFromAnswer.replace(' ', '_');
     console.log(joinName);
-    console.log('Sposób 1', img[joinName]);
+    // console.log('Sposób 1', img[joinName]);
     // questionElement.setAttribute('src', img[joinName]);
-    console.log('obraz', adrian);
-    questionElement.setAttribute('src', adrian);
+    // console.log('obraz', adrian);
+    // console.log('question element', questionElement);
+    // console.log("question", questionElement.setAttribute('src', adrian));
+    // questionElement.setAttribute('src', adrian);
+    return joinName;
   }
 
   function resetState() {
