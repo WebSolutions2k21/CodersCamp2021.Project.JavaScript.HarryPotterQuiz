@@ -7,29 +7,35 @@
 
     <title>Quiz about Harry Potter</title>
     <link rel="icon" type="image/x-icon" href="./static/magic-wand.png" />
+    <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
     <link rel="stylesheet" href="styles/style.scss" />
   </head>
 
   <body>
     <div id="root"></div>
     <template id="homePage">
-      <div class="wrapperHomePage responsiveHomePage">
+      <div class="background_main">
+      <div class="wrapperHomePage responsiveHomePage ">
         <button data-action-start class="btn">Start</button>
         <button data-action-rules class="btn">Rules</button>
         <button data-action-scores class="btn">Best Scores</button>
-        <!-- <button data-action-resultpage class="btn">Result Page</button> -->
+      </div>
       </div>
     </template>
     <template id="rulesPage">
+      <div class="background_main">
       <div class="rulesPage__wrapper responsiveRulesPage">
         <div class="rulesPage__wrapper_center">
           <section class="rulesPage__main">
             <h1>Rules</h1>
             <p>
               Click on start, then enter your nickname and choose one of the three categories. Answer the questions by
-              clicking on the answer of your choice. You will receive 10 point for a correct answer, and 0 points for a
-              wrong answer. Remember, you have one minute to answer as many questions as possible.
-            </p>
+              clicking on the answer of your choice. You will receive:</p>
+              
+                <p><strong>10</strong> point for a correct answer</p>
+                <p><strong>0</strong> points for a wrong answer</p>
+              
+              <p> Remember, you have one minute to answer as many questions as possible.</p>
             <p>Have Fun!</p>
           </section>
           <div class="rulesPage__buttom">
@@ -37,9 +43,11 @@
           </div>
         </div>
       </div>
+      </div>
     </template>
 
     <template id="gameModePage">
+      <div class="background_main">
       <div class="gameMode">
         <div class="gameMode__main">
           <p>Game mode</p>
@@ -92,25 +100,28 @@
           </button>
         </div>
       </div>
+      </div>
     </template>
     <template id="quiz">
-      <div class="quizPage">
-        <div class="quizPage__category">
-          <div class="quizPage__category--name background">
+      <div class="background_quiz_students">
+      <div class="wrapperquizPage">
+        <div class="quizPage__header">
+          <div class="background_container">
             <h2>Students</h2>
           </div>
-          <div class="quizPage__category--timer">
+          <div class="wrapperquizPage__category--timer">
+            <div class="timer_clock"> 1:00</div>
             <div class="wand"></div>
             <div class="fire"></div>
           </div>
         </div>
-        <div class="quizPage__question background">
+        <div class="background_container">
           <p>How is the Hogwarts student visible in the photo called?</p>
         </div>
-        <div class="quizPage__main hide" id="question-container">
-          <img src="" alt="Harry Potter hero" id="question" class="quizPage__main--photoBox" />
+        <div class="wrapperquizPage__main hide" id="question-container">
+          <img src="" alt="Harry Potter hero" id="question" class="wrapperquizPage__main--photoBox" />
 
-          <div class="quizPage__main--answersBox" id="answer-buttons">
+          <div class="wrapperquizPage__main--answersBox" id="answer-buttons">
             <button class="btn"></button>
             <button class="btn"></button>
             <button class="btn"></button>
@@ -119,41 +130,60 @@
           <button data-action-home class="btn">Back</button>
         </div>
       </div>
+      </div>
     </template>
 
     <template id="quizStaffPage">
-      <div class="quizCategory">
-        <div class="quizCategory__type"><p>Staff</p></div>
-        <div class="quizCategory__time"></div>
-      </div>
-      <div class="quizStaff">
-        <div class="quizStaff__centerBox">
-          <div class="quizStaff__centerBox__photo"></div>
-          <div class="quizStaff__centerBox__qa">
-            <div class="quizStaff__centerBox__qa__question">
-              <p class="quizStaff__centerBox__qa__question__body">Who is this?</p>
-            </div>
-            <button class="btn">A</button>
-            <button class="btn">B</button>
-            <button class="btn">C</button>
+      <div class="background_quiz_staff">
+      <div class="wrapperquizPage">
+        <div class="quizPage__header">
+          <div class="background_container">
+            <h2>Staff</h2>
+          </div>
+          <div class="wrapperquizPage__category--timer">
+            <div class="timer_clock"> 1:00</div>
+            <div class="wand"></div>
+            <div class="fire"></div>
           </div>
         </div>
-        <div class="quizStaff__menu">
-          <button data-action-home class="btn">Back</button>
+        <div class="background_container">
+          <p>Who is this?</p>
         </div>
+        <div class="wrapperquizPage__main hide" id="question-container">
+          <img src="" alt="Harry Potter teacher" id="question" class="wrapperquizPage__main--photoBox" />
+
+          <div class="wrapperquizPage__main--answersBox" id="answer-buttons">
+            <button class="btn"></button>
+            <button class="btn"></button>
+            <button class="btn"></button>
+            <button data-action-home class="btn btn__back">Back</button>
+          </div>
+        
+          
+        
+      </div>
       </div>
     </template>
 
     <template id="quizHousesPage">
-      <div class="quizCategory">
-        <div class="quizCategory__type">Houses</div>
-        <div class="quizCategory__time">TIME</div>
-      </div>
-      <div class="quizHouses">
-        <div class="quizHouses__question">
-          <p class="quizHouses__question__body">What type of house is the character Harry Potter's from?</p>
-          <div class="quizHouses__question__name">Question Name</div>
+      <div class="background_quiz_houses">
+        <div class="wrapperquizPage">
+        <div class="quizPage__header">
+          <div class="background_container">
+            <h2>Students</h2>
+          </div>
+          <div class="wrapperquizPage__category--timer">
+            <div class="timer_clock"> 1:00</div>
+            <div class="wand"></div>
+            <div class="fire"></div>
+          </div>
         </div>
+        <div class="background_container">
+          <p>What type of house is the character Harry Potter's from?</p>
+          
+        </div>
+        <div class="background_container"><p>Question Name</p></div>
+      
         <div class="quizHouses__answers">
           <img src="./assets/images/quiz/house1.png" class="quizHouses__answers__img" alt="House1" />
           <img src="./assets/images/quiz/house2.png" class="quizHouses__answers__img" alt="House2" />
@@ -162,12 +192,14 @@
         </div>
 
         <div class="quizHouses__menu">
-          <button data-action-home class="btn">Back</button>
+          <button data-action-home class="btn btn__back">Back</button>
         </div>
+      </div>
       </div>
     </template>
 
     <template id="rankingPage">
+      <div class="background_main">
       <div class="ranking">
         <div class="ranking__wrapper">
           <div class="ranking__main">
@@ -264,40 +296,29 @@
           </div>
         </div>
       </div>
+      </div>
     </template>
 
     <template id="resultPage">
+      <div class="background_main">
       <div class="resultPage">
+        <div class="resultPage__wrapper">
         <div class="resultPage__yourScore">
-          <p>Your Score: xxxxxxxx pts</p>
+          <!-- // text created in resulPage.js -->
         </div>
 
         <div class="resultPage__congrats">
           <p class="resultPage__congrats--center">
-            Congratulation xxxx ! <br />
-            You answered X questions correctly in .... sec!
+            <!-- // text created in resulPage.js -->
           </p>
         </div>
 
         <div class="resultPage__bestScores">
           <h3>Best Scores</h3>
-          <ol id="abcd" class="resultPage__bestScores--list">
-            <li>
-              aaaaaa
-              <span>500000</span>
-              PTS
-            </li>
-            <li>
-              bbbbbb
-              <span>54000</span>
-              PTS
-            </li>
-            <li>
-              cccccc
-              <span>500</span>
-              PTS
-            </li>
+          <ol class="resultPage__bestScores--list">
+            <!-- // list created in resulPage.js -->
           </ol>
+        </div>
         </div>
         <div class="resultPage__menu">
           <button data-action-home class="btn">Home</button>
@@ -305,8 +326,24 @@
           <button data-action-start class="btn">Play Again</button>
         </div>
       </div>
+      </div>
     </template>
-    <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+
+    <template id="notFound">
+      <div class="background_main">
+      <div class="notFoundWrap">
+        <div class="notFoundWrap__nf">
+          <p class="notFoundWrap__nf__nmb">404</p>
+          <p class="notFoundWrap__nf__ttl">Muggle, you broke the Internet</p>
+          <p class="notFoundWrap__nf__txt">
+            Just kidding. Please make sure you’ve entered the correct address, or click the button
+          </p>
+        </div>
+          <button data-action-home class="btn">Home</button>
+      </div>
+      </div>
+    </template>
+
     <script src="src/index.js"></script>
   </body>
 </html>

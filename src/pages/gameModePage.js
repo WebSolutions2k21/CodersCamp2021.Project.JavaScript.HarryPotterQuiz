@@ -1,5 +1,5 @@
 import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
+import { paths, route } from '../shared/router';
 import { saveCurrentPlayerData } from '../localStorageManager';
 
 function addEventListenersForGameModeButtons() {
@@ -52,9 +52,10 @@ const createGameModePage = () => {
   });
 
   // border color, text error, choose the category
+  const pages = [paths.quizStudents, paths.quizStaff, paths.quizHouses];
   const err = document.querySelector('.gameMode__textError');
   const tipBtn = document.querySelectorAll('.gameMode__btn');
-  tipBtn.forEach((btn) => {
+  tipBtn.forEach((btn, i) => {
     btn.addEventListener('click', (event) => {
       if (player === undefined) {
         err.style.visibility = 'visible';
@@ -62,9 +63,7 @@ const createGameModePage = () => {
           err.style.visibility = 'hidden';
         }, 3000);
       } else if (player.length >= 1) {
-        mapNavigationClickToTemplate('[data-action-houses]', paths.quizHouses);
-        mapNavigationClickToTemplate('[data-action-students]', paths.quizStudents);
-        mapNavigationClickToTemplate('[data-action-staff]', paths.quizStaff);
+        route(pages[i]);
       }
       tipBtn.forEach((btn2) => {
         btn2.classList.remove('bor');

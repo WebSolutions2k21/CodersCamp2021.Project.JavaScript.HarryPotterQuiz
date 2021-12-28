@@ -16,24 +16,20 @@ const createResultPage = () => {
 
 export default createResultPage;
 
-//------------------------------------------------
-
 function getDataFromLocalStorage() {
   return JSON.parse(localStorage.getItem('allPlayers'));
 }
 
 function filterPlayers(category) {
-  // console.log(category);
   const categorizedPlayers = [];
   const players = getDataFromLocalStorage();
-  // console.log(players);
+
   if (players) {
     players.forEach((player) => {
       const singleArrayElement = player;
       if (singleArrayElement) {
         if (singleArrayElement.category === category) {
           categorizedPlayers.push(singleArrayElement);
-          // console.log('dodało gracza');
         }
       }
     });
@@ -42,7 +38,7 @@ function filterPlayers(category) {
 }
 function sortPlayers(category) {
   const filter = filterPlayers(category);
-  // console.log(filter);
+
   return filter.sort((a, b) => b.score - a.score);
 }
 
@@ -59,33 +55,78 @@ function savePlayerToLocaleStorage(player) {
 // lub klikniety będzie koniec prowadzący do resultPage
 
 savePlayerToLocaleStorage(getCurrentPlayerData());
-// console.log(filterPlayers('houses'));
-// console.log(filterPlayers('students'));
-// console.log(sortPlayers('students'));
 
 function importBestPlayersToHtml() {
   const currentPlayer = JSON.parse(getCurrentPlayerData());
   let bestPlayers = [];
-
-  if (currentPlayer.category === 'houses') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w houses');
-  } else if (currentPlayer.category === 'staff') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w staff');
-  } else if (currentPlayer.category === 'students') {
-    bestPlayers = sortPlayers(currentPlayer.category);
-    console.log('gracz gra w students');
+  if (currentPlayer) {
+    if (currentPlayer.category === 'houses') {
+      bestPlayers = sortPlayers(currentPlayer.category);
+      console.log('gracz gra w houses');
+    } else if (currentPlayer.category === 'staff') {
+      bestPlayers = sortPlayers(currentPlayer.category);
+      console.log('gracz gra w staff');
+    } else if (currentPlayer.category === 'students') {
+      bestPlayers = sortPlayers(currentPlayer.category);
+      console.log('gracz gra w students');
+    }
   }
-  console.log(bestPlayers[0].category);
 
-  // const listHandler = document.querySelector('#resultPage__bestScores--list');
+  //dostanie się do templatu resultPage
+  const template = document.querySelector('#resultPage');
+  //dostanie się do ol w resultPage
+  const listBestScore = template.content.querySelector('.resultPage__bestScores--list');
+
   const resultPage = document.getElementById('resultPage');
   const resultPageContent = resultPage.content;
-  // const listContent = resultPageContent.firstChild;
-  // const selected = document.getElementById('abcd');
+  if (bestPlayers[0]) {
+    const firstBestPlayer = document.createElement('li');
+    firstBestPlayer.innerHTML = `${bestPlayers[0].name} &emsp; ${bestPlayers[0].score}PTS`;
+    listBestScore.appendChild(firstBestPlayer);
+  }
+  if (bestPlayers[1]) {
+    const secondBestPlayer = document.createElement('li');
+    secondBestPlayer.innerHTML = `${bestPlayers[1].name} &emsp; ${bestPlayers[1].score} PTS`;
+    listBestScore.appendChild(secondBestPlayer);
+  }
+  if (bestPlayers[2]) {
+    const thirdBestPlayer = document.createElement('li');
+    thirdBestPlayer.innerHTML = `${bestPlayers[2].name}&emsp; ${bestPlayers[2].score} PTS`;
+    listBestScore.appendChild(thirdBestPlayer);
+  }
+}
 
-  console.log(resultPageContent);
+function congratulations() {
+  const currentPlayer = JSON.parse(getCurrentPlayerData());
+
+  //dostanie się do templatu resultPage
+  const template = document.querySelector('#resultPage');
+
+  const scoreInformations = template.content.querySelector('.resultPage__congrats');
+  if (currentPlayer) {
+    const textCongrats = document.createElement('p');
+    textCongrats.className = 'resultPage__congrats--center';
+    textCongrats.innerHTML = `Congratulation ${currentPlayer.name} ! <br />
+  You answered X questions correctly in .... sec!`;
+
+    scoreInformations.appendChild(textCongrats);
+  }
+}
+
+function score() {
+  const currentPlayer = JSON.parse(getCurrentPlayerData());
+  //dostanie się do templatu resultPage
+  const template = document.querySelector('#resultPage');
+  if (currentPlayer) {
+    const scoreElement = template.content.querySelector('.resultPage__yourScore');
+
+    const textYourScore = document.createElement('p');
+    textYourScore.innerHTML = `Your Score: ${currentPlayer.score} pts`;
+
+    scoreElement.appendChild(textYourScore);
+  }
 }
 
 importBestPlayersToHtml();
+congratulations();
+score();
