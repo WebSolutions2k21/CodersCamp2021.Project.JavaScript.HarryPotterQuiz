@@ -1,4 +1,4 @@
-.wrapperHomePage{
+.wrapperHomePage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,19 +8,17 @@
   max-width: $break-laptop;
 }
 
-.responsiveHomePage{
-@media (max-width: 767px) {
-  .btn {
-        padding: 6px 20px;
-        height: 50px;
-        line-height: 50px;
-
+.responsiveHomePage {
+  @media (max-width: 767px) {
+    .btn {
+      padding: 6px 20px;
+      height: 50px;
+      line-height: 50px;
     }
-}
-@media (orientation: landscape) and (max-width: 1030px){
-
-  .btn {
-    margin: 15px auto;
-}
-}
+  }
+  @media (orientation: landscape) and (max-width: 1030px) {
+    .btn {
+      margin: 15px auto;
+    }
+  }
 }
