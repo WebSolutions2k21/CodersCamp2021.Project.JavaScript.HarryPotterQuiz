@@ -44,37 +44,20 @@ const createRankingPage = () => {
     const staffRanking = document.getElementById('rankingStaff');
     const housesRanking = document.getElementById('rankingHouses');
 
-    console.log(students)
-
     function displayResults(array, rankingElement) {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < (array.length < 10 ? array.length : 10); i++) {
         const el = document.createElement("div");
         el.setAttribute('class', 'ranking__list--item');
-        el.innerHTML = `<p>${i + 1}. <span>${array[i].name}</span></p><p class="points">${array[i].score}<span>PT</span></p>`;
+        el.innerHTML = `<p>${i + 1}. <span>${array[i]?.name}</span></p><p class="points">${array[i]?.score}<span>PT</span></p>`;
         rankingElement.appendChild(el);
       }
     }
 
-    if(houses.length > 0){
-      displayResults(houses, housesRanking);
-    } else {
-      console.log('empty houses array')
-    }
-
-    if(students.length > 0){
-      displayResults(students, studentsRanking);
-    } else {
-      console.log('empty students array')
-    }
-
-    if(staff.length > 0){
-      displayResults(staff, staffRanking);
-    } else {
-      console.log('empty staff array')
-    }
-
+    houses.length > 0 ? displayResults(houses, housesRanking) : false;
+    students.length > 0 ? displayResults(students, studentsRanking) : false;
+    staff.length > 0 ? displayResults(staff, staffRanking) : false;
   } else {
-    console.log('Nic tu nie ma');
+    return false;
   }
 };
 
