@@ -50,5 +50,16 @@
                 font-size: 20px;
             }
         }
+        @media (max-width: $break-xxs) {
+            &__nmb {
+                font-size: 80px;
+            }
+            &__ttl {
+                font-size: 30px;
+            }
+            &__txt {
+                font-size: 15px;
+            }
+        }
     }
 }
