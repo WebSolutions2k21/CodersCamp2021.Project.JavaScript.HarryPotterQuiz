@@ -1,4 +1,3 @@
-
 .rulesPage__wrapper {
   display: flex;
   flex-direction: row;
@@ -17,7 +16,7 @@
 
 .rulesPage__main {
   margin: 20px 50px;
-  padding: 30px 40px;
+  padding: 0px 13px;
   background: $c-bg-primary;
   color: $c-font-primary;
   text-align: center;
@@ -32,6 +31,9 @@
   & p {
     font-family: 'Henny Penny', cursive;
     font-size: $p-paragraphFontSize;
+  }
+  & p strong {
+    font-size: 3rem;
   }
 }
 
@@ -50,6 +52,9 @@
     & p {
       font-size: $p-paragraphFontSizeTablet;
     }
+    & p strong {
+      font-size: 2.5rem;
+    }
   }
 
   .rulesPage__buttom {
@@ -57,7 +62,7 @@
   }
 }
 @media (orientation: landscape) and (max-width: 1030px) {
-  .btn{
+  .btn {
     margin: 0px auto;
   }
   .rulesPage__main {
@@ -69,14 +74,17 @@
     & p {
       font-size: $p-paragraphFontSizeMobile;
     }
+    & p strong {
+      font-size: 2rem;
+    }
   }
 
   .rulesPage__buttom {
     margin: 0 20px;
   }
 }
-@media (orientation: landscape) and (max-width: 850px){
-.rulesPage__main {
+@media (orientation: landscape) and (max-width: 850px) {
+  .rulesPage__main {
     margin: 0px 20px;
     padding: 10px 10px;
     & h1 {
@@ -86,6 +94,9 @@
 
     & p {
       font-size: $p-paragraphFontSizeMobileSmall;
+    }
+    & p strong {
+      font-size: 1.5rem;
     }
   }
 }
@@ -104,6 +115,9 @@
 
     & p {
       font-size: $p-paragraphFontSizeMobile;
+    }
+    & p strong {
+      font-size: 2rem;
     }
   }
 
@@ -124,6 +138,9 @@
 
     & p {
       font-size: $p-paragraphFontSizeMobileSmall;
+    }
+    & p strong {
+      font-size: 1.5rem;
     }
   }
 }

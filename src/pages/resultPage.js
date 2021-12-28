@@ -16,8 +16,6 @@ const createResultPage = () => {
 
 export default createResultPage;
 
-
-
 function getDataFromLocalStorage() {
   return JSON.parse(localStorage.getItem('allPlayers'));
 }
