@@ -5,6 +5,9 @@ import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/students/*.jpeg';
+// add savePlayerToLocalStorage and getCurrentPlayerData to saving in LocalStorage
+import { savePlayerToLocaleStorage } from './resultPage';
+import { getCurrentPlayerData } from '../localStorageManager';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -33,8 +36,6 @@ const createQuiz = () => {
 
   const questions = getDataFromApi(categoryId, temp_Rec1, temp_Rec2);
 
-
-
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
   }
@@ -58,7 +59,10 @@ const createQuiz = () => {
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
-        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        // add Player to allPlayers in LocalStorage and redirection to resultPage
+        savePlayerToLocaleStorage(getCurrentPlayerData());
+        location.href = '/result';
       }
     });
   }
@@ -85,4 +89,3 @@ const createQuiz = () => {
 };
 
 export default createQuiz;
-

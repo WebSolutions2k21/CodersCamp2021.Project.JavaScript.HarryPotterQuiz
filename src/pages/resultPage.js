@@ -10,7 +10,6 @@ const createResultPage = () => {
   appScreen.innerHTML = resultPage.innerHTML;
 
   mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
-  mapNavigationClickToTemplate('[data-action-scores]', paths.ranking);
   mapNavigationClickToTemplate('[data-action-home]', paths.home);
 };
 
@@ -53,8 +52,8 @@ function savePlayerToLocaleStorage(player) {
 
 // należy dodawać curretPlayerData w momencie gdy skończy się czas
 // lub klikniety będzie koniec prowadzący do resultPage
-
-savePlayerToLocaleStorage(getCurrentPlayerData());
+export { savePlayerToLocaleStorage };
+// savePlayerToLocaleStorage(getCurrentPlayerData());
 
 function importBestPlayersToHtml() {
   const currentPlayer = JSON.parse(getCurrentPlayerData());
