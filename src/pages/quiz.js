@@ -1,7 +1,10 @@
 import randomNumberOfIndex from '../shared/randomIndexGenerator';
-import img from '../../assets/images/students/*.jpeg';
-import getApiQuestion from '../api/harryPotter';
+import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
+import { showQuestionFunction } from '../shared/showQuestionFunction';
+import { setStatusFunction } from '../shared/setStatusFunction';
+import { resetStateFunction } from '../shared/resetStateFunction';
+import img from '../../assets/images/students/*.jpeg';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -28,42 +31,16 @@ const createQuiz = () => {
   // Do danych dodać niepoprawne odpowiedzi
   // Po wyświetleniu sprawdzić
 
-  const questions = getApiQuestion(categoryId, temp_Rec1, temp_Rec2);
+  const questions = getDataFromApi(categoryId, temp_Rec1, temp_Rec2);
 
-  function clearStatusClass(element) {
-    element.classList.remove('correct');
-    element.classList.remove('wrong');
-  }
+
 
   function setStatusClass(element, correct) {
-    clearStatusClass(element);
-    if (correct) {
-      element.classList.add('correct');
-    } else {
-      element.classList.add('wrong');
-    }
+    setStatusFunction(element, correct);
   }
 
   async function showQuestion(question) {
-    if (question.question === '') {
-      const getImg = getImageFromFile(question);
-      console.log('get img', getImg);
-      questionElement.setAttribute('src', img[getImg]);
-    } else {
-      questionElement.setAttribute('src', question.question);
-    }
-    question.answers.sort(() => Math.random() - 0.5);
-    question.answers.forEach((answer) => {
-      const button = document.createElement('button');
-      button.innerText = answer.text;
-      button.classList.add('btn');
-      if (answer.correct) {
-        button.dataset.correct = answer.correct;
-      }
-
-      showAnswer(button);
-      answerButtonsElement.appendChild(button);
-    });
+    showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
   }
 
   function showAnswer(button) {
@@ -86,17 +63,8 @@ const createQuiz = () => {
     });
   }
 
-  function getImageFromFile(question) {
-    let nameFromAnswer = question.answers[0].text;
-    let joinName = nameFromAnswer.replace(' ', '_');
-    return joinName;
-  }
-
   function resetState() {
-    clearStatusClass(document.body);
-    while (answerButtonsElement.firstChild) {
-      answerButtonsElement.removeChild(answerButtonsElement.firstChild);
-    }
+    resetStateFunction(answerButtonsElement);
   }
 
   async function setNextQuestion() {
@@ -117,3 +85,4 @@ const createQuiz = () => {
 };
 
 export default createQuiz;
+
