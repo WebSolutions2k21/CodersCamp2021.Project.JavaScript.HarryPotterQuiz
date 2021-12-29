@@ -1,9 +1,7 @@
 import randomNumberOfIndex from '../shared/randomIndexGenerator';
-import categoryName from '../shared/categoryNameApi';
 import img from '../../assets/images/students/*.jpeg';
-import adrian from '../../assets/images/students/Adrian_Pucey.jpeg';
-
-const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
+import getApiQuestion from '../api/harryPotter';
+import categoryName from '../shared/categoryNameApi';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -18,9 +16,9 @@ const createQuiz = () => {
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 7;
-  const ALL_RECORDS = 79; //pobrać tyle rekordów ile jest w api z tej kategorii
+  const ALL_RECORDS = 60; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
-
+  const categoryId = categoryName.API_CHARACTERS_STUDENTS;
   //tymczasowe dorobić róźne
   let temp_Rec1 = Math.floor(Math.random() * 79 + 1);
   let temp_Rec2 = Math.floor(Math.random() * 79 + 1);
@@ -30,7 +28,7 @@ const createQuiz = () => {
   // Do danych dodać niepoprawne odpowiedzi
   // Po wyświetleniu sprawdzić
 
-  const questions = newFunction(temp_Rec1, temp_Rec2);
+  const questions = getApiQuestion(categoryId, temp_Rec1, temp_Rec2);
 
   function clearStatusClass(element) {
     element.classList.remove('correct');
@@ -47,7 +45,6 @@ const createQuiz = () => {
   }
 
   async function showQuestion(question) {
-    console.log('question', question.question);
     if (question.question === '') {
       const getImg = getImageFromFile(question);
       console.log('get img', getImg);
@@ -90,16 +87,8 @@ const createQuiz = () => {
   }
 
   function getImageFromFile(question) {
-    console.log('wejdzie w zdjcie', question.answers[0].text);
     let nameFromAnswer = question.answers[0].text;
     let joinName = nameFromAnswer.replace(' ', '_');
-    console.log(joinName);
-    // console.log('Sposób 1', img[joinName]);
-    // questionElement.setAttribute('src', img[joinName]);
-    // console.log('obraz', adrian);
-    // console.log('question element', questionElement);
-    // console.log("question", questionElement.setAttribute('src', adrian));
-    // questionElement.setAttribute('src', adrian);
     return joinName;
   }
 
@@ -128,19 +117,3 @@ const createQuiz = () => {
 };
 
 export default createQuiz;
-
-function newFunction(temp_Rec1, temp_Rec2) {
-  return async (id) => {
-    const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
-    const data = await res.json();
-
-    return {
-      question: data[id].image,
-      answers: [
-        { text: data[id].name, correct: true },
-        { text: data[temp_Rec1].name, correct: false },
-        { text: data[temp_Rec2].name, correct: false },
-      ],
-    };
-  };
-}
