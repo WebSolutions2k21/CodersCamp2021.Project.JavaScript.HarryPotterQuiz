@@ -2,30 +2,6 @@ import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 
-const { t, changeLanguage } = i18next;
-
-// const load = () => {
-//   document.body.innerHTML = `
-// <div>${i18next.t('title')}<div>
-// <button id="en">en</button>
-// <button id="pl">pl</button>
-// `;
-
-//   const btnEn = document.getElementById('en');
-//   const btnPl = document.getElementById('pl');
-
-//   btnEn.addEventListener('click', () => {
-//     i18next.changeLanguage('en');
-//     load();
-//   });
-
-//   btnPl.addEventListener('click', () => {
-//     i18next.changeLanguage('pl');
-//     load();
-//   });
-// };
-
-// load();
 const createHomePage = () => {
   const appScreen = document.querySelector('#root');
   const homePage = document.querySelector('#homePage');
@@ -44,12 +20,12 @@ const createHomePage = () => {
   `;
   container.appendChild(fragment);
   document.getElementById('en').addEventListener('click', () => {
-    i18next.changeLanguage('en');
+    changeLanguage('en');
     window.location.reload();
   });
 
   document.getElementById('pl').addEventListener('click', () => {
-    i18next.changeLanguage('pl');
+    changeLanguage('pl');
     window.location.reload();
   });
 
