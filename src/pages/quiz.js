@@ -18,7 +18,7 @@ const createQuiz = () => {
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
-  const LIMIT_QUESTION = 7;
+  const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 60; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STUDENTS;
@@ -30,6 +30,10 @@ const createQuiz = () => {
   // jeśli tak wylosować następnu
   // Do danych dodać niepoprawne odpowiedzi
   // Po wyświetleniu sprawdzić
+
+  //Lily_Moon
+  // Miles_Bletchley, Orla_Quirke, Miles_Bletchley,
+  // Cassius_Warrington, Natalie_McDonald, Malcolm_Baddock, Emma_Dobbs, Peregrine_Derrick, Eleanor_Branstone,  Peregrine_Derrick
 
   const questions = getDataFromApi(categoryId, temp_Rec1, temp_Rec2);
 
