@@ -3,6 +3,7 @@ export const paths = {
   gameMode: '/game-mode',
   quizHouses: '/quiz/houses',
   quizStudents: '/quiz/students',
+  quizStaff: '/quiz/staff',
   ranking: '/ranking',
   result: '/result',
   rules: '/rules',

@@ -1,0 +1,112 @@
+.wrapperquizPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  height: 100vh;
+  max-width: $break-laptop;
+
+  &__category {
+    display: flex;
+    width: 80%;
+    height: 10%;
+    margin: 100px 0;
+    &--name,
+    &--timer {
+      height: 100%;
+    }
+    &--name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      width: 40%;
+    }
+    &--timer {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+
+      .wand {
+        width: 50%;
+        height: 100%;
+        background-image: url('../static/wand.png');
+        background-size: contain;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: brightness(1.5);
+        filter: drop-shadow(0px 1px 9px rgba(211, 166, 37, 1));
+      }
+      .fire {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        &::before {
+          content: '';
+          position: absolute;
+          height: 5px;
+          width: 114%;
+          background: white;
+          left: -60px;
+          top: 48%;
+          border-radius: 40%;
+          box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400,
+            0 0 55px #ffc400, 0 0 75px #ffc400;
+          animation: time-passing 60s;
+        }
+        @keyframes time-passing {
+          0% {
+            width: 114%;
+          }
+          100% {
+            width: 0%;
+          }
+        }
+      }
+    }
+  }
+  &__question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    width: 80%;
+  }
+}
+
+.quizPage__header {
+  display: flex;
+  flex-direction: row;
+  height: 20vh;
+  width: 100%;
+}
+.background_container {
+  margin: 20px auto;
+  padding: 6px 40px;
+  height: 95px;
+  background: $c-bg-primary;
+  font-size: $b-buttonFontSize;
+  color: $c-font-primary;
+  text-align: center;
+  line-height: 95px;
+  white-space: nowrap;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-transform: uppercase;
+  border: 2px solid black;
+  box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+  border-radius: 10px;
+  & p {
+    font-size: $p-paragraphFontSize;
+  }
+}
+.timer_clock {
+  font-size: $h-headlinesFontSize;
+  color: $c-font-primary;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-transform: uppercase;
+  line-height: 173px;
+}

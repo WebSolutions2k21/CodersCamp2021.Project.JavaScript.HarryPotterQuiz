@@ -8,8 +8,9 @@ const createHomePage = () => {
   appScreen.innerHTML = homePage.innerHTML;
 
   mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
-  mapNavigationClickToTemplate('[data-action-rules]', paths.result);
+  mapNavigationClickToTemplate('[data-action-rules]', paths.rules);
   mapNavigationClickToTemplate('[data-action-scores]', paths.ranking);
+  // mapNavigationClickToTemplate('[data-action-resultPage]', paths.ResultPage);
 };
 
 export default createHomePage;

@@ -42,7 +42,7 @@
     "jest-fetch-mock": "^3.0.3",
     "msw": "^0.21.3",
     "parcel-bundler": "^1.12.5",
-    "parcel-plugin-static-files-copy": "^2.5.0",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "sass": "^1.44.0"
@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "home": "^2.0.0",
+    "ra": "^0.9.7",
     "regenerator-runtime": "^0.13.9",
     "src": "^1.1.2"
   }

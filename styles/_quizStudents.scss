@@ -1,0 +1,39 @@
+.wrapperquizPage__main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  &--photoBox {
+    margin: 0 40px;
+    height: 80%;
+    width: 25%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    border-radius: 20px;
+    position: relative;
+    border: 2px solid $c-font-hover;
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+  }
+  &--answersBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btn.correct {
+    border: 5px solid #1a472a;
+    background-color: #1a472a;
+  }
+
+  .btn.wrong {
+    border: 5px solid #570509;
+    background-color: gray;
+  }
+
+  .hide {
+    display: none;
+  }
+}

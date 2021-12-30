@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+
     &__body {
       color: $c-font-primary;
       background-color: $c-bg-primary;
@@ -23,7 +23,6 @@
       word-wrap: break-word;
       letter-spacing: 2px;
     }
-
 
     &__name {
       margin: 1em;
@@ -56,9 +55,13 @@
     box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
     text-align: center;
     padding: 0.5em;
- 
+    z-index: 1;
+    &__img {
+      margin: 0 20px;
+    }
     &__img:hover {
-      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400, 0 0 55px #ffc400,
+        0 0 75px #ffc400;
     }
   }
 
