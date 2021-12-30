@@ -1,10 +1,10 @@
-import randomNumberOfIndex from '../shared/randomIndexGenerator';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
 import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/students/*.jpeg';
+import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -37,7 +37,9 @@ const createQuiz = () => {
 
   const questions = getDataFromApi(categoryId, temp_Rec1, temp_Rec2);
 
+  const chosenNumber = [];
 
+  const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -73,12 +75,12 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
-    shuffledQuestions = await await questions(randomNumberOfIndex(ALL_RECORDS));
+    shuffledQuestions = await await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
-    shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
+    shuffledQuestions = await questions(saveRandomNumber());
     currentQuestionIndex = 0;
     correctedAnswers = 0;
     questionContainerElement.classList.remove('hide');
@@ -89,4 +91,3 @@ const createQuiz = () => {
 };
 
 export default createQuiz;
-
