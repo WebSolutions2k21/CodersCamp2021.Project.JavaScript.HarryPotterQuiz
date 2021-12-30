@@ -1,14 +1,14 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 const questionContainerElement = document.getElementById('question-container-houses');
-const questionElement = document.getElementById('question');
-const answerButtonsElement = document.getElementById('answer-buttons');
+  const questionElement = document.getElementById('question');
+  const answerButtonsElement = document.getElementById('answer-buttons');
 
-let shuffledQuestions;
-let currentQuestionIndex = 0;
-const LIMIT_QUESTION = 7;
-const ALL_RECORDS = 279; //pobrać tyle rekordów ile jest w api z tej kategorii
-let correctedAnswers = 0;
+  let shuffledQuestions;
+  let currentQuestionIndex = 0;
+  const LIMIT_QUESTION = 7;
+  const ALL_RECORDS = 279; //pobrać tyle rekordów ile jest w api z tej kategorii
+  let correctedAnswers = 0;
 
 const createQuizHousesPage = (options) => {
   const appScreen = document.querySelector('#root');
@@ -36,7 +36,7 @@ const createQuizHousesPage = (options) => {
 
   // async function showQuestion(question) {
   //   console.log('question', question.question);
-
+    
   //   question.answers.sort(() => Math.random() - 0.5);
   //   question.answers.forEach((answer) => {
   //     const button = document.createElement('button');
@@ -71,6 +71,7 @@ const createQuizHousesPage = (options) => {
   //   });
   // }
 
+ 
   // function resetState() {
   //   clearStatusClass(document.body);
   //   while (answerButtonsElement.firstChild) {
@@ -104,6 +105,6 @@ export default createQuizHousesPage;
 //     const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_HOUSES);
 //     const data = await res.json();
 //     return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
-
+    
 //   };
 // }
