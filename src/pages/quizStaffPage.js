@@ -7,6 +7,7 @@ import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/staff/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
+import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 
 const createQuizStaffPage = (options) => {
   const appScreen = document.querySelector('#root');
@@ -14,7 +15,6 @@ const createQuizStaffPage = (options) => {
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
-  const questionContainerElement = document.getElementById('question-container');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
@@ -24,15 +24,19 @@ const createQuizStaffPage = (options) => {
   const ALL_RECORDS = 24; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
-  //tymczasowe dorobić róźne
-  let temp_Rec1 = Math.floor(Math.random() * 23 + 1);
-  let temp_Rec2 = Math.floor(Math.random() * 23 + 1);
+
 
   const chosenNumber = [];
 
+  let arrayWithTwoDifferentIndexOfQuestion;
+
   const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
-  const questions = getDataFromApi(categoryId, temp_Rec1, temp_Rec2);
+  const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
+
+  arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
+
+  const questions = getDataFromApi(categoryId, arrayWithTwoDifferentIndexOfQuestion[1], arrayWithTwoDifferentIndexOfQuestion[2]);
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -73,10 +77,8 @@ const createQuizStaffPage = (options) => {
   }
 
   async function startGame() {
-    shuffledQuestions = await questions(saveRandomNumber());
     currentQuestionIndex = 0;
     correctedAnswers = 0;
-    questionContainerElement.classList.remove('hide');
     await setNextQuestion(shuffledQuestions);
   }
 
