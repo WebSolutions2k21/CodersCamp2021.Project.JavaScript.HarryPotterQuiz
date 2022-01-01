@@ -25,7 +25,6 @@ const createQuizStaffPage = (options) => {
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
 
-
   const chosenNumber = [];
 
   let arrayWithTwoDifferentIndexOfQuestion;
@@ -36,7 +35,11 @@ const createQuizStaffPage = (options) => {
 
   arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
 
-  const questions = getDataFromApi(categoryId, arrayWithTwoDifferentIndexOfQuestion[1], arrayWithTwoDifferentIndexOfQuestion[2]);
+  const questions = getDataFromApi(
+    categoryId,
+    arrayWithTwoDifferentIndexOfQuestion[1],
+    arrayWithTwoDifferentIndexOfQuestion[2],
+  );
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -47,6 +50,7 @@ const createQuizStaffPage = (options) => {
   }
 
   function showAnswer(button) {
+    console.log('button', button);
     button.addEventListener('click', (e) => {
       const selectedButton = e.target;
 
@@ -54,7 +58,7 @@ const createQuizStaffPage = (options) => {
         setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
       });
       currentQuestionIndex++;
-      console.log(currentQuestionIndex);
+
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
       }
@@ -72,7 +76,7 @@ const createQuizStaffPage = (options) => {
 
   async function setNextQuestion() {
     resetState();
-    shuffledQuestions = await await questions(saveRandomNumber());
+    shuffledQuestions = await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }
 
@@ -91,21 +95,20 @@ const createQuizStaffPage = (options) => {
   const countDownEl = document.getElementById('timer_clock');
 
   function updateCountDown() {
-      const minutes = Math.floor(time / 60);
-      let seconds = time % 60;
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
 
-      seconds = seconds < 10 ? '0' + seconds : seconds;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
 
-      countDownEl.innerHTML = `0${minutes}:${seconds}`;
-      time--;
+    countDownEl.innerHTML = `0${minutes}:${seconds}`;
+    time--;
 
-      if(seconds == '01') {
-        window.location = '/result';
-      }
+    if (seconds == '01') {
+      window.location = '/result';
+    }
   }
 
   setInterval(updateCountDown, 1000);
-
 };
 
 export default createQuizStaffPage;

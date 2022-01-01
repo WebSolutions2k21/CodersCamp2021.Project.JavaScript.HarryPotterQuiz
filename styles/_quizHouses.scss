@@ -72,4 +72,17 @@
     justify-content: center;
     gap: 2em;
   }
+
+  .quizHouses__answers__img.correct {
+   background-color: green; border: 5px solid #570509;
+  }
+
+  .quizHouses__answers__img.wrong {
+   
+    background-color: gray;
+  }
+
+  .hide {
+    display: none;
+  }
 }
