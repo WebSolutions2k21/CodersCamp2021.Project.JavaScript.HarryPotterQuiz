@@ -73,3 +73,117 @@
     gap: 2em;
   }
 }
+
+// @media (orientation: portrait) and (max-width: $break-tablet) {
+//   .rulesPage__main {
+//     margin: 0 20px;
+//     & h1 {
+//       font-size: $h-headlinesFontSizeTablet;
+//     }
+
+//     & p {
+//       font-size: $p-paragraphFontSizeTablet;
+//     }
+//     & p strong {
+//       font-size: 2.5rem;
+//     }
+//   }
+
+//   .rulesPage__buttom {
+//     margin: 0 20px;
+//   }
+// }
+// @media (orientation: landscape) and (max-width: 1030px) {
+//   .btn {
+//     margin: 0px auto;
+//   }
+//   .rulesPage__main {
+//     margin: 0 20px;
+//     & h1 {
+//       font-size: $h-headlinesFontSizeTablet;
+//     }
+
+//     & p {
+//       font-size: $p-paragraphFontSizeMobile;
+//     }
+//     & p strong {
+//       font-size: 2rem;
+//     }
+//   }
+
+//   .rulesPage__buttom {
+//     margin: 0 20px;
+//   }
+// }
+// @media (orientation: landscape) and (max-width: 850px) {
+//   .rulesPage__main {
+//     margin: 0px 20px;
+//     padding: 10px 10px;
+//     & h1 {
+//       margin: 0px 5px;
+//       font-size: $h-headlinesFontSizeMobileSmall;
+//     }
+
+//     & p {
+//       font-size: $p-paragraphFontSizeMobileSmall;
+//     }
+//     & p strong {
+//       font-size: 1.5rem;
+//     }
+//   }
+// }
+
+@media (orientation: portrait) and (max-width: $break-mobile) {
+  .quizPage__header {
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    h2 {
+      font-size: 25px;
+    }
+    .wrapperquizPage__category--timer {
+      width: 100%;
+
+      #timer_clock {
+        width: 90%;
+      }
+      .wand, .fire {
+        display: none;
+      }
+    }
+  }
+
+  .background_container {
+
+  }
+
+  .quizHouses__answers {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 90%;
+
+    img {
+      max-width: 120px;
+    }
+  }
+
+}
+
+// @media (orientation: portrait) and (max-width: $break-xxs) {
+//   .rulesPage__main {
+//     margin: 0 10px;
+//     padding: 0px 10px;
+
+//     & h1 {
+//       font-size: $h-headlinesFontSizeMobileSmall;
+//     }
+
+//     & p {
+//       font-size: $p-paragraphFontSizeMobileSmall;
+//     }
+//     & p strong {
+//       font-size: 1.5rem;
+//     }
+//   }
+// }
