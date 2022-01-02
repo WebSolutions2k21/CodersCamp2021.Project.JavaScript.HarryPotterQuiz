@@ -13,7 +13,6 @@ const createResultPage = () => {
 
   document.querySelector('[data-lang-rankingPage-header]').innerText = t('rankingPage-header');
   document.querySelector('[data-action-back]').innerText = t('back');
-  document.querySelector('[data-action-scores]').innerText = t('best_scores');
   document.querySelector('[data-action-play_again]').innerText = t('play_again');
   mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
   mapNavigationClickToTemplate('[data-action-home]', paths.home);
