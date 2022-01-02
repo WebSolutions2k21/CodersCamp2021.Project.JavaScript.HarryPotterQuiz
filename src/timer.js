@@ -12,7 +12,7 @@ const timer = () => {
         time--;
 
         if(seconds == '01') {
-        //   window.location = '/result';
+          window.location = '/result';
         }
     }
     setInterval(updateCountDown, 1000);
