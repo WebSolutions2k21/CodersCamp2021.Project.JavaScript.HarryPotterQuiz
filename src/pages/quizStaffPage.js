@@ -9,6 +9,7 @@ import img from '../../assets/images/staff/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
+import { addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createQuizStaffPage = (options) => {
   const appScreen = document.querySelector('#root');
@@ -62,11 +63,14 @@ const createQuizStaffPage = (options) => {
 
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
+        addPointsToCurrentPlayer(10);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
-        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        addPointsToCurrentPlayer(correctedAnswers);
+        location.href = '/result';
       }
     });
   }
