@@ -26,7 +26,6 @@ const createQuizStaffPage = (options) => {
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
 
-
   const chosenNumber = [];
 
   let arrayWithTwoDifferentIndexOfQuestion;
@@ -37,7 +36,11 @@ const createQuizStaffPage = (options) => {
 
   arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
 
-  const questions = getDataFromApi(categoryId, arrayWithTwoDifferentIndexOfQuestion[1], arrayWithTwoDifferentIndexOfQuestion[2]);
+  const questions = getDataFromApi(
+    categoryId,
+    arrayWithTwoDifferentIndexOfQuestion[1],
+    arrayWithTwoDifferentIndexOfQuestion[2],
+  );
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -48,6 +51,7 @@ const createQuizStaffPage = (options) => {
   }
 
   function showAnswer(button) {
+    console.log('button', button);
     button.addEventListener('click', (e) => {
       const selectedButton = e.target;
 
@@ -55,7 +59,7 @@ const createQuizStaffPage = (options) => {
         setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
       });
       currentQuestionIndex++;
-      console.log(currentQuestionIndex);
+
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
       }
@@ -73,7 +77,7 @@ const createQuizStaffPage = (options) => {
 
   async function setNextQuestion() {
     resetState();
-    shuffledQuestions = await await questions(saveRandomNumber());
+    shuffledQuestions = await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }
 
@@ -84,6 +88,7 @@ const createQuizStaffPage = (options) => {
   }
 
   startGame();
+
   timer();
 };
 

@@ -74,8 +74,7 @@ const createQuiz = () => {
   async function setNextQuestion() {
     resetState();
     shuffledQuestions = await questions(saveRandomNumber());
-    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
-    console.log('wylosowane liczby', arrayWithTwoDifferentIndexOfQuestion);
+    
     await showQuestion(shuffledQuestions);
   }
 
