@@ -58,6 +58,15 @@
     z-index: 1;
     &__img {
       margin: 0 20px;
+
+      .correct {
+        background-color: green;
+        border: 5px solid #570509;
+      }
+
+      .wrong {
+        background-color: gray;
+      }
     }
     &__img:hover {
       box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400, 0 0 55px #ffc400,
@@ -74,15 +83,11 @@
   }
 
   .quizHouses__answers__img.correct {
-   background-color: green; border: 5px solid #570509;
+    background-color: #1a472a;
+    border: 5px solid #570509;
   }
 
   .quizHouses__answers__img.wrong {
-   
     background-color: gray;
-  }
-
-  .hide {
-    display: none;
   }
 }
