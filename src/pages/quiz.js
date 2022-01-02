@@ -59,7 +59,7 @@ const createQuiz = () => {
       // console.log(currentQuestionIndex);
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
-        addPointsToCurrentPlayer(1);
+        addPointsToCurrentPlayer(10);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => setNextQuestion(), 2000);
