@@ -1,7 +1,13 @@
-import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
+import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
-import randomNumberOfIndex from '../shared/randomIndexGenerator';
+import { showQuestionFunction } from '../shared/showQuestionFunction';
+import { setStatusFunction } from '../shared/setStatusFunction';
+import { resetStateFunction } from '../shared/resetStateFunction';
+import img from '../../assets/images/students/*.jpeg';
+import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
+import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
+import timer from '../timer';
+import { addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -9,116 +15,80 @@ const createQuiz = () => {
 
   appScreen.innerHTML = quiz.innerHTML;
 
-  const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
-
-  const nextButton = document.getElementById('next-btn');
-  const questionContainerElement = document.getElementById('question-container');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
-  const LIMIT_QUESTION = 7;
-  const ALL_RECORDS = 5; //pobrać tyle rekordów ile jest w api z tej kategorii
+  const LIMIT_QUESTION = 20;
+  const ALL_RECORDS = 102;
   let correctedAnswers = 0;
+  const categoryId = categoryName.API_CHARACTERS_STUDENTS;
 
-  //tymczasowe dorobić róźne
-  let temp_Rec1 = Math.floor(Math.random() * 79 + 1);
-  let temp_Rec2 = Math.floor(Math.random() * 79 + 1);
-  // Pobrać dane z wylosownym indexem;
-  // sprawdzić czy wylosowany numer juz został uzyty
-  // jeśli tak wylosować następnu
-  // Do danych dodać niepoprawne odpowiedzi
-  // Po wyświetleniu sprawdzić
+  const chosenNumber = [];
+  let arrayWithTwoDifferentIndexOfQuestion;
 
-  const questions = async (id) => {
-    const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_STUDENTS);
-    const data = await res.json();
+  const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
-    return {
-      question: data[id].image,
-      answers: [
-        { text: data[id].name, correct: true },
-        { text: data[temp_Rec1].name, correct: false },
-        { text: data[temp_Rec2].name, correct: false },
-      ],
-    };
-  };
+  const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
 
-  function clearStatusClass(element) {
-    element.classList.remove('correct');
-    element.classList.remove('wrong');
-  }
+  arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
+
+  const questions = getDataFromApi(
+    categoryId,
+    arrayWithTwoDifferentIndexOfQuestion[1],
+    arrayWithTwoDifferentIndexOfQuestion[2],
+  );
 
   function setStatusClass(element, correct) {
-    console.log('wejdzie tu');
-    clearStatusClass(element);
-    if (correct) {
-      element.classList.add('correct');
-    } else {
-      element.classList.add('wrong');
-    }
+    setStatusFunction(element, correct);
   }
 
   async function showQuestion(question) {
-    questionElement.setAttribute('src', question.question);
-    question.answers.sort(() => Math.random() - 0.5);
-    question.answers.forEach((answer) => {
-      const button = document.createElement('button');
-      button.innerText = answer.text;
-      button.classList.add('btn');
-      if (answer.correct) {
-        button.dataset.correct = answer.correct;
-        correctedAnswers++;
-        console.log('corrected answer', correctedAnswers);
-      }
-      button.addEventListener('click', (e) => {
-        const selectedButton = e.target;
-        console.log('selected answer', selectedButton);
-        Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-          setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-        });
-        console.log('current question index', currentQuestionIndex);
-        if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-          console.log('pętla w if limit', currentQuestionIndex + 1);
-          nextButton.classList.remove('hide');
-        } else {
-          alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-        }
+    showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
+  }
+
+  function showAnswer(button) {
+    button.addEventListener('click', (e) => {
+      const selectedButton = e.target;
+
+      Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+        setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
       });
-      answerButtonsElement.appendChild(button);
+      currentQuestionIndex++;
+      // console.log(currentQuestionIndex);
+      if (selectedButton.dataset.correct) {
+        correctedAnswers++;
+        addPointsToCurrentPlayer(10);
+      }
+      if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+        setTimeout(async () => setNextQuestion(), 2000);
+      } else {
+        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        location.href = '/result';
+      }
     });
   }
 
   function resetState() {
-    clearStatusClass(document.body);
-    nextButton.classList.add('hide');
-    while (answerButtonsElement.firstChild) {
-      answerButtonsElement.removeChild(answerButtonsElement.firstChild);
-    }
+    resetStateFunction(answerButtonsElement);
   }
 
   async function setNextQuestion() {
     resetState();
-    console.log('jestem w set nex question');
-    shuffledQuestions = await await questions(randomNumberOfIndex(ALL_RECORDS));
+    shuffledQuestions = await questions(saveRandomNumber());
+
     await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
-    shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
     currentQuestionIndex = 0;
     correctedAnswers = 0;
-    questionContainerElement.classList.remove('hide');
     await setNextQuestion(shuffledQuestions);
   }
 
-  nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    setNextQuestion();
-  });
-
   startGame();
+  timer();
 };
 
 export default createQuiz;
