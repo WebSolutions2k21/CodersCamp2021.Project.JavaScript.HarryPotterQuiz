@@ -129,3 +129,5 @@ function score() {
 importBestPlayersToHtml();
 congratulations();
 score();
+
+//changes

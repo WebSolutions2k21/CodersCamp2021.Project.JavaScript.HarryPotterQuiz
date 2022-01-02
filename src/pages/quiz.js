@@ -1,10 +1,10 @@
-import randomNumberOfIndex from '../shared/randomIndexGenerator';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
 import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/students/*.jpeg';
+import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 // add savePlayerToLocalStorage and getCurrentPlayerData to saving in LocalStorage
 import { savePlayerToLocaleStorage } from './resultPage';
 import { getCurrentPlayerData } from '../localStorageManager';
@@ -21,7 +21,7 @@ const createQuiz = () => {
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
-  const LIMIT_QUESTION = 7;
+  const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 60; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STUDENTS;
@@ -34,7 +34,15 @@ const createQuiz = () => {
   // Do danych dodać niepoprawne odpowiedzi
   // Po wyświetleniu sprawdzić
 
+  //Lily_Moon
+  // Miles_Bletchley, Orla_Quirke, Miles_Bletchley,
+  // Cassius_Warrington, Natalie_McDonald, Malcolm_Baddock, Emma_Dobbs, Peregrine_Derrick, Eleanor_Branstone,  Peregrine_Derrick
+
   const questions = getDataFromApi(categoryId, temp_Rec1, temp_Rec2);
+
+  const chosenNumber = [];
+
+  const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -73,12 +81,12 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
-    shuffledQuestions = await await questions(randomNumberOfIndex(ALL_RECORDS));
+    shuffledQuestions = await await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
-    shuffledQuestions = await questions(randomNumberOfIndex(ALL_RECORDS));
+    shuffledQuestions = await questions(saveRandomNumber());
     currentQuestionIndex = 0;
     correctedAnswers = 0;
     questionContainerElement.classList.remove('hide');
@@ -86,6 +94,28 @@ const createQuiz = () => {
   }
 
   startGame();
+
+  // timer
+  const startingMinutes = 1;
+  let time = startingMinutes * 60;
+
+  const countDownEl = document.getElementById('timer_clock');
+
+  function updateCountDown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    countDownEl.innerHTML = `0${minutes}:${seconds}`;
+    time--;
+
+    if (seconds == '01') {
+      window.location = '/result';
+    }
+  }
+
+  setInterval(updateCountDown, 1000);
 };
 
 export default createQuiz;

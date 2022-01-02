@@ -24,13 +24,13 @@
   }
 
   &__right {
-    background: #4b4b4b;
+    background: #1a472a;
     border: 10px solid #1a472a;
   }
 
   &__wrong {
-    background: #4b4b4b;
-    border: 10px solid $c-bg-primary;
+    background: $c-font-hover;
+    border: 10px solid $c-font-hover;
   }
 }
 

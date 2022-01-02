@@ -6,7 +6,6 @@ export default function getApiQuestion(categoryId, temp_Rec1, temp_Rec2) {
   return async (id) => {
     const res = await fetch(BASE_API_URL + categoryId);
     const data = await res.json();
-
     if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
       return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
     } else {

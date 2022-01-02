@@ -1,4 +1,5 @@
-import img from '../../assets/images/students/*.jpeg';
+
+import guessWho from '../../assets/images/guessWho.jpeg'
 
 function getImageFromFile(question) {
   let nameFromAnswer = question.answers[0].text;
@@ -10,7 +11,11 @@ export function showQuestionFunction(question, questionElement, showAnswer, answ
   if (question.question === '') {
     const getImg = getImageFromFile(question);
     console.log('get img', getImg);
-    questionElement.setAttribute('src', img[getImg]);
+    if (img[getImg] === null || img[getImg] === undefined) {
+      questionElement.setAttribute('src', guessWho);
+    } else {
+      questionElement.setAttribute('src', img[getImg]);
+    }
   } else {
     questionElement.setAttribute('src', question.question);
   }
