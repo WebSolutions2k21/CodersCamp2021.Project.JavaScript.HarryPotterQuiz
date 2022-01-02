@@ -10,6 +10,10 @@
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    // @media (max-width: $break-mobile){
+    //   justify-content: center;
+    //   flex-direction: column;
+    // }
   }
   &__main {
     display: flex;
@@ -22,13 +26,26 @@
     background-color: $c-bg-primary;
     border-radius: 10px;
     list-style-position: inside;
-    box-shadow: 1px 4px 5px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border: 2px solid black;
+    // @media (max-width: $break-mobile) {
+    //   width: 90%;
+    //   margin-top: 20px;
+    // }
     h1 {
       font-weight: 400;
+      // @media (max-width: $break-mobile) {
+      //   font-size: 1.7rem;
+      //   white-space: nowrap;
+      // }
     }
     &--button {
       align-self: flex-end;
+      // @media (max-width: $break-mobile) {
+      //   margin-top: 20px;
+      //   align-self: center;
+      // }
       .btn {
         margin: 0;
       }
@@ -39,23 +56,106 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
+    // @media (max-width: $break-mobile) {
+    //   max-height: 80%;
+    // }
     .ranking__list {
       font-size: 1.3rem;
       margin-bottom: 20px;
       padding: 0 20px;
+      width: 25%;
+      // @media (max-width: $break-mobile) {
+      //   flex: 0 0 100%;
+      //   font-size: 1rem;
+      // }
       h2{
         margin: 20px 0;
+        // @media (max-width: $break-mobile) {
+        //   font-size: 1.5rem;
+        // }
       }
-      &--item {
-        display: flex;
-        justify-content: space-between;
-        .points {
-          span {
-            padding-left: 20px;
+      #rankingStudents, #rankingStaff, #rankingHouses{
+        .ranking__list--item {
+          display: flex;
+          justify-content: space-between;
+          .points {
+            span {
+              padding-left: 20px;
+            }
           }
         }
       }
     }
-
   }
+  @media (max-width: $break-mobile){
+    height: 100%;
+    &__wrapper {
+      justify-content: center;
+      flex-direction: column;
+    }
+    &__main {
+      width: 90%;
+      margin-top: 20px;
+      h1 {
+        font-size: 1.7rem;
+        white-space: nowrap;
+      }
+      &--button {
+        margin-top: 20px;
+        align-self: center;
+      }
+    }
+    .ranking__categories {
+      max-height: 80%;
+      .ranking__list {
+        flex: 0 0 100%;
+        font-size: 1rem;
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  @media (min-width: $break-tablet){
+    overflow-y: auto;
+    &__wrapper {
+      justify-content: center;
+      flex-direction: column;
+    }
+    &__main {
+      width: 90%;
+      margin-top: 20px;
+      h1 {
+        font-size: 1.7rem;
+        white-space: nowrap;
+      }
+      &--button {
+        margin-top: 20px;
+        align-self: center;
+      }
+    }
+    .ranking__categories {
+      max-height: 80%;
+      .ranking__list {
+        flex: 0 0 30%;
+        font-size: 1rem;
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  // @media (min-width: $break-tablet) {
+    
+  // }
+  // @media (max-width: $break-laptop) {
+    
+  // }
 }
+
+// $break-xxs: 350px;
+// $break-xs: 575px;
+// $break-mobile: 767px;
+// $break-tablet: 991px;
+// $break-laptop: 1200px;
