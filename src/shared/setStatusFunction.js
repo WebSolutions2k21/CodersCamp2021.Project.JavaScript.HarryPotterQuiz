@@ -3,10 +3,8 @@ function clearStatusClass(element) {
   element.classList.remove('wrong');
 }
 
-
-export function setStatusFunction( element, correct) {
-   clearStatusClass(element);
-   console.log("element", element, correct);
+export function setStatusFunction(element, correct) {
+  clearStatusClass(element)
   if (correct) {
     element.classList.add('correct');
   } else {

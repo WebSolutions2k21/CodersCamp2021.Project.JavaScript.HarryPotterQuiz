@@ -7,9 +7,7 @@ export default function getApiQuestion(categoryId, temp_Rec1 = null, temp_Rec2 =
     const res = await fetch(BASE_API_URL + categoryId);
     const data = await res.json();
     if (categoryId === categoryName.API_CHARACTERS_HOUSES) {
-      const obj = { question: data[id].name, answers: [{ text: data[id].house, correct: true }] };
-      console.log('question', obj);
-      return obj;
+      return { question: data[id].name, answers: [{ text: data[id].house, correct: true }] };
     } else {
       return {
         question: data[id].image,

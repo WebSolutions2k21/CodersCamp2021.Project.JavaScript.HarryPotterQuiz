@@ -60,7 +60,7 @@ const createQuiz = () => {
         correctedAnswers++;
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-        setTimeout(async () => setNextQuestion(), 2000);
+        setTimeout(async () => await setNextQuestion(), 2000);
       } else {
         alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
       }
@@ -73,8 +73,9 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
+   getNumberRandomAndShuffleOtherNumber();
     shuffledQuestions = await questions(saveRandomNumber());
-    
+
     await showQuestion(shuffledQuestions);
   }
 

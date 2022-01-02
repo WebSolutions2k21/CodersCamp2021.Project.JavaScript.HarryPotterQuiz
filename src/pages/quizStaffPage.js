@@ -77,6 +77,7 @@ const createQuizStaffPage = (options) => {
 
   async function setNextQuestion() {
     resetState();
+    getNumberRandomAndShuffleOtherNumber();
     shuffledQuestions = await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }

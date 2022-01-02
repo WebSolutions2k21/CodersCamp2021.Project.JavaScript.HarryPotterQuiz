@@ -24,6 +24,7 @@ const createQuizHousesPage = (options) => {
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
+  let isClicked = false;
 
   timer();
 
@@ -53,17 +54,21 @@ const createQuizHousesPage = (options) => {
   }
 
   function showAnswer(image) {
-    image.addEventListener('click', handleClick);
+    image.addEventListener('click', handleClick)
+
+   image.disabled = true;
   }
 
   const handleClick = (e) => {
     const selectedButton = e.target;
     Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
       setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+      buttonAnswer.disabled= true;
     });
     currentQuestionIndex++;
     if (selectedButton.dataset.correct) {
       correctedAnswers++;
+      console.log('poprawna odpowiedź', correctedAnswers);
     }
 
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
