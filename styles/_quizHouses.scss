@@ -58,6 +58,15 @@
     z-index: 1;
     &__img {
       margin: 0 20px;
+
+      .correct {
+        background-color: green;
+        border: 5px solid #570509;
+      }
+
+      .wrong {
+        background-color: gray;
+      }
     }
     &__img:hover {
       box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400, 0 0 55px #ffc400,
@@ -71,5 +80,124 @@
     align-items: center;
     justify-content: center;
     gap: 2em;
+  }
+
+  .quizHouses__answers__img.correct {
+    background-color: #1a472a;
+    border: 5px solid #570509;
+  }
+
+  .quizHouses__answers__img.wrong {
+    background-color: gray;
+  }
+}
+
+@media (orientation: portrait) and (max-width: $break-tablet) {
+  .background_quiz_houses {
+    height: auto;
+    .wrapperquizPage{
+      background-repeat: repeat;
+      height: auto;
+
+      .quizPage__header {
+        flex-wrap: wrap;
+        margin-bottom: 90px;
+
+        .background_container {
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .wrapperquizPage__category--timer {
+          width: 90%;
+          margin: auto;
+
+          #timer_clock {
+            width: 90%;
+          }
+        }
+      }
+
+      .background_container {
+        width: 95%;
+        height: auto;
+        display: block;
+        overflow: auto;
+        p {
+          height: auto;
+          width: 100%;
+          white-space: initial;
+          font-size: 25px;
+          line-height: 2;
+        }
+      }
+
+      .quizHouses__answers {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 400px;
+        width: 70%;
+
+        img {
+          max-width: 140px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+
+@media (orientation: portrait) and (max-width: $break-mobile) {
+  .background_quiz_houses {
+    height: auto;
+    .wrapperquizPage{
+      background-repeat: repeat;
+      height: auto;
+
+      .quizPage__header {
+        flex-wrap: wrap;
+        margin-bottom: 90px;
+
+        .background_container {
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .wrapperquizPage__category--timer {
+          width: 90%;
+          margin: auto;
+
+          #timer_clock {
+            width: 90%;
+          }
+        }
+      }
+
+      .background_container {
+        width: 95%;
+        height: auto;
+        display: block;
+        overflow: auto;
+        p {
+          height: auto;
+          width: 100%;
+          white-space: initial;
+          font-size: 20px;
+          line-height: 2;
+        }
+      }
+
+      .quizHouses__answers {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 400px;
+        width: 90%;
+
+        img {
+          max-width: 120px;
+        }
+      }
+    }
   }
 }

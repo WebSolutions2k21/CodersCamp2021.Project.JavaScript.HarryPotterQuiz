@@ -110,7 +110,7 @@
             <h2>Students</h2>
           </div>
           <div class="wrapperquizPage__category--timer">
-            <div class="timer_clock"> 1:00</div>
+            <div id="timer_clock"></div>
             <div class="wand"></div>
             <div class="fire"></div>
           </div>
@@ -125,10 +125,6 @@
             <button class="btn"></button>
             <button class="btn"></button>
             <button class="btn"></button>
-          </div>
-          <button id="next-btn" class="next-btn btn hide">Next</button>
-          <button data-action-home class="btn btn__back">Back</button>
-        </div>
       </div>
       </div>
     </template>
@@ -141,7 +137,7 @@
             <h2>Staff</h2>
           </div>
           <div class="wrapperquizPage__category--timer">
-            <div class="timer_clock"> 1:00</div>
+            <div id="timer_clock"></div>
             <div class="wand"></div>
             <div class="fire"></div>
           </div>
@@ -156,7 +152,6 @@
             <button class="btn"></button>
             <button class="btn"></button>
             <button class="btn"></button>
-            <button data-action-home class="btn btn__back">Back</button>
           </div>
         
           
@@ -166,14 +161,14 @@
     </template>
 
     <template id="quizHousesPage">
-      <div class="background_quiz_houses">
+      <div class="background_quiz_houses quizHouses ">
         <div class="wrapperquizPage">
         <div class="quizPage__header">
           <div class="background_container">
-            <h2>Students</h2>
+            <h2>Houses</h2>
           </div>
           <div class="wrapperquizPage__category--timer">
-            <div class="timer_clock"> 1:00</div>
+            <div id="timer_clock"></div>
             <div class="wand"></div>
             <div class="fire"></div>
           </div>
@@ -182,20 +177,16 @@
           <p>What type of house is the character Harry Potter's from?</p>
           
         </div>
-        <div class="background_container"><p>Question Name</p></div>
+        <div class="background_container" ><p id="questionHouses"></p></div>
       
-        <div class="quizHouses__answers">
-          <img src="./assets/images/quiz/house1.png" class="quizHouses__answers__img" alt="House1" />
-          <img src="./assets/images/quiz/house2.png" class="quizHouses__answers__img" alt="House2" />
-          <img src="./assets/images/quiz/house3.png" class="quizHouses__answers__img" alt="House3" />
-          <img src="./assets/images/quiz/house4.png" class="quizHouses__answers__img" alt="House4" />
-        </div>
-
-        <div class="quizHouses__menu">
-          <button data-action-home class="btn btn__back">Back</button>
+        <div class="quizHouses__answers" id="answer-buttons">
+          <img src="./assets/images/quiz/house1.png" id="Gryffindor" class="quizHouses__answers__img" alt="House1" />
+          <img src="./assets/images/quiz/house2.png" id="Ravenclaw" class="quizHouses__answers__img" alt="House2" />
+          <img src="./assets/images/quiz/house3.png" id="Hufflepuff" class="quizHouses__answers__img" alt="House3" />
+          <img src="./assets/images/quiz/house4.png" id="Slytherin" class="quizHouses__answers__img" alt="House4" />
         </div>
       </div>
-      </div>
+     </div>
     </template>
 
     <template id="rankingPage">
