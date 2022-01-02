@@ -7,9 +7,7 @@ import img from '../../assets/images/students/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
-// add savePlayerToLocalStorage and getCurrentPlayerData to saving in LocalStorage
-import { savePlayerToLocaleStorage } from './resultPage';
-import { getCurrentPlayerData } from '../localStorageManager';
+import { addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -58,7 +56,7 @@ const createQuiz = () => {
         setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
       });
       currentQuestionIndex++;
-      console.log(currentQuestionIndex);
+      // console.log(currentQuestionIndex);
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
       }
@@ -66,8 +64,7 @@ const createQuiz = () => {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
         // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-        // add Player to allPlayers in LocalStorage and redirection to resultPage
-        savePlayerToLocaleStorage(getCurrentPlayerData());
+        addPointsToCurrentPlayer(correctedAnswers);
         location.href = '/result';
       }
     });
