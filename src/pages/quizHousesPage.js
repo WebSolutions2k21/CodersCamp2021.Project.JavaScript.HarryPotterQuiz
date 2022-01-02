@@ -65,6 +65,7 @@ const createQuizHousesPage = (options) => {
     currentQuestionIndex++;
     if (selectedButton.dataset.correct) {
       correctedAnswers++;
+      addPointsToCurrentPlayer(10);
     }
 
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
