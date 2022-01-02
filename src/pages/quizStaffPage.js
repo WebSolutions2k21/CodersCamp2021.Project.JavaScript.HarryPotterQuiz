@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import categoryName from '../shared/categoryNameApi';
@@ -12,9 +13,12 @@ import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumbe
 const createQuizStaffPage = (options) => {
   const appScreen = document.querySelector('#root');
   const quizStaffPage = document.querySelector('#quizStaffPage');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
+  document.querySelector('[data-lang-quizStaff-header]').innerText = t('quizStaff-header');
+  document.querySelector('[data-lang-quizStaff-question]').innerText = t('quizStaff-question');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
@@ -24,7 +28,6 @@ const createQuizStaffPage = (options) => {
   const ALL_RECORDS = 24; //pobrać tyle rekordów ile jest w api z tej kategorii
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
-
 
   const chosenNumber = [];
 
@@ -36,7 +39,11 @@ const createQuizStaffPage = (options) => {
 
   arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
 
-  const questions = getDataFromApi(categoryId, arrayWithTwoDifferentIndexOfQuestion[1], arrayWithTwoDifferentIndexOfQuestion[2]);
+  const questions = getDataFromApi(
+    categoryId,
+    arrayWithTwoDifferentIndexOfQuestion[1],
+    arrayWithTwoDifferentIndexOfQuestion[2],
+  );
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -91,21 +98,20 @@ const createQuizStaffPage = (options) => {
   const countDownEl = document.getElementById('timer_clock');
 
   function updateCountDown() {
-      const minutes = Math.floor(time / 60);
-      let seconds = time % 60;
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
 
-      seconds = seconds < 10 ? '0' + seconds : seconds;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
 
-      countDownEl.innerHTML = `0${minutes}:${seconds}`;
-      time--;
+    countDownEl.innerHTML = `0${minutes}:${seconds}`;
+    time--;
 
-      if(seconds == '01') {
-        window.location = '/result';
-      }
+    if (seconds == '01') {
+      window.location = '/result';
+    }
   }
 
   setInterval(updateCountDown, 1000);
-
 };
 
 export default createQuizStaffPage;

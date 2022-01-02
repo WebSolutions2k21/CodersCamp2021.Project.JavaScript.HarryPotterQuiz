@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
 import { showQuestionFunction } from '../shared/showQuestionFunction';
@@ -10,9 +11,12 @@ import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumbe
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
   const quiz = document.querySelector('#quiz');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = quiz.innerHTML;
 
+  document.querySelector('[data-lang-quizStudent-header]').innerText = t('quizStudent-header');
+  document.querySelector('[data-lang-quizStudent-question]').innerText = t('quizStudent-question');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 

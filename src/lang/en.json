@@ -2,6 +2,28 @@
   "translation": {
     "start": "start",
     "rules": "rules",
-    "best_scores": "best scores"
+    "best_scores": "best scores",
+    "back":"back",
+    "rules": "Rules",
+    "p1": "Click on start, then enter your nickname and choose one of the three categories. Answer the questions by clicking on the answer of your choice. You will receive:",
+    "p2": "point for a correct answer",
+    "p3": "points for a wrong answer",
+    "p4":"Remember, you have one minute to answer as many questions as possible.",
+    "p5": "Have Fun!",
+    "gameMode-header": "GAME MODE",
+    "gameMode-input-forgotten": "Muggle, you forgot something!",
+    "students": "students",
+    "staff": "staff",
+    "houses": "houses",
+    "fname":"Enter your name",
+    "quizStudent-header":"student",
+    "quizStudent-question":"How is the Hogwarts student visible in the photo called?",
+    "quizStaff-header": "Staff",
+    "quizStaff-question": "Who is this?",
+    "quizHouses-header": "Houses",
+    "quizHouses-question": "What type of house is the character Harry Potter's from?",
+    "rankingPage-header": "Best Scores",
+    "notFound-text1": "Muggle, you broke the Internet",
+    "notFound-text2": "Just kidding. Please make sure you’ve entered the correct address, or click the button"
   }
 }

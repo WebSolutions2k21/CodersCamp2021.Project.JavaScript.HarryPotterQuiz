@@ -26,6 +26,7 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     h1 {
       font-weight: 400;
+      text-transform: uppercase;
     }
     &--button {
       align-self: flex-end;
@@ -43,8 +44,9 @@
       font-size: 1.3rem;
       margin-bottom: 20px;
       padding: 0 20px;
-      h2{
+      h2 {
         margin: 20px 0;
+        text-transform: uppercase;
       }
       &--item {
         display: flex;
@@ -56,6 +58,5 @@
         }
       }
     }
-
   }
 }

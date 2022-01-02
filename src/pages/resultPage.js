@@ -1,4 +1,5 @@
 /* eslint-disable spaced-comment */
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import { getCurrentPlayerData } from '../localStorageManager';
@@ -6,9 +7,11 @@ import { getCurrentPlayerData } from '../localStorageManager';
 const createResultPage = () => {
   const appScreen = document.querySelector('#root');
   const resultPage = document.querySelector('#resultPage');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = resultPage.innerHTML;
 
+  document.querySelector('[data-lang-rankingPage-header]').innerText = t('rankingPage-header');
   mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
   mapNavigationClickToTemplate('[data-action-scores]', paths.ranking);
   mapNavigationClickToTemplate('[data-action-home]', paths.home);

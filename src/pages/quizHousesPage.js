@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 const questionContainerElement = document.getElementById('question-container-houses');
@@ -15,7 +16,10 @@ const createQuizHousesPage = (options) => {
   const quizHousesPage = document.querySelector('#quizHousesPage');
 
   appScreen.innerHTML = quizHousesPage.innerHTML;
+  const { t, changeLanguage } = i18next;
 
+  document.querySelector('[data-lang-quizHouses-header]').innerText = t('quizHouses-header');
+  document.querySelector('[data-lang-quizHouses-question]').innerText = t('quizHouses-question');
   console.log('max time ', options.quizMaxTime);
 
   // timer
