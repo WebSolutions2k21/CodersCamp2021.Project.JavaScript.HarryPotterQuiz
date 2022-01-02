@@ -64,6 +64,7 @@ const createQuiz = () => {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
         // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        //zlicza punkty tylko pzy ostatnim pytaniu nie po skończeniu czasu
         addPointsToCurrentPlayer(correctedAnswers);
         location.href = '/result';
       }
