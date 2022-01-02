@@ -5,7 +5,8 @@ function clearStatusClass(element) {
 
 
 export function setStatusFunction( element, correct) {
-  clearStatusClass(element);
+   clearStatusClass(element);
+   console.log("element", element, correct);
   if (correct) {
     element.classList.add('correct');
   } else {
