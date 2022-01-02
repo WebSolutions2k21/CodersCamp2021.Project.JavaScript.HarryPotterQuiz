@@ -8,6 +8,7 @@ import img from '../../assets/images/students/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
+import { addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -59,14 +60,16 @@ const createQuiz = () => {
         setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
       });
       currentQuestionIndex++;
-      console.log(currentQuestionIndex);
+      // console.log(currentQuestionIndex);
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
+        addPointsToCurrentPlayer(10);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
-        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+        location.href = '/result';
       }
     });
   }
@@ -78,7 +81,7 @@ const createQuiz = () => {
   async function setNextQuestion() {
     resetState();
     shuffledQuestions = await questions(saveRandomNumber());
-    
+
     await showQuestion(shuffledQuestions);
   }
 

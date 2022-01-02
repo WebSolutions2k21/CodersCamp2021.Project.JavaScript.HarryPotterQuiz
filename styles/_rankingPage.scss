@@ -22,8 +22,9 @@
     background-color: $c-bg-primary;
     border-radius: 10px;
     list-style-position: inside;
-    box-shadow: 1px 4px 5px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border: 2px solid black;
     h1 {
       font-weight: 400;
       text-transform: uppercase;
@@ -43,20 +44,54 @@
     .ranking__list {
       font-size: 1.3rem;
       margin-bottom: 20px;
-      padding: 0 20px;
+      padding: 0 40px;
+      flex-grow: 1;
       h2 {
         margin: 20px 0;
         text-transform: uppercase;
       }
-      &--item {
-        display: flex;
-        justify-content: space-between;
-        .points {
-          span {
-            padding-left: 20px;
+      #rankingStudents, #rankingStaff, #rankingHouses{
+        .ranking__list--item {
+          display: flex;
+          justify-content: space-between;
+          .points {
+            margin-left: 40px;
+            span {
+              padding-left: 20px;
+            }
           }
         }
       }
+  }
+  @media (max-width: $break-tablet){
+    overflow-y: auto;
+    &__wrapper {
+      justify-content: center;
+      flex-direction: column;
     }
+    &__main {
+      width: 90%;
+      margin-top: 20px;
+      h1 {
+        font-size: 1.7rem;
+        white-space: nowrap;
+      }
+      &--button {
+        margin-top: 20px;
+        align-self: center;
+      }
+    }
+    .ranking__categories {
+      max-height: 80%;
+      .ranking__list {
+        font-size: 1rem;
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  @media (max-width: $break-xs){
+    height: 100%;
   }
 }
