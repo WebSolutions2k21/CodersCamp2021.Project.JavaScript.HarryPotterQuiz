@@ -8,7 +8,7 @@ import { resetStateFunction } from '../shared/resetStateFunction';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 
 const createQuizHousesPage = (options) => {
-  console.log('max time ', options.quizMaxTime);
+  // console.log('max time ', options.quizMaxTime);
 
   const appScreen = document.querySelector('#root');
   const quizHousesPage = document.querySelector('#quizHousesPage');
@@ -61,14 +61,14 @@ const createQuizHousesPage = (options) => {
     const getAnswer = question.answers[0].text;
     if (getAnswer === '') {
     }
-    console.log('get answer', getAnswer);
+    // console.log('get answer', getAnswer);
     // console.log(image);
     images.forEach((answer) => {
-      console.log('answer', answer);
+      // console.log('answer', answer);
       const getImageId = answer.getAttribute('id');
 
       if (getImageId === getAnswer) {
-        console.log('poprawna');
+        // console.log('poprawna');
         answer.dataset.correct = true;
       }
       // console.log('correct ustawienie', answer.dataset);
@@ -79,26 +79,30 @@ const createQuizHousesPage = (options) => {
     });
   }
 
-  function showAnswer(image) {
-    image.addEventListener('click', (e) => {
-      const selectedButton = e.target;
-      console.log('selected button', selectedButton);
-      Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-        setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-      });
-      currentQuestionIndex++;
-      console.log('index obecny', currentQuestionIndex);
-      if (selectedButton.dataset.correct) {
-        correctedAnswers++;
-        console.log('udzielona poprawna odpowiedz', correctedAnswers);
-      }
-
-      if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-        setTimeout(async () => setNextQuestion(), 2000);
-      } else {
-        alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-      }
+  const handleClick = (e) => {
+    const selectedButton = e.target;
+    console.log('selected button', selectedButton);
+    Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+      setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
     });
+    currentQuestionIndex++;
+    console.log('index obecny', currentQuestionIndex);
+    if (selectedButton.dataset.correct) {
+      correctedAnswers++;
+      console.log('udzielona poprawna odpowiedz', correctedAnswers);
+    }
+
+    if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+      setTimeout(async () => {
+        await setNextQuestion();
+      }, 2000);
+    } else {
+      alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+    }
+  };
+
+  function showAnswer(image) {
+    image.addEventListener('click', handleClick);
   }
 
   function clearStatusClass(element) {
@@ -108,9 +112,10 @@ const createQuizHousesPage = (options) => {
 
   function resetState() {
     clearStatusClass(document.body);
-    console.log('answerbuttonElement w reset', images);
+    // console.log('answerbuttonElement w reset', images);
     // while (answerButtonsElement.getAttribute) {
     images.forEach((img) => {
+      img.removeEventListener('click', handleClick);
       img.removeAttribute('data-correct');
       img.classList.remove('wrong');
       img.classList.remove('correct');
@@ -125,14 +130,14 @@ const createQuizHousesPage = (options) => {
     let isEmptyText;
     shuffledQuestions = await questions(saveRandomNumber());
     isEmptyText = shuffledQuestions.answers[0].text;
-    console.log('czy puste', isEmptyText);
+    // console.log('czy puste', isEmptyText);
 
     while (isEmptyText === '') {
       resetState();
       shuffledQuestions = await questions(saveRandomNumber());
-      console.log('szuffled question', shuffledQuestions);
+      // console.log('szuffled question', shuffledQuestions);
       isEmptyText = shuffledQuestions.answers[0].text;
-      console.log('is empty in loop', isEmptyText);
+      // console.log('is empty in loop', isEmptyText);
     }
 
     await showQuestion(shuffledQuestions);
