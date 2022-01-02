@@ -90,4 +90,7 @@
       }
     }
   }
+  @media (max-width: $break-xs){
+    height: 100%;
+  }
 }
