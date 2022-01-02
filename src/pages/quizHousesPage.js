@@ -5,6 +5,7 @@ import categoryName from '../shared/categoryNameApi';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import timer from '../timer';
+import { addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createQuizHousesPage = (options) => {
   console.log('max time ', options.quizMaxTime);
@@ -76,7 +77,9 @@ const createQuizHousesPage = (options) => {
         await setNextQuestion();
       }, 2000);
     } else {
-      alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+      // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+      addPointsToCurrentPlayer(correctedAnswers);
+      location.href = '/result';
     }
   };
 
