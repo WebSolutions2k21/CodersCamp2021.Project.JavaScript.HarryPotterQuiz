@@ -1,14 +1,16 @@
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
-const questionContainerElement = document.getElementById('question-container-houses');
-  const questionElement = document.getElementById('question');
-  const answerButtonsElement = document.getElementById('answer-buttons');
+import timer from '../timer';
 
-  let shuffledQuestions;
-  let currentQuestionIndex = 0;
-  const LIMIT_QUESTION = 7;
-  const ALL_RECORDS = 279; //pobrać tyle rekordów ile jest w api z tej kategorii
-  let correctedAnswers = 0;
+const questionContainerElement = document.getElementById('question-container-houses');
+const questionElement = document.getElementById('question');
+const answerButtonsElement = document.getElementById('answer-buttons');
+
+let shuffledQuestions;
+let currentQuestionIndex = 0;
+const LIMIT_QUESTION = 7;
+const ALL_RECORDS = 279; //pobrać tyle rekordów ile jest w api z tej kategorii
+let correctedAnswers = 0;
 
 const createQuizHousesPage = (options) => {
   const appScreen = document.querySelector('#root');
@@ -18,29 +20,7 @@ const createQuizHousesPage = (options) => {
 
   console.log('max time ', options.quizMaxTime);
 
-    // timer
-    const startingMinutes = 1;
-    let time = startingMinutes * 60;
-  
-    const countDownEl = document.getElementById('timer_clock');
-  
-    function updateCountDown() {
-        const minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-  
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-  
-        countDownEl.innerHTML = `0${minutes}:${seconds}`;
-        time--;
-  
-        if(seconds == '01') {
-          window.location = '/result';
-        }
-    }
-  
-    setInterval(updateCountDown, 1000);
-
-    
+  timer();
 
   // const questions = getHouses();
 
@@ -60,7 +40,7 @@ const createQuizHousesPage = (options) => {
 
   // async function showQuestion(question) {
   //   console.log('question', question.question);
-    
+
   //   question.answers.sort(() => Math.random() - 0.5);
   //   question.answers.forEach((answer) => {
   //     const button = document.createElement('button');
@@ -95,7 +75,6 @@ const createQuizHousesPage = (options) => {
   //   });
   // }
 
- 
   // function resetState() {
   //   clearStatusClass(document.body);
   //   while (answerButtonsElement.firstChild) {
@@ -118,8 +97,6 @@ const createQuizHousesPage = (options) => {
   // }
 
   // startGame();
-
-  mapNavigationClickToTemplate('[data-action-home]', paths.home);
 };
 
 export default createQuizHousesPage;
@@ -129,6 +106,6 @@ export default createQuizHousesPage;
 //     const res = await fetch(BASE_API_URL + categoryName.API_CHARACTERS_HOUSES);
 //     const data = await res.json();
 //     return { question: data[id].name, answers: [{ text: data[id].house, answer: true }] };
-    
+
 //   };
 // }
