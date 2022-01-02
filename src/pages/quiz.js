@@ -59,13 +59,12 @@ const createQuiz = () => {
       // console.log(currentQuestionIndex);
       if (selectedButton.dataset.correct) {
         correctedAnswers++;
+        addPointsToCurrentPlayer(1);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
         // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-        //zlicza punkty tylko pzy ostatnim pytaniu nie po skończeniu czasu
-        addPointsToCurrentPlayer(correctedAnswers);
         location.href = '/result';
       }
     });
