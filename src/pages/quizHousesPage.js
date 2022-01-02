@@ -2,10 +2,9 @@ import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
-import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
-import { resetStateFunction } from '../shared/resetStateFunction';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
+import timer from '../timer';
 
 const createQuizHousesPage = (options) => {
   console.log('max time ', options.quizMaxTime);
@@ -26,27 +25,7 @@ const createQuizHousesPage = (options) => {
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
 
-  // timer
-  const startingMinutes = 1;
-  let time = startingMinutes * 60;
-
-  const countDownEl = document.getElementById('timer_clock');
-
-  function updateCountDown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    countDownEl.innerHTML = `0${minutes}:${seconds}`;
-    time--;
-
-    if (seconds == '01') {
-      window.location = '/result';
-    }
-  }
-
-  setInterval(updateCountDown, 1000);
+  timer();
 
   const questions = getDataFromApi(categoryId);
   const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);

@@ -6,6 +6,7 @@ import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/students/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
+import timer from '../timer';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
@@ -84,28 +85,7 @@ const createQuiz = () => {
   }
 
   startGame();
-
-  // timer
-  const startingMinutes = 1;
-  let time = startingMinutes * 60;
-
-  const countDownEl = document.getElementById('timer_clock');
-
-  function updateCountDown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    countDownEl.innerHTML = `0${minutes}:${seconds}`;
-    time--;
-
-    if (seconds == '01') {
-      window.location = '/result';
-    }
-  }
-
-  setInterval(updateCountDown, 1000);
+  timer();
 };
 
 export default createQuiz;
