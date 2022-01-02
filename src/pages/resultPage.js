@@ -94,7 +94,7 @@ const createResultPage = () => {
     if (currentPlayer) {
       const textCongrats = document.createElement('p');
       textCongrats.className = 'resultPage__congrats--center';
-      textCongrats.innerHTML = `Congratulation ${currentPlayer.name} ! <br />
+      textCongrats.innerHTML = `Congratulations ${currentPlayer.name} ! <br />
       You answered X questions correctly in .... sec!`;
       scoreInformations.appendChild(textCongrats);
     }
