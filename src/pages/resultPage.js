@@ -1,4 +1,5 @@
 /* eslint-disable spaced-comment */
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import { getCurrentPlayerData, saveCurrentPlayerData } from '../localStorageManager';
@@ -6,9 +7,13 @@ import { getCurrentPlayerData, saveCurrentPlayerData } from '../localStorageMana
 const createResultPage = () => {
   const appScreen = document.querySelector('#root');
   const resultPage = document.querySelector('#resultPage');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = resultPage.innerHTML;
 
+  document.querySelector('[data-lang-rankingPage-header]').innerText = t('rankingPage-header');
+  document.querySelector('[data-action-back]').innerText = t('back');
+  document.querySelector('[data-action-play_again]').innerText = t('play_again');
   mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
   mapNavigationClickToTemplate('[data-action-home]', paths.home);
 

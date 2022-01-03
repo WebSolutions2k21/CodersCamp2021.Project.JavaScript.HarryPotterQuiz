@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
 import { showQuestionFunction } from '../shared/showQuestionFunction';
@@ -5,16 +6,19 @@ import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/students/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
-import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
+import { getNumberRandomArrayFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
 import { addPointsToCurrentPlayer } from '../localStorageManager';
 
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
   const quiz = document.querySelector('#quiz');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = quiz.innerHTML;
 
+  document.querySelector('[data-lang-quizStudent-header]').innerText = t('quizStudent-header');
+  document.querySelector('[data-lang-quizStudent-question]').innerText = t('quizStudent-question');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
@@ -22,7 +26,6 @@ const createQuiz = () => {
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 102;
-  let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STUDENTS;
 
   const chosenNumber = [];
@@ -30,15 +33,8 @@ const createQuiz = () => {
 
   const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
-  const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
-
-  arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
-
-  const questions = getDataFromApi(
-    categoryId,
-    arrayWithTwoDifferentIndexOfQuestion[1],
-    arrayWithTwoDifferentIndexOfQuestion[2],
-  );
+  const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
+  let clicked = false;
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -48,24 +44,31 @@ const createQuiz = () => {
     showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
   }
 
-  function showAnswer(button) {
-    button.addEventListener('click', (e) => {
-      const selectedButton = e.target;
+  const handleClick = (e) => {
+    const selectedButton = e.target;
 
-      Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-        setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-      });
-      currentQuestionIndex++;
-      // console.log(currentQuestionIndex);
-      if (selectedButton.dataset.correct) {
-        correctedAnswers++;
-        addPointsToCurrentPlayer(10);
-      }
-      if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-        setTimeout(async () => setNextQuestion(), 2000);
-      } else {
-        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-        location.href = '/result';
+    Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+      setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+    });
+    currentQuestionIndex++;
+    if (selectedButton.dataset.correct) {
+      addPointsToCurrentPlayer(10);
+    }
+    if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+      setTimeout(async () => await setNextQuestion(), 2000);
+    } else {
+      location.href = '/result';
+    }
+  };
+
+  function showAnswer(button) {
+    button.addEventListener('click', function (event) {
+      if (!clicked) {
+        clicked = true;
+        handleClick(event);
+        setTimeout(function () {
+          clicked = false;
+        }, 2000);
       }
     });
   }
@@ -76,14 +79,19 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
-    shuffledQuestions = await questions(saveRandomNumber());
+    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
+    const questions = getDataFromApi(
+      categoryId,
+      arrayWithTwoDifferentIndexOfQuestion[1],
+      arrayWithTwoDifferentIndexOfQuestion[2],
+    );
 
+    shuffledQuestions = await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
     currentQuestionIndex = 0;
-    correctedAnswers = 0;
     await setNextQuestion(shuffledQuestions);
   }
 

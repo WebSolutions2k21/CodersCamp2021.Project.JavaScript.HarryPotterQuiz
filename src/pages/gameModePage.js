@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths, route } from '../shared/router';
 import { saveCurrentPlayerData } from '../localStorageManager';
@@ -20,11 +21,18 @@ function addEventListenersForGameModeButtons() {
 const createGameModePage = () => {
   const appScreen = document.querySelector('#root');
   const gameModePage = document.querySelector('#gameModePage');
-
+  const { t, changeLanguage } = i18next;
   appScreen.innerHTML = gameModePage.innerHTML;
 
   addEventListenersForGameModeButtons();
 
+  document.querySelector('[data-lang-gameMode-header]').innerText = t('gameMode-header');
+  document.getElementById('fname').placeholder = t('fname');
+  document.querySelector('[data-lang-gameMode-input-forgotten]').innerText = t('gameMode-input-forgotten');
+  document.querySelector('[data-action-students]').innerText = t('students');
+  document.querySelector('[data-action-staff]').innerText = t('staff');
+  document.querySelector('[data-action-houses]').innerText = t('houses');
+  document.querySelector('[data-action-back]').innerText = t('back');
   mapNavigationClickToTemplate('[data-action-back]', paths.home);
   // change placeholder
   const form = document.querySelector('form');

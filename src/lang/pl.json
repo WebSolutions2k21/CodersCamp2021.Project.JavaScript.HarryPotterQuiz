@@ -2,6 +2,29 @@
   "translation": {
     "start": "Graj",
     "rules": "Zasady",
-    "best_scores": "Wyniki"
+    "best_scores": "Wyniki",
+    "back":"Menu",
+    "rules":"Zasady",
+    "p1": "Naciśnij przycisk Start, następnie wpisz nazwę gracza i wybierz jedną z trzech kategorii. Odpowiadaj na pytania klikając w jedną z trzech odpowiedzi. Otrzymasz:",
+    "p2": " punktów za każdą prawidłową odpowiedź",
+    "p3": " za każdą błędną odpowiedź",
+    "p4": "Pamiętaj! Masz minutę na udzielenie jak największej liczby odpowiedzi.",
+    "p5":"Baw się dobrze!",
+    "gameMode-header": "Tryb Gry",
+    "gameMode-input-forgotten": "Muggolu, zapomniałeś czegoś!",
+    "students": "uczniowie",
+    "staff": "nauczyciele",
+    "houses": "domy",
+    "fname":"Tutaj wpisz login",
+    "quizStudent-header":"Uczniowie",
+    "quizStudent-question":"Kogo widzisz na obrazku?",
+    "quizStaff-header": "Nauczyciele",
+    "quizStaff-question": "Kto to jest?",
+    "quizHouses-header":"Domy",
+    "quizHouses-question": "Z jakiego domu pochodzi ten bohater?",
+    "rankingPage-header": "Najlepsze wyniki",
+    "notFound-text1": "Mogolu, Internet nie ogarnia, teraz to nic nie uruchomisz",
+    "notFound-text2": "Ha ha spokojnie, popraw adres strony lub naciśnij przycisk",
+    "play_again": "Zagraj ponownie"
   }
 }

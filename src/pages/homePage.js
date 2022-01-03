@@ -14,9 +14,12 @@ const createHomePage = () => {
   document.querySelector('[data-action-scores]').innerText = t('best_scores');
   const container = document.querySelector('.wrapperHomePage ');
   const fragment = document.createElement('div');
+  fragment.style.cssText = `position: fixed;
+  top: 20px;
+  right: 20px;`;
   fragment.innerHTML = `
-  <button id="en" class="btn" style="padding: 1rem">en</button>
-  <button id="pl" class="btn" style="padding: 1rem">pl</button>
+  <button id="en" class="btn btn_lang">en</button>
+  <button id="pl" class="btn btn_lang">pl</button>
   `;
   container.appendChild(fragment);
   document.getElementById('en').addEventListener('click', () => {
