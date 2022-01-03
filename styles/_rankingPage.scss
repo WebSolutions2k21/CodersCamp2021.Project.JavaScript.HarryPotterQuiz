@@ -5,16 +5,14 @@
   width: 100vw;
   height: 100vh;
   font-size: $p-paragraphFontSize;
+
   &__wrapper {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    // @media (max-width: $break-mobile){
-    //   justify-content: center;
-    //   flex-direction: column;
-    // }
   }
+
   &__main {
     display: flex;
     flex-direction: column;
@@ -29,116 +27,86 @@
     box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     border: 2px solid black;
-    // @media (max-width: $break-mobile) {
-    //   width: 90%;
-    //   margin-top: 20px;
-    // }
+
     h1 {
       font-weight: 400;
-      // @media (max-width: $break-mobile) {
-      //   font-size: 1.7rem;
-      //   white-space: nowrap;
-      // }
+      text-transform: uppercase;
     }
+
     &--button {
       align-self: flex-end;
-      // @media (max-width: $break-mobile) {
-      //   margin-top: 20px;
-      //   align-self: center;
-      // }
+
       .btn {
         margin: 0;
       }
     }
   }
+
   .ranking__categories {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    // @media (max-width: $break-mobile) {
-    //   max-height: 80%;
-    // }
+
     .ranking__list {
       font-size: 1.3rem;
       margin-bottom: 20px;
-      padding: 0 20px;
-      width: 25%;
-      // @media (max-width: $break-mobile) {
-      //   flex: 0 0 100%;
-      //   font-size: 1rem;
-      // }
-      h2{
-        margin: 20px 0;
-        // @media (max-width: $break-mobile) {
-        //   font-size: 1.5rem;
-        // }
-      }
-      #rankingStudents, #rankingStaff, #rankingHouses{
-        .ranking__list--item {
-          display: flex;
-          justify-content: space-between;
-          .points {
-            span {
-              padding-left: 20px;
-            }
+      padding: 0 40px;
+      flex-grow: 1;
+    }
+
+    h2 {
+      margin: 20px 0;
+      text-transform: uppercase;
+    }
+
+    #rankingStudents,
+    #rankingStaff,
+    #rankingHouses {
+      .ranking__list--item {
+        display: flex;
+        justify-content: space-between;
+
+        .points {
+          margin-left: 40px;
+
+          span {
+            padding-left: 20px;
           }
         }
       }
     }
   }
-  @media (max-width: $break-mobile){
-    height: 100%;
-    &__wrapper {
-      justify-content: center;
-      flex-direction: column;
-    }
-    &__main {
-      width: 90%;
-      margin-top: 20px;
-      h1 {
-        font-size: 1.7rem;
-        white-space: nowrap;
-      }
-      &--button {
-        margin-top: 20px;
-        align-self: center;
-      }
-    }
-    .ranking__categories {
-      max-height: 80%;
-      .ranking__list {
-        flex: 0 0 100%;
-        font-size: 1rem;
-        h2 {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-  @media (min-width: $break-tablet){
+
+  @media (max-width: $break-tablet) {
     overflow-y: auto;
+
     &__wrapper {
       justify-content: center;
       flex-direction: column;
     }
+
     &__main {
       width: 90%;
       margin-top: 20px;
+
       h1 {
         font-size: 1.7rem;
         white-space: nowrap;
       }
+
       &--button {
         margin-top: 20px;
         align-self: center;
       }
     }
+
     .ranking__categories {
       max-height: 80%;
+
       .ranking__list {
-        flex: 0 0 30%;
         font-size: 1rem;
+
         h2 {
           font-size: 1.5rem;
         }
@@ -146,16 +114,7 @@
     }
   }
 
-  // @media (min-width: $break-tablet) {
-    
-  // }
-  // @media (max-width: $break-laptop) {
-    
-  // }
+  @media (max-width: $break-xs) {
+    height: 100%;
+  }
 }
-
-// $break-xxs: 350px;
-// $break-xs: 575px;
-// $break-mobile: 767px;
-// $break-tablet: 991px;
-// $break-laptop: 1200px;

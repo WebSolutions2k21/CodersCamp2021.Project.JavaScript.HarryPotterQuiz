@@ -12,7 +12,7 @@ export function showQuestionFunction(question, questionElement, showAnswer, answ
     const getImg = getImageFromFile(question);
     console.log('get img', getImg);
     if (img[getImg] === null || img[getImg] === undefined) {
-      questionElement.setAttribute('src', guessWho);
+      questionElement.setAttribute('src', guessWho);     
     } else {
       questionElement.setAttribute('src', img[getImg]);
     }

@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import getDataFromApi from '../api/harryPotter';
@@ -13,18 +14,21 @@ const createQuizHousesPage = (options) => {
   const appScreen = document.querySelector('#root');
   const quizHousesPage = document.querySelector('#quizHousesPage');
   appScreen.innerHTML = quizHousesPage.innerHTML;
+  const { t, changeLanguage } = i18next;
 
+  document.querySelector('[data-lang-quizHouses-header]').innerText = t('quizHouses-header');
+  document.querySelector('[data-lang-quizHouses-question]').innerText = t('quizHouses-question');
   const questionElement = document.getElementById('questionHouses');
-  const answerButtonsElement = document.getElementById('answer-buttons');
+  const answerButtonsElement = document.getElementById('answer-buttons_Houses');
   const images = document.querySelectorAll('.quizHouses__answers__img');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
-  const ALL_RECORDS = 296;
-  let correctedAnswers = 0;
+  const ALL_RECORDS = 70;
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
+  let clicked = false;
 
   timer();
 
@@ -54,17 +58,25 @@ const createQuizHousesPage = (options) => {
   }
 
   function showAnswer(image) {
-    image.addEventListener('click', handleClick);
+      image.addEventListener('click', function (event) {
+        if (!clicked) {
+          clicked = true;
+          handleClick(event);
+          setTimeout(function () {
+            clicked = false;
+          }, 2000);
+        }
+      });
   }
 
   const handleClick = (e) => {
     const selectedButton = e.target;
     Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
       setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+      buttonAnswer.disabled = true;
     });
     currentQuestionIndex++;
     if (selectedButton.dataset.correct) {
-      correctedAnswers++;
       addPointsToCurrentPlayer(10);
     }
 
@@ -73,8 +85,6 @@ const createQuizHousesPage = (options) => {
         await setNextQuestion();
       }, 2000);
     } else {
-      // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-      addPointsToCurrentPlayer(correctedAnswers);
       location.href = '/result';
     }
   };
@@ -103,8 +113,7 @@ const createQuizHousesPage = (options) => {
   }
 
   async function startGame() {
-    currentQuestionIndex = 0;
-    correctedAnswers = 0;
+    currentQuestionIndex = 0; 
     await setNextQuestion(shuffledQuestions);
   }
 
