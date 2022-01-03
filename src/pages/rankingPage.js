@@ -48,14 +48,10 @@ const createRankingPage = () => {
       }
       return (sortByHighestScore(students), sortByHighestScore(staff), sortByHighestScore(houses));
     });
+
     const studentsRanking = document.getElementById('rankingStudents');
     const staffRanking = document.getElementById('rankingStaff');
     const housesRanking = document.getElementById('rankingHouses');
-
-    const setCategoryName = (catName) => {
-      const categoryName = document.querySelector(`.${catName}`);
-      categoryName.innerHTML = `<h2 data-action-houses>${catName}</h2>`;
-    };
 
     const displayResults = (array, rankingElement) => {
       for (let i = 0; i < (array.length < 3 ? array.length : 3); i++) {
@@ -66,16 +62,8 @@ const createRankingPage = () => {
       }
     };
 
-    const showRanking = () => {
-      if (students.length > 0) {
-        setCategoryName('houses');
-        displayResults(students, studentsRanking);
-      } else {
-        return false;
-      }
-    };
-    showRanking();
-    // houses.length > 0 ? displayResults(houses, housesRanking) : false;
+    // eslint-disable-next-line no-unused-expressions
+    houses.length > 0 ? displayResults(houses, housesRanking) : false;
     // eslint-disable-next-line no-unused-expressions
     students.length > 0 ? displayResults(students, studentsRanking) : false;
     // eslint-disable-next-line no-unused-expressions
