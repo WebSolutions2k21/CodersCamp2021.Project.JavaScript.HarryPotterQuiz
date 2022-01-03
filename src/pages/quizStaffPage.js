@@ -28,7 +28,6 @@ const createQuizStaffPage = (options) => {
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 24;
-  let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
 
   const chosenNumber = [];
@@ -74,7 +73,6 @@ const createQuizStaffPage = (options) => {
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
       setTimeout(async () => setNextQuestion(), 2000);
     } else {
-      addPointsToCurrentPlayer(correctedAnswers);
       location.href = '/result';
     }
   };
@@ -98,7 +96,6 @@ const createQuizStaffPage = (options) => {
 
   async function startGame() {
     currentQuestionIndex = 0;
-    correctedAnswers = 0;
     await setNextQuestion(shuffledQuestions);
   }
 

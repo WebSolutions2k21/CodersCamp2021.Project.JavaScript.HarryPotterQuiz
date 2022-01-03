@@ -26,7 +26,6 @@ const createQuizHousesPage = (options) => {
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 70;
-  let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
   let clicked = false;
@@ -86,7 +85,6 @@ const createQuizHousesPage = (options) => {
         await setNextQuestion();
       }, 2000);
     } else {
-      addPointsToCurrentPlayer(correctedAnswers);
       location.href = '/result';
     }
   };
@@ -115,8 +113,7 @@ const createQuizHousesPage = (options) => {
   }
 
   async function startGame() {
-    currentQuestionIndex = 0;
-    correctedAnswers = 0;
+    currentQuestionIndex = 0; 
     await setNextQuestion(shuffledQuestions);
   }
 
