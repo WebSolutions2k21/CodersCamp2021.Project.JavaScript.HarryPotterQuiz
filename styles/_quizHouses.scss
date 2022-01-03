@@ -5,6 +5,13 @@
   justify-content: center;
   gap: 2em;
 
+  .wrapperquizPage__category--timer {
+    #timer_clock {
+      margin: auto;
+      height: auto;
+    }
+  }
+
   &__question {
     display: flex;
     flex-direction: column;
@@ -147,12 +154,10 @@
   }
 }
 
-
-@media (orientation: portrait) and (max-width: $break-mobile) {
+@media (orientation: landscape) and (max-width: $break-laptop) {
   .background_quiz_houses {
     height: auto;
     .wrapperquizPage{
-      background-repeat: repeat;
       height: auto;
 
       .quizPage__header {
@@ -169,7 +174,7 @@
           margin: auto;
 
           #timer_clock {
-            width: 90%;
+            margin: auto;
           }
         }
       }
@@ -183,7 +188,63 @@
           height: auto;
           width: 100%;
           white-space: initial;
-          font-size: 20px;
+          font-size: 25px;
+          line-height: 2;
+        }
+      }
+
+      .quizHouses__answers {
+        height: 240px;
+        width: 70%;
+
+        img {
+          max-width: 120px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+
+@media (orientation: portrait) and (max-width: $break-mobile) {
+  .background_quiz_houses {
+    height: auto;
+    .wrapperquizPage{
+      background-repeat: repeat;
+      height: auto;
+
+      .quizPage__header {
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+
+        .background_container {
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .wrapperquizPage__category--timer {
+          width: 90%;
+          margin: auto;
+
+          #timer_clock {
+            width: 40%;
+            font-size: 25px;
+            margin: auto;
+          }
+        }
+      }
+
+      .background_container {
+        width: 95%;
+        height: auto;
+        display: block;
+        overflow: auto;
+        p {
+          height: auto;
+          width: 100%;
+          white-space: initial;
+          font-size: 18px;
           line-height: 2;
         }
       }
@@ -196,6 +257,67 @@
 
         img {
           max-width: 120px;
+        }
+      }
+    }
+  }
+}
+
+@media (orientation: landscape) and (max-width: $break-mobile) {
+  .background_quiz_houses {
+    height: auto;
+    .wrapperquizPage{
+      // background-repeat: repeat;
+      height: auto;
+
+      .quizPage__header {
+        flex-wrap: wrap;
+        margin-bottom: 90px;
+
+        .background_container {
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .wrapperquizPage__category--timer {
+          width: 90%;
+          margin: auto;
+
+          #timer_clock {
+            width: 40%;
+            font-size: 25px;
+            margin: auto;
+            height: auto;
+          }
+        }
+      }
+
+      .background_container {
+        width: 95%;
+        height: auto;
+        display: block;
+        overflow: auto;
+        p {
+          height: auto;
+          width: 100%;
+          white-space: initial;
+          font-size: 18px;
+          line-height: 2;
+        }
+      }
+
+      #questionContainer {
+        margin-top: 90px;
+      }
+
+      .quizHouses__answers {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 170px;
+        width: 90%;
+
+        img {
+          max-width: 100px;
         }
       }
     }
