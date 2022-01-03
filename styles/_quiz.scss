@@ -54,11 +54,11 @@
           border-radius: 40%;
           box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400,
             0 0 55px #ffc400, 0 0 75px #ffc400;
-          animation: time-passing 61s;
+          animation: time-passing linear 60.5s;
         }
         @keyframes time-passing {
           0% {
-            width: 114%;
+            width: 100%;
           }
           100% {
             width: 0%;
