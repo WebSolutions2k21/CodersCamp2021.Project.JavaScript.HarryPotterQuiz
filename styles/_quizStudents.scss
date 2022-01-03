@@ -36,4 +36,11 @@
   .hide {
     display: none;
   }
+
+  &__main {
+    img {
+      max-height: 450px;
+      object-fit: cover; //niweluje rozciągnięcie zdjęcia, powiększając go, można wywalić w razie W
+    }
+  }
 }
