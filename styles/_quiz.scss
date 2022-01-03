@@ -46,15 +46,15 @@
         &::before {
           content: '';
           position: absolute;
-          height: 5px;
+          height: 4px;
           width: 114%;
           background: white;
-          left: -60px;
+          left: -43px;
           top: 48%;
           border-radius: 40%;
           box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400,
             0 0 55px #ffc400, 0 0 75px #ffc400;
-          animation: time-passing 60s;
+          animation: time-passing 61s;
         }
         @keyframes time-passing {
           0% {
