@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   font-size: $p-paragraphFontSize;
   .ranking {
     max-width: $break-laptop;
@@ -51,7 +51,6 @@
         font-size: 1.3rem;
         margin-bottom: 20px;
         padding: 0 40px;
-        flex-grow: 1;
       }
   
       h2 {
@@ -77,9 +76,8 @@
       }
     }
   
-    @media (max-width: $break-tablet) {
+    @media (max-width: $break-mobile) {
       overflow-y: auto;
-  
       &__wrapper {
         justify-content: center;
         flex-direction: column;
@@ -100,16 +98,12 @@
             font-size: 1.7rem;
             white-space: nowrap;
           }
-          &--button {
-            margin-top: 20px;
-            align-self: center;
-          }
         }
       }
   
       .ranking__categories {
         max-height: 80%;
-  
+        flex-direction: column;
         .ranking__list {
           font-size: 1rem;
   
@@ -117,6 +111,24 @@
             font-size: 1.5rem;
           }
         }
+      }
+    }
+    @media (max-width: $break-laptop) {
+      &__wrapper {
+        justify-content: center;
+        flex-direction: column;
+      }
+      &__main {
+        &--button {
+          margin-top: 20px;
+          h1 {
+            font-size: 1.7rem;
+            white-space: nowrap;
+          }
+        }
+      }
+      .ranking__categories {
+        flex-direction: row;
       }
     }
   }
