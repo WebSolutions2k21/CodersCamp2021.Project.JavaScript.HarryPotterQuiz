@@ -173,23 +173,27 @@
                 width: 100%;
             }
             &__btn {
-                margin-right: 18px;
+                margin-right: 10px;
                 font-size: 20px;
+                padding: 0 10px;
             }
             &__nameStartinp {
-                font-size: 18px;
-                width: 95%;
+                margin-left: 10px;
+                font-size: 15px;
+                width: 100%;
             }
             &__nameStartinp::placeholder {
-                font-size: 18px;
+                font-size: 16px;
+                left: 5px;
                 top: 13px;
             }
             &__nameStartBack {
+                margin-left: 10px;
                 font-size: 18px;
                 line-height: 85px;
             }
             &__textError {
-                font-size: 16px;
+                font-size: 13px;
                 margin-left: .5rem;
             }
         }
