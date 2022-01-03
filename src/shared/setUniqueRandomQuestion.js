@@ -9,7 +9,6 @@ export function setUniqueRandomQuestion(ALL_RECORDS, chosenNumber) {
     }
 
     chosenNumber.push(newNumber);
-
     return newNumber;
   };
 }

@@ -39,14 +39,6 @@ const createQuizStaffPage = (options) => {
 
   const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
 
-  arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
-
-  const questions = getDataFromApi(
-    categoryId,
-    arrayWithTwoDifferentIndexOfQuestion[1],
-    arrayWithTwoDifferentIndexOfQuestion[2],
-  );
-
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
   }
@@ -83,7 +75,13 @@ const createQuizStaffPage = (options) => {
 
   async function setNextQuestion() {
     resetState();
-    getNumberRandomAndShuffleOtherNumber();
+    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
+    const questions = getDataFromApi(
+      categoryId,
+      arrayWithTwoDifferentIndexOfQuestion[1],
+      arrayWithTwoDifferentIndexOfQuestion[2],
+    );
+
     shuffledQuestions = await questions(saveRandomNumber());
     await showQuestion(shuffledQuestions);
   }
