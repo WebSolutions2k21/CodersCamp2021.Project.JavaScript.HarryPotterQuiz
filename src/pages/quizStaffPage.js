@@ -1,19 +1,21 @@
+/* eslint-disable no-restricted-globals */
 import i18next from '../i18n';
 import categoryName from '../shared/categoryNameApi';
 import getDataFromApi from '../api/harryPotter';
-import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
+// eslint-disable-next-line import/no-unresolved
 import img from '../../assets/images/staff/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import { getNumberRandomArrayFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
 import { addPointsToCurrentPlayer } from '../localStorageManager';
+import { showQuestionFunc } from '../shared/showQuestionFunction';
 
 const createQuizStaffPage = () => {
   const appScreen = document.querySelector('#root');
   const quizStaffPage = document.querySelector('#quizStaffPage');
-  const { t, changeLanguage } = i18next;
+  const { t } = i18next;
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
@@ -41,10 +43,6 @@ const createQuizStaffPage = () => {
     setStatusFunction(element, correct);
   }
 
-  async function showQuestion(question) {
-    showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
-  }
-
   const handleClick = (e) => {
     const selectedButton = e.target;
 
@@ -57,6 +55,7 @@ const createQuizStaffPage = () => {
       addPointsToCurrentPlayer(10);
     }
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+      // eslint-disable-next-line no-use-before-define
       setTimeout(async () => setNextQuestion(), 2000);
     } else {
       location.href = '/result';
@@ -73,6 +72,10 @@ const createQuizStaffPage = () => {
         }, 2000);
       }
     });
+  }
+
+  async function showQuestion(question) {
+    showQuestionFunc(question, questionElement, showAnswer, answerButtonsElement, img);
   }
 
   function resetState() {

@@ -12,7 +12,6 @@
   "rules": {
     "linebreak-style": 0,
     "no-param-reassign": 0,
-    "no-plusplus": "off",
-    "commonjs": 1
+    "no-plusplus": "off"
   }
 }
