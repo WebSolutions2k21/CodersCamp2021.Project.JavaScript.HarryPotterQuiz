@@ -102,6 +102,7 @@ const createResultPage = () => {
       textCongrats.innerHTML = `Congratulations ${currentPlayer.name} ! <br />
       You answered X questions correctly in .... sec!`;
       scoreInformations.appendChild(textCongrats);
+      textCongrats.innerHTML = `${t('congratulations')} ${currentPlayer.name}`;
     }
   }
 
@@ -115,6 +116,7 @@ const createResultPage = () => {
       textYourScore.innerHTML = `Your Score: ${currentPlayer.score} pts`;
 
       scoreElement.appendChild(textYourScore);
+      textYourScore.innerHTML = `${t('scoreplayer')} ${currentPlayer.score} ${t('pts')}`;
     }
   }
 

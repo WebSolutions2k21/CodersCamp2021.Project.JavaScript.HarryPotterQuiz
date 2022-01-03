@@ -25,6 +25,9 @@
     "rankingPage-header": "Best Scores",
     "notFound-text1": "Muggle, you broke the Internet",
     "notFound-text2": "Just kidding. Please make sure you’ve entered the correct address, or click the button",
-    "play_again": "Play Again"
+    "play_again": "Play Again",
+    "scoreplayer": "Your Score: ",
+    "pts": " pts",
+    "congratulations": "Congratulations "
   }
 }
