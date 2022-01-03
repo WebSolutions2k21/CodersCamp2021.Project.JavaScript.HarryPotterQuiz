@@ -43,6 +43,24 @@ const createQuizStaffPage = () => {
     setStatusFunction(element, correct);
   }
 
+  function resetState() {
+    resetStateFunction(answerButtonsElement);
+  }
+
+  async function setNextQuestion() {
+    resetState();
+    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
+    const questions = getDataFromApi(
+      categoryId,
+      arrayWithTwoDifferentIndexOfQuestion[1],
+      arrayWithTwoDifferentIndexOfQuestion[2],
+    );
+
+    shuffledQuestions = await questions(saveRandomNumber());
+    // eslint-disable-next-line no-use-before-define
+    await showQuestion(shuffledQuestions);
+  }
+
   const handleClick = (e) => {
     const selectedButton = e.target;
 
@@ -50,13 +68,12 @@ const createQuizStaffPage = () => {
       setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
     });
     currentQuestionIndex++;
-
     if (selectedButton.dataset.correct) {
       addPointsToCurrentPlayer(10);
     }
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-      // eslint-disable-next-line no-use-before-define
-      setTimeout(async () => setNextQuestion(), 2000);
+      // eslint-disable-next-line no-return-await
+      setTimeout(async () => await setNextQuestion(), 2000);
     } else {
       location.href = '/result';
     }
@@ -76,23 +93,6 @@ const createQuizStaffPage = () => {
 
   async function showQuestion(question) {
     showQuestionFunc(question, questionElement, showAnswer, answerButtonsElement, img);
-  }
-
-  function resetState() {
-    resetStateFunction(answerButtonsElement);
-  }
-
-  async function setNextQuestion() {
-    resetState();
-    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
-    const questions = getDataFromApi(
-      categoryId,
-      arrayWithTwoDifferentIndexOfQuestion[1],
-      arrayWithTwoDifferentIndexOfQuestion[2],
-    );
-
-    shuffledQuestions = await questions(saveRandomNumber());
-    await showQuestion(shuffledQuestions);
   }
 
   async function startGame() {
