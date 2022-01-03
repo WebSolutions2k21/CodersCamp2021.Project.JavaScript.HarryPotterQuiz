@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export function getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS) {
   return () => {
     const randomNumber = chosenNumber[chosenNumber.length - 1];

@@ -6,10 +6,10 @@ function getImageFromFile(question) {
   return joinName;
 }
 
-export function showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img) {
+// eslint-disable-next-line import/prefer-default-export
+export function showQuestionFunc(question, questionElement, showAnswer, answerButtonsElement, img) {
   if (question.question === '') {
     const getImg = getImageFromFile(question);
-    console.log('get img', getImg);
     if (img[getImg] === null || img[getImg] === undefined) {
       questionElement.setAttribute('src', guessWho);
     } else {

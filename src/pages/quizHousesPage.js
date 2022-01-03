@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import i18next from '../i18n';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
@@ -10,7 +11,7 @@ const createQuizHousesPage = () => {
   const appScreen = document.querySelector('#root');
   const quizHousesPage = document.querySelector('#quizHousesPage');
   appScreen.innerHTML = quizHousesPage.innerHTML;
-  const { t, changeLanguage } = i18next;
+  const { t } = i18next;
 
   document.querySelector('[data-lang-quizHouses-header]').innerText = t('quizHouses-header');
   document.querySelector('[data-lang-quizHouses-question]').innerText = t('quizHouses-question');
@@ -103,6 +104,7 @@ const createQuizHousesPage = () => {
 
     while (isEmptyText === '') {
       resetState();
+      // eslint-disable-next-line no-await-in-loop
       shuffledQuestions = await questions(saveRandomNumber());
       isEmptyText = shuffledQuestions.answers[0].text;
     }
