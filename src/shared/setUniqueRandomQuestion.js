@@ -1,4 +1,4 @@
-import randomNumberOfIndex from '../shared/randomIndexGenerator';
+import randomNumberOfIndex from './randomIndexGenerator';
 
 export function setUniqueRandomQuestion(ALL_RECORDS, chosenNumber) {
   return () => {

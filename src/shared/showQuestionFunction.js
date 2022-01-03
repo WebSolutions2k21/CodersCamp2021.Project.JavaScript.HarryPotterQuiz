@@ -1,9 +1,8 @@
-
-import guessWho from '../../assets/images/guessWho.jpeg'
+import guessWho from '../../assets/images/guessWho.jpeg';
 
 function getImageFromFile(question) {
-  let nameFromAnswer = question.answers[0].text;
-  let joinName = nameFromAnswer.replace(' ', '_');
+  const nameFromAnswer = question.answers[0].text;
+  const joinName = nameFromAnswer.replace(' ', '_');
   return joinName;
 }
 
@@ -12,7 +11,7 @@ export function showQuestionFunction(question, questionElement, showAnswer, answ
     const getImg = getImageFromFile(question);
     console.log('get img', getImg);
     if (img[getImg] === null || img[getImg] === undefined) {
-      questionElement.setAttribute('src', guessWho);     
+      questionElement.setAttribute('src', guessWho);
     } else {
       questionElement.setAttribute('src', img[getImg]);
     }

@@ -6,7 +6,7 @@ import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
 import img from '../../assets/images/students/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
-import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
+import { getNumberRandomArrayFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
 import { addPointsToCurrentPlayer } from '../localStorageManager';
 
@@ -33,7 +33,7 @@ const createQuiz = () => {
 
   const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
-  const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
+  const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
   let clicked = false;
 
   function setStatusClass(element, correct) {
@@ -42,18 +42,6 @@ const createQuiz = () => {
 
   async function showQuestion(question) {
     showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
-  }
-
-  function showAnswer(button) {
-    button.addEventListener('click', function (event) {
-      if (!clicked) {
-        clicked = true;
-        handleClick(event);
-        setTimeout(function () {
-          clicked = false;
-        }, 2000);
-      }
-    });
   }
 
   const handleClick = (e) => {
@@ -73,13 +61,25 @@ const createQuiz = () => {
     }
   };
 
+  function showAnswer(button) {
+    button.addEventListener('click', function (event) {
+      if (!clicked) {
+        clicked = true;
+        handleClick(event);
+        setTimeout(function () {
+          clicked = false;
+        }, 2000);
+      }
+    });
+  }
+
   function resetState() {
     resetStateFunction(answerButtonsElement);
   }
 
   async function setNextQuestion() {
     resetState();
-    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
+    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
     const questions = getDataFromApi(
       categoryId,
       arrayWithTwoDifferentIndexOfQuestion[1],
