@@ -1,21 +1,21 @@
+/* eslint-disable no-restricted-globals */
 import i18next from '../i18n';
-import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
 import categoryName from '../shared/categoryNameApi';
 import getDataFromApi from '../api/harryPotter';
-import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
+// eslint-disable-next-line import/no-unresolved
 import img from '../../assets/images/staff/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
-import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
+import { getNumberRandomArrayFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
 import { addPointsToCurrentPlayer } from '../localStorageManager';
+import { showQuestionFunc } from '../shared/showQuestionFunction';
 
-const createQuizStaffPage = (options) => {
+const createQuizStaffPage = () => {
   const appScreen = document.querySelector('#root');
   const quizStaffPage = document.querySelector('#quizStaffPage');
-  const { t, changeLanguage } = i18next;
+  const { t } = i18next;
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
@@ -36,27 +36,29 @@ const createQuizStaffPage = (options) => {
 
   const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
-  const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
+  const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
   let clicked = false;
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
   }
 
-  async function showQuestion(question) {
-    showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
+  function resetState() {
+    resetStateFunction(answerButtonsElement);
   }
 
-  function showAnswer(button) {
-    button.addEventListener('click', function (event) {
-      if (!clicked) {
-        clicked = true;
-        handleClick(event);
-        setTimeout(function () {
-          clicked = false;
-        }, 2000);
-      }
-    });
+  async function setNextQuestion() {
+    resetState();
+    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
+    const questions = getDataFromApi(
+      categoryId,
+      arrayWithTwoDifferentIndexOfQuestion[1],
+      arrayWithTwoDifferentIndexOfQuestion[2],
+    );
+
+    shuffledQuestions = await questions(saveRandomNumber());
+    // eslint-disable-next-line no-use-before-define
+    await showQuestion(shuffledQuestions);
   }
 
   const handleClick = (e) => {
@@ -66,32 +68,31 @@ const createQuizStaffPage = (options) => {
       setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
     });
     currentQuestionIndex++;
-
     if (selectedButton.dataset.correct) {
       addPointsToCurrentPlayer(10);
     }
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-      setTimeout(async () => setNextQuestion(), 2000);
+      // eslint-disable-next-line no-return-await
+      setTimeout(async () => await setNextQuestion(), 2000);
     } else {
       location.href = '/result';
     }
   };
 
-  function resetState() {
-    resetStateFunction(answerButtonsElement);
+  function showAnswer(button) {
+    button.addEventListener('click', (event) => {
+      if (!clicked) {
+        clicked = true;
+        handleClick(event);
+        setTimeout(() => {
+          clicked = false;
+        }, 2000);
+      }
+    });
   }
 
-  async function setNextQuestion() {
-    resetState();
-    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
-    const questions = getDataFromApi(
-      categoryId,
-      arrayWithTwoDifferentIndexOfQuestion[1],
-      arrayWithTwoDifferentIndexOfQuestion[2],
-    );
-
-    shuffledQuestions = await questions(saveRandomNumber());
-    await showQuestion(shuffledQuestions);
+  async function showQuestion(question) {
+    showQuestionFunc(question, questionElement, showAnswer, answerButtonsElement, img);
   }
 
   async function startGame() {

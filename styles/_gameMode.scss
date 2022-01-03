@@ -1,188 +1,197 @@
-.gameMode {
-    display: grid; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "main main"
-      "nameStart modes"
-      "nameStart modes"
-      "nameStart modes"; 
-    padding-top: 30px;
-    justify-items: center;
+.gameMode__content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
+    .gameMode {
+        display: grid; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          "main main"
+          "nameStart modes"
+          "nameStart modes"
+          "nameStart modes"; 
+        padding-top: 30px;
+        justify-items: center;
+        align-items: center;
+        height: 100vh;
+        max-width: $break-laptop;
+        
+        &__main { 
+            grid-area: main; 
+            width: 900px;
+            height: 103px;
+            font-size: 70px;
+            line-height: 135px;
+            background: $c-bg-primary;
+            color: $c-font-primary;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-align: center;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+            text-transform: uppercase;
+        }
     
-    &__main { 
-        grid-area: main; 
-        width: 900px;
-        height: 103px;
-        font-size: 70px;
-        line-height: 135px;
-        background: $c-bg-primary;
-        color: $c-font-primary;
-        border-radius: 10px;
-        border: 2px solid black;
-        text-align: center;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-        text-transform: uppercase;
-    }
-
-    &__modes { 
-        padding-top: 30px;
-        grid-area: modes;
-        display: flex;
-        flex-direction: column;
-        width: 450px;
-    }
-
-    &__btn {
-        height: 80px;        
-        margin-bottom: 40px;
-        color: $c-font-primary;
-        background: $c-bg-primary;
-        font-size: 40px;
-        line-height: 95px;
-        border-radius: 10px;
-        text-align: center;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        cursor: pointer;
-        border: 2px solid black;
-        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-        transition: 0.2s linear;
-        text-transform: uppercase;
-    }
-
-    &__btn:hover {
-        background-color: $c-bg-hover;
-        color: $c-font-hover;
-        border: 2px solid $c-font-hover;
-    }
-
-    &__other { 
-        grid-area: nameStart; 
-        padding-top: 30px;
-    }
-
-    &__nameStartinp {
-        display: flex;
-        position: relative;
-        height: 80px;
-        width: 500px;
-        margin-top: 120px;
-        margin-bottom: 20px;
-        background: #FFFBE4;
-        color: #1A472A;
-        font-size: 40px;
-        text-align: center;
-        border-radius: 10px;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        border: 2px solid black;
-        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-        transition: 0.2s linear;
-    }
-
-    &__nameStartinpEnt::placeholder {
-        position: absolute;
-        padding-top: $space-small;
-        left: 36px;
-        font-size: 40px;
-        color: #1A472A;
-        text-align: center;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        cursor: none;
-        text-transform: uppercase;
-    }
-
-    &__nameStartBack {
-        margin-top: 20px;
-        padding: 0 15px;
-        height: 80px;
-        margin-bottom: 40px;
-        color: $c-font-primary;
-        background: $c-bg-primary;
-        font-size: 40px;
-        line-height: 95px;
-        border-radius: 10px;
-        text-align: center;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        cursor: pointer;
-        border: 2px solid black;
-        box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
-        transition: 0.2s linear;
-        text-transform: uppercase;
-    }
-
-    &__nameStartBack:hover {
+        &__modes { 
+            padding-top: 30px;
+            grid-area: modes;
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            padding-left: 20px;
+        }
+    
+        &__btn {
+            height: 80px;        
+            margin-bottom: 40px;
+            color: $c-font-primary;
+            background: $c-bg-primary;
+            font-size: 40px;
+            line-height: 95px;
+            border-radius: 10px;
+            text-align: center;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            cursor: pointer;
+            border: 2px solid black;
+            box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+            transition: 0.2s linear;
+            text-transform: uppercase;
+        }
+    
+        &__btn:hover {
             background-color: $c-bg-hover;
             color: $c-font-hover;
             border: 2px solid $c-font-hover;
         }
-
-    &__textError {
-        position: absolute;
-        margin-top: -20px;
-        margin-left: 8.5rem;
-        font-size: 28px;
-        color: $c-bg-primary;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-        opacity: 0.9;
-        visibility: hidden;
-    }
-
-    .bor {
-        border: 5px solid #1A472A;
-    }
-
-    @media (max-width: $break-tablet) {
-        &__main {
-            width: 750px;
+    
+        &__other { 
+            grid-area: nameStart; 
+            padding-top: 30px;
+            padding-right: 20px;
         }
-        &__modes {
-            width: 350px;
-        }
+    
         &__nameStartinp {
-            font-size: 35px;
-            width: 400px;
-        }
-        &__nameStartinp::placeholder {
-            font-size: 35px;
-            left: 12px;
-        } 
-        &__textError {
-            font-size: 20px;
-        }
-        &__nameStartBack {
-            font-size: 35px;
-        }
-    }
-    @media (max-width: $break-mobile) {
-        &__main {
-            width: 80%;
+            display: flex;
+            position: relative;
+            height: 80px;
+            width: 500px;
+            margin-top: 120px;
+            margin-bottom: 20px;
+            background: #FFFBE4;
+            color: #1A472A;
             font-size: 40px;
-            line-height: 125px;
+            text-align: center;
+            border-radius: 10px;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            border: 2px solid black;
+            box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+            transition: 0.2s linear;
         }
-        &__modes {
-            width: 100%;
+    
+        &__nameStartinpEnt::placeholder {
+            position: absolute;
+            padding-top: $space-small;
+            left: 36px;
+            font-size: 40px;
+            color: #1A472A;
+            text-align: center;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            cursor: none;
+            text-transform: uppercase;
         }
-        &__btn {
-            margin-right: 18px;
-            font-size: 20px;
-        }
-        &__nameStartinp {
-            font-size: 18px;
-            width: 95%;
-        }
-        &__nameStartinp::placeholder {
-            font-size: 18px;
-            top: 13px;
-        }
+    
         &__nameStartBack {
-            font-size: 18px;
-            line-height: 85px;
+            margin-top: 20px;
+            padding: 0 15px;
+            height: 80px;
+            margin-bottom: 40px;
+            color: $c-font-primary;
+            background: $c-bg-primary;
+            font-size: 40px;
+            line-height: 95px;
+            border-radius: 10px;
+            text-align: center;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            cursor: pointer;
+            border: 2px solid black;
+            box-shadow: 0px 0px 11px 0px rgba(211, 166, 37, 1);
+            transition: 0.2s linear;
+            text-transform: uppercase;
         }
+    
+        &__nameStartBack:hover {
+                background-color: $c-bg-hover;
+                color: $c-font-hover;
+                border: 2px solid $c-font-hover;
+            }
+    
         &__textError {
-            font-size: 16px;
-            margin-left: .5rem;
+            position: absolute;
+            margin-top: -20px;
+            margin-left: 8.5rem;
+            font-size: 28px;
+            color: $c-bg-primary;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            opacity: 0.9;
+            visibility: hidden;
+        }
+    
+        .bor {
+            border: 5px solid #1A472A;
+        }
+    
+        @media (max-width: $break-tablet) {
+            &__main {
+                width: 750px;
+            }
+            &__modes {
+                width: 350px;
+            }
+            &__nameStartinp {
+                font-size: 35px;
+                width: 400px;
+            }
+            &__nameStartinp::placeholder {
+                font-size: 35px;
+                left: 12px;
+            } 
+            &__textError {
+                font-size: 20px;
+            }
+            &__nameStartBack {
+                font-size: 35px;
+            }
+        }
+        @media (max-width: $break-mobile) {
+            &__main {
+                width: 80%;
+                font-size: 40px;
+                line-height: 125px;
+            }
+            &__modes {
+                width: 100%;
+            }
+            &__btn {
+                margin-right: 18px;
+                font-size: 20px;
+            }
+            &__nameStartinp {
+                font-size: 18px;
+                width: 95%;
+            }
+            &__nameStartinp::placeholder {
+                font-size: 18px;
+                top: 13px;
+            }
+            &__nameStartBack {
+                font-size: 18px;
+                line-height: 85px;
+            }
+            &__textError {
+                font-size: 16px;
+                margin-left: .5rem;
+            }
         }
     }
 }
