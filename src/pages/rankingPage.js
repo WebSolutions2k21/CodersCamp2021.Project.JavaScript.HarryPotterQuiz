@@ -54,7 +54,7 @@ const createRankingPage = () => {
     const housesRanking = document.getElementById('rankingHouses');
 
     const displayResults = (array, rankingElement) => {
-      for (let i = 0; i < (array.length < 10 ? array.length : 10); i++) {
+      for (let i = 0; i < (array.length < 3 ? array.length : 3); i++) {
         const el = document.createElement('div');
         el.setAttribute('class', 'ranking__list--item');
         el.innerHTML = `<p>${i + 1}. <span>${array[i]?.name}</span></p><p class="points">${array[i]?.score}<span>PT</span></p>`;
@@ -62,23 +62,12 @@ const createRankingPage = () => {
       }
     };
 
-    if (houses.length > 0) {
-      displayResults(houses, housesRanking);
-    } else {
-      return false;
-    }
-
-    if (students.length > 0) {
-      displayResults(students, studentsRanking);
-    } else {
-      return false;
-    }
-
-    if (staff.length > 0) {
-      displayResults(staff, staffRanking);
-    } else {
-      return false;
-    }
+    // eslint-disable-next-line no-unused-expressions
+    houses.length > 0 ? displayResults(houses, housesRanking) : false;
+    // eslint-disable-next-line no-unused-expressions
+    students.length > 0 ? displayResults(students, studentsRanking) : false;
+    // eslint-disable-next-line no-unused-expressions
+    staff.length > 0 ? displayResults(staff, staffRanking) : false;
   } else {
     return false;
   }
