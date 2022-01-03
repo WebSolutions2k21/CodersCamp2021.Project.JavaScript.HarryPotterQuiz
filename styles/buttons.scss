@@ -17,11 +17,6 @@
   border-radius: 10px;
   transition: 0.2s linear;
   cursor: pointer;
-  &__back {
-    position: absolute;
-    right: 60px;
-    bottom: 20px;
-  }
 
   &__right {
     background: #1a472a;
@@ -39,14 +34,13 @@
   color: $c-font-hover;
   border: 2px solid $c-font-hover;
 }
-// .btn__right:hover {
-//     background: #4b4b4b;
-//         border: 10px solid #1A472A;
-// }
-// .btn__wrong:hover {
-//         background: #4b4b4b;
-//         border: 10px solid #740001;
-//     }
+.btn_lang {
+  margin: 3px;
+  padding: 5px 5px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
 
 @media (max-width: $break-mobile) {
   .btn {

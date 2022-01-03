@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import getDataFromApi from '../api/harryPotter';
@@ -13,7 +14,10 @@ const createQuizHousesPage = (options) => {
   const appScreen = document.querySelector('#root');
   const quizHousesPage = document.querySelector('#quizHousesPage');
   appScreen.innerHTML = quizHousesPage.innerHTML;
+  const { t, changeLanguage } = i18next;
 
+  document.querySelector('[data-lang-quizHouses-header]').innerText = t('quizHouses-header');
+  document.querySelector('[data-lang-quizHouses-question]').innerText = t('quizHouses-question');
   const questionElement = document.getElementById('questionHouses');
   const answerButtonsElement = document.getElementById('answer-buttons_Houses');
   const images = document.querySelectorAll('.quizHouses__answers__img');
@@ -55,21 +59,20 @@ const createQuizHousesPage = (options) => {
   }
 
   function showAnswer(image) {
-    image.addEventListener('click', handleClick)
+    image.addEventListener('click', handleClick);
 
-   image.disabled = true;
+    image.disabled = true;
   }
 
   const handleClick = (e) => {
     const selectedButton = e.target;
     Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
       setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-      buttonAnswer.disabled= true;
+      buttonAnswer.disabled = true;
     });
     currentQuestionIndex++;
     if (selectedButton.dataset.correct) {
-      correctedAnswers++;
-      console.log('poprawna odpowiedź', correctedAnswers);
+      addPointsToCurrentPlayer(10);
     }
 
     if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
@@ -77,7 +80,6 @@ const createQuizHousesPage = (options) => {
         await setNextQuestion();
       }, 2000);
     } else {
-    
       addPointsToCurrentPlayer(correctedAnswers);
       location.href = '/result';
     }

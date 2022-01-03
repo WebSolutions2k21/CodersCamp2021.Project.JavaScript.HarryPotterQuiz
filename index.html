@@ -15,322 +15,252 @@
     <div id="root"></div>
     <template id="homePage">
       <div class="background_main">
-      <div class="wrapperHomePage responsiveHomePage ">
-        <button data-action-start class="btn">Start</button>
-        <button data-action-rules class="btn">Rules</button>
-        <button data-action-scores class="btn">Best Scores</button>
-      </div>
+        <div class="wrapperHomePage responsiveHomePage">
+          <button data-action-start class="btn">Start</button>
+          <button data-action-rules class="btn">Rules</button>
+          <button data-action-scores class="btn">Best Scores</button>
+        </div>
       </div>
     </template>
     <template id="rulesPage">
       <div class="background_main">
-      <div class="rulesPage__wrapper responsiveRulesPage">
-        <div class="rulesPage__wrapper_center">
-          <section class="rulesPage__main">
-            <h1>Rules</h1>
-            <p>
-              Click on start, then enter your nickname and choose one of the three categories. Answer the questions by
-              clicking on the answer of your choice. You will receive:</p>
-              
-                <p><strong>10</strong> point for a correct answer</p>
-                <p><strong>0</strong> points for a wrong answer</p>
-              
-              <p> Remember, you have one minute to answer as many questions as possible.</p>
-            <p>Have Fun!</p>
-          </section>
-          <div class="rulesPage__buttom">
-            <button data-action-back class="btn">Back</button>
+        <div class="rulesPage__wrapper responsiveRulesPage">
+          <div class="rulesPage__wrapper_center">
+            <section class="rulesPage__main">
+              <h1 data-lang-rulesPage-h1>Rules</h1>
+              <p data-lang-rulesPage-p1>
+                Click start, then enter your nickname and choose one of the three categories. Answer the questions by
+                clicking the answer of your choice. You will receive:
+              </p>
+
+              <p data-lang-rulesPage-p2><strong>10</strong> point for a correct answer</p>
+              <p data-lang-rulesPage-p3><strong>0</strong> points for a wrong answer</p>
+
+              <p data-lang-rulesPage-p4>Remember, you have one minute to answer as many questions as possible.</p>
+              <p data-lang-rulesPage-p5>Have Fun!</p>
+            </section>
+            <div class="rulesPage__buttom">
+              <button data-action-back class="btn">Back</button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </template>
 
     <template id="gameModePage">
       <div class="background_main">
-      <div class="gameMode">
-        <div class="gameMode__main">
-          <p>Game mode</p>
-        </div>
+        <div class="gameMode">
+          <div class="gameMode__main">
+            <p data-lang-gameMode-header>Game mode</p>
+          </div>
 
-        <div class="gameMode__other">
-          <form class="gameMode__nameStart" action="">
-            <input
-              class="gameMode__nameStartinp gameMode__nameStartinpEnt"
-              type="text"
-              id="fname"
-              name="fname"
-              placeholder="Enter your name"
-            />
-            <div class="gameMode__textError">Muggle, you forgot something!</div>
-          </form>
-          <button data-action-back class="gameMode__nameStartBack">Back</button>
-        </div>
+          <div class="gameMode__other">
+            <form class="gameMode__nameStart" action="">
+              <input
+                class="gameMode__nameStartinp gameMode__nameStartinpEnt"
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="Enter your name"
+              />
+              <div data-lang-gameMode-input-forgotten class="gameMode__textError">Muggle, you forgot something!</div>
+            </form>
+            <button data-action-back class="gameMode__nameStartBack">Back</button>
+          </div>
 
-        <div class="gameMode__modes">
-          <button
-            data-action-students
-            data-game-mode-selection-button
-            data-category-name="students"
-            id="students"
-            class="gameMode__btn"
-            type="button"
-          >
-            Students
-          </button>
-          <button
-            data-action-staff
-            data-game-mode-selection-button
-            data-category-name="staff"
-            id="staff"
-            class="gameMode__btn"
-            type="button"
-          >
-            Staff
-          </button>
-          <button
-            data-action-houses
-            data-game-mode-selection-button
-            data-category-name="houses"
-            id="houses"
-            class="gameMode__btn"
-            type="button"
-          >
-            Houses
-          </button>
+          <div class="gameMode__modes">
+            <button
+              data-action-students
+              data-game-mode-selection-button
+              data-category-name="students"
+              id="students"
+              class="gameMode__btn"
+              type="button"
+            >
+              Students
+            </button>
+            <button
+              data-action-staff
+              data-game-mode-selection-button
+              data-category-name="staff"
+              id="staff"
+              class="gameMode__btn"
+              type="button"
+            >
+              Staff
+            </button>
+            <button
+              data-action-houses
+              data-game-mode-selection-button
+              data-category-name="houses"
+              id="houses"
+              class="gameMode__btn"
+              type="button"
+            >
+              Houses
+            </button>
+          </div>
         </div>
-      </div>
       </div>
     </template>
+
     <template id="quiz">
       <div class="background_quiz_students">
-      <div class="wrapperquizPage">
-        <div class="quizPage__header">
+        <div class="wrapperquizPage">
+          <div class="quizPage__header">
+            <div class="background_container">
+              <h2 data-lang-quizStudent-header>Students</h2>
+            </div>
+            <div class="wrapperquizPage__category--timer">
+              <div id="timer_clock"></div>
+              <div class="wand"></div>
+              <div class="fire"></div>
+            </div>
+          </div>
           <div class="background_container">
-            <h2>Students</h2>
+            <p data-lang-quizStudent-question>How is the Hogwarts student visible in the photo called?</p>
           </div>
-          <div class="wrapperquizPage__category--timer">
-            <div id="timer_clock"></div>
-            <div class="wand"></div>
-            <div class="fire"></div>
-          </div>
-        </div>
-        <div class="background_container">
-          <p>How is the Hogwarts student visible in the photo called?</p>
-        </div>
-        <div class="wrapperquizPage__main hide" id="question-container">
-          <img src="" alt="Harry Potter hero" id="question" class="wrapperquizPage__main--photoBox" />
+          <div class="wrapperquizPage__main hide" id="question-container">
+            <img alt="Harry Potter hero" id="question" class="wrapperquizPage__main--photoBox" />
 
-          <div class="wrapperquizPage__main--answersBox" id="answer-buttons">
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
-      </div>
+            <div class="wrapperquizPage__main--answersBox" id="answer-buttons">
+              <button class="btn"></button>
+              <button class="btn"></button>
+              <button class="btn"></button>
+            </div>
+          </div>
+        </div>
       </div>
     </template>
 
     <template id="quizStaffPage">
       <div class="background_quiz_staff">
-      <div class="wrapperquizPage">
-        <div class="quizPage__header">
+        <div class="wrapperquizPage">
+          <div class="quizPage__header">
+            <div class="background_container">
+              <h2 data-lang-quizStaff-header>Staff</h2>
+            </div>
+            <div class="wrapperquizPage__category--timer">
+              <div id="timer_clock"></div>
+              <div class="wand"></div>
+              <div class="fire"></div>
+            </div>
+          </div>
           <div class="background_container">
-            <h2>Staff</h2>
+            <p data-lang-quizStaff-question>Who is this?</p>
           </div>
-          <div class="wrapperquizPage__category--timer">
-            <div id="timer_clock"></div>
-            <div class="wand"></div>
-            <div class="fire"></div>
-          </div>
-        </div>
-        <div class="background_container">
-          <p>Who is this?</p>
-        </div>
-        <div class="wrapperquizPage__main hide" >
-          <img src="" alt="Harry Potter teacher" id="question-staff" class="wrapperquizPage__main--photoBox" />
 
-          <div class="wrapperquizPage__main--answersBox" id="answer-buttons-staff">
-            <button class="btn"></button>
-            <button class="btn"></button>
-            <button class="btn"></button>
+          <div class="wrapperquizPage__main hide" >
+            <img alt="Harry Potter teacher" id="question-staff" class="wrapperquizPage__main--photoBox" />
+
+            <div class="wrapperquizPage__main--answersBox" id="answer-buttons-staff">
+              <button class="btn"></button>
+              <button class="btn"></button>
+              <button class="btn"></button>
+            </div>
           </div>
-        
-          
-        
-      </div>
+        </div>
       </div>
     </template>
 
     <template id="quizHousesPage">
-      <div class="background_quiz_houses quizHouses ">
+      <div class="background_quiz_houses quizHouses">
         <div class="wrapperquizPage">
-        <div class="quizPage__header">
+          <div class="quizPage__header">
+            <div class="background_container">
+              <h2 data-lang-quizHouses-header>Students</h2>
+            </div>
+            <div class="wrapperquizPage__category--timer">
+              <div id="timer_clock"></div>
+              <div class="wand"></div>
+              <div class="fire"></div>
+            </div>
+          </div>
           <div class="background_container">
-            <h2>Houses</h2>
+            <p data-lang-quizHouses-question>What type of house is the character Harry Potter's from?</p>
           </div>
-          <div class="wrapperquizPage__category--timer">
-            <div id="timer_clock"></div>
-            <div class="wand"></div>
-            <div class="fire"></div>
+          <div class="background_container"><p id="questionHouses"></p></div>
+
+          <div class="quizHouses__answers" id="answer-buttons_Houses">
+            <img src="./assets/images/quiz/house1.png" id="Gryffindor" class="quizHouses__answers__img" alt="House1" />
+            <img src="./assets/images/quiz/house2.png" id="Ravenclaw" class="quizHouses__answers__img" alt="House2" />
+            <img src="./assets/images/quiz/house3.png" id="Hufflepuff" class="quizHouses__answers__img" alt="House3" />
+            <img src="./assets/images/quiz/house4.png" id="Slytherin" class="quizHouses__answers__img" alt="House4" />
           </div>
-        </div>
-        <div class="background_container">
-          <p>What type of house is the character Harry Potter's from?</p>
-          
-        </div>
-        <div class="background_container" ><p id="questionHouses"></p></div>
-      
-        <div class="quizHouses__answers" id="answer-buttons_Houses">
-          <img src="./assets/images/quiz/house1.png" id="Gryffindor" class="quizHouses__answers__img" alt="House1" />
-          <img src="./assets/images/quiz/house2.png" id="Ravenclaw" class="quizHouses__answers__img" alt="House2" />
-          <img src="./assets/images/quiz/house3.png" id="Hufflepuff" class="quizHouses__answers__img" alt="House3" />
-          <img src="./assets/images/quiz/house4.png" id="Slytherin" class="quizHouses__answers__img" alt="House4" />
         </div>
       </div>
-     </div>
     </template>
 
     <template id="rankingPage">
       <div class="background_main">
-      <div class="ranking">
-        <div class="ranking__wrapper">
-          <div class="ranking__main">
-            <h1>BEST SCORES</h1>
-            <div class="ranking__categories">
-              <div class="ranking__list">
-                <h2>STUDENTS</h2>
-                <div class="ranking__list--item">
-                  <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
-                  <p>1.<span> ALA</span></p>
-                  <p class="points">2000<span>PT</span></p>
+        <div class="ranking">
+          <div class="ranking__wrapper">
+            <div class="ranking__main">
+              <h1 data-lang-rankingPage-header>BEST SCORES</h1>
+              <div class="ranking__categories">
+                <div class="ranking__list">
+                  <h2 data-action-students>STUDENTS</h2>
+                  <div id="rankingStudents"></div>
                 </div>
-                <div class="ranking__list--item">
-                  <p>2.<span> MA</span></p>
-                  <p class="points">1800<span>PT</span></p>
+                <div class="ranking__list">
+                  <h2 data-action-staff>STAFF</h2>
+                  <div id="rankingStaff"></div>
                 </div>
-                <div class="ranking__list--item">
-                  <p>3.<span> KOTA</span></p>
-                  <p class="points">1500<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>4.<span> PSA</span></p>
-                  <p class="points">999<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>5.<span> CHOMIKA</span></p>
-                  <p class="points">13<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>6.<span> KANARKA</span></p>
-                  <p class="points">1<span>PT</span></p>
-                </div>
-              </div>
-              <div class="ranking__list">
-                <h2>STAFF</h2>
-                <div class="ranking__list--item">
-                  <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
-                  <p>1.<span> ALA</span></p>
-                  <p class="points">2000<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>2.<span> MA</span></p>
-                  <p class="points">1800<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>3.<span> KOTA</span></p>
-                  <p class="points">1500<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>4.<span> PSA</span></p>
-                  <p class="points">999<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>5.<span> CHOMIKA</span></p>
-                  <p class="points">13<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>6.<span> KANARKA</span></p>
-                  <p class="points">1<span>PT</span></p>
-                </div>
-              </div>
-              <div class="ranking__list">
-                <h2>HOUSES</h2>
-                <div class="ranking__list--item">
-                  <!-- tutaj numerki zrobić po indeksie, imię i punkty ze zmiennej -->
-                  <p>1.<span> ALA</span></p>
-                  <p class="points">2000<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>2.<span> MA</span></p>
-                  <p class="points">1800<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>3.<span> KOTA</span></p>
-                  <p class="points">1500<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>4.<span> PSA</span></p>
-                  <p class="points">999<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>5.<span> CHOMIKA</span></p>
-                  <p class="points">13<span>PT</span></p>
-                </div>
-                <div class="ranking__list--item">
-                  <p>6.<span> KANARKA</span></p>
-                  <p class="points">1<span>PT</span></p>
+                <div class="ranking__list">
+                  <h2 data-action-houses>HOUSES</h2>
+                  <div id="rankingHouses"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="ranking__main--button">
-            <button class="btn" data-action-home>BACK</button>
+            <div class="ranking__main--button">
+              <button class="btn" data-action-back data-action-home>BACK</button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </template>
 
     <template id="resultPage">
       <div class="background_main">
-      <div class="resultPage">
-        <div class="resultPage__wrapper">
-        <div class="resultPage__yourScore" >
-          <!-- // text created in resultPage.js -->
-        </div>
+        <div class="resultPage">
+          <div class="resultPage__wrapper">
+            <div class="resultPage__yourScore">
+              <!-- // text created in resultPage.js -->
+            </div>
 
-        <div class="resultPage__congrats">
-          <p class="resultPage__congrats--center">
-            <!-- // text created in resultPage.js -->
-          </p>
-        </div>
+            <div class="resultPage__congrats">
+              <p class="resultPage__congrats--center">
+                <!-- // text created in resultPage.js -->
+              </p>
+            </div>
 
-        <div class="resultPage__bestScores">
-          <h3>Best Scores</h3>
-          <ol class="resultPage__bestScores--list">
-            <!-- // list created in resultPage.js -->
-          </ol>
+            <div class="resultPage__bestScores">
+              <h3 data-lang-rankingPage-header>Best Scores</h3>
+              <ol class="resultPage__bestScores--list">
+                <!-- // list created in resultPage.js -->
+              </ol>
+            </div>
+          </div>
+          <div class="resultPage__menu">
+            <button data-action-back data-action-home class="btn">Home</button>
+            <button data-action-play_again data-action-start class="btn">Play Again</button>
+          </div>
         </div>
-        </div>
-        <div class="resultPage__menu">
-          <button data-action-home class="btn">Home</button>
-          <button data-action-start class="btn">Play Again</button>
-        </div>
-      </div>
       </div>
     </template>
 
     <template id="notFound">
       <div class="background_main">
-      <div class="notFoundWrap">
-        <div class="notFoundWrap__nf">
-          <p class="notFoundWrap__nf__nmb">404</p>
-          <p class="notFoundWrap__nf__ttl">Muggle, you broke the Internet</p>
-          <p class="notFoundWrap__nf__txt">
-            Just kidding. Please make sure you've entered the correct address, or click the button
-          </p>
+        <div class="notFoundWrap">
+          <div class="notFoundWrap__nf">
+            <p class="notFoundWrap__nf__nmb">404</p>
+            <p data-lang-notFound-text1 class="notFoundWrap__nf__ttl">Muggle, you broke the Internet</p>
+            <p data-lang-notFound-text2 class="notFoundWrap__nf__txt">
+              Just kidding. Please make sure you've entered the correct address, or click the button
+            </p>
+          </div>
+          <button data-action-back data-action-home class="btn">Home</button>
         </div>
-          <button data-action-home class="btn">Home</button>
-      </div>
       </div>
     </template>
 

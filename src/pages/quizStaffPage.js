@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import mapNavigationClickToTemplate from '../navigation';
 import { paths } from '../shared/router';
 import categoryName from '../shared/categoryNameApi';
@@ -14,16 +15,19 @@ import { addPointsToCurrentPlayer } from '../localStorageManager';
 const createQuizStaffPage = (options) => {
   const appScreen = document.querySelector('#root');
   const quizStaffPage = document.querySelector('#quizStaffPage');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
+  document.querySelector('[data-lang-quizStaff-header]').innerText = t('quizStaff-header');
+  document.querySelector('[data-lang-quizStaff-question]').innerText = t('quizStaff-question');
   const questionElement = document.getElementById('question-staff');
   const answerButtonsElement = document.getElementById('answer-buttons-staff');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
-  const ALL_RECORDS = 24; 
+  const ALL_RECORDS = 24;
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
 
@@ -62,12 +66,11 @@ const createQuizStaffPage = (options) => {
       currentQuestionIndex++;
 
       if (selectedButton.dataset.correct) {
-        correctedAnswers++;
+        addPointsToCurrentPlayer(10);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => setNextQuestion(), 2000);
       } else {
-        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
         addPointsToCurrentPlayer(correctedAnswers);
         location.href = '/result';
       }

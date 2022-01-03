@@ -1,3 +1,4 @@
+import i18next from '../i18n';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
 import { showQuestionFunction } from '../shared/showQuestionFunction';
@@ -12,9 +13,12 @@ import { addPointsToCurrentPlayer } from '../localStorageManager';
 const createQuiz = () => {
   const appScreen = document.querySelector('#root');
   const quiz = document.querySelector('#quiz');
+  const { t, changeLanguage } = i18next;
 
   appScreen.innerHTML = quiz.innerHTML;
 
+  document.querySelector('[data-lang-quizStudent-header]').innerText = t('quizStudent-header');
+  document.querySelector('[data-lang-quizStudent-question]').innerText = t('quizStudent-question');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
@@ -56,7 +60,7 @@ const createQuiz = () => {
       });
       currentQuestionIndex++;
       if (selectedButton.dataset.correct) {
-        addPointsToCurrentPlayer(1);
+        addPointsToCurrentPlayer(10);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => await setNextQuestion(), 2000);
