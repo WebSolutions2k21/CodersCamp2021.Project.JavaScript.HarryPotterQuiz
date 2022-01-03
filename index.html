@@ -49,56 +49,58 @@
 
     <template id="gameModePage">
       <div class="background_main">
-        <div class="gameMode">
-          <div class="gameMode__main">
-            <p data-lang-gameMode-header>Game mode</p>
-          </div>
+        <div class="gameMode__content">
+          <div class="gameMode">
+            <div class="gameMode__main">
+              <p data-lang-gameMode-header>Game mode</p>
+            </div>
 
-          <div class="gameMode__other">
-            <form class="gameMode__nameStart" action="">
-              <input
-                class="gameMode__nameStartinp gameMode__nameStartinpEnt"
-                type="text"
-                id="fname"
-                name="fname"
-                placeholder="Enter your name"
-              />
-              <div data-lang-gameMode-input-forgotten class="gameMode__textError">Muggle, you forgot something!</div>
-            </form>
-            <button data-action-back class="gameMode__nameStartBack">Back</button>
-          </div>
+            <div class="gameMode__other">
+              <form class="gameMode__nameStart" action="">
+                <input
+                  class="gameMode__nameStartinp gameMode__nameStartinpEnt"
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Enter your name"
+                />
+                <div data-lang-gameMode-input-forgotten class="gameMode__textError">Muggle, you forgot something!</div>
+              </form>
+              <button data-action-back class="gameMode__nameStartBack">Back</button>
+            </div>
 
-          <div class="gameMode__modes">
-            <button
-              data-action-students
-              data-game-mode-selection-button
-              data-category-name="students"
-              id="students"
-              class="gameMode__btn"
-              type="button"
-            >
-              Students
-            </button>
-            <button
-              data-action-staff
-              data-game-mode-selection-button
-              data-category-name="staff"
-              id="staff"
-              class="gameMode__btn"
-              type="button"
-            >
-              Staff
-            </button>
-            <button
-              data-action-houses
-              data-game-mode-selection-button
-              data-category-name="houses"
-              id="houses"
-              class="gameMode__btn"
-              type="button"
-            >
-              Houses
-            </button>
+            <div class="gameMode__modes">
+              <button
+                data-action-students
+                data-game-mode-selection-button
+                data-category-name="students"
+                id="students"
+                class="gameMode__btn"
+                type="button"
+              >
+                Students
+              </button>
+              <button
+                data-action-staff
+                data-game-mode-selection-button
+                data-category-name="staff"
+                id="staff"
+                class="gameMode__btn"
+                type="button"
+              >
+                Staff
+              </button>
+              <button
+                data-action-houses
+                data-game-mode-selection-button
+                data-category-name="houses"
+                id="houses"
+                class="gameMode__btn"
+                type="button"
+              >
+                Houses
+              </button>
+            </div>
           </div>
         </div>
       </div>
