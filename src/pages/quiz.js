@@ -22,7 +22,6 @@ const createQuiz = () => {
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 102;
-  let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STUDENTS;
 
   const chosenNumber = [];
@@ -56,15 +55,12 @@ const createQuiz = () => {
         setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
       });
       currentQuestionIndex++;
-      // console.log(currentQuestionIndex);
       if (selectedButton.dataset.correct) {
-        correctedAnswers++;
         addPointsToCurrentPlayer(1);
       }
       if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
         setTimeout(async () => await setNextQuestion(), 2000);
       } else {
-        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
         location.href = '/result';
       }
     });
@@ -76,7 +72,7 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
-   getNumberRandomAndShuffleOtherNumber();
+    getNumberRandomAndShuffleOtherNumber();
     shuffledQuestions = await questions(saveRandomNumber());
 
     await showQuestion(shuffledQuestions);
@@ -84,7 +80,6 @@ const createQuiz = () => {
 
   async function startGame() {
     currentQuestionIndex = 0;
-    correctedAnswers = 0;
     await setNextQuestion(shuffledQuestions);
   }
 

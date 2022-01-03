@@ -15,13 +15,13 @@ const createQuizHousesPage = (options) => {
   appScreen.innerHTML = quizHousesPage.innerHTML;
 
   const questionElement = document.getElementById('questionHouses');
-  const answerButtonsElement = document.getElementById('answer-buttons');
+  const answerButtonsElement = document.getElementById('answer-buttons_Houses');
   const images = document.querySelectorAll('.quizHouses__answers__img');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
-  const ALL_RECORDS = 296;
+  const ALL_RECORDS = 70;
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
@@ -77,7 +77,7 @@ const createQuizHousesPage = (options) => {
         await setNextQuestion();
       }, 2000);
     } else {
-      // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
+    
       addPointsToCurrentPlayer(correctedAnswers);
       location.href = '/result';
     }

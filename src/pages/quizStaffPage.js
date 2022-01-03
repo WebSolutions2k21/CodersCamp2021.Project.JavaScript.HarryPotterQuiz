@@ -17,13 +17,13 @@ const createQuizStaffPage = (options) => {
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
-  const questionElement = document.getElementById('question');
-  const answerButtonsElement = document.getElementById('answer-buttons');
+  const questionElement = document.getElementById('question-staff');
+  const answerButtonsElement = document.getElementById('answer-buttons-staff');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
-  const ALL_RECORDS = 24; //pobrać tyle rekordów ile jest w api z tej kategorii
+  const ALL_RECORDS = 24; 
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
 
