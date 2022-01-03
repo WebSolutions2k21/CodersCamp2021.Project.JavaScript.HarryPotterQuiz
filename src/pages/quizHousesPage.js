@@ -29,7 +29,7 @@ const createQuizHousesPage = (options) => {
   let correctedAnswers = 0;
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
-  let isClicked = false;
+  let clicked = false;
 
   timer();
 
@@ -59,9 +59,15 @@ const createQuizHousesPage = (options) => {
   }
 
   function showAnswer(image) {
-    image.addEventListener('click', handleClick);
-
-    image.disabled = true;
+      image.addEventListener('click', function (event) {
+        if (!clicked) {
+          clicked = true;
+          handleClick(event);
+          setTimeout(function () {
+            clicked = false;
+          }, 2000);
+        }
+      });
   }
 
   const handleClick = (e) => {

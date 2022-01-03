@@ -34,7 +34,7 @@ const createQuiz = () => {
   const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
 
   const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
-
+  let clicked = false;
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
@@ -45,23 +45,33 @@ const createQuiz = () => {
   }
 
   function showAnswer(button) {
-    button.addEventListener('click', (e) => {
-      const selectedButton = e.target;
-
-      Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-        setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-      });
-      currentQuestionIndex++;
-      if (selectedButton.dataset.correct) {
-        addPointsToCurrentPlayer(10);
-      }
-      if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-        setTimeout(async () => await setNextQuestion(), 2000);
-      } else {
-        location.href = '/result';
+    button.addEventListener('click', function (event) {
+      if (!clicked) {
+        clicked = true;
+        handleClick(event);
+        setTimeout(function () {
+          clicked = false;
+        }, 2000);
       }
     });
   }
+
+  const handleClick = (e) => {
+    const selectedButton = e.target;
+
+    Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+      setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+    });
+    currentQuestionIndex++;
+    if (selectedButton.dataset.correct) {
+      addPointsToCurrentPlayer(10);
+    }
+    if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+      setTimeout(async () => await setNextQuestion(), 2000);
+    } else {
+      location.href = '/result';
+    }
+  };
 
   function resetState() {
     resetStateFunction(answerButtonsElement);
