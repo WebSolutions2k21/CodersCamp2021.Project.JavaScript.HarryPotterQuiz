@@ -29,14 +29,9 @@ const createQuizStaffPage = () => {
   const LIMIT_QUESTION = 20;
   const ALL_RECORDS = 24;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
-
   const chosenNumber = [];
-
   let arrayWithTwoDifferentIndexOfQuestion;
 
-  const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
-
-  const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
   let clicked = false;
 
   function setStatusClass(element, correct) {
@@ -49,6 +44,9 @@ const createQuizStaffPage = () => {
 
   async function setNextQuestion() {
     resetState();
+    const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
+    const newRandomNumber = saveRandomNumber();
+    const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
     arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
     const questions = getDataFromApi(
       categoryId,
@@ -56,7 +54,7 @@ const createQuizStaffPage = () => {
       arrayWithTwoDifferentIndexOfQuestion[2],
     );
 
-    shuffledQuestions = await questions(saveRandomNumber());
+    shuffledQuestions = await questions(newRandomNumber);
     // eslint-disable-next-line no-use-before-define
     await showQuestion(shuffledQuestions);
   }
