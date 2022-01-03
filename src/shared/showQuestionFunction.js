@@ -10,6 +10,7 @@ function getImageFromFile(question) {
 export function showQuestionFunc(question, questionElement, showAnswer, answerButtonsElement, img) {
   if (question.question === '') {
     const getImg = getImageFromFile(question);
+    console.log('get img', getImg);
     if (img[getImg] === null || img[getImg] === undefined) {
       questionElement.setAttribute('src', guessWho);
     } else {
