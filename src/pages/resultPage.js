@@ -51,7 +51,7 @@ const createResultPage = () => {
       getDataFromLocalStorage().forEach((values) => allPlayers.push(values));
     }
     const playerInfo = JSON.parse(player);
-    if (playerInfo.name != '') {
+    if (playerInfo.name !== '') {
       allPlayers.push(JSON.parse(player));
     }
     localStorage.setItem('allPlayers', JSON.stringify(allPlayers));
@@ -103,6 +103,7 @@ const createResultPage = () => {
       textCongrats.innerHTML = `Congratulations ${currentPlayer.name} ! <br />
       You answered ${correctedAnswers} questions!`;
       scoreInformations.appendChild(textCongrats);
+      textCongrats.innerHTML = `${t('congratulations')} ${currentPlayer.name}`;
     }
   }
 
@@ -116,6 +117,7 @@ const createResultPage = () => {
       textYourScore.innerHTML = `Your Score: ${currentPlayer.score} pts`;
 
       scoreElement.appendChild(textYourScore);
+      textYourScore.innerHTML = `${t('scoreplayer')} ${currentPlayer.score} ${t('pts')}`;
     }
   }
 
@@ -134,20 +136,16 @@ const createResultPage = () => {
   fillResultPageInformations();
 };
 
-//chage page to homePage when reload the resultPage
+//change page to homePage when reload the resultPage
 
 window.addEventListener('load', () => {
-  if (location.pathname == '/result' && sessionStorage.returnToMainPage) {
+  if (window.location.pathname === '/result' && sessionStorage.returnToMainPage) {
     sessionStorage.removeItem('returnToMainPage');
     window.location.href = '/';
-  }
-
-  if (location.pathname == '/result') {
+  } else if (window.location.pathname === '/result') {
     sessionStorage.setItem('returnToMainPage', true);
-  } else {
-    if (sessionStorage.returnToMainPage) {
-      sessionStorage.removeItem('returnToMainPage');
-    }
+  } else if (sessionStorage.returnToMainPage) {
+    sessionStorage.removeItem('returnToMainPage');
   }
 });
 

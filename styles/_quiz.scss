@@ -46,15 +46,15 @@
         &::before {
           content: '';
           position: absolute;
-          height: 5px;
+          height: 4px;
           width: 114%;
           background: white;
-          left: -60px;
+          left: -43px;
           top: 48%;
           border-radius: 40%;
           box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffc400, 0 0 30px #ffc400, 0 0 40px #ffc400,
             0 0 55px #ffc400, 0 0 75px #ffc400;
-          animation: time-passing 60s;
+          animation: time-passing linear 61s;
         }
         @keyframes time-passing {
           0% {
@@ -76,6 +76,13 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     width: 80%;
   }
+
+  &__main {
+    img {
+      max-height: 450px;
+      object-fit: cover; //niweluje rozciągnięcie zdjęcia, powiększając go, można wywalić w razie W
+    }
+  }
 }
 
 .quizPage__header {
@@ -83,6 +90,7 @@
   flex-direction: row;
   height: 20vh;
   width: 100%;
+  align-items: center;
 }
 .background_container {
   margin: 20px 10px;
@@ -102,11 +110,4 @@
   & p {
     font-size: $p-paragraphFontSize;
   }
-}
-.timer_clock {
-  font-size: $h-headlinesFontSize;
-  color: $c-font-primary;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  text-transform: uppercase;
-  line-height: 173px;
 }

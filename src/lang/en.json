@@ -5,8 +5,8 @@
     "best_scores": "best scores",
     "back":"back",
     "rules": "Rules",
-    "p1": "Click on start, then enter your nickname and choose one of the three categories. Answer the questions by clicking on the answer of your choice. You will receive:",
-    "p2": "point for a correct answer",
+    "p1": "Click start, then enter your nickname and choose one of the three categories. Answer the questions by clicking on the answer of your choice. You will receive:",
+    "p2": "points for a correct answer",
     "p3": "points for a wrong answer",
     "p4":"Remember, you have one minute to answer as many questions as possible.",
     "p5": "Have Fun!",
@@ -17,14 +17,17 @@
     "houses": "houses",
     "fname":"Enter your name",
     "quizStudent-header":"student",
-    "quizStudent-question":"How is the Hogwarts student visible in the photo called?",
+    "quizStudent-question":"What's this Hogwarts student name?",
     "quizStaff-header": "Staff",
-    "quizStaff-question": "Who is this?",
+    "quizStaff-question": "What's this Hogwarts staff member name?",
     "quizHouses-header": "Houses",
-    "quizHouses-question": "What type of house is the character Harry Potter's from?",
+    "quizHouses-question": "Which Hogwarts House does this character belong to?",
     "rankingPage-header": "Best Scores",
     "notFound-text1": "Muggle, you broke the Internet",
     "notFound-text2": "Just kidding. Please make sure you’ve entered the correct address, or click the button",
-    "play_again": "Play Again"
+    "play_again": "Play Again",
+    "scoreplayer": "Your Score: ",
+    "pts": " pts",
+    "congratulations": "Congratulations "
   }
 }

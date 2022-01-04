@@ -1,4 +1,4 @@
-import randomNumberOfIndex from '../shared/randomIndexGenerator';
+import randomNumberOfIndex from './randomIndexGenerator';
 
 export function setUniqueRandomQuestion(ALL_RECORDS, chosenNumber) {
   return () => {
@@ -9,7 +9,6 @@ export function setUniqueRandomQuestion(ALL_RECORDS, chosenNumber) {
     }
 
     chosenNumber.push(newNumber);
-
     return newNumber;
   };
 }

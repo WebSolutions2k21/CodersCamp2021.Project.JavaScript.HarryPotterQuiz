@@ -1,82 +1,41 @@
+/* eslint-disable no-restricted-globals */
 import i18next from '../i18n';
-import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
 import categoryName from '../shared/categoryNameApi';
 import getDataFromApi from '../api/harryPotter';
-import { showQuestionFunction } from '../shared/showQuestionFunction';
 import { setStatusFunction } from '../shared/setStatusFunction';
 import { resetStateFunction } from '../shared/resetStateFunction';
+// eslint-disable-next-line import/no-unresolved
 import img from '../../assets/images/staff/*.jpeg';
 import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
-import { getNumberRandomAndShuffleOtherNumberFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
+import { getNumberRandomArrayFunction } from '../shared/getNumberRandomAndShuffleOtherNumberFunction';
 import timer from '../timer';
 import { addPointsToCurrentPlayer } from '../localStorageManager';
+import { showQuestionFunc } from '../shared/showQuestionFunction';
 
-const createQuizStaffPage = (options) => {
+const createQuizStaffPage = () => {
   const appScreen = document.querySelector('#root');
   const quizStaffPage = document.querySelector('#quizStaffPage');
-  const { t, changeLanguage } = i18next;
+  const { t } = i18next;
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
   document.querySelector('[data-lang-quizStaff-header]').innerText = t('quizStaff-header');
   document.querySelector('[data-lang-quizStaff-question]').innerText = t('quizStaff-question');
-  const questionElement = document.getElementById('question');
-  const answerButtonsElement = document.getElementById('answer-buttons');
+  const questionElement = document.getElementById('question-staff');
+  const answerButtonsElement = document.getElementById('answer-buttons-staff');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
-  const ALL_RECORDS = 24; //pobrać tyle rekordów ile jest w api z tej kategorii
-  let correctedAnswers = 0;
+  const ALL_RECORDS = 24;
   const categoryId = categoryName.API_CHARACTERS_STAFF;
-
   const chosenNumber = [];
-
   let arrayWithTwoDifferentIndexOfQuestion;
 
-  const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
-
-  const getNumberRandomAndShuffleOtherNumber = getNumberRandomAndShuffleOtherNumberFunction(chosenNumber, ALL_RECORDS);
-
-  arrayWithTwoDifferentIndexOfQuestion = getNumberRandomAndShuffleOtherNumber();
-
-  const questions = getDataFromApi(
-    categoryId,
-    arrayWithTwoDifferentIndexOfQuestion[1],
-    arrayWithTwoDifferentIndexOfQuestion[2],
-  );
+  let clicked = false;
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
-  }
-
-  async function showQuestion(question) {
-    showQuestionFunction(question, questionElement, showAnswer, answerButtonsElement, img);
-  }
-
-  function showAnswer(button) {
-    console.log('button', button);
-    button.addEventListener('click', (e) => {
-      const selectedButton = e.target;
-
-      Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-        setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-      });
-      currentQuestionIndex++;
-
-      if (selectedButton.dataset.correct) {
-        correctedAnswers++;
-        addPointsToCurrentPlayer(10);
-      }
-      if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-        setTimeout(async () => setNextQuestion(), 2000);
-      } else {
-        // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-        addPointsToCurrentPlayer(correctedAnswers);
-        location.href = '/result';
-      }
-    });
   }
 
   function resetState() {
@@ -85,22 +44,63 @@ const createQuizStaffPage = (options) => {
 
   async function setNextQuestion() {
     resetState();
-    shuffledQuestions = await questions(saveRandomNumber());
+    const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
+    const newRandomNumber = saveRandomNumber();
+    const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
+    arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
+    const questions = getDataFromApi(
+      categoryId,
+      arrayWithTwoDifferentIndexOfQuestion[1],
+      arrayWithTwoDifferentIndexOfQuestion[2],
+    );
+
+    shuffledQuestions = await questions(newRandomNumber);
+    // eslint-disable-next-line no-use-before-define
     await showQuestion(shuffledQuestions);
+  }
+
+  const handleClick = (e) => {
+    const selectedButton = e.target;
+
+    Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+      setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+    });
+    currentQuestionIndex++;
+    if (selectedButton.dataset.correct) {
+      addPointsToCurrentPlayer(10);
+    }
+    if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+      // eslint-disable-next-line no-return-await
+      setTimeout(async () => await setNextQuestion(), 2000);
+    } else {
+      location.href = '/result';
+    }
+  };
+
+  function showAnswer(button) {
+    button.addEventListener('click', (event) => {
+      if (!clicked) {
+        clicked = true;
+        handleClick(event);
+        setTimeout(() => {
+          clicked = false;
+        }, 2000);
+      }
+    });
+  }
+
+  async function showQuestion(question) {
+    showQuestionFunc(question, questionElement, showAnswer, answerButtonsElement, img);
   }
 
   async function startGame() {
     currentQuestionIndex = 0;
-    correctedAnswers = 0;
     await setNextQuestion(shuffledQuestions);
   }
 
   startGame();
 
   timer();
-
-
-
 };
 
 export default createQuizStaffPage;

@@ -1,6 +1,5 @@
+/* eslint-disable no-restricted-globals */
 import i18next from '../i18n';
-import mapNavigationClickToTemplate from '../navigation';
-import { paths } from '../shared/router';
 import getDataFromApi from '../api/harryPotter';
 import categoryName from '../shared/categoryNameApi';
 import { setStatusFunction } from '../shared/setStatusFunction';
@@ -8,27 +7,25 @@ import { setUniqueRandomQuestion } from '../shared/setUniqueRandomQuestion';
 import timer from '../timer';
 import { addPointsToCurrentPlayer } from '../localStorageManager';
 
-const createQuizHousesPage = (options) => {
-  console.log('max time ', options.quizMaxTime);
-
+const createQuizHousesPage = () => {
   const appScreen = document.querySelector('#root');
   const quizHousesPage = document.querySelector('#quizHousesPage');
   appScreen.innerHTML = quizHousesPage.innerHTML;
-  const { t, changeLanguage } = i18next;
+  const { t } = i18next;
 
   document.querySelector('[data-lang-quizHouses-header]').innerText = t('quizHouses-header');
   document.querySelector('[data-lang-quizHouses-question]').innerText = t('quizHouses-question');
   const questionElement = document.getElementById('questionHouses');
-  const answerButtonsElement = document.getElementById('answer-buttons');
+  const answerButtonsElement = document.getElementById('answer-buttons_Houses');
   const images = document.querySelectorAll('.quizHouses__answers__img');
 
   let shuffledQuestions;
   let currentQuestionIndex = 0;
   const LIMIT_QUESTION = 20;
-  const ALL_RECORDS = 296;
-  let correctedAnswers = 0;
+  const ALL_RECORDS = 70;
   const categoryId = categoryName.API_CHARACTERS_HOUSES;
   const chosenNumber = [];
+  let clicked = false;
 
   timer();
 
@@ -37,6 +34,39 @@ const createQuizHousesPage = (options) => {
 
   function setStatusClass(element, correct) {
     setStatusFunction(element, correct);
+  }
+
+  const handleClick = (e) => {
+    const selectedButton = e.target;
+    Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
+      setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
+      buttonAnswer.disabled = true;
+    });
+    currentQuestionIndex++;
+    if (selectedButton.dataset.correct) {
+      addPointsToCurrentPlayer(10);
+    }
+
+    if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
+      setTimeout(async () => {
+        // eslint-disable-next-line no-use-before-define
+        await setNextQuestion();
+      }, 2000);
+    } else {
+      location.href = '/result';
+    }
+  };
+
+  function showAnswer(image) {
+    image.addEventListener('click', (event) => {
+      if (!clicked) {
+        clicked = true;
+        handleClick(event);
+        setTimeout(() => {
+          clicked = false;
+        }, 2000);
+      }
+    });
   }
 
   async function showQuestion(question) {
@@ -57,32 +87,6 @@ const createQuizHousesPage = (options) => {
     });
   }
 
-  function showAnswer(image) {
-    image.addEventListener('click', handleClick);
-  }
-
-  const handleClick = (e) => {
-    const selectedButton = e.target;
-    Array.from(answerButtonsElement.children).forEach((buttonAnswer) => {
-      setStatusClass(buttonAnswer, buttonAnswer.dataset.correct);
-    });
-    currentQuestionIndex++;
-    if (selectedButton.dataset.correct) {
-      correctedAnswers++;
-      addPointsToCurrentPlayer(10);
-    }
-
-    if (LIMIT_QUESTION >= currentQuestionIndex + 1) {
-      setTimeout(async () => {
-        await setNextQuestion();
-      }, 2000);
-    } else {
-      // alert(`Go to Result page, corrected answers, ${correctedAnswers}`);
-      addPointsToCurrentPlayer(correctedAnswers);
-      location.href = '/result';
-    }
-  };
-
   function resetState() {
     images.forEach((img) => {
       img.removeEventListener('click', handleClick);
@@ -95,11 +99,12 @@ const createQuizHousesPage = (options) => {
   async function setNextQuestion() {
     resetState();
     let isEmptyText;
-    let shuffledQuestions = await questions(saveRandomNumber());
+    shuffledQuestions = await questions(saveRandomNumber());
     isEmptyText = shuffledQuestions.answers[0].text;
 
     while (isEmptyText === '') {
       resetState();
+      // eslint-disable-next-line no-await-in-loop
       shuffledQuestions = await questions(saveRandomNumber());
       isEmptyText = shuffledQuestions.answers[0].text;
     }
@@ -108,7 +113,6 @@ const createQuizHousesPage = (options) => {
 
   async function startGame() {
     currentQuestionIndex = 0;
-    correctedAnswers = 0;
     await setNextQuestion(shuffledQuestions);
   }
 

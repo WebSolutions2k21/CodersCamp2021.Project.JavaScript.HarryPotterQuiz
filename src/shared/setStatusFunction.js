@@ -3,10 +3,9 @@ function clearStatusClass(element) {
   element.classList.remove('wrong');
 }
 
-
-export function setStatusFunction( element, correct) {
-   clearStatusClass(element);
-   console.log("element", element, correct);
+// eslint-disable-next-line import/prefer-default-export
+export function setStatusFunction(element, correct) {
+  clearStatusClass(element);
   if (correct) {
     element.classList.add('correct');
   } else {
