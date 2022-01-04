@@ -99,6 +99,154 @@
   }
 }
 
+@media (orientation:landscape) and(max-width: $break-small-laptop){
+
+  .questionText {
+    p {
+      height: auto;
+      width: 100%;
+      white-space: initial;
+      font-size: 25px; //nie reaguje
+      line-height: 2;
+    }
+  }
+}
+
+@media (orientation:landscape) and (max-width:993px) {
+
+  .background_quiz_houses {
+    height: auto;
+    .wrapperquizPage{
+      height: auto;
+
+      .quizPage__header {
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+
+        .background_container {
+          margin-bottom: 0;
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .wrapperquizPage__category--timer {
+          width: 90%;
+          margin: auto;
+
+          .timer_clock {
+            width: 40%;
+            font-size: 25px;
+            margin: auto;
+          }
+        }
+      }
+
+      .background_container {
+        width: 95%;
+        height: auto;
+        display: block;
+        overflow: auto;
+        p {
+          height: auto;
+          width: 100%;
+          white-space: initial;
+          font-size: 18px;
+          line-height: 2;
+        }
+      }
+
+      .quizHouses__answers {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 350px;
+        width: 90%;
+
+        img {
+          max-width: 125px;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .questionText {
+    p {
+      height: auto;
+      width: 100%;
+      white-space: initial;
+      font-size: 25px; //nie reaguje
+      line-height: 2;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 928px) {
+  .background_quiz_houses {
+    height: auto;
+    .wrapperquizPage{
+      height: auto;
+
+      .quizPage__header {
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+
+        .background_container {
+          margin-bottom: 0;
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .wrapperquizPage__category--timer {
+          width: 90%;
+          margin: auto;
+
+          .timer_clock {
+            width: 40%;
+            font-size: 25px;
+            margin: auto;
+          }
+        }
+      }
+
+      .background_container {
+        width: 95%;
+        height: auto;
+        display: block;
+        overflow: auto;
+        p {
+          height: auto;
+          width: 100%;
+          white-space: initial;
+          font-size: 18px;
+          line-height: 2;
+        }
+      }
+
+      .quizHouses__answers {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 350px;
+        width: 90%;
+
+        img {
+          max-width: 125px;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .questionText {
+    p {
+      height: auto;
+      width: 100%;
+      white-space: initial;
+      font-size: 25px; //nie reaguje
+      line-height: 2;
+    }
+  }
+}
+
 @media (orientation: portrait) and (max-width: $break-tablet) {
   .background_quiz_houses {
     height: auto;
@@ -153,59 +301,6 @@
     }
   }
 }
-
-@media (orientation: landscape) and (max-width: $break-laptop) {
-  .background_quiz_houses {
-    height: auto;
-    .wrapperquizPage{
-      height: auto;
-
-      .quizPage__header {
-        flex-wrap: wrap;
-        margin-bottom: 90px;
-
-        .background_container {
-          h2 {
-            font-size: 40px;
-          }
-        }
-        .wrapperquizPage__category--timer {
-          width: 90%;
-          margin: auto;
-
-          .timer_clock {
-            margin: auto;
-          }
-        }
-      }
-
-      .background_container {
-        width: 95%;
-        height: auto;
-        display: block;
-        overflow: auto;
-        p {
-          height: auto;
-          width: 100%;
-          white-space: initial;
-          font-size: 25px;
-          line-height: 2;
-        }
-      }
-
-      .quizHouses__answers {
-        height: 240px;
-        width: 70%;
-
-        img {
-          max-width: 120px;
-          margin: auto;
-        }
-      }
-    }
-  }
-}
-
 
 @media (orientation: portrait) and (max-width: $break-mobile) {
   .background_quiz_houses {

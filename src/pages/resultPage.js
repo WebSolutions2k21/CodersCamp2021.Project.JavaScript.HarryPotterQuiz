@@ -45,34 +45,34 @@ const createResultPage = () => {
     return filter.sort((a, b) => b.score - a.score);
   }
 
+  // save curentPlayer to allPlayers in localStorage
   function savePlayerToLocaleStorage(player) {
     const allPlayers = [];
     if (getDataFromLocalStorage()) {
       getDataFromLocalStorage().forEach((values) => allPlayers.push(values));
     }
     const playerInfo = JSON.parse(player);
-    if (playerInfo.name != '') {
+    if (playerInfo.name !== '') {
       allPlayers.push(JSON.parse(player));
     }
     localStorage.setItem('allPlayers', JSON.stringify(allPlayers));
   }
 
   function importBestPlayersToHtml() {
+    //show player category to BestScores
     const currentPlayer = JSON.parse(getCurrentPlayerData());
     let bestPlayers = [];
     if (currentPlayer) {
       if (currentPlayer.category === 'houses') {
         bestPlayers = sortPlayers(currentPlayer.category);
-        console.log('gracz gra w houses');
       } else if (currentPlayer.category === 'staff') {
         bestPlayers = sortPlayers(currentPlayer.category);
-        console.log('gracz gra w staff');
       } else if (currentPlayer.category === 'students') {
         bestPlayers = sortPlayers(currentPlayer.category);
-        console.log('gracz gra w students');
       }
     }
 
+    //show three Best Scores in resultPage
     const listBestScore = document.querySelector('.resultPage__bestScores--list');
 
     if (bestPlayers[0]) {
@@ -92,19 +92,23 @@ const createResultPage = () => {
     }
   }
 
+  //show Congrats in resultPage
   function importCongratulationsToHtml() {
     const currentPlayer = JSON.parse(getCurrentPlayerData());
+    const correctedAnswers = currentPlayer.score / 10;
 
     const scoreInformations = document.querySelector('.resultPage__congrats');
     if (currentPlayer) {
       const textCongrats = document.createElement('p');
       textCongrats.className = 'resultPage__congrats--center';
       textCongrats.innerHTML = `Congratulations ${currentPlayer.name} ! <br />
-      You answered X questions correctly in .... sec!`;
+      You answered ${correctedAnswers} questions!`;
       scoreInformations.appendChild(textCongrats);
+      textCongrats.innerHTML = `${t('congratulations')} ${currentPlayer.name}`;
     }
   }
 
+  //show Your Score in resultPage
   function importYourScoreToHtml() {
     const currentPlayer = JSON.parse(getCurrentPlayerData());
 
@@ -115,6 +119,7 @@ const createResultPage = () => {
       textYourScore.innerHTML = `Your Score: ${currentPlayer.score} pts`;
 
       scoreElement.appendChild(textYourScore);
+      textYourScore.innerHTML = `${t('scoreplayer')} ${currentPlayer.score} ${t('pts')}`;
     }
   }
 
@@ -133,13 +138,17 @@ const createResultPage = () => {
   fillResultPageInformations();
 };
 
-// console.log(location.href);
+//change page to homePage when reload the resultPage
 
-// if (window.location.href === '/result') {
-//   document.addEventListener('load', () => {
-//     console.log('aaa');
-//     alert('aaaaa');
-//     route('/');
-//   });
-// }
+window.addEventListener('load', () => {
+  if (window.location.pathname === '/result' && sessionStorage.returnToMainPage) {
+    sessionStorage.removeItem('returnToMainPage');
+    window.location.href = '/';
+  } else if (window.location.pathname === '/result') {
+    sessionStorage.setItem('returnToMainPage', true);
+  } else if (sessionStorage.returnToMainPage) {
+    sessionStorage.removeItem('returnToMainPage');
+  }
+});
+
 export default createResultPage;

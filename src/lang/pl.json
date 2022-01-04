@@ -25,6 +25,9 @@
     "rankingPage-header": "Najlepsze wyniki",
     "notFound-text1": "Mogolu, Internet nie ogarnia, teraz to nic nie uruchomisz",
     "notFound-text2": "Ha ha spokojnie, popraw adres strony lub naciśnij przycisk",
-    "play_again": "Zagraj ponownie"
+    "play_again": "Zagraj ponownie",
+    "scoreplayer": "Wynik: ",
+    "pts": "pkt",
+    "congratulations": "Gratulacje"
   }
 }

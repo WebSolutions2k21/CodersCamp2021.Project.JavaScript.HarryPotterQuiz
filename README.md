@@ -24,10 +24,8 @@ Zespół pracował w ramach kursu CodersCamp. Aplikację wykonali uczestnicy kur
 
 # Harry Potter Quiz
 
-```
-	Mockupy i prototyp (dodać hiperłącze)
-```
-
+[Mockupy i prototyp](https://www.figma.com/file/0hPqbStz3EtSrjtSQXExDl/HP-Quiz?node-id=8%3A3)
+	
 ### Demo
 
 ```
@@ -38,7 +36,7 @@ Powodzenia, Mugolu!
 ## Cel projektu
 
 Celem projektu było dostarczenie aplikacji pozwalającej sprawdzić swoją wiedzę o uczniach, nauczycielach i domach Hogwartu.
-`Dodatkowo gracz rywalizował z komputerem w trakcie grania w quiz. Komputer — zależnie od ustawień — odpowiada losowo lub inteligentnie — próbując rozpoznać przedstawiany obraz za pomocą Google Vision API.`
+
 
 Aplikacja została wykonana wg dostarczonych przez organizatorów CodersCamp wymagań.
 
@@ -48,46 +46,39 @@ Aplikacja została wykonana wg dostarczonych przez organizatorów CodersCamp wym
 
 W menu głównym należy wybrać tryb gry (domyślnie jest to People):
 
-- Students — rozpoznawanie postaci uczniów z Hogwartu oraz udzielanie odpowiedzi na pytania z nimi związane na podstawie wyświetlanych zdjęć
-- Staff — rozpoznawanie postaci nauczycieli i innych pracowników Hogwartu oraz udzielanie odpowiedzi na pytania z nimi związane na podstawie wyświetlanych zdjęć
+- Students — rozpoznawanie postaci uczniów z Hogwartu na podstawie wyświetlanych zdjęć
+- Staff — rozpoznawanie postaci nauczycieli i innych pracowników Hogwartu na podstawie wyświetlanych zdjęć
 - Houses— rozpoznawanie do jakiego domu przynależy dana postać
 
 #### Rozgrywka — Quiz
 
-Rozgrywka polega na odgadywaniu kto wyświetla się na obrazie po lewej stronie, oraz odpowiadaniu na pytania związane z postacią. Do wyboru są 4 opcje, z czego zawsze tylko jedna jest prawidłowa. `W tym samym czasie obraz rozpoznaje także komputer, który rywalizuje z graczem (wyniki komputera nie zapisują się w rankingu)`. Wynik gracza z jednej gry to ilość dobrych odpowiedzi.
-Czas pozostały do końca rozgrywki odlicza `paląca się różdżka na dole ekranu`.
+Rozgrywka polega na odgadywaniu kto wyświetla się na obrazie po lewej stronie, oraz odpowiadaniu na pytania związane z postacią. Do wyboru są 3 opcje, z czego zawsze tylko jedna jest prawidłowa.Za każdą poprawną odpowiedź gracz dostaje 10pkt.
+Czas pozostały do końca rozgrywki odlicza gasnący płomień na różdżce w górnym prawym rogu ekranu oraz timer.
 
 #### Lista Funkcjonalności
 
 1. Wybór trybu quizu (Students, Staff, Houses)
 2. Opis zasad dla quizu. Obok zasad pokazuje się losowe zdjęcie z danego trybu (dostosowany opis, jeśli np. imię osoby ze zdjęcia jest w opisie zasad).
-3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu `(1 minuty)`.
-4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu `(dodatkowo gracz konkuruje także z komputerem! Komputer tak samo jak gracz próbuje rozpoznać co jest na grafice).`
-5. W trakcie trwania quizu `paląca się różdżka` pokazuje, ile jeszcze czasu zostało. Po wybraniu odpowiedzi zostaje ukazane przez sekundę czy odpowiedź była dobra czy zła. Następnie pytanie zostaje zmienione na kolejne i tak do końca czasu.
+3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu (1 minuty).
+4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu.
+5. W trakcie trwania quizu gasnący płomień na różdżce pokazuje, ile jeszcze czasu zostało. Po wybraniu odpowiedzi zostaje ukazane przez dwie sekundy czy odpowiedź była dobra czy zła. Następnie pytanie zostaje zmienione na kolejne i tak do końca czasu.
 6. Pytania są generowane w następujący sposób:
 
 - zostaje pobrany losowy zasób z danego trybu (np characters)
 - dla wylosowanego zasobu zostanie pobrane zdjęcie
 - losowane są 3 odpowiedzi z zapytania do HarryPotter API. Dla trybu "Students" będzie to http://hp-api.herokuapp.com/api/characters/students (jedna brana jest z wcześniej wylosowanego, musi być poprawna)
 
-7. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
+7. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywana jest storna z wynikiem gracza oraz trzema najlepszymi wynikami w danej kategorii.
+8. w zakładce ranking pokazane są najlepsze wyniki ze wszystkich trzech kategorii.
 
 #### Zasady gry
 
-Po wyborze kategorii rozgrywki wyświetlą się szczegółowe zasady.
+W zakładce Rules wytłumaczone są zasady gry.
 
 ## Puchar Domów / Ranking
 
-Po przejściu do House Cup pokazywane są 3 najlepsze wyniki graczy, grających na danym komputerze. Wyniki są pokazywane osobno, dla każdego z trybów.
+Po przejściu do ```House Cup``` pokazywane są najlepsze wyniki graczy, grających na danym komputerze. Wyniki są pokazywane dla każdego z trybów. Dodatkowo po ukończeniu gdy na stronie z wynikiem znajduje się lista trzech najlepszych graczy z kategorii użytkownika.
 
-### Ustawienia
-
-```
-W ustawieniach aplikacji możesz zdecydować, czy będziesz konkurować z komputerem losowym, czy bardziej inteligentnym. Aby walczyć przeciw komputerowi silnym w mocy, należy w ustawieniach podać ApiKey, który umożliwia wykonywanie zapytań do Google Vision Api. Taki API Key można wygenerować w następujący sposób.
-1. Załóż konto w Google Cloud Platform wg tej instrukcji.
-2. Załóż projekt, aktywuj dla niego Google Vision Api i wygeneruj swój API Key, jak opisano TUTAJ.
-3. Wklej swój API Key w odpowiednim polu w ustawieniach gry. Spokojnie, Twój API Key będzie przetrzymywany jedynie w pamięci programu i wykorzystywany tylko do autoryzacji zapytań do Google Vision API. Przy przeładowaniu strony, musisz podać go ponownie.
-```
 
 ### Zmiany wprowadzone w wymaganiach
 
@@ -98,8 +89,8 @@ W ustawieniach aplikacji możesz zdecydować, czy będziesz konkurować z komput
 Nasz zespół zrealizował także zadania dodatkowe, wykraczające poza zakres kursu.
 
 ```Zostało wykonane
-1. zadanie dodatkowe z Google Vision API.
-2. .....
+1. responsywność stron
+2. dwie wersje językowe - Polska i Angielska
 ```
 
 ## API
@@ -116,9 +107,10 @@ https://hp-api.herokuapp.com/
 
 ## Technologie użyte w projekcie:
 
-1.HTML
-2.SCSS
-3.JavaScript 4. Node.js
+1. HTML
+2. SCSS
+3. JavaScript 
+4. Node.js
 
 ## Instalacja
 

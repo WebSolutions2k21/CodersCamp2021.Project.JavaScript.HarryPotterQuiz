@@ -71,4 +71,54 @@
       margin: auto 10%;
     }
   }
+  @media (max-width: $break-tablet) {
+    flex-direction: column;
+    max-width: $break-tablet;
+    justify-content: center;
+    &__menu {
+      flex-direction: row;
+      gap: 1.5em;
+    }
+    &__yourScore {
+      height: 100px;
+      line-height: 80px;
+      padding: 15px 30px;
+      & p {
+        font-size: $h-headlinesFontSizeTablet;
+      }
+    }
+    &__congrats {
+      & p {
+        font-size: $p-paragraphFontSizeTablet;
+      }
+    }
+    &__bestScores {
+      font-size: $p-paragraphFontSizeTablet;
+    }
+  }
+
+  @media (max-width: $break-mobile) {
+    flex-direction: column;
+    max-width: $break-mobile;
+    justify-content: center;
+    &__menu {
+      flex-direction: row;
+      gap: 1rem;
+    }
+    &__yourScore {
+      height: 70px;
+      line-height: 45px;
+      & p {
+        font-size: 1.5rem;
+      }
+    }
+    &__congrats {
+      & p {
+        font-size: $p-paragraphFontSizeMobile;
+      }
+    }
+    &__bestScores {
+      font-size: $p-paragraphFontSizeMobile;
+    }
+  }
 }
