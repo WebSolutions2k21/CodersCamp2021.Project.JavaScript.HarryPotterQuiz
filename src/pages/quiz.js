@@ -33,9 +33,6 @@ const createQuiz = () => {
   const chosenNumber = [];
   let arrayWithTwoDifferentIndexOfQuestion;
 
-  const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
-
-  const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
   let clicked = false;
 
   function setStatusClass(element, correct) {
@@ -48,6 +45,9 @@ const createQuiz = () => {
 
   async function setNextQuestion() {
     resetState();
+    const saveRandomNumber = setUniqueRandomQuestion(ALL_RECORDS, chosenNumber);
+    const newRandomNumber = saveRandomNumber();
+    const getNumberRandomArray = getNumberRandomArrayFunction(chosenNumber, ALL_RECORDS);
     arrayWithTwoDifferentIndexOfQuestion = getNumberRandomArray();
     const questions = getDataFromApi(
       categoryId,
@@ -55,7 +55,7 @@ const createQuiz = () => {
       arrayWithTwoDifferentIndexOfQuestion[2],
     );
 
-    shuffledQuestions = await questions(saveRandomNumber());
+    shuffledQuestions = await questions(newRandomNumber);
     // eslint-disable-next-line no-use-before-define
     await showQuestion(shuffledQuestions);
   }
