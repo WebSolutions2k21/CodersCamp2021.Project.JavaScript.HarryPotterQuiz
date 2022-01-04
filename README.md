@@ -73,21 +73,12 @@ Czas pozostały do końca rozgrywki odlicza gasnący płomień na różdżce w g
 
 #### Zasady gry
 
-Po wyborze kategorii rozgrywki wyświetlą się szczegółowe zasady.
+W zakładce Rules wytłumaczone są zasady gry.
 
 ## Puchar Domów / Ranking
 
-Po przejściu do House Cup pokazywane są 3 najlepsze wyniki graczy, grających na danym komputerze. Wyniki są pokazywane osobno, dla każdego z trybów.
+Po przejściu do ```House Cup``` pokazywane są najlepsze wyniki graczy, grających na danym komputerze. Wyniki są pokazywane dla każdego z trybów. Dodatkowo po ukończeniu gdy na stronie z wynikiem znajduje się lista trzech najlepszych graczy z kategorii użytkownika.
 
-```### Ustawienia
-
-```
-W ustawieniach aplikacji możesz zdecydować, czy będziesz konkurować z komputerem losowym, czy bardziej inteligentnym. Aby walczyć przeciw komputerowi silnym w mocy, należy w ustawieniach podać ApiKey, który umożliwia wykonywanie zapytań do Google Vision Api. Taki API Key można wygenerować w następujący sposób.
-1. Załóż konto w Google Cloud Platform wg tej instrukcji.
-2. Załóż projekt, aktywuj dla niego Google Vision Api i wygeneruj swój API Key, jak opisano TUTAJ.
-3. Wklej swój API Key w odpowiednim polu w ustawieniach gry. Spokojnie, Twój API Key będzie przetrzymywany jedynie w pamięci programu i wykorzystywany tylko do autoryzacji zapytań do Google Vision API. Przy przeładowaniu strony, musisz podać go ponownie.
-```
-```
 
 ### Zmiany wprowadzone w wymaganiach
 
