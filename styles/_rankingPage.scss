@@ -34,6 +34,7 @@
       h1 {
         font-weight: 400;
         text-transform: uppercase;
+        font-size: $h-headlinesFontSize;
       }
   
       &--button {
@@ -51,12 +52,13 @@
       width: 100%;
   
       .ranking__list {
-        font-size: 1.3rem;
+        font-size: $p-paragraphFontSize;
         margin-bottom: 20px;
         padding: 0 40px;
       }
   
       h2 {
+        font-size: 3rem;
         margin: 20px 0;
         text-transform: uppercase;
       }
@@ -78,8 +80,58 @@
         }
       }
     }
-  
+
+    @media (max-width: $break-tablet) {
+      &__wrapper {
+        justify-content: center;
+        flex-direction: column;
+      }
+      &__main {
+        &--button {
+          align-self: center;
+          h1 {
+            font-size: $h-headlinesFontSizeTablet;
+            white-space: nowrap;
+          }
+        }
+      }
+      .ranking__categories {
+        flex-direction: column;
+        .ranking__list {
+          font-size: 2rem;
+          h2 {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+    
     @media (max-width: $break-mobile) {
+      &__wrapper {
+        justify-content: center;
+        flex-direction: column;
+      }
+      &__main {
+        &--button {
+          align-self: center;
+          h1 {
+            font-size: $h-headlinesFontSizeMobile;
+            white-space: nowrap;
+          }
+        }
+      }
+      .ranking__categories {
+        flex-direction: column;
+        .ranking__list {
+          font-size: 1.5rem;
+          h2 {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $break-xs) {
       overflow-y: auto;
       &__wrapper {
         justify-content: center;
@@ -89,9 +141,10 @@
       &__main {
         width: 90%;
         margin-top: 20px;
+        padding: 30px;
   
         h1 {
-          font-size: 1.7rem;
+          font-size: $h-headlinesFontSizeMobileSmall;
           white-space: nowrap;
         }
   
@@ -108,31 +161,13 @@
         max-height: 80%;
         flex-direction: column;
         .ranking__list {
-          font-size: 1rem;
+          font-size: $p-paragraphFontSizeMobileSmall;
           padding: 0;
           margin-bottom: 0;
           h2 {
             font-size: 1.5rem;
           }
         }
-      }
-    }
-    @media (max-width: $break-tablet) {
-      &__wrapper {
-        justify-content: center;
-        flex-direction: column;
-      }
-      &__main {
-        &--button {
-          align-self: center;
-          h1 {
-            font-size: 1.7rem;
-            white-space: nowrap;
-          }
-        }
-      }
-      .ranking__categories {
-        flex-direction: column;
       }
     }
   }
