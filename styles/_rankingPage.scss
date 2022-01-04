@@ -109,7 +109,8 @@
         flex-direction: column;
         .ranking__list {
           font-size: 1rem;
-  
+          padding: 0;
+          margin-bottom: 0;
           h2 {
             font-size: 1.5rem;
           }
