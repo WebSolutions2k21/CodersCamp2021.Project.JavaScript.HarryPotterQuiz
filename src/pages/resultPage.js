@@ -45,6 +45,7 @@ const createResultPage = () => {
     return filter.sort((a, b) => b.score - a.score);
   }
 
+  // save curentPlayer to allPlayers in localStorage
   function savePlayerToLocaleStorage(player) {
     const allPlayers = [];
     if (getDataFromLocalStorage()) {
@@ -58,21 +59,20 @@ const createResultPage = () => {
   }
 
   function importBestPlayersToHtml() {
+    //show player category to BestScores
     const currentPlayer = JSON.parse(getCurrentPlayerData());
     let bestPlayers = [];
     if (currentPlayer) {
       if (currentPlayer.category === 'houses') {
         bestPlayers = sortPlayers(currentPlayer.category);
-        console.log('gracz gra w houses');
       } else if (currentPlayer.category === 'staff') {
         bestPlayers = sortPlayers(currentPlayer.category);
-        console.log('gracz gra w staff');
       } else if (currentPlayer.category === 'students') {
         bestPlayers = sortPlayers(currentPlayer.category);
-        console.log('gracz gra w students');
       }
     }
 
+    //show three Best Scores in resultPage
     const listBestScore = document.querySelector('.resultPage__bestScores--list');
 
     if (bestPlayers[0]) {
@@ -92,6 +92,7 @@ const createResultPage = () => {
     }
   }
 
+  //show Congrats in resultPage
   function importCongratulationsToHtml() {
     const currentPlayer = JSON.parse(getCurrentPlayerData());
     const correctedAnswers = currentPlayer.score / 10;
@@ -107,6 +108,7 @@ const createResultPage = () => {
     }
   }
 
+  //show Your Score in resultPage
   function importYourScoreToHtml() {
     const currentPlayer = JSON.parse(getCurrentPlayerData());
 
