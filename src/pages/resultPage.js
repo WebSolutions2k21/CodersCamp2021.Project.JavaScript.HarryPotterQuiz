@@ -7,7 +7,7 @@ import { getCurrentPlayerData, saveCurrentPlayerData } from '../localStorageMana
 const createResultPage = () => {
   const appScreen = document.querySelector('#root');
   const resultPage = document.querySelector('#resultPage');
-  const { t, changeLanguage } = i18next;
+  const { t } = i18next;
 
   appScreen.innerHTML = resultPage.innerHTML;
 
@@ -101,10 +101,12 @@ const createResultPage = () => {
     if (currentPlayer) {
       const textCongrats = document.createElement('p');
       textCongrats.className = 'resultPage__congrats--center';
-      textCongrats.innerHTML = `Congratulations ${currentPlayer.name} ! <br />
+      textCongrats.innerHTML = `Congratulations <strong>${currentPlayer.name}</strong> ! <br />
       You answered ${correctedAnswers} questions!`;
       scoreInformations.appendChild(textCongrats);
-      textCongrats.innerHTML = `${t('congratulations')} ${currentPlayer.name}`;
+      textCongrats.innerHTML = `${t('congratulations1')} <strong>${currentPlayer.name}</strong> ${t(
+        'congratulations2',
+      )} <strong>${correctedAnswers}</strong> ${t('questions')}`;
     }
   }
 
