@@ -82,7 +82,7 @@
     &__yourScore {
       height: 100px;
       line-height: 80px;
-      padding: 15px 30px;
+      padding: 15px 40px;
       & p {
         font-size: $h-headlinesFontSizeTablet;
       }
@@ -94,6 +94,7 @@
     }
     &__bestScores {
       font-size: $p-paragraphFontSizeTablet;
+      padding: 0.5em;
     }
   }
 
