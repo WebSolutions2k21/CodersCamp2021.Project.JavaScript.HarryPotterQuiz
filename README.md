@@ -24,8 +24,8 @@ Zespół pracował w ramach kursu CodersCamp. Aplikację wykonali uczestnicy kur
 
 # Harry Potter Quiz
 
-	[Mockupy i prototyp](https://www.figma.com/file/0hPqbStz3EtSrjtSQXExDl/HP-Quiz?node-id=8%3A3)
-
+[Mockupy i prototyp](https://www.figma.com/file/0hPqbStz3EtSrjtSQXExDl/HP-Quiz?node-id=8%3A3)
+	
 ### Demo
 
 ```
