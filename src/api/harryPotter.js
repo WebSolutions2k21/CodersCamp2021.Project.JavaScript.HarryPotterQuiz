@@ -1,6 +1,6 @@
 import categoryName from '../shared/categoryNameApi';
 
-export const BASE_API_URL = process.env.BASE_API_URL || 'http://hp-api.herokuapp.com/';
+export const BASE_API_URL = process.env.BASE_API_URL || 'https://hp-api.herokuapp.com/';
 
 export default function getApiQuestion(categoryId, temp1 = null, temp2 = null) {
   return async (id) => {
