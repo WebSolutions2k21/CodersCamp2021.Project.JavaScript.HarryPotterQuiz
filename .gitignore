@@ -1,9 +1,0 @@
-.idea
-dist/
-.cache/
-node_modules/
-coverage/
-.DS_Store
-.vscode/
-.parcel-cache/
-.env
