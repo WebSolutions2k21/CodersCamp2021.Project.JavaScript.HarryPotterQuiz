@@ -13,8 +13,8 @@ const createQuizHousesPage = () => {
   appScreen.innerHTML = quizHousesPage.innerHTML;
   const { t } = i18next;
 
-  document.querySelector('[data-lang-quizhouses-header]').innerText = t('quizhouses-header');
-  document.querySelector('[data-lang-quizhouses-question]').innerText = t('quizhouses-question');
+  document.querySelector('[data-lang-quizHouses-header]').innerText = t('quizHouses-header');
+  document.querySelector('[data-lang-quizHouses-question]').innerText = t('quizHouses-question');
   const questionElement = document.getElementById('questionHouses');
   const answerButtonsElement = document.getElementById('answer-buttons_Houses');
   const images = document.querySelectorAll('.quizHouses__answers__img');

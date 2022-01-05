@@ -9,7 +9,7 @@ const createRankingPage = () => {
 
   appScreen.innerHTML = rankingTemplate.innerHTML;
 
-  document.querySelector('[data-lang-rankingpage-header]').innerText = t('rankingpage-header');
+  document.querySelector('[data-lang-rankingPage-header]').innerText = t('rankingPage-header');
   document.querySelector('[data-action-students]').innerText = t('students');
   document.querySelector('[data-action-staff]').innerText = t('staff');
   document.querySelector('[data-action-houses]').innerText = t('houses');

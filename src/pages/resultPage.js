@@ -11,7 +11,7 @@ const createResultPage = () => {
 
   appScreen.innerHTML = resultPage.innerHTML;
 
-  document.querySelector('[data-lang-rankingpage-header]').innerText = t('rankingpage-header');
+  document.querySelector('[data-lang-rankingPage-header]').innerText = t('rankingPage-header');
   document.querySelector('[data-action-back]').innerText = t('back');
   document.querySelector('[data-action-play_again]').innerText = t('play_again');
   mapNavigationClickToTemplate('[data-action-start]', paths.gameMode);
