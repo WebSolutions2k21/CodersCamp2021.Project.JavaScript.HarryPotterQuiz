@@ -38,7 +38,7 @@
   }
 
   &__main {
-    img {
+    &__main--photoBox {
       max-height: 450px;
       object-fit: cover;
     }
@@ -59,11 +59,19 @@
 
 @media (orientation:landscape) and (max-width:1030px) {
 
-  .wrapperquizPage__main--answersBox {
-    button {
-      margin: 17px auto;
+  .hide {
+    &__main--photoBox {
+      min-height: 350px;
+      min-width: 200px;
+    }
+    .wrapperquizPage__main--answersBox {
+      button {
+        margin: 17px auto;
+        font-size: 25px;
+      }
     }
   }
+
 }
 
 @media (orientation: portrait) and (max-width: 927px) {
@@ -78,11 +86,25 @@
   .wrapperquizPage__main--answersBox {
     button {
       margin: 17px auto;
+      font-size: 25px;
     }
   }
 }
 
+@media (orientation: landscape) and (max-width: 927px) {
+  .wrapperquizPage {
+    min-height: 250vh;
+  }
+}
+
 @media (orientation: portrait) and (max-width: 893px) {
+
+  .wrapperquizPage {
+    min-height: 100vh;
+  }
+  .timer_clock {
+    min-width: 80px;
+  }
   .questionBox {
     p {
       font-size: 22px !important;
@@ -91,9 +113,46 @@
 }
 
 @media (orientation: portrait) and (max-width: 799px) {
+  .wrapperquizPage__category--timer {
+    max-height: 150px;
+  }
+  .quizPage__header {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   .questionBox {
     p {
       line-height: 1.7;
+    }
+  }
+
+  .hide {
+    &__main--photoBox {
+      min-height: 280px;
+      min-width: 180px;
+    }
+    .wrapperquizPage__main--answersBox {
+      button {
+        margin: 15px auto;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 650px) {
+  .wrapperquizPage {
+    min-height: 110vh;
+  }
+  .quizPage__header{
+    max-height: 280px;
+  }
+  .wrapperquizPage__category--timer {
+  }
+  .wrapperquizPage__main--answersBox {
+    button {
+      margin: 15px auto;
+      font-size: 18px !important;
     }
   }
 }
@@ -101,14 +160,44 @@
 @media (orientation: portrait) and (max-width: 557px) {
   .wrapperquizPage {
     height: 100vh;
-    width: 100vw;
 
-    .wrapperquizPage__main {
+    &__main {
       flex-direction: column;
+    }
+
+    &__main--photoBox {
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 540px) {
+  .questionBox {
+    p {
+      font-size: 18px !important;
     }
   }
 }
 
 @media (orientation: portrait) and (max-width: 398px) {
-
+  .background_container {
+    h2 {
+      font-size: 40px;
+    }
+  }
 }
+
+@media (orientation: portrait) and (max-width: 329px) {
+  .questionBox {
+    min-height: 135px !important;
+  }
+}
+@media (orientation: landscape) and (max-height: 380px) {
+.wrapperquizPage {
+    height: 150vh;
+  }
+}
+@media (orientation: landscape) and (max-height: 300px) {
+  .wrapperquizPage {
+      height: 300vh !important;
+    }
+  }
