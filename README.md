@@ -23,11 +23,12 @@ Zespół pracował w ramach kursu CodersCamp. Aplikację wykonali uczestnicy kur
 - [Sebastian Michalczyk](https://github.com/WindOfCodes)
 
 
-![1920px-Harry_Potter_wordmark](https://ws-harrypotter.netlify.app/)
+![1920px-Harry_Potter_wordmark](https://user-images.githubusercontent.com/95089940/148279289-586f7c84-3402-42c9-b3ec-6002937e221f.png)
+
 
 [Mockupy i prototyp](https://www.figma.com/file/0hPqbStz3EtSrjtSQXExDl/HP-Quiz?node-id=8%3A3)
 	
-### [ZAGRAJ TERAZ](https://websolutions2k21.github.io/CodersCamp2021.Project.JavaScript.HarryPotterQuiz/)
+### [ZAGRAJ TERAZ](https://ws-harrypotter.netlify.app/)
 
 
 ## Cel projektu
