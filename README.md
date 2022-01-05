@@ -27,7 +27,7 @@ Zespół pracował w ramach kursu CodersCamp. Aplikację wykonali uczestnicy kur
 
 [Mockupy i prototyp](https://www.figma.com/file/0hPqbStz3EtSrjtSQXExDl/HP-Quiz?node-id=8%3A3)
 	
-### [ZAGRAJ TERAZ]('wrzucić link')
+### [ZAGRAJ TERAZ](https://websolutions2k21.github.io/CodersCamp2021.Project.JavaScript.HarryPotterQuiz/)
 
 
 ## Cel projektu
