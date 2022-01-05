@@ -1,9 +1,9 @@
 export const paths = {
   home: '/',
   gameMode: '/game-mode',
-  quizHouses: '/quiz/houses',
-  quizStudents: '/quiz/students',
-  quizStaff: '/quiz/staff',
+  quizHouses: '/houses',
+  quizStudents: '/students',
+  quizStaff: '/staff',
   ranking: '/ranking',
   result: '/result',
   rules: '/rules',
