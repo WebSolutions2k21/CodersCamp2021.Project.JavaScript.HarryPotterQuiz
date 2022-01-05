@@ -19,8 +19,8 @@ const createQuizStaffPage = () => {
 
   appScreen.innerHTML = quizStaffPage.innerHTML;
 
-  document.querySelector('[data-lang-quizStaff-header]').innerText = t('quizStaff-header');
-  document.querySelector('[data-lang-quizStaff-question]').innerText = t('quizStaff-question');
+  document.querySelector('[data-lang-quizstaff-header]').innerText = t('quizstaff-header');
+  document.querySelector('[data-lang-quizstaff-question]').innerText = t('quizstaff-question');
   const questionElement = document.getElementById('question-staff');
   const answerButtonsElement = document.getElementById('answer-buttons-staff');
 

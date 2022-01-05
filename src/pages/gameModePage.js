@@ -26,9 +26,9 @@ const createGameModePage = () => {
 
   addEventListenersForGameModeButtons();
 
-  document.querySelector('[data-lang-gameMode-header]').innerText = t('gameMode-header');
+  document.querySelector('[data-lang-gamemode-header]').innerText = t('gamemode-header');
   document.getElementById('fname').placeholder = t('fname');
-  document.querySelector('[data-lang-gameMode-input-forgotten]').innerText = t('gameMode-input-forgotten');
+  document.querySelector('[data-lang-gamemode-input-forgotten]').innerText = t('gamemode-input-forgotten');
   document.querySelector('[data-action-students]').innerText = t('students');
   document.querySelector('[data-action-staff]').innerText = t('staff');
   document.querySelector('[data-action-houses]').innerText = t('houses');

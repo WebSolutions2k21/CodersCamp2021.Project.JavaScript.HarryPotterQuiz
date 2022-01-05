@@ -19,8 +19,8 @@ const createQuiz = () => {
 
   appScreen.innerHTML = quiz.innerHTML;
 
-  document.querySelector('[data-lang-quizStudent-header]').innerText = t('quizStudent-header');
-  document.querySelector('[data-lang-quizStudent-question]').innerText = t('quizStudent-question');
+  document.querySelector('[data-lang-quizstudent-header]').innerText = t('quizstudent-header');
+  document.querySelector('[data-lang-quizstudent-question]').innerText = t('quizstudent-question');
   const questionElement = document.getElementById('question');
   const answerButtonsElement = document.getElementById('answer-buttons');
 
