@@ -116,6 +116,7 @@
     &__congrats {
       & p {
         font-size: $p-paragraphFontSizeMobile;
+        line-height: 40px;
       }
     }
     &__bestScores {

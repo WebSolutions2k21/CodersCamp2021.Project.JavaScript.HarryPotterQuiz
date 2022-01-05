@@ -24,7 +24,7 @@ const createRankingPage = () => {
     const houses = [];
 
     const sortByHighestScore = (array) => {
-      array = array.sort((a, b) => ((a.score > b.score) ? -1 : 1));
+      array = array.sort((a, b) => (a.score > b.score ? -1 : 1));
       return array;
     };
 
@@ -46,7 +46,7 @@ const createRankingPage = () => {
       } else {
         return false;
       }
-      return (sortByHighestScore(students), sortByHighestScore(staff), sortByHighestScore(houses));
+      return sortByHighestScore(students), sortByHighestScore(staff), sortByHighestScore(houses);
     });
 
     const studentsRanking = document.getElementById('rankingStudents');
@@ -57,7 +57,9 @@ const createRankingPage = () => {
       for (let i = 0; i < (array.length < 3 ? array.length : 3); i++) {
         const el = document.createElement('div');
         el.setAttribute('class', 'ranking__list--item');
-        el.innerHTML = `<p>${i + 1}. <span>${array[i]?.name}</span></p><p class="points">${array[i]?.score}<span>PT</span></p>`;
+        el.innerHTML = `<p>${i + 1}. <span>${array[i]?.name}</span></p><p class="points">${
+          array[i]?.score
+        }<span>PT</span></p>`;
         rankingElement.appendChild(el);
       }
     };
