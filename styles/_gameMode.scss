@@ -183,17 +183,19 @@
                 width: 100%;
             }
             &__nameStartinp::placeholder {
-                font-size: 16px;
-                top: 13px;
+                font-size: 20px;
+                top: 3px;
+                white-space: normal; 
+                left: 3px;
             }
             &__nameStartBack {
                 margin-left: 10px;
-                font-size: 18px;
+                font-size: 20px;
                 line-height: 85px;
             }
             &__textError {
                 font-size: 13px;
-                margin-left: .5rem;
+                margin-left: 16px;
             }
         }
     }
