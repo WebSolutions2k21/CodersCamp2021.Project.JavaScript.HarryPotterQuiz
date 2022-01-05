@@ -91,12 +91,6 @@
   }
 }
 
-@media (orientation: landscape) and (max-width: 927px) {
-  .wrapperquizPage {
-    min-height: 250vh;
-  }
-}
-
 @media (orientation: portrait) and (max-width: 893px) {
 
   .wrapperquizPage {
@@ -193,11 +187,6 @@
 }
 @media (orientation: landscape) and (max-height: 380px) {
 .wrapperquizPage {
-    height: 150vh;
+    height: 180vh !important;
   }
 }
-@media (orientation: landscape) and (max-height: 300px) {
-  .wrapperquizPage {
-      height: 300vh !important;
-    }
-  }

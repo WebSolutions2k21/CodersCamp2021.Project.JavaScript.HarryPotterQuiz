@@ -231,7 +231,7 @@
 
 @media (orientation: portrait) and (max-width: 557px) {
   .wrapperquizPage {
-    height: 150vh;
+    height: 100vh;
 
     &__main {
       flex-direction: column;
@@ -247,6 +247,13 @@
     p {
       font-size: 18px !important;
     }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 415px){
+  .wrapperquizPage__main--photoBox {
+    height: 200px;
+    width: 200px;
   }
 }
 
