@@ -98,30 +98,29 @@
     background-color: gray;
   }
 }
-
+//1060px
 @media (orientation:landscape) and(max-width: $break-small-laptop){
-
   .questionText {
     p {
       height: auto;
       width: 100%;
       white-space: initial;
-      font-size: 25px; //nie reaguje
-      line-height: 2;
+      font-size: 27px !important;
+      line-height: 3.5;
     }
   }
 }
 
-@media (orientation:landscape) and (max-width:993px) {
+@media (orientation:landscape) and (max-width:994px) {
 
   .background_quiz_houses {
     height: auto;
     .wrapperquizPage{
-      height: auto;
+      height: 100vh;
 
       .quizPage__header {
         flex-wrap: wrap;
-        margin-bottom: 100px;
+        margin: 30px 0;
 
         .background_container {
           margin-bottom: 0;
@@ -132,6 +131,7 @@
         .wrapperquizPage__category--timer {
           width: 90%;
           margin: auto;
+          max-height: 100px;
 
           .timer_clock {
             width: 40%;
@@ -155,6 +155,11 @@
         }
       }
 
+      .characterName {
+        height: 100%;
+        min-height: 55px;
+      }
+
       .quizHouses__answers {
         flex-direction: column;
         flex-wrap: wrap;
@@ -170,25 +175,27 @@
   }
 
   .questionText {
+    height: 100%;
+    min-height: 125px;
     p {
       height: auto;
       width: 100%;
       white-space: initial;
-      font-size: 25px; //nie reaguje
+      font-size: 25px;
       line-height: 2;
     }
   }
 }
 
-@media (orientation: portrait) and (max-width: 928px) {
+@media (orientation: portrait) and (max-width: 927px) {
   .background_quiz_houses {
     height: auto;
     .wrapperquizPage{
-      height: auto;
+      height: 100vh;
 
       .quizPage__header {
         flex-wrap: wrap;
-        margin-bottom: 100px;
+        margin: 30px 0;
 
         .background_container {
           margin-bottom: 0;
@@ -199,6 +206,7 @@
         .wrapperquizPage__category--timer {
           width: 90%;
           margin: auto;
+          max-height: 100px;
 
           .timer_clock {
             width: 40%;
@@ -222,6 +230,11 @@
         }
       }
 
+      .characterName {
+        height: 100%;
+        min-height: 53px;
+      }
+
       .quizHouses__answers {
         flex-direction: column;
         flex-wrap: wrap;
@@ -237,67 +250,13 @@
   }
 
   .questionText {
+    height: 100%;
+    min-height: 88px;
     p {
       height: auto;
       width: 100%;
       white-space: initial;
-      font-size: 25px; //nie reaguje
       line-height: 2;
-    }
-  }
-}
-
-@media (orientation: portrait) and (max-width: $break-tablet) {
-  .background_quiz_houses {
-    height: auto;
-    .wrapperquizPage{
-      background-repeat: repeat;
-      height: auto;
-
-      .quizPage__header {
-        flex-wrap: wrap;
-        margin-bottom: 90px;
-
-        .background_container {
-          h2 {
-            font-size: 40px;
-          }
-        }
-        .wrapperquizPage__category--timer {
-          width: 90%;
-          margin: auto;
-
-          .timer_clock {
-            width: 90%;
-          }
-        }
-      }
-
-      .background_container {
-        width: 95%;
-        height: auto;
-        display: block;
-        overflow: auto;
-        p {
-          height: auto;
-          width: 100%;
-          white-space: initial;
-          font-size: 25px;
-          line-height: 2;
-        }
-      }
-
-      .quizHouses__answers {
-        flex-direction: column;
-        flex-wrap: wrap;
-        height: 400px;
-        width: 70%;
-
-        img {
-          max-width: 140px;
-          margin: auto;
-        }
-      }
     }
   }
 }
@@ -306,12 +265,11 @@
   .background_quiz_houses {
     height: auto;
     .wrapperquizPage{
-      background-repeat: repeat;
-      height: auto;
+      height: 100vh;
 
       .quizPage__header {
         flex-wrap: wrap;
-        margin-bottom: 100px;
+        margin: 30px 0;
 
         .background_container {
           h2 {
@@ -358,63 +316,16 @@
   }
 }
 
-@media (orientation: landscape) and (max-width: $break-mobile) {
-  .background_quiz_houses {
-    height: auto;
-    .wrapperquizPage{
-      // background-repeat: repeat;
-      height: auto;
+@media (orientation: portrait) and (max-width: 398px) {
 
-      .quizPage__header {
-        flex-wrap: wrap;
-        margin-bottom: 90px;
+  .questionText {
+    min-height: 130px;
+  }
 
-        .background_container {
-          h2 {
-            font-size: 40px;
-          }
-        }
-        .wrapperquizPage__category--timer {
-          width: 90%;
-          margin: auto;
-
-          .timer_clock {
-            width: 40%;
-            font-size: 25px;
-            margin: auto;
-            height: auto;
-          }
-        }
-      }
-
-      .background_container {
-        width: 95%;
-        height: auto;
-        display: block;
-        overflow: auto;
-        p {
-          height: auto;
-          width: 100%;
-          white-space: initial;
-          font-size: 18px;
-          line-height: 2;
-        }
-      }
-
-      .questionText {
-        margin-top: 90px;
-      }
-
-      .quizHouses__answers {
-        flex-direction: column;
-        flex-wrap: wrap;
-        height: 170px;
-        width: 90%;
-
-        img {
-          max-width: 100px;
-        }
-      }
+  .quizHouses__answers {
+    max-height: 300px;
+    img {
+      max-width: 100px !important;
     }
   }
 }
