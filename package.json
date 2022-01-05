@@ -11,7 +11,8 @@
     "clean": "rimraf .cache && rimraf coverage && rimraf dist && rimraf node_modules",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "repository": {
     "type": "git",

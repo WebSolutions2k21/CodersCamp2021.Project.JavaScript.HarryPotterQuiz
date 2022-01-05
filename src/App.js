@@ -15,9 +15,9 @@ const App = ({ options }) => {
   const routes = {
     '/': () => createHomePage(),
     '/game-mode': () => createGameModePage(),
-    '/quiz/houses': () => createQuizHousesPage(options),
-    '/quiz/students': () => createQuiz(),
-    '/quiz/staff': () => createQuizStaffPage(options),
+    '/houses': () => createQuizHousesPage(options),
+    '/students': () => createQuiz(),
+    '/staff': () => createQuizStaffPage(options),
     '/result': () => createResultPage(),
     '/ranking': () => createRankingPage(),
     '/rules': () => createRulesPage(),
@@ -25,7 +25,7 @@ const App = ({ options }) => {
   };
   // handle back button in browser
   window.addEventListener('popstate', () => window.location.reload());
-
+  console.log(path);
   if (path in routes) routes[path]();
   else {
     window.history.pushState({}, '', paths.notFound);

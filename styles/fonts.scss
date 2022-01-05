@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
-@import url('http://fonts.cdnfonts.com/css/harry-potter');
+// @import url('http://fonts.cdnfonts.com/css/harry-potter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Indie+Flower&family=Tangerine&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+@font-face {
+  font-family: 'Harry Potter';
+  src: url('../assets/HARRP___.TTF');
+}
