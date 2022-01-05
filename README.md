@@ -23,7 +23,7 @@ Zespół pracował w ramach kursu CodersCamp. Aplikację wykonali uczestnicy kur
 - [Sebastian Michalczyk](https://github.com/WindOfCodes)
 
 
-![1920px-Harry_Potter_wordmark](https://user-images.githubusercontent.com/95089940/148245737-3a6438ff-2b0b-49c1-b0b8-4507fec607b9.png)
+![1920px-Harry_Potter_wordmark](https://ws-harrypotter.netlify.app/)
 
 [Mockupy i prototyp](https://www.figma.com/file/0hPqbStz3EtSrjtSQXExDl/HP-Quiz?node-id=8%3A3)
 	
@@ -116,10 +116,10 @@ https://hp-api.herokuapp.com/
 2. SCSS
 3. JavaScript 
 4. Node.js
-5. Harry Potter API
 
 ## Narzędzia pomocnicze
 
+- Harry Potter API
 - Visual Studio Code
 - Git
 - Figma
