@@ -40,7 +40,75 @@
   &__main {
     img {
       max-height: 450px;
-      object-fit: cover; //niweluje rozciągnięcie zdjęcia, powiększając go, można wywalić w razie W
+      object-fit: cover;
     }
   }
+}
+
+@media (orientation:landscape) and(max-width: $break-small-laptop){
+  .questionBox {
+    p {
+      height: auto;
+      width: 100%;
+      white-space: initial;
+      font-size: 27px !important;
+      line-height: 3.5;
+    }
+  }
+}
+
+@media (orientation:landscape) and (max-width:1030px) {
+
+  .wrapperquizPage__main--answersBox {
+    button {
+      margin: 17px auto;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 927px) {
+  .questionBox {
+    width: 75%;
+    p {
+      width: 100%;
+      white-space: initial;
+      font-size: 25px !important;
+    }
+  }
+  .wrapperquizPage__main--answersBox {
+    button {
+      margin: 17px auto;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 893px) {
+  .questionBox {
+    p {
+      font-size: 22px !important;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 799px) {
+  .questionBox {
+    p {
+      line-height: 1.7;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 557px) {
+  .wrapperquizPage {
+    height: 100vh;
+    width: 100vw;
+
+    .wrapperquizPage__main {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (orientation: portrait) and (max-width: 398px) {
+
 }
